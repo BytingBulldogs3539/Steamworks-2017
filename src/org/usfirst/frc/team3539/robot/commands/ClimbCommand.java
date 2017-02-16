@@ -23,14 +23,14 @@ public class ClimbCommand extends Command
 	@SuppressWarnings("deprecation")
 	protected void execute()
 	{
-		Robot.intake.setMotorPower(SmartDashboard.getDouble("climbSpeed", 1));
-		//Robot.intake.setMotorPower(RobotMap.climbSpeed);
+		//Robot.intake.setMotorPower(SmartDashboard.getDouble("climbSpeed", 1));
+		Robot.intake.setMotorPower(RobotMap.climbSpeed);
 
 	}
 
 	protected boolean isFinished()
 	{
-		return true;
+		return !Robot.oi.twobumperr.get();
 	}
 
 	protected void end()

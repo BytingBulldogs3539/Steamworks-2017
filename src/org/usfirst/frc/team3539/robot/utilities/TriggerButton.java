@@ -13,6 +13,13 @@ public class TriggerButton
 	private Command command;
 	public boolean triggerValue;
 	
+	public TriggerButton(int axis, Joystick joystick)
+	{
+		triggerAxis = axis;
+		controller = joystick;
+		triggerValue = false;
+		this.command = null;
+	}
 	public TriggerButton(int axis, Joystick joystick, Command command)
 	{
 		triggerAxis = axis;
@@ -20,13 +27,20 @@ public class TriggerButton
 		triggerValue = false;
 		this.command = command;
 	}
+	
+	public boolean getValue()
+	{
+		return checkValue();
+	}
 	public boolean checkValue()
 	{
 		if(controller.getRawAxis(triggerAxis) > .75 && triggerValue == false)
 		{
 			triggerValue = true;
 			System.out.println("triggered");
-			Scheduler.getInstance().add(command);
+			if (command != null){
+				Scheduler.getInstance().add(command);
+			}
 		}
 		else if(controller.getRawAxis(triggerAxis) < .1 && triggerValue == true)
 		{

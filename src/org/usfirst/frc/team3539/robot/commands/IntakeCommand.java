@@ -31,7 +31,8 @@ public class IntakeCommand extends Command
 
 	protected boolean isFinished()
 	{
-		return !Robot.oi.intakeTrigger.triggerValue;
+		//return !Robot.oi.intakeTrigger.triggerValue;
+		return !Robot.oi.intakeTrigger.getValue();
 	}
 
 	protected void end()
