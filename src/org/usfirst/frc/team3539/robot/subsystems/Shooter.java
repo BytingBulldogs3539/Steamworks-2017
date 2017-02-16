@@ -11,8 +11,9 @@ public class Shooter extends BulldogSystem
 	private CANTalon shooterOneMotor;
 	private CANTalon shooterTwoMotor;
 	private CANTalon shooterServo;
+	private CANTalon agitatorTalon;
 	//private Encoder servoEncoder;
-
+	
 	public Shooter()
 	{
 		super("Shooter");
@@ -22,6 +23,7 @@ public class Shooter extends BulldogSystem
 		shooterTwoMotor = new CANTalon(RobotMap.shooterTwoMotorTalon);
 		shooterServo = new CANTalon(RobotMap.shooterServoTalon);
 		//servoEncoder = new Encoder();
+		agitatorTalon = new CANTalon(RobotMap.agitatorTalon);
 	}
 
 	public void shooterOneMotor()
@@ -43,6 +45,12 @@ public class Shooter extends BulldogSystem
 	public void setServoAngle(double angle)
 	{
 		shooterServo.set(angle);
+	}
+	
+	public void setAgitatorMotorPower(double power)
+	{
+		agitatorTalon.set(power);
+		System.out.println("agitator ran");
 	}
 
 	public void initDefaultCommand()
