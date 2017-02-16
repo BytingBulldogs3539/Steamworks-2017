@@ -52,7 +52,7 @@ public class TankDrive extends Subsystem
 
 	public void driveTank(double leftStick, double rightStick)
 	{
-		if(Robot.oi.onetriggerr.get())
+		if(Robot.oi.invertTrigger.checkValue())
 		{
 			drive.tankDrive(leftStick, rightStick);
 		}
@@ -64,7 +64,7 @@ public class TankDrive extends Subsystem
 
 	public void driveArcade(double leftStick, double rightStick)
 	{
-		if(Robot.oi.onetriggerr.get())
+		if(Robot.oi.invertTrigger.checkValue())
 		{
 			drive.arcadeDrive(-leftStick, -rightStick);
 		}

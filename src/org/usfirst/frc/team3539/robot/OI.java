@@ -43,6 +43,7 @@ public class OI
 	
 	public TriggerButton intakeTrigger = new TriggerButton(2, controller2, new IntakeCommand());
 	public TriggerButton shooterTrigger = new TriggerButton(3, controller2, new testCommand());
+	public TriggerButton invertTrigger = new TriggerButton(3, controller1);
 	
 	public static boolean runIntake;
 	
