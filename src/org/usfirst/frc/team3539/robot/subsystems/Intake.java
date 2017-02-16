@@ -26,6 +26,7 @@ public class Intake extends BulldogSystem
 		
 		//lockCan = new CANTalon(RobotMap.pcm); // i think this line is bs
 		lock = new DoubleSolenoid(RobotMap.pcm, RobotMap.lockSolOn, RobotMap.lockSolOff);
+		this.lockOff();
 		lockStatus = false;  
 	}
 	
@@ -34,6 +35,14 @@ public class Intake extends BulldogSystem
 		intakeMotor.set(power);
 	}
 	
+	public void lockOff()
+	{
+		lock.set(DoubleSolenoid.Value.kForward);
+	}
+	public void lockOn()
+	{
+		lock.set(DoubleSolenoid.Value.kReverse);
+	}
 	public void toggleLock()
 	{
 		lockStatus = !lockStatus;

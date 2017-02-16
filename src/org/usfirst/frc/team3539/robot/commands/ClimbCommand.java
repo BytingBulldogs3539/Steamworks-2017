@@ -18,6 +18,7 @@ public class ClimbCommand extends Command
 
 	protected void initialize()
 	{
+		Robot.intake.lockOn();
 	}
 
 	@SuppressWarnings("deprecation")

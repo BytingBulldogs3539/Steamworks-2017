@@ -20,6 +20,7 @@ public class IntakeCommand extends Command
 
 	protected void initialize()
 	{
+		Robot.intake.lockOff();
 	}
 
 	protected void execute()
@@ -38,7 +39,7 @@ public class IntakeCommand extends Command
 	protected void end()
 	{
 		Robot.intake.setMotorPower(0);
-		System.out.println("ended intakecommand");
+		//System.out.println("ended intakecommand");
 	}
 
 	protected void interrupted()
