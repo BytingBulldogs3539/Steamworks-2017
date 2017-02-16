@@ -13,7 +13,7 @@ public class AgitatorCommand extends Command
 	public AgitatorCommand()
 	{
 		super("AgitatorCommand");
-		requires(Robot.agitator);
+		requires(Robot.shooter);
 	}
 
 	protected void initialize()
@@ -22,7 +22,7 @@ public class AgitatorCommand extends Command
 
 	protected void execute()
 	{
-		Robot.agitator.setMotorPower(RobotMap.agitatorSpeed);
+		Robot.shooter.setAgitatorMotorPower(RobotMap.agitatorSpeed);
 		System.out.println("Agitator ran");
 	}
 
@@ -36,7 +36,7 @@ public class AgitatorCommand extends Command
 
 	protected void end()
 	{
-		Robot.agitator.setMotorPower(0);
+		Robot.shooter.setMotorPower(0);
 	}
 
 	protected void interrupted()
