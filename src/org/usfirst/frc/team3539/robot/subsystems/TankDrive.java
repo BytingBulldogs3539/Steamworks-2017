@@ -1,5 +1,6 @@
 package org.usfirst.frc.team3539.robot.subsystems;
 
+import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
 import org.usfirst.frc.team3539.robot.commands.TankDriveCommand;
 
@@ -51,12 +52,26 @@ public class TankDrive extends Subsystem
 
 	public void driveTank(double leftStick, double rightStick)
 	{
-		drive.tankDrive(-leftStick, -rightStick);
+		if(Robot.oi.onetriggerr.get())
+		{
+			drive.tankDrive(leftStick, rightStick);
+		}
+		else
+		{
+			drive.tankDrive(-leftStick, -rightStick);
+		}
 	}
 
 	public void driveArcade(double leftStick, double rightStick)
 	{
-		drive.arcadeDrive(leftStick, rightStick);
+		if(Robot.oi.onetriggerr.get())
+		{
+			drive.arcadeDrive(-leftStick, -rightStick);
+		}
+		else
+		{
+			drive.arcadeDrive(leftStick, rightStick);
+		}
 	}
 
 	public void changeGears()
