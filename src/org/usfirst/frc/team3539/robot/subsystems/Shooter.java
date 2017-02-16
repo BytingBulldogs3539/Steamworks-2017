@@ -32,8 +32,8 @@ public class Shooter extends BulldogSystem
 	{
 
 
-		System.out.println(shooterOneMotor.getEncPosition());
 		shooterOneMotor.set(power);
+		System.out.println(shooterOneMotor.getEncPosition());
 		shooterTwoMotor.set(power);
 	}
 	public void Update()

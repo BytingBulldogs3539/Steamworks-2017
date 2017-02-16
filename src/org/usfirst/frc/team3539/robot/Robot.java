@@ -10,6 +10,7 @@ import org.usfirst.frc.team3539.robot.subsystems.ShooterAim;
 import org.usfirst.frc.team3539.robot.subsystems.TankDrive;
 
 import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -27,6 +28,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Robot extends IterativeRobot
 {
+	
+	//Encoders
+	Encoder ShooterEncoder = new Encoder(0,1,false,Encoder.EncodingType.k4X);
+	
 	//SUBSYSTEMS
 	public static final TankDrive tankDriveTrain = new TankDrive();
 	public static final Shooter shooter = new Shooter();
