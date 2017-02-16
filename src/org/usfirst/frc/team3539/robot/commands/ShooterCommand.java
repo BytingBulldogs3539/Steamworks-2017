@@ -28,7 +28,7 @@ public class ShooterCommand extends Command
 
 	protected boolean isFinished()
 	{
-		return (!Robot.oi.shooterTrigger.triggerValue);
+		return !Robot.oi.shooterTrigger.getValue();
 	}
 
 	protected void end()
