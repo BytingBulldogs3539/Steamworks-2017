@@ -6,6 +6,7 @@ import org.usfirst.frc.team3539.robot.commands.GearCommand;
 import org.usfirst.frc.team3539.robot.commands.HoodCommand;
 import org.usfirst.frc.team3539.robot.commands.TransmissionCommand;
 import org.usfirst.frc.team3539.robot.commands.VisionTrackCommand;
+import org.usfirst.frc.team3539.robot.commands.testCommand;
 import org.usfirst.frc.team3539.robot.utilities.TriggerButton;
 import org.usfirst.frc.team3539.robot.commands.IntakeCommand;
 import org.usfirst.frc.team3539.robot.commands.LockCommand;
@@ -41,7 +42,7 @@ public class OI
 	public JoystickButton twobumperr = new JoystickButton(controller2, RobotMap.bumperr);
 	
 	public TriggerButton intakeTrigger = new TriggerButton(2, controller2, new IntakeCommand());
-	public TriggerButton shooterTrigger = new TriggerButton(3, controller2, new ShooterCommand());
+	public TriggerButton shooterTrigger = new TriggerButton(3, controller2, new testCommand());
 	
 	public static boolean runIntake;
 	
@@ -77,33 +78,5 @@ public class OI
 	{
 		intakeTrigger.checkValue();
 		shooterTrigger.checkValue();
-		
-//		if(controller1.getRawAxis(3) > .75 && runIntake == false)
-//		{
-//			runIntake = true;
-//			System.out.println("triggered");
-//			Scheduler.getInstance().add(new IntakeCommand());
-//		}
-//		else if(controller1.getRawAxis(3) < .1 && runIntake == true)
-//		{
-//			runIntake = false;
-//			System.out.println("untriggered");
-//		}
-//		
-//		if(controller1.getRawAxis(3) > .75 && runIntake == false)
-//		{
-//			runIntake = true;
-//			System.out.println("triggered");
-//			Scheduler.getInstance().add(new IntakeCommand());
-//		}
-//		else if(controller1.getRawAxis(3) < .1 && runIntake == true)
-//		{
-//			runIntake = false;
-//			System.out.println("untriggered");
-//		}
-//		
-		
-		
-		
 	}
 }

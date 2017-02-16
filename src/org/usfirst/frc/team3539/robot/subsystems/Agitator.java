@@ -26,5 +26,6 @@ public class Agitator extends Subsystem
 
 	public void initDefaultCommand()
 	{
+		
 	}
 }
