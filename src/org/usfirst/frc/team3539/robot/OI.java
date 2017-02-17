@@ -61,7 +61,7 @@ public class OI
 		//twotriggerr.whenActive(new IntakeCommand());// Test
 			
 		// STICKONE
-		onebuttona.whenPressed(new TransmissionCommand()); // Test
+		onebuttonx.whenPressed(new TransmissionCommand()); // Test
 		
 		// STICKTWO
 		twobuttona.whenPressed(new GearCommand()); // Test
