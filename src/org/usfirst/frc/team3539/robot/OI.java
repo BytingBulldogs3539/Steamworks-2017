@@ -5,6 +5,7 @@ import org.usfirst.frc.team3539.robot.commands.ClimbCommand;
 import org.usfirst.frc.team3539.robot.commands.GearCommand;
 import org.usfirst.frc.team3539.robot.commands.HoodCommand;
 import org.usfirst.frc.team3539.robot.commands.TransmissionCommand;
+import org.usfirst.frc.team3539.robot.commands.Unjam;
 import org.usfirst.frc.team3539.robot.commands.VisionTrackCommand;
 import org.usfirst.frc.team3539.robot.commands.testCommand;
 import org.usfirst.frc.team3539.robot.utilities.TriggerButton;
@@ -69,7 +70,7 @@ public class OI
 		twobuttony.whenPressed(new VisionTrackCommand()); // Error
 
 		twobumperr.whileHeld(new ClimbCommand()); // Test
-		twobumperl.whenPressed(new LockCommand()); // Test
+		twobumperl.whenPressed(new Unjam()); // Test
 		
 		onebuttony.whenPressed(new ShooterCommand());
 		
