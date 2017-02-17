@@ -14,7 +14,7 @@ public class IntakeCommand extends Command
 	public IntakeCommand()
 	{
 		super("IntakeCommand");
-		System.out.println("IntakeCommand constructor");
+		//System.out.println("IntakeCommand constructor");
 		requires(Robot.intake);
 	}
 
@@ -25,9 +25,9 @@ public class IntakeCommand extends Command
 
 	protected void execute()
 	{
-		System.out.println("beforeSetMotor in intakeCommand");
+		//System.out.println("beforeSetMotor in intakeCommand");
 		Robot.intake.setMotorPower(1);
-		System.out.println("ran intakecommand execute");
+		//System.out.println("ran intakecommand execute");
 	}
 
 	protected boolean isFinished()

@@ -29,9 +29,7 @@ public class AgitatorCommand extends Command
 	protected boolean isFinished()
 	{
 		return (!Robot.oi.shooterTrigger.triggerValue);
-	
-		//return (!Robot.oi.twotriggerl.get());
-		
+			
 	}
 
 	protected void end()
