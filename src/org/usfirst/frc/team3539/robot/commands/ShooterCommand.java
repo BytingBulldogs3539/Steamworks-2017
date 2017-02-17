@@ -1,6 +1,7 @@
 package org.usfirst.frc.team3539.robot.commands;
 
 import org.usfirst.frc.team3539.robot.Robot;
+import org.usfirst.frc.team3539.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -23,7 +24,7 @@ public class ShooterCommand extends Command
 	protected void execute()
 	{
 		Robot.shooter.setMotorPower(-1);
-		System.out.println("work plz");
+		Robot.shooter.setAgitatorMotorPower(RobotMap.agitatorSpeed);
 	}
 
 	protected boolean isFinished()
