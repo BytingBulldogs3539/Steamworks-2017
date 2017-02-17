@@ -2,7 +2,6 @@ package org.usfirst.frc.team3539.robot;
 
 import org.usfirst.frc.team3539.robot.commands.*;
 import org.usfirst.frc.team3539.robot.commands.VoidCommand;
-import org.usfirst.frc.team3539.robot.subsystems.Agitator;
 import org.usfirst.frc.team3539.robot.subsystems.GearManipulator;
 import org.usfirst.frc.team3539.robot.subsystems.Intake;
 import org.usfirst.frc.team3539.robot.subsystems.Shooter;
@@ -35,7 +34,6 @@ public class Robot extends IterativeRobot
 	//SUBSYSTEMS
 	public static final TankDrive tankDriveTrain = new TankDrive();
 	public static final Shooter shooter = new Shooter();
-	public static final Agitator agitator = new Agitator();
 	public static final Intake intake = new Intake();
 	public static final GearManipulator manipulator = new GearManipulator();
 	//public static final ShooterAim aim = new ShooterAim();
@@ -67,7 +65,6 @@ public class Robot extends IterativeRobot
 
 		SmartDashboard.putData(intake);
 		SmartDashboard.putData(shooter);
-		SmartDashboard.putData(agitator);
 		SmartDashboard.putData(manipulator);
 		SmartDashboard.putData(tankDriveTrain);
 		
