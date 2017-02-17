@@ -23,7 +23,7 @@ public class ShooterCommand extends Command
 
 	protected void execute()
 	{
-		Robot.shooter.setMotorPower(-1);
+		Robot.shooter.setMotorPower(RobotMap.shootSpeed);
 		Robot.shooter.setAgitatorMotorPower(RobotMap.agitatorSpeed);
 	}
 

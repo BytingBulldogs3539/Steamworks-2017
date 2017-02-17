@@ -5,6 +5,7 @@ import org.usfirst.frc.team3539.robot.RobotMap;
 import com.ctre.CANTalon;
 
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Shooter extends BulldogSystem
 {
@@ -21,13 +22,13 @@ public class Shooter extends BulldogSystem
 		shooterOneMotor = new CANTalon(RobotMap.shooterOneMotorTalon);
 		
 		
-		shooterTwoMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
-    	shooterTwoMotor.setStatusFrameRateMs(CANTalon.StatusFrameRate.QuadEncoder, 10);
-    	shooterTwoMotor.setEncPosition(0);
+		//shooterTwoMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Absolute);
+    	//shooterTwoMotor.setStatusFrameRateMs(CANTalon.StatusFrameRate.QuadEncoder, 10);
+    	//shooterTwoMotor.setEncPosition(0);
 		
-		shooterOneMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
-    	shooterOneMotor.setStatusFrameRateMs(CANTalon.StatusFrameRate.QuadEncoder, 10);
-    	shooterOneMotor.setEncPosition(0);
+		//shooterOneMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Absolute);
+    	//shooterOneMotor.setStatusFrameRateMs(CANTalon.StatusFrameRate.QuadEncoder, 10);
+    	//shooterOneMotor.setEncPosition(0);
     	
     	
     	
@@ -43,6 +44,7 @@ public class Shooter extends BulldogSystem
 	}
 	public void setMotorPower(double power)
 	{
+		
 		shooterOneMotor.set(power);
 		System.out.println(shooterOneMotor.getEncPosition());
 		System.out.println(shooterTwoMotor.getEncPosition());
@@ -50,7 +52,7 @@ public class Shooter extends BulldogSystem
 	}
 	public void Update()
 	{
-		
+		RobotMap.shootSpeed = SmartDashboard.getNumber("Shooter Speed");
 	}
 	public void setServoAngle(double angle)
 	{

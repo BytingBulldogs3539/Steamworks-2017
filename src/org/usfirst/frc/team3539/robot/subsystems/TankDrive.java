@@ -66,7 +66,7 @@ public class TankDrive extends Subsystem
 	{
 		if(Robot.oi.invertTrigger.checkValue())
 		{
-			drive.arcadeDrive(-leftStick, -rightStick);
+			drive.arcadeDrive(-leftStick, rightStick);
 		}
 		else
 		{
