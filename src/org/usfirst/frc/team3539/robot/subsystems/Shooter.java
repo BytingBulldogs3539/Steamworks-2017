@@ -36,6 +36,8 @@ public class Shooter extends BulldogSystem
 		shooterServo = new CANTalon(RobotMap.shooterServoTalon);
 		//servoEncoder = new Encoder();
 		agitatorTalon = new CANTalon(RobotMap.agitatorTalon);
+		shooterTwoMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Absolute);
+		shooterOneMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Absolute);
 	}
 
 	public void shooterOneMotor()
@@ -46,8 +48,8 @@ public class Shooter extends BulldogSystem
 	{
 		
 		shooterOneMotor.set(power);
-		System.out.println(shooterOneMotor.getEncPosition());
-		System.out.println(shooterTwoMotor.getEncPosition());
+		System.out.println(shooterOneMotor.getPulseWidthVelocity());
+		System.out.println(shooterTwoMotor.getPulseWidthVelocity());
 		shooterTwoMotor.set(power);
 	}
 	public void Update()
