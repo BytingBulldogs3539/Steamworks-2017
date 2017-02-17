@@ -5,16 +5,14 @@ import org.usfirst.frc.team3539.robot.RobotMap;
 import com.ctre.CANTalon;
 
 import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Shooter extends BulldogSystem
 {
-	
 	private CANTalon shooterOneMotor;
 	private CANTalon shooterTwoMotor;
 	private CANTalon shooterServo;
 	private CANTalon agitatorTalon;
-	
 	
 	//private Encoder servoEncoder;
 	
@@ -24,12 +22,11 @@ public class Shooter extends BulldogSystem
 		shooterOneMotor = new CANTalon(RobotMap.shooterOneMotorTalon);
 		
 		
-		shooterTwoMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
-    	shooterTwoMotor.getPulseWidthVelocity();
-		//shooterTwoMotor.setStatusFrameRateMs(CANTalon.StatusFrameRate.QuadEncoder, 10);
+		//shooterTwoMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Absolute);
+    	//shooterTwoMotor.setStatusFrameRateMs(CANTalon.StatusFrameRate.QuadEncoder, 10);
     	//shooterTwoMotor.setEncPosition(0);
 		
-		//shooterOneMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
+		//shooterOneMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Absolute);
     	//shooterOneMotor.setStatusFrameRateMs(CANTalon.StatusFrameRate.QuadEncoder, 10);
     	//shooterOneMotor.setEncPosition(0);
     	
@@ -39,9 +36,6 @@ public class Shooter extends BulldogSystem
 		shooterServo = new CANTalon(RobotMap.shooterServoTalon);
 		//servoEncoder = new Encoder();
 		agitatorTalon = new CANTalon(RobotMap.agitatorTalon);
-
-		shooterTwoMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
-    	shooterTwoMotor.getPulseWidthVelocity();
 	}
 
 	public void shooterOneMotor()
@@ -50,14 +44,15 @@ public class Shooter extends BulldogSystem
 	}
 	public void setMotorPower(double power)
 	{
+		
 		shooterOneMotor.set(power);
-		System.out.println("inside sub"+shooterOneMotor.getEncPosition());
-		System.out.println("inside Sub"+shooterTwoMotor.getEncPosition());
+		System.out.println(shooterOneMotor.getEncPosition());
+		System.out.println(shooterTwoMotor.getEncPosition());
 		shooterTwoMotor.set(power);
 	}
 	public void Update()
 	{
-		
+		RobotMap.shootSpeed = SmartDashboard.getNumber("Shooter Speed");
 	}
 	public void setServoAngle(double angle)
 	{
