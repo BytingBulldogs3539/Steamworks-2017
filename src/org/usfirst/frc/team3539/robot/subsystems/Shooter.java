@@ -48,6 +48,7 @@ public class Shooter extends BulldogSystem
 	public void setAgitatorMotorPower(double power)
 	{
 		agitatorTalon.set(power);
+		System.out.println(agitatorTalon.getEncPosition());
 		System.out.println("agitator ran");
 	}
 

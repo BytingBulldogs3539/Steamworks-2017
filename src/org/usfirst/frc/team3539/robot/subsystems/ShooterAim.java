@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class ShooterAim extends Subsystem {
 
+
 	private CANTalon motor;
 
 	// Put methods for controlling this subsystem

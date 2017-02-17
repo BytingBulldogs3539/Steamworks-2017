@@ -39,5 +39,7 @@ public class ShooterCommand extends Command
 	protected void interrupted()
 	{
 		end();
+		
 	}
 }
+ 
