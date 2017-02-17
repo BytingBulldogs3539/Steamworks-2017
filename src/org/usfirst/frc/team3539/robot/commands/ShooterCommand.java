@@ -23,10 +23,12 @@ public class ShooterCommand extends Command
 	protected void execute()
 	{
 		Robot.shooter.setMotorPower(-1);
+		System.out.println("work plz");
 	}
 
 	protected boolean isFinished()
 	{
+		System.out.println(Robot.oi.shooterTrigger.getValue());
 		return !Robot.oi.shooterTrigger.getValue();
 	}
 
