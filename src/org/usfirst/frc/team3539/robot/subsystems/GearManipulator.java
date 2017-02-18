@@ -72,6 +72,8 @@ public class GearManipulator extends Subsystem
 	}
 	public void update()
 	{
+		SmartDashboard.putString("Hood Status", "-");
+		SmartDashboard.putString("Gear Holder Status", "-");
 		if (hoodStatus == true)
 		{
 			SmartDashboard.putString("Hood Status", "Opened");
