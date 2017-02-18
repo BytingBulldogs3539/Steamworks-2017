@@ -48,6 +48,7 @@ public class Shooter extends BulldogSystem
 	{
 		
 		shooterOneMotor.set(power);
+		shooterTwoMotor.set(power);
 		System.out.println(shooterOneMotor.getPulseWidthVelocity());
 		System.out.println(shooterTwoMotor.getPulseWidthVelocity());
 		shooterTwoMotor.set(power);
