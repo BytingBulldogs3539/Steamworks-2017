@@ -154,7 +154,7 @@ public class TankDrive extends Subsystem
 		{
 			SmartDashboard.putString("Drive Gear", "Low");
 		}
-		SmartDashboard.putDouble("Velocity", gyro.getRate());
+		SmartDashboard.putDouble("GyroVelocity", gyro.getRate());
+		SmartDashboard.putDouble("GryoAngle", gyro.getAngle());
 	}
-
 }
