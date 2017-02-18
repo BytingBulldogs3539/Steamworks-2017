@@ -53,7 +53,12 @@ public class DriveTrain extends PIDSubsystem
 		lbMotor = new CANTalon(RobotMap.lbMotorTalon);
 		rfMotor = new CANTalon(RobotMap.rfMotorTalon);
 		rbMotor = new CANTalon(RobotMap.rbMotorTalon);
-
+		//
+		lfMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
+		lbMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
+		rfMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
+		rbMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
+		//
 		drive = new RobotDrive(lfMotor, lbMotor, rfMotor, rbMotor);
 		driveCan = new CANTalon(RobotMap.pcm);
 
@@ -81,6 +86,7 @@ public class DriveTrain extends PIDSubsystem
 
 	public void driveArcade(double leftStick, double rightStick)
 	{
+		lbMotor.getPulseWidthPosition();
 		if (Robot.oi.invertTrigger.checkValue())
 		{
 			drive.arcadeDrive(-leftStick, rightStick);
