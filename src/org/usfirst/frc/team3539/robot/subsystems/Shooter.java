@@ -1,6 +1,6 @@
 package org.usfirst.frc.team3539.robot.subsystems;
-
 import org.usfirst.frc.team3539.robot.RobotMap;
+import org.usfirst.frc.team3539.robot.Robot;
 
 import com.ctre.CANTalon;
 
@@ -51,11 +51,13 @@ public class Shooter extends BulldogSystem
 		shooterTwoMotor.set(power);
 		System.out.println(shooterOneMotor.getPulseWidthVelocity());
 		System.out.println(shooterTwoMotor.getPulseWidthVelocity());
-		shooterTwoMotor.set(power);
+
 	}
+	@SuppressWarnings("deprecation")
 	public void Update()
 	{
 		RobotMap.shootSpeed = SmartDashboard.getNumber("Shooter Speed");
+		SmartDashboard.putDouble("Shooter RPM", shooterTwoMotor.getPulseWidthVelocity());
 	}
 	public void setServoAngle(double angle)
 	{

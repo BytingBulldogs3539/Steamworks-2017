@@ -24,7 +24,7 @@ public class SetPointCommand extends Command
 
 	protected void execute()
 	{
-		Robot.shooter.setServoAngle(Robot.oi.controller2.getRawAxis(RobotMap.Y_AxisR));
+		Robot.shooter.setServoAngle(Robot.oi.controller2.getRawAxis(RobotMap.Y_AxisL));
 	}
 
 	protected boolean isFinished()

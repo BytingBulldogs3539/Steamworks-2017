@@ -70,7 +70,7 @@ public class GearManipulator extends Subsystem
 	public void initDefaultCommand()
 	{
 	}
-	public void update()
+	public void Update()
 	{
 		SmartDashboard.putString("Hood Status", "-");
 		SmartDashboard.putString("Gear Holder Status", "-");

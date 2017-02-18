@@ -16,6 +16,9 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.cscore.CvSink;
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.wpilibj.CameraServer;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -36,6 +39,7 @@ public class Robot extends IterativeRobot
 	public static final Shooter shooter = new Shooter();
 	public static final Intake intake = new Intake();
 	public static final GearManipulator manipulator = new GearManipulator();
+	
 	//public static final ShooterAim aim = new ShooterAim();
 
 	public static Compressor c;
@@ -77,6 +81,11 @@ public class Robot extends IterativeRobot
 		
 		
 		SmartDashboard.putData("Command Select", selectCommands);
+		
+		UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
+		camera.setResolution(480, 360);
+		
+		
 	}
 
 	/**
@@ -99,6 +108,7 @@ public class Robot extends IterativeRobot
 		//autoMode = (Command) autoChooser.getSelected(); //Auton disabled
 		if(autoMode != null)
 			autoMode.start();
+		tankDriveTrain.gyroReset();
 	}
 
 	// This function is called periodically during autonomous
@@ -115,6 +125,7 @@ public class Robot extends IterativeRobot
 			autoMode.cancel();
 		
 		System.out.println("teleopInit");
+		tankDriveTrain.gyroReset();
 	}
 
 	// This function is called periodically during operator control
@@ -140,10 +151,11 @@ public class Robot extends IterativeRobot
 
 	public void update()
 	{
-		intake.Update();
 		oi.Update();
+		intake.Update();
 		shooter.Update();
-		manipulator.update();
+		manipulator.Update();
+		tankDriveTrain.Update();
 		
 		//SmartDashboard.putNumber("Robot gyro heading", Robot.driveTain.get());
 

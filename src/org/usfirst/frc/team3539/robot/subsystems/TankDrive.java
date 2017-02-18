@@ -143,8 +143,9 @@ public class TankDrive extends Subsystem
 		setDefaultCommand(new TankDriveCommand());
 	}
 	@SuppressWarnings("deprecation")
-	public void update()
+	public void Update()
 	{
+		
 		SmartDashboard.putString("Drive Gear", "--");
 		if (solieStatus == true)
 		{
@@ -155,6 +156,20 @@ public class TankDrive extends Subsystem
 			SmartDashboard.putString("Drive Gear", "Low");
 		}
 		SmartDashboard.putDouble("GyroVelocity", gyro.getRate());
-		SmartDashboard.putDouble("GryoAngle", gyro.getAngle());
+		double relativeAngle = gyro.getAngle();
+		if (relativeAngle >= 360)
+		{
+			relativeAngle -= 360;
+		}
+		if (relativeAngle <= -360)
+		{
+			relativeAngle += 360;
+		}
+		SmartDashboard.putDouble("GryoAngle", relativeAngle);
+	}
+	public void gyroReset()
+	{
+		gyro.reset();
+		System.out.println("gyro reset");
 	}
 }
