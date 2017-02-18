@@ -36,6 +36,7 @@ public class Shooter extends BulldogSystem
 		shooterServo = new CANTalon(RobotMap.shooterServoTalon);
 		//servoEncoder = new Encoder();
 		agitatorTalon = new CANTalon(RobotMap.agitatorTalon);
+		shooterServo.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Absolute);
 		shooterTwoMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Absolute);
 		shooterOneMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Absolute);
 	}
