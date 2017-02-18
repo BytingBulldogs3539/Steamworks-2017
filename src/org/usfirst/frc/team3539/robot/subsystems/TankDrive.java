@@ -152,16 +152,7 @@ public class TankDrive extends BulldogSystem
 			SmartDashboard.putString("Drive Gear", "Low");
 		}
 		SmartDashboard.putDouble("GyroVelocity", gyro.getRate());
-		double relativeAngle = gyro.getAngle();
-		if (relativeAngle >= 360)
-		{
-			relativeAngle -= 360;
-		}
-		if (relativeAngle <= -360)
-		{
-			relativeAngle += 360;
-		}
-		SmartDashboard.putDouble("GryoAngle", relativeAngle);
+		SmartDashboard.putDouble("GryoAngle", gyro.getAngle() % 360);
 	}
 	public void gyroReset()
 	{
