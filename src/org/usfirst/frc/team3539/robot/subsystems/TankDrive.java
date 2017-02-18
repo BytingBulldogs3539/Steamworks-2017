@@ -14,7 +14,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 //import edu.wpi.first.wpilibj.Encoder;
 
-public class TankDrive extends Subsystem
+public class TankDrive extends BulldogSystem
 {
 	private CANTalon lfMotor;
 	private CANTalon lbMotor;

@@ -5,13 +5,14 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *
  */
-public class BulldogSystem extends Subsystem
+public abstract class BulldogSystem extends Subsystem
 {
 	public BulldogSystem(String name)
 	{
 		super(name);
 	}
 	
+	public abstract void Update();
 
 	public void initDefaultCommand()
 	{
