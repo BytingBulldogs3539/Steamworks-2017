@@ -68,7 +68,7 @@ public class Robot extends IterativeRobot
 		SmartDashboard.putData(manipulator);
 		SmartDashboard.putData(tankDriveTrain);
 		
-		SmartDashboard.putNumber("Shooter Speed", RobotMap.shootSpeed);
+		SmartDashboard.putNumber("Shooter Speed", (RobotMap.shootSpeed * -1));
 		
 		
 		selectCommands = new SendableChooser<Command>();
