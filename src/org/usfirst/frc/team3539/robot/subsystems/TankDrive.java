@@ -142,6 +142,7 @@ public class TankDrive extends Subsystem
 	{
 		setDefaultCommand(new TankDriveCommand());
 	}
+	@SuppressWarnings("deprecation")
 	public void update()
 	{
 		SmartDashboard.putString("Drive Gear", "--");
@@ -153,6 +154,7 @@ public class TankDrive extends Subsystem
 		{
 			SmartDashboard.putString("Drive Gear", "Low");
 		}
+		SmartDashboard.putDouble("Velocity", gyro.getRate());
 	}
 
 }
