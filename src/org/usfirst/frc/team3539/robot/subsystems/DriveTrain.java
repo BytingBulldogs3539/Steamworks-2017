@@ -17,8 +17,8 @@ import edu.wpi.first.wpilibj.command.PIDSubsystem;
  *
  */
 
-@SuppressWarnings("unused")
-public class DriveTrain extends BulldogSystem implements PIDController
+//@SuppressWarnings("unused")
+public class DriveTrain extends BulldogSystem
 {
 	private CANTalon lfMotor;
 	private CANTalon lbMotor;
