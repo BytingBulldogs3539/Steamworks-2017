@@ -93,11 +93,7 @@ public class TankDrive extends Subsystem
 	{
 		lfMotor.setEncPosition(0);
 		rfMotor.setEncPosition(0);
-		if (lfMotor.getEncPosition() <= ticks && rfMotor.getEncPosition() >= -ticks) // If
-																						// left
-																						// motor
-																						// is
-																						// backward
+		if (lfMotor.getEncPosition() <= ticks && rfMotor.getEncPosition() >= -ticks)
 		{
 			lfMotor.set(power);
 			lbMotor.set(power);
