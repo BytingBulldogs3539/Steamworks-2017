@@ -1,7 +1,5 @@
 package org.usfirst.frc.team3539.robot;
 
-import edu.wpi.first.wpilibj.Encoder;
-
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking

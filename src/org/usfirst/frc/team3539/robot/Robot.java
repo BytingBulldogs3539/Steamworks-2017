@@ -5,7 +5,6 @@ import org.usfirst.frc.team3539.robot.commands.VoidCommand;
 import org.usfirst.frc.team3539.robot.subsystems.GearManipulator;
 import org.usfirst.frc.team3539.robot.subsystems.Intake;
 import org.usfirst.frc.team3539.robot.subsystems.Shooter;
-import org.usfirst.frc.team3539.robot.subsystems.ShooterAim;
 import org.usfirst.frc.team3539.robot.subsystems.TankDrive;
 
 import edu.wpi.first.wpilibj.Compressor;
@@ -36,11 +35,8 @@ public class Robot extends IterativeRobot
 	public static final Intake intake = new Intake();
 	public static final GearManipulator manipulator = new GearManipulator();
 
-	//public static final ShooterAim aim = new ShooterAim();
-
 	public static Compressor c;
 	public static OI oi;
-	//public static RobotTemplate i2c;
 
 	Command autoMode, teleopMode;
 	SendableChooser<Command> autoChooser, teleopChooser, selectCommands;
@@ -143,13 +139,5 @@ public class Robot extends IterativeRobot
 		oi.Update();
 		shooter.Update();
 		manipulator.update();
-		
-		//SmartDashboard.putNumber("Robot gyro heading", Robot.driveTain.get());
-
-		//SmartDashboard.putNumber("Shooter Throttle", Robot.shooter.getCurrentPower());
-
-		//SmartDashboard.putBoolean("lock toggle", RobotMap.intake.isLockLocked());
-
-		//SmartDashboard.putString("Shooter Angle", Robot.shooter.getangle());
 	}
 }
