@@ -19,9 +19,6 @@ public class Shooter extends BulldogSystem
 	public Shooter()
 	{
 		super("Shooter");
-		shooterOneMotor = new CANTalon(RobotMap.shooterOneMotorTalon);
-		
-		
 		//shooterTwoMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Absolute);
     	//shooterTwoMotor.setStatusFrameRateMs(CANTalon.StatusFrameRate.QuadEncoder, 10);
     	//shooterTwoMotor.setEncPosition(0);
@@ -31,19 +28,20 @@ public class Shooter extends BulldogSystem
     	//shooterOneMotor.setEncPosition(0);
     	
     	
-    	
+
+		shooterOneMotor = new CANTalon(RobotMap.shooterOneMotorTalon);
 		shooterTwoMotor = new CANTalon(RobotMap.shooterTwoMotorTalon);
+		
 		shooterServo = new CANTalon(RobotMap.shooterServoTalon);
-		//servoEncoder = new Encoder();
+		
 		agitatorTalon = new CANTalon(RobotMap.agitatorTalon);
+		
 		shooterTwoMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Absolute);
 		shooterOneMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Absolute);
+		
+		shooterServo.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Absolute);
 	}
 
-	public void shooterOneMotor()
-	{
-	
-	}
 	public void setMotorPower(double power)
 	{
 		
@@ -53,6 +51,7 @@ public class Shooter extends BulldogSystem
 		System.out.println(shooterTwoMotor.getPulseWidthVelocity());
 
 	}
+	
 	@SuppressWarnings("deprecation")
 	public void Update()
 	{
@@ -67,7 +66,6 @@ public class Shooter extends BulldogSystem
 	public void setAgitatorMotorPower(double power)
 	{
 		agitatorTalon.set(power);
-		System.out.println("agitator ran");
 	}
 
 	public void initDefaultCommand()
