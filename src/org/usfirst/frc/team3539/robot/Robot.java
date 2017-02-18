@@ -1,22 +1,15 @@
 package org.usfirst.frc.team3539.robot;
 
 import org.usfirst.frc.team3539.robot.commands.*;
-import org.usfirst.frc.team3539.robot.commands.VoidCommand;
-import org.usfirst.frc.team3539.robot.subsystems.GearManipulator;
-import org.usfirst.frc.team3539.robot.subsystems.Intake;
-import org.usfirst.frc.team3539.robot.subsystems.Shooter;
-import org.usfirst.frc.team3539.robot.subsystems.ShooterAim;
-import org.usfirst.frc.team3539.robot.subsystems.TankDrive;
+import org.usfirst.frc.team3539.robot.subsystems.*;
 
 import edu.wpi.first.wpilibj.Compressor;
-import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.cscore.CvSink;
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.CameraServer;
 
@@ -30,21 +23,14 @@ import edu.wpi.first.wpilibj.CameraServer;
 
 public class Robot extends IterativeRobot
 {
-	
-	//Encoders
-	Encoder ShooterEncoder = new Encoder(0,1,false,Encoder.EncodingType.k4X);
-	
 	//SUBSYSTEMS
 	public static final TankDrive tankDriveTrain = new TankDrive();
 	public static final Shooter shooter = new Shooter();
 	public static final Intake intake = new Intake();
 	public static final GearManipulator manipulator = new GearManipulator();
 	
-	//public static final ShooterAim aim = new ShooterAim();
-
 	public static Compressor c;
 	public static OI oi;
-	//public static RobotTemplate i2c;
 
 	Command autoMode, teleopMode;
 	SendableChooser<Command> autoChooser, teleopChooser, selectCommands;
@@ -105,6 +91,7 @@ public class Robot extends IterativeRobot
 
 	public void autonomousInit()
 	{
+		System.out.println("autonomousInit");
 		//autoMode = (Command) autoChooser.getSelected(); //Auton disabled
 		if(autoMode != null)
 			autoMode.start();
@@ -121,28 +108,20 @@ public class Robot extends IterativeRobot
 
 	public void teleopInit()
 	{
+		System.out.println("teleopInit");
 		if(autoMode != null)
 			autoMode.cancel();
-		
-		System.out.println("teleopInit");
 		tankDriveTrain.gyroReset();
 	}
 
 	// This function is called periodically during operator control
-
 	public void teleopPeriodic()
 	{
-		//int tblLength = 0;
-		
-		//ITable temp = Scheduler.getInstance().getTable();
-		
 		Scheduler.getInstance().run();
-		//Arduino.Write();
 		update();
 	}
 
 	// This function is called periodically during test mode
-
 	public void testPeriodic()
 	{
 		update();
@@ -156,13 +135,5 @@ public class Robot extends IterativeRobot
 		shooter.Update();
 		manipulator.Update();
 		tankDriveTrain.Update();
-		
-		//SmartDashboard.putNumber("Robot gyro heading", Robot.driveTain.get());
-
-		//SmartDashboard.putNumber("Shooter Throttle", Robot.shooter.getCurrentPower());
-
-		//SmartDashboard.putBoolean("lock toggle", RobotMap.intake.isLockLocked());
-
-		//SmartDashboard.putString("Shooter Angle", Robot.shooter.getangle());
 	}
 }
