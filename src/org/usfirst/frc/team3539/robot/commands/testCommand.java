@@ -5,8 +5,10 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
+public class testCommand extends CommandGroup
 {
 
+	public testCommand()
 	{
 		addParallel(new ShooterCommand());
 		addSequential(new AgitatorCommand());
