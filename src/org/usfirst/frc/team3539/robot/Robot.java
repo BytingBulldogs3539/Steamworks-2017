@@ -143,6 +143,7 @@ public class Robot extends IterativeRobot
 		intake.Update();
 		oi.Update();
 		shooter.Update();
+		manipulator.update();
 		
 		//SmartDashboard.putNumber("Robot gyro heading", Robot.driveTain.get());
 

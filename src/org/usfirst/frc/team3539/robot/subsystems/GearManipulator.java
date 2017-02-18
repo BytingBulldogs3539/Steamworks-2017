@@ -1,6 +1,7 @@
 package org.usfirst.frc.team3539.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team3539.robot.RobotMap;
 
@@ -68,5 +69,24 @@ public class GearManipulator extends Subsystem
 	}
 	public void initDefaultCommand()
 	{
+	}
+	public void update()
+	{
+		if (hoodStatus == true)
+		{
+			SmartDashboard.putString("Hood Status", "Opened");
+		}
+		else
+		{
+			SmartDashboard.putString("Hood Status", "Closed");
+		}
+		if (gearStatus == true)
+		{
+			SmartDashboard.putString("Gear Holder Status", "Opened");
+		}
+		else
+		{
+			SmartDashboard.putString("Gear Holder Status", "Closed");
+		}
 	}
 }

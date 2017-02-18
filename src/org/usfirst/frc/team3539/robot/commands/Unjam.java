@@ -23,6 +23,7 @@ public class Unjam extends Command {
 	protected void execute()
 	{
 		Robot.shooter.setAgitatorMotorPower(RobotMap.unjamSpeed);
+		System.out.println("Unjam ran");
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
