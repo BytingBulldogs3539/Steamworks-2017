@@ -8,6 +8,7 @@ import com.ctre.CANTalon;
 
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
@@ -15,12 +16,15 @@ import edu.wpi.first.wpilibj.command.PIDSubsystem;
 /**
  *
  */
+
+@SuppressWarnings("unused")
 public class DriveTrain extends PIDSubsystem
 {
 	private CANTalon lfMotor;
 	private CANTalon lbMotor;
 	private CANTalon rfMotor;
 	private CANTalon rbMotor;
+	
 	private CANTalon driveCan;
 	
 	private Encoder lEncoder;
