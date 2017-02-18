@@ -6,6 +6,7 @@ import org.usfirst.frc.team3539.robot.commands.GearCommand;
 import org.usfirst.frc.team3539.robot.commands.HoodCommand;
 import org.usfirst.frc.team3539.robot.commands.TransmissionCommand;
 import org.usfirst.frc.team3539.robot.commands.Unjam;
+import org.usfirst.frc.team3539.robot.commands.UnjamIntakeCommand;
 import org.usfirst.frc.team3539.robot.commands.VisionTrackCommand;
 import org.usfirst.frc.team3539.robot.commands.testCommand;
 import org.usfirst.frc.team3539.robot.utilities.TriggerButton;
@@ -42,6 +43,7 @@ public class OI
 	public JoystickButton twobumperl = new JoystickButton(controller2, RobotMap.bumperl);
 	public JoystickButton twobumperr = new JoystickButton(controller2, RobotMap.bumperr);
 	
+	//public TriggerButton unjamIntakeTrigger = new JoystickButton(controller2, );
 	public TriggerButton intakeTrigger = new TriggerButton(2, controller2, new IntakeCommand());
 	public TriggerButton shooterTrigger = new TriggerButton(3, controller2, new ShooterCommand());
 	public TriggerButton invertTrigger = new TriggerButton(3, controller1);
@@ -70,7 +72,8 @@ public class OI
 		twobuttony.whenPressed(new VisionTrackCommand()); // Error
 
 		twobumperr.whileHeld(new ClimbCommand()); // Test
-		twobumperl.whenPressed(new Unjam()); // Test
+		twotriggerl.whenPressed(new Unjam()); // Test
+		twobumperl.whenPressed(new UnjamIntakeCommand());
 		
 		onebuttony.whenPressed(new ShooterCommand());
 		

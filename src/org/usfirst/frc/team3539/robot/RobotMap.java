@@ -59,6 +59,7 @@ public class RobotMap//test
 	public static final int intakeMotorTalon = 5;
 	public static double climbSpeed = .9;
 	public static double intakeSpeed = .8;
+	public static double intakeUnjamSpeed = -.8;
 	
 	//LOCK (in intake)
 	public static final int lockSolOn = 6;
