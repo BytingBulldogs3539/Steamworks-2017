@@ -17,8 +17,13 @@ import edu.wpi.first.wpilibj.command.PIDSubsystem;
  *
  */
 
+<<<<<<< HEAD
 //@SuppressWarnings("unused")
 public class DriveTrain extends BulldogSystem
+=======
+@SuppressWarnings("unused")
+public class DriveTrain extends PIDSubsystem
+>>>>>>> origin/master
 {
 	private CANTalon lfMotor;
 	private CANTalon lbMotor;
@@ -32,17 +37,20 @@ public class DriveTrain extends BulldogSystem
 	
 	private RobotDrive drive;
 	
-	private DoubleSolenoid manipulatorSol;
+	private DoubleSolenoid sol;
 	
-	private boolean manipulatorStatus;
+	private boolean solieStatus;
 	
 	private ADXRS450_Gyro gyro;
 
 	public DriveTrain()
 	{
 		super("DriverTrain", 0, 0, 0);
+		// Use these to get going:
 		// setSetpoint() - Sets where the PID controller should move the system
+		// to
 		// enable() - Enables the PID controller.
+		// setSetpoint(0);
 
 		gyro = new ADXRS450_Gyro(SPI.Port.kOnboardCS0);
 
@@ -50,15 +58,18 @@ public class DriveTrain extends BulldogSystem
 		lbMotor = new CANTalon(RobotMap.lbMotorTalon);
 		rfMotor = new CANTalon(RobotMap.rfMotorTalon);
 		rbMotor = new CANTalon(RobotMap.rbMotorTalon);
-
+		//
+		lfMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
+		lbMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
+		rfMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
+		rbMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
+		//
 		drive = new RobotDrive(lfMotor, lbMotor, rfMotor, rbMotor);
 		driveCan = new CANTalon(RobotMap.pcm);
 
-		manipulatorSol = new DoubleSolenoid(RobotMap.pcm, RobotMap.driveSolOn, RobotMap.driveSolOff);
-		
-		manipulatorStatus = false;
-		
-		manipulatorSol.set(DoubleSolenoid.Value.kOff);
+		sol = new DoubleSolenoid(RobotMap.pcm, RobotMap.driveSolOn, RobotMap.driveSolOff);
+		solieStatus = false;
+		sol.set(DoubleSolenoid.Value.kOff);
 	}
 
 	public void driveXticks(double ticks)
@@ -66,8 +77,21 @@ public class DriveTrain extends BulldogSystem
 		// enable();
 	}
 
+	public void driveTank(double leftStick, double rightStick)
+	{
+		if (Robot.oi.invertTrigger.checkValue())
+		{
+			drive.tankDrive(leftStick, rightStick);
+		}
+		else
+		{
+			drive.tankDrive(-leftStick, -rightStick);
+		}
+	}
+
 	public void driveArcade(double leftStick, double rightStick)
 	{
+		lbMotor.getPulseWidthPosition();
 		if (Robot.oi.invertTrigger.checkValue())
 		{
 			drive.arcadeDrive(-leftStick, rightStick);
@@ -80,15 +104,15 @@ public class DriveTrain extends BulldogSystem
 
 	public void changeGears()
 	{
-		manipulatorStatus = !manipulatorStatus;
+		solieStatus = !solieStatus;
 
-		if (manipulatorStatus == true)
+		if (solieStatus == true)
 		{
-			manipulatorSol.set(DoubleSolenoid.Value.kForward);
+			sol.set(DoubleSolenoid.Value.kForward);
 		}
-		if (manipulatorStatus == false)
+		if (solieStatus == false)
 		{
-			manipulatorSol.set(DoubleSolenoid.Value.kReverse);
+			sol.set(DoubleSolenoid.Value.kReverse);
 		}
 	}
 
@@ -136,11 +160,6 @@ public class DriveTrain extends BulldogSystem
 			}
 		}
 	}
-	
-	private int getAverageTicks()
-	{
-		return 0;
-	}
 
 	public void initDefaultCommand()
 	{
@@ -150,13 +169,14 @@ public class DriveTrain extends BulldogSystem
 	protected double returnPIDInput()
 	{
 		// Return your input value for the PID loop
-		return getAverageTicks();
+		// e.g. a sensor, like a potentiometer:
+		// yourPot.getAverageVoltage() / kYourMaxVoltage;
+		return 0.0;
 	}
 
 	protected void usePIDOutput(double output)
 	{
 		// Use output to drive your system, like a motor
 		// e.g. yourMotor.set(output);
-		
 	}
 }

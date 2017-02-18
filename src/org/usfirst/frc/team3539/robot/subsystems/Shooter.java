@@ -30,9 +30,17 @@ public class Shooter extends BulldogSystem
 		agitatorTalon = new CANTalon(RobotMap.agitatorTalon);
 		
 		shooterTwoMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Absolute);
+		
 		shooterOneMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Absolute);
+<<<<<<< HEAD
+		shooterServo.setForwardSoftLimit(/*put something in here*/0);
+		shooterServo.enableForwardSoftLimit(true);
+		shooterServo.setReverseSoftLimit(/*put something in here*/0);
+		shooterServo.enableReverseSoftLimit(true);
+=======
 		
 		shooterServo.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Absolute);
+>>>>>>> origin/master
 	}
 
 	public void setMotorPower(double power)
