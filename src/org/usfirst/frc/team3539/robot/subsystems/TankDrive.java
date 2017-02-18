@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 //import edu.wpi.first.wpilibj.Encoder;
 
 public class TankDrive extends Subsystem
@@ -140,6 +141,18 @@ public class TankDrive extends Subsystem
 	public void initDefaultCommand()
 	{
 		setDefaultCommand(new TankDriveCommand());
+	}
+	public void update()
+	{
+		SmartDashboard.putString("Drive Gear", "--");
+		if (solieStatus == true)
+		{
+			SmartDashboard.putString("Drive Gear", "High");
+		}
+		else
+		{
+			SmartDashboard.putString("Drive Gear", "Low");
+		}
 	}
 
 }
