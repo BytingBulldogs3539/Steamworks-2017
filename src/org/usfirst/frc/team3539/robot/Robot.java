@@ -26,8 +26,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  **/
 
 public class Robot extends IterativeRobot
-{
-	
+{	
 	//Encoders
 	Encoder ShooterEncoder = new Encoder(0,1,false,Encoder.EncodingType.k4X);
 	
@@ -36,6 +35,7 @@ public class Robot extends IterativeRobot
 	public static final Shooter shooter = new Shooter();
 	public static final Intake intake = new Intake();
 	public static final GearManipulator manipulator = new GearManipulator();
+
 	//public static final ShooterAim aim = new ShooterAim();
 
 	public static Compressor c;
@@ -62,14 +62,12 @@ public class Robot extends IterativeRobot
 		teleopChooser.addDefault("Vision, Default", new VoidCommand()); //Switch with teleop commands
 		teleopChooser.addObject("No Vision", new VoidCommand());
 
-
 		SmartDashboard.putData(intake);
 		SmartDashboard.putData(shooter);
 		SmartDashboard.putData(manipulator);
 		SmartDashboard.putData(tankDriveTrain);
 		
 		SmartDashboard.putNumber("Shooter Speed", (RobotMap.shootSpeed * -1));
-		
 		
 		selectCommands = new SendableChooser<Command>();
 		selectCommands.addObject("Climb", new ClimbCommand());
@@ -126,6 +124,7 @@ public class Robot extends IterativeRobot
 		//ITable temp = Scheduler.getInstance().getTable();
 		
 		Scheduler.getInstance().run();
+		
 		//Arduino.Write();
 		update();
 	}

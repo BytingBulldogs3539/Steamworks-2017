@@ -29,9 +29,7 @@ public class Shooter extends BulldogSystem
 		//shooterOneMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Absolute);
     	//shooterOneMotor.setStatusFrameRateMs(CANTalon.StatusFrameRate.QuadEncoder, 10);
     	//shooterOneMotor.setEncPosition(0);
-    	
-    	
-    	
+    		
 		shooterTwoMotor = new CANTalon(RobotMap.shooterTwoMotorTalon);
 		shooterServo = new CANTalon(RobotMap.shooterServoTalon);
 		//servoEncoder = new Encoder();
@@ -46,17 +44,18 @@ public class Shooter extends BulldogSystem
 	}
 	public void setMotorPower(double power)
 	{
-		
 		shooterOneMotor.set(power);
 		shooterTwoMotor.set(power);
 		System.out.println(shooterOneMotor.getPulseWidthVelocity());
 		System.out.println(shooterTwoMotor.getPulseWidthVelocity());
 		shooterTwoMotor.set(power);
 	}
+	
 	public void Update()
 	{
 		RobotMap.shootSpeed = SmartDashboard.getNumber("Shooter Speed");
 	}
+	
 	public void setServoAngle(double angle)
 	{
 		shooterServo.set(angle);

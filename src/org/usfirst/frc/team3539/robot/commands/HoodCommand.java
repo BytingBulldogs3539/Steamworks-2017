@@ -22,8 +22,7 @@ public class HoodCommand extends Command
 
 	protected void execute()
 	{
-		Robot.manipulator.flipHood();
-		
+		Robot.manipulator.flipHood();		
 	}
 
 	protected boolean isFinished()
