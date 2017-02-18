@@ -93,10 +93,11 @@ public class Robot extends IterativeRobot
 		//autoMode = (Command) autoChooser.getSelected(); //Auton disabled
 		if(autoMode != null)
 			autoMode.start();
+		
+		System.out.println("autonomousInit");
 	}
 
 	// This function is called periodically during autonomous
-
 	public void autonomousPeriodic()
 	{
 		Scheduler.getInstance().run();
@@ -112,21 +113,13 @@ public class Robot extends IterativeRobot
 	}
 
 	// This function is called periodically during operator control
-
 	public void teleopPeriodic()
 	{
-		//int tblLength = 0;
-		
-		//ITable temp = Scheduler.getInstance().getTable();
-		
 		Scheduler.getInstance().run();
-		
-		//Arduino.Write();
 		update();
 	}
 
 	// This function is called periodically during test mode
-
 	public void testPeriodic()
 	{
 		update();

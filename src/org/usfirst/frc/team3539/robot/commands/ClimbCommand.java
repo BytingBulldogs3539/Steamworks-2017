@@ -4,7 +4,6 @@ import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -20,13 +19,10 @@ public class ClimbCommand extends Command
 	{
 		Robot.intake.lockOn();
 	}
-
-	@SuppressWarnings("deprecation")
+	
 	protected void execute()
 	{
-		//Robot.intake.setMotorPower(SmartDashboard.getDouble("climbSpeed", 1));
 		Robot.intake.setMotorPower(RobotMap.climbSpeed);
-
 	}
 
 	protected boolean isFinished()
