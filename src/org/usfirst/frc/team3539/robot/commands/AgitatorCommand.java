@@ -23,13 +23,11 @@ public class AgitatorCommand extends Command
 	protected void execute()
 	{
 		Robot.shooter.setAgitatorMotorPower(RobotMap.agitatorSpeed);
-		System.out.println("Agitator ran");
 	}
 
 	protected boolean isFinished()
 	{
 		return (!Robot.oi.shooterTrigger.triggerValue);
-			
 	}
 
 	protected void end()
