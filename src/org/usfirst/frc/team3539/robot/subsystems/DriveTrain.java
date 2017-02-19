@@ -63,6 +63,8 @@ public class DriveTrain extends BulldogSystem
 		rfMotor.setPID(RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee, RobotMap.driveEff, RobotMap.driveEyeZone,
 				RobotMap.driveLoopRamp, RobotMap.driveProfile);
 
+		rfMotor.reverseOutput(true);
+		
 		lfMotor.setEncPosition(0);
 		rfMotor.setEncPosition(0);
 		persistentTick = 0;
