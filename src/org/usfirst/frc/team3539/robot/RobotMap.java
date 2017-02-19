@@ -53,6 +53,7 @@ public class RobotMap//test
 	public static int driveEyeZone = 0;
 	public static double driveLoopRamp = 0;
 	public static int driveProfile = 0;
+	public static int driveLoopError = 0;
 
 	public static double shootPea = 0;
 	public static double shootEye = 0;

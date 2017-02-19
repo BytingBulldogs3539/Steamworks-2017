@@ -65,6 +65,9 @@ public class DriveTrain extends BulldogSystem
 
 		rfMotor.reverseOutput(true);
 		
+		lfMotor.setAllowableClosedLoopErr(RobotMap.driveLoopError);
+		rfMotor.setAllowableClosedLoopErr(RobotMap.driveLoopError);
+		
 		lfMotor.setEncPosition(0);
 		rfMotor.setEncPosition(0);
 		persistentTick = 0;
@@ -195,6 +198,7 @@ public class DriveTrain extends BulldogSystem
 		SmartDashboard.putInt("RobotMap.driveEyeZone", RobotMap.driveEyeZone);
 		SmartDashboard.putDouble("RobotMap.driveLoopRamp", RobotMap.driveLoopRamp);
 		SmartDashboard.putInt("RobotMap.driveProfile", RobotMap.driveProfile);
+		SmartDashboard.putInt("driveLoopError", RobotMap.driveLoopError);
 
 		RobotMap.drivePea = SmartDashboard.getDouble("RobotMap.drivePea");
 		RobotMap.driveEye = SmartDashboard.getDouble("RobotMap.driveEye");
@@ -203,7 +207,7 @@ public class DriveTrain extends BulldogSystem
 		RobotMap.driveEyeZone = SmartDashboard.getInt("RobotMap.driveEyeZone");
 		RobotMap.driveLoopRamp = SmartDashboard.getDouble("RobotMap.driveLoopRamp");
 		RobotMap.driveProfile = SmartDashboard.getInt("RobotMap.driveProfile");
-
+		RobotMap.driveLoopError = SmartDashboard.getInt("driveLoopError");
 	}
 
 	public void initDefaultCommand()
