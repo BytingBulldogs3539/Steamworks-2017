@@ -13,6 +13,7 @@ public class AutonDriveForward extends Command
 	
 	public AutonDriveForward(int ticks)
 	{
+		System.out.println("Constructed AutonDriveForward");
 		requires(Robot.driveTrain);
 		myTicks = ticks;
 	}

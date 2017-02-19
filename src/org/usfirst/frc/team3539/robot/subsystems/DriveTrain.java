@@ -63,7 +63,8 @@ public class DriveTrain extends BulldogSystem
 		rfMotor.setPID(RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee, RobotMap.driveEff, RobotMap.driveEyeZone,
 				RobotMap.driveLoopRamp, RobotMap.driveProfile);
 
-		rfMotor.reverseOutput(true);
+		lfMotor.reverseOutput(true);
+		lfMotor.reverseSensor(true);
 		
 		lfMotor.setAllowableClosedLoopErr(RobotMap.driveLoopError);
 		rfMotor.setAllowableClosedLoopErr(RobotMap.driveLoopError);
@@ -73,7 +74,6 @@ public class DriveTrain extends BulldogSystem
 		persistentTick = 0;
 		distanceTraveled = 0;
 		eGyro = 0;
-
 	}
 
 	public void driveXTicks(double ticks)

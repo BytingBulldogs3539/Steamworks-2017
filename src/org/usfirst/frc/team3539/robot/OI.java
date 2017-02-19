@@ -51,7 +51,7 @@ public class OI
 		// Done - works properly
 
 		// STICKONE
-		onebuttonx.whenPressed(new TransmissionCommand()); // Done
+		onebuttona.whenPressed(new TransmissionCommand()); // Done
 
 		// STICKTWO
 		twobuttona.whenPressed(new GearCommand()); // Done
