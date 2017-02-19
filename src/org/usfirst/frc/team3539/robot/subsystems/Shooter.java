@@ -34,10 +34,10 @@ public class Shooter extends BulldogSystem
 		shooterTwoMotor.changeControlMode(TalonControlMode.Follower);
 		shooterTwoMotor.set(RobotMap.shooterOneMotorTalon);
 
-		//shooterHoodMotor.setForwardSoftLimit(/*put something in here*/);
-		//shooterHoodMotor.enableForwardSoftLimit(true);
-		//shooterHoodMotor.setReverseSoftLimit(/*put something in here*/);
-		//shooterHoodMotor.enableReverseSoftLimit(true);
+		shooterHoodMotor.setForwardSoftLimit(2060);
+		shooterHoodMotor.enableForwardSoftLimit(true);
+		shooterHoodMotor.setReverseSoftLimit(410);
+		shooterHoodMotor.enableReverseSoftLimit(true);
 
 		shooterOneMotor.setEncPosition(0);
 	}
