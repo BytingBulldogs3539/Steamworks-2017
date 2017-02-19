@@ -19,6 +19,7 @@ public class AutonDriveForward extends Command
 
 	protected void initialize()
 	{
+		Robot.driveTrain.driveXTicks(myTicks);
 	}
 
 	protected void execute()

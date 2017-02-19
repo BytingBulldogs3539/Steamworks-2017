@@ -67,7 +67,8 @@ public class Robot extends IterativeRobot
 	public void autonomousInit()
 	{
 		System.out.println("autonomousInit");
-		//autoMode = (Command) autoChooser.getSelected(); //Auton disabled
+		
+		autoMode = (Command) autoChooser.getSelected(); //Command to disable auton
 		if(autoMode != null)
 			autoMode.start();
 		driveTrain.gyroReset();
