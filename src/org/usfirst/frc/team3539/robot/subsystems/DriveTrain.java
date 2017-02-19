@@ -2,7 +2,7 @@ package org.usfirst.frc.team3539.robot.subsystems;
 
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
-import org.usfirst.frc.team3539.robot.commands.TankDriveCommand;
+import org.usfirst.frc.team3539.robot.commands.DriveCommand;
 
 import com.ctre.CANTalon;
 import com.ctre.CANTalon.TalonControlMode;
@@ -206,6 +206,6 @@ public class DriveTrain extends BulldogSystem
 
 	public void initDefaultCommand()
 	{
-		setDefaultCommand(new TankDriveCommand());
+		setDefaultCommand(new DriveCommand());
 	}
 }

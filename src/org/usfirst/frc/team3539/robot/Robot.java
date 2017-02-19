@@ -1,12 +1,7 @@
 package org.usfirst.frc.team3539.robot;
 
-import org.usfirst.frc.team3539.robot.commands.ClimbCommand;
-import org.usfirst.frc.team3539.robot.commands.LockCommand;
-import org.usfirst.frc.team3539.robot.commands.VoidCommand;
-import org.usfirst.frc.team3539.robot.subsystems.GearManipulator;
-import org.usfirst.frc.team3539.robot.subsystems.Intake;
-import org.usfirst.frc.team3539.robot.subsystems.Shooter;
-import org.usfirst.frc.team3539.robot.subsystems.TankDrive;
+import org.usfirst.frc.team3539.robot.commands.*;
+import org.usfirst.frc.team3539.robot.subsystems.*;
 
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.CameraServer;
@@ -29,7 +24,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot
 {
 	//SUBSYSTEMS
-	public static final TankDrive tankDriveTrain = new TankDrive();
+	//public static final TankDrive tankDriveTrain = new TankDrive();
+	public static final DriveTrain driveTrain = new DriveTrain();
 	public static final Shooter shooter = new Shooter();
 	public static final Intake intake = new Intake();
 	public static final GearManipulator manipulator = new GearManipulator();
@@ -74,7 +70,7 @@ public class Robot extends IterativeRobot
 		//autoMode = (Command) autoChooser.getSelected(); //Auton disabled
 		if(autoMode != null)
 			autoMode.start();
-		tankDriveTrain.gyroReset();
+		driveTrain.gyroReset();
 	}
 
 	// This function is called periodically during autonomous
@@ -90,7 +86,7 @@ public class Robot extends IterativeRobot
 		System.out.println("teleopInit");
 		if(autoMode != null)
 			autoMode.cancel();
-		tankDriveTrain.gyroReset();
+		driveTrain.gyroReset();
 	}
 
 	// This function is called periodically during operator control
@@ -113,7 +109,7 @@ public class Robot extends IterativeRobot
 		intake.Update();
 		shooter.Update();
 		manipulator.Update();
-		tankDriveTrain.Update();
+		driveTrain.Update();
 	}
 
 	public void SmartInit()
@@ -122,14 +118,14 @@ public class Robot extends IterativeRobot
 		intake.SmartInit();
 		shooter.SmartInit();
 		manipulator.SmartInit();
-		tankDriveTrain.SmartInit();
+		driveTrain.SmartInit();
 
 		autoChooser = new SendableChooser<Command>();
 		teleopChooser = new SendableChooser<Command>();
 
 		SmartDashboard.putData("Auto mode", autoChooser);
 		autoChooser.addDefault("No Auton, Default", new VoidCommand());
-		autoChooser.addObject("No Auton", new VoidCommand());
+		autoChooser.addObject("Drive Forward", new AutonDriveForward(50000));
 
 		SmartDashboard.putData("Tele mode", teleopChooser);
 		teleopChooser.addDefault("Vision, Default", new VoidCommand()); //Switch with teleop commands
@@ -138,7 +134,7 @@ public class Robot extends IterativeRobot
 		SmartDashboard.putData(shooter);
 		SmartDashboard.putData(intake);
 		SmartDashboard.putData(manipulator);
-		SmartDashboard.putData(tankDriveTrain);
+		SmartDashboard.putData(driveTrain);
 
 		selectCommands = new SendableChooser<Command>();
 		selectCommands.addObject("Climb", new ClimbCommand());

@@ -7,13 +7,14 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class TransmissionCommand extends Command
+public class AutonDriveForward extends Command
 {
-
-	public TransmissionCommand()
+	private int myTicks;
+	
+	public AutonDriveForward(int ticks)
 	{
-		super("TransmissionCommand");
 		requires(Robot.driveTrain);
+		myTicks = ticks;
 	}
 
 	protected void initialize()
@@ -22,7 +23,7 @@ public class TransmissionCommand extends Command
 
 	protected void execute()
 	{
-		Robot.driveTrain.changeGears();
+		System.out.println("Execute");
 	}
 
 	protected boolean isFinished()
@@ -32,6 +33,7 @@ public class TransmissionCommand extends Command
 
 	protected void end()
 	{
+		System.out.println("end");
 	}
 
 	protected void interrupted()

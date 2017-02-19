@@ -8,12 +8,12 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class TankDriveCommand extends Command
+public class DriveCommand extends Command
 {
-	public TankDriveCommand()
+	public DriveCommand()
 	{
-		super("TankDriveCommand");
-		requires(Robot.tankDriveTrain);
+		super("DriveCommand");
+		requires(Robot.driveTrain);
 	}
 
 	protected void initialize()
@@ -22,7 +22,7 @@ public class TankDriveCommand extends Command
 
 	protected void execute()
 	{
-		Robot.tankDriveTrain.driveArcade(Robot.oi.controller1.getRawAxis(RobotMap.Y_AxisL),
+		Robot.driveTrain.driveArcade(Robot.oi.controller1.getRawAxis(RobotMap.Y_AxisL),
 				Robot.oi.controller1.getRawAxis(RobotMap.X_AxisR));
 	}
 
