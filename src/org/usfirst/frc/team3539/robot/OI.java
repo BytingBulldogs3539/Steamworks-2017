@@ -3,14 +3,14 @@ package org.usfirst.frc.team3539.robot;
 import org.usfirst.frc.team3539.robot.commands.ClimbCommand;
 import org.usfirst.frc.team3539.robot.commands.GearCommand;
 import org.usfirst.frc.team3539.robot.commands.HoodCommand;
-import org.usfirst.frc.team3539.robot.commands.TransmissionCommand;
-import org.usfirst.frc.team3539.robot.commands.Unjam;
-import org.usfirst.frc.team3539.robot.commands.UnjamIntakeCommand;
-import org.usfirst.frc.team3539.robot.commands.VisionTrackCommand;
-import org.usfirst.frc.team3539.robot.utilities.TriggerButton;
 import org.usfirst.frc.team3539.robot.commands.IntakeCommand;
 import org.usfirst.frc.team3539.robot.commands.SetPointCommand;
 import org.usfirst.frc.team3539.robot.commands.ShooterCommand;
+import org.usfirst.frc.team3539.robot.commands.TransmissionCommand;
+import org.usfirst.frc.team3539.robot.commands.UnjamAgitatorCommand;
+import org.usfirst.frc.team3539.robot.commands.UnjamIntakeCommand;
+import org.usfirst.frc.team3539.robot.commands.VisionTrackCommand;
+import org.usfirst.frc.team3539.robot.utilities.TriggerButton;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -60,7 +60,7 @@ public class OI
 		twobuttony.whenPressed(new VisionTrackCommand()); // Test
 
 		twobumperr.whileHeld(new ClimbCommand()); // Done
-		twotriggerl.whenPressed(new Unjam()); // Done
+		twotriggerl.whenPressed(new UnjamAgitatorCommand()); // Test
 		twobumperl.whenPressed(new UnjamIntakeCommand()); // Done
 	}
 
@@ -68,5 +68,10 @@ public class OI
 	{
 		intakeTrigger.checkValue();
 		shooterTrigger.checkValue();
+	}
+
+	public void SmartInit()
+	{
+
 	}
 }

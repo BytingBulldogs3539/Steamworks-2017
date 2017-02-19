@@ -8,32 +8,31 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class SetPointCommand extends Command
+public class UnjamAgitatorCommand extends Command
 {
 
-	public SetPointCommand()
+	public UnjamAgitatorCommand()
 	{
-		super("SetPointCommand");
 		requires(Robot.shooter);
 	}
 
 	protected void initialize()
 	{
-
 	}
 
 	protected void execute()
 	{
-		Robot.shooter.setHoodAngle(Robot.oi.controller2.getRawAxis(RobotMap.Y_AxisL));
+		Robot.shooter.setAgitatorMotorPower(RobotMap.unjamAgitatorSpeed);
 	}
 
 	protected boolean isFinished()
 	{
-		return false;
+		return(!Robot.oi.twotriggerl.get());
 	}
 
 	protected void end()
 	{
+		Robot.shooter.setAgitatorMotorPower(0);
 	}
 
 	protected void interrupted()

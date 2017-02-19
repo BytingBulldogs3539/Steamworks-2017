@@ -11,8 +11,10 @@ public abstract class BulldogSystem extends Subsystem
 	{
 		super(name);
 	}
-	
+
 	public abstract void Update();
+
+	public abstract void SmartInit();
 
 	public void initDefaultCommand()
 	{

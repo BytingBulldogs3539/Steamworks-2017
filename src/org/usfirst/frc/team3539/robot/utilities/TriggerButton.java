@@ -1,7 +1,5 @@
 package org.usfirst.frc.team3539.robot.utilities;
 
-import org.usfirst.frc.team3539.robot.commands.IntakeCommand;
-
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -12,7 +10,7 @@ public class TriggerButton
 	private Joystick controller;
 	private Command command;
 	public boolean triggerValue;
-	
+
 	public TriggerButton(int axis, Joystick joystick)
 	{
 		triggerAxis = axis;
@@ -20,6 +18,7 @@ public class TriggerButton
 		triggerValue = false;
 		this.command = null;
 	}
+
 	public TriggerButton(int axis, Joystick joystick, Command command)
 	{
 		triggerAxis = axis;
@@ -27,18 +26,20 @@ public class TriggerButton
 		triggerValue = false;
 		this.command = command;
 	}
-	
+
 	public boolean getValue()
 	{
 		return checkValue();
 	}
+
 	public boolean checkValue()
 	{
 		if(controller.getRawAxis(triggerAxis) > .75 && triggerValue == false)
 		{
 			triggerValue = true;
 			System.out.println("triggered");
-			if (command != null){
+			if(command != null)
+			{
 				Scheduler.getInstance().add(command);
 			}
 		}

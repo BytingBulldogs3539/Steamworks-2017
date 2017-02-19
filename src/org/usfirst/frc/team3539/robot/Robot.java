@@ -1,8 +1,15 @@
 package org.usfirst.frc.team3539.robot;
 
-import org.usfirst.frc.team3539.robot.commands.*;
-import org.usfirst.frc.team3539.robot.subsystems.*;
+import org.usfirst.frc.team3539.robot.commands.ClimbCommand;
+import org.usfirst.frc.team3539.robot.commands.LockCommand;
+import org.usfirst.frc.team3539.robot.commands.VoidCommand;
+import org.usfirst.frc.team3539.robot.subsystems.GearManipulator;
+import org.usfirst.frc.team3539.robot.subsystems.Intake;
+import org.usfirst.frc.team3539.robot.subsystems.Shooter;
+import org.usfirst.frc.team3539.robot.subsystems.TankDrive;
 
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -10,8 +17,6 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.cscore.UsbCamera;
-import edu.wpi.first.wpilibj.CameraServer;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -28,7 +33,7 @@ public class Robot extends IterativeRobot
 	public static final Shooter shooter = new Shooter();
 	public static final Intake intake = new Intake();
 	public static final GearManipulator manipulator = new GearManipulator();
-	
+
 	public static Compressor c;
 	public static OI oi;
 
@@ -40,38 +45,12 @@ public class Robot extends IterativeRobot
 		c = new Compressor(RobotMap.compressor);
 
 		oi = new OI();
-		System.out.println("after OI constructor");
-		autoChooser = new SendableChooser<Command>();
-		teleopChooser = new SendableChooser<Command>();
 
-		SmartDashboard.putData("Auto mode", autoChooser);
-		autoChooser.addDefault("No Auton, Default", new VoidCommand());
-		autoChooser.addObject("No Auton", new VoidCommand());
+		SmartInit();
 
-		SmartDashboard.putData("Tele mode", teleopChooser);
-		teleopChooser.addDefault("Vision, Default", new VoidCommand()); //Switch with teleop commands
-		teleopChooser.addObject("No Vision", new VoidCommand());
-
-
-		SmartDashboard.putData(intake);
-		SmartDashboard.putData(shooter);
-		SmartDashboard.putData(manipulator);
-		SmartDashboard.putData(tankDriveTrain);
-		
-		SmartDashboard.putNumber("Shooter Speed", (RobotMap.shootSpeed * -1));
-		
-		
-		selectCommands = new SendableChooser<Command>();
-		selectCommands.addObject("Climb", new ClimbCommand());
-		selectCommands.addObject("Climb", new LockCommand());
-		
-		
-		SmartDashboard.putData("Command Select", selectCommands);
-		
 		UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
 		camera.setResolution(480, 360);
-		
-		
+
 	}
 
 	/**
@@ -103,7 +82,7 @@ public class Robot extends IterativeRobot
 	public void autonomousPeriodic()
 	{
 		Scheduler.getInstance().run();
-		update();
+		Update();
 	}
 
 	public void teleopInit()
@@ -118,22 +97,55 @@ public class Robot extends IterativeRobot
 	public void teleopPeriodic()
 	{
 		Scheduler.getInstance().run();
-		update();
+		Update();
 	}
 
 	// This function is called periodically during test mode
 	public void testPeriodic()
 	{
-		update();
+		Update();
 		LiveWindow.run();
 	}
 
-	public void update()
+	public void Update()
 	{
 		oi.Update();
 		intake.Update();
 		shooter.Update();
 		manipulator.Update();
 		tankDriveTrain.Update();
+	}
+
+	public void SmartInit()
+	{
+		oi.SmartInit();
+		intake.SmartInit();
+		shooter.SmartInit();
+		manipulator.SmartInit();
+		tankDriveTrain.SmartInit();
+
+		autoChooser = new SendableChooser<Command>();
+		teleopChooser = new SendableChooser<Command>();
+
+		SmartDashboard.putData("Auto mode", autoChooser);
+		autoChooser.addDefault("No Auton, Default", new VoidCommand());
+		autoChooser.addObject("No Auton", new VoidCommand());
+
+		SmartDashboard.putData("Tele mode", teleopChooser);
+		teleopChooser.addDefault("Vision, Default", new VoidCommand()); //Switch with teleop commands
+		teleopChooser.addObject("No Vision", new VoidCommand());
+
+		SmartDashboard.putData(shooter);
+		SmartDashboard.putData(intake);
+		SmartDashboard.putData(manipulator);
+		SmartDashboard.putData(tankDriveTrain);
+
+		selectCommands = new SendableChooser<Command>();
+		selectCommands.addObject("Climb", new ClimbCommand());
+		selectCommands.addObject("Climb", new LockCommand());
+
+		SmartDashboard.putData("Command Select", selectCommands);
+
+		SmartDashboard.putData(Scheduler.getInstance());
 	}
 }

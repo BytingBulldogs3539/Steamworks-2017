@@ -1,18 +1,17 @@
 package org.usfirst.frc.team3539.robot.subsystems;
 
-import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
 import org.usfirst.frc.team3539.robot.RobotMap;
 
 import com.ctre.CANTalon;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  */
-public class GearManipulator extends Subsystem {
+public class GearManipulator extends BulldogSystem
+{
 	@SuppressWarnings("unused")
 	private CANTalon hoodCan;
 	@SuppressWarnings("unused")
@@ -24,7 +23,8 @@ public class GearManipulator extends Subsystem {
 	private boolean hoodStatus;
 	private boolean gearStatus;
 
-	public GearManipulator() {
+	public GearManipulator()
+	{
 		super("GearManipulator");
 		hoodStatus = true;
 		gearStatus = false;
@@ -37,43 +37,64 @@ public class GearManipulator extends Subsystem {
 		gear = new DoubleSolenoid(RobotMap.pcm, RobotMap.gearSolOn, RobotMap.gearSolOff);
 	}
 
-	public void flipHood() {
+	public void flipHood()
+	{
 		hoodStatus = !hoodStatus;
 
-		if (hoodStatus == true) {
+		if(hoodStatus == true)
+		{
 			hood.set(DoubleSolenoid.Value.kForward);
 		}
-		if (hoodStatus == false) {
+		if(hoodStatus == false)
+		{
 			hood.set(DoubleSolenoid.Value.kReverse);
 		}
 	}
 
-	public void GearHolders() {
+	public void GearHolders()
+	{
 		gearStatus = !gearStatus;
 
-		if (gearStatus == true) {
+		if(gearStatus == true)
+		{
 			gear.set(DoubleSolenoid.Value.kForward);
 		}
-		if (gearStatus == false) {
+		if(gearStatus == false)
+		{
 			gear.set(DoubleSolenoid.Value.kReverse);
 		}
 	}
 
-	public void initDefaultCommand() {
+	public void initDefaultCommand()
+	{
 	}
 
-	public void Update() {
-		SmartDashboard.putString("Hood Status", "-");
-		SmartDashboard.putString("Gear Holder Status", "-");
-		if (hoodStatus == true) {
+	@Override
+	public void Update()
+	{
+		if(hoodStatus == true)
+		{
 			SmartDashboard.putString("Hood Status", "Opened");
-		} else {
+		}
+		else
+		{
 			SmartDashboard.putString("Hood Status", "Closed");
 		}
-		if (gearStatus == true) {
+
+		if(gearStatus == true)
+		{
 			SmartDashboard.putString("Gear Holder Status", "Opened");
-		} else {
+		}
+		else
+		{
 			SmartDashboard.putString("Gear Holder Status", "Closed");
 		}
+	}
+
+	@Override
+	public void SmartInit()
+	{
+		SmartDashboard.putString("Hood Status", "--");
+		SmartDashboard.putString("Gear Holder Status", "--");
 	}
 }

@@ -10,7 +10,6 @@ import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SPI;
-import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 //import edu.wpi.first.wpilibj.Encoder;
 
@@ -34,7 +33,7 @@ public class TankDrive extends BulldogSystem
 		super("TankDrive");
 
 		gyro = new ADXRS450_Gyro(SPI.Port.kOnboardCS0);// Needs to be above
-					  									// anything using gyro
+														// anything using gyro
 
 		lfMotor = new CANTalon(RobotMap.lfMotorTalon);
 		lbMotor = new CANTalon(RobotMap.lbMotorTalon);
@@ -46,7 +45,7 @@ public class TankDrive extends BulldogSystem
 		drive = new RobotDrive(lfMotor, lbMotor, rfMotor, rbMotor);
 		driveCan = new CANTalon(RobotMap.pcm);
 
-		sol = new DoubleSolenoid(RobotMap.pcm,RobotMap.driveSolOn, RobotMap.driveSolOff);
+		sol = new DoubleSolenoid(RobotMap.pcm, RobotMap.driveSolOn, RobotMap.driveSolOff);
 		solieStatus = false;
 		sol.set(DoubleSolenoid.Value.kOff);
 	}
@@ -79,11 +78,11 @@ public class TankDrive extends BulldogSystem
 	{
 		solieStatus = !solieStatus;
 
-		if (solieStatus == true)
+		if(solieStatus == true)
 		{
 			sol.set(DoubleSolenoid.Value.kForward);
 		}
-		if (solieStatus == false)
+		if(solieStatus == false)
 		{
 			sol.set(DoubleSolenoid.Value.kReverse);
 		}
@@ -93,13 +92,14 @@ public class TankDrive extends BulldogSystem
 	{
 		lfMotor.setEncPosition(0);
 		rfMotor.setEncPosition(0);
-		if (lfMotor.getEncPosition() <= ticks && rfMotor.getEncPosition() >= -ticks)
+		if(lfMotor.getEncPosition() <= ticks && rfMotor.getEncPosition() >= -ticks)
 		{
 			lfMotor.set(power);
 			lbMotor.set(power);
 			rfMotor.set(-power);
 			rbMotor.set(-power);
-		} else // This entire method does not take PID into account
+		}
+		else // This entire method does not take PID into account
 		{
 			lfMotor.set(0);
 			lbMotor.set(0);
@@ -112,9 +112,9 @@ public class TankDrive extends BulldogSystem
 	{
 		lfMotor.setEncPosition(0);
 		rfMotor.setEncPosition(0);
-		if (direction == "r")
+		if(direction == "r")
 		{
-			if (lfMotor.getEncPosition() >= ticks && rfMotor.getEncPosition() >= ticks)
+			if(lfMotor.getEncPosition() >= ticks && rfMotor.getEncPosition() >= ticks)
 			{
 				lfMotor.set(power);
 				lbMotor.set(power);
@@ -122,9 +122,9 @@ public class TankDrive extends BulldogSystem
 				rbMotor.set(power);
 			}
 		} // This entire method does not take PID into account
-		else if (direction == "l")
+		else if(direction == "l")
 		{
-			if (lfMotor.getEncPosition() <= -ticks && rfMotor.getEncPosition() <= -ticks)
+			if(lfMotor.getEncPosition() <= -ticks && rfMotor.getEncPosition() <= -ticks)
 			{
 				lfMotor.set(-power);
 				lbMotor.set(-power);
@@ -138,12 +138,12 @@ public class TankDrive extends BulldogSystem
 	{
 		setDefaultCommand(new TankDriveCommand());
 	}
+
+	@Override
 	@SuppressWarnings("deprecation")
 	public void Update()
 	{
-		
-		SmartDashboard.putString("Drive Gear", "--");
-		if (solieStatus == true)
+		if(solieStatus == true)
 		{
 			SmartDashboard.putString("Drive Gear", "High");
 		}
@@ -154,6 +154,13 @@ public class TankDrive extends BulldogSystem
 		SmartDashboard.putDouble("GyroVelocity", gyro.getRate());
 		SmartDashboard.putDouble("GryoAngle", gyro.getAngle() % 360);
 	}
+
+	@Override
+	public void SmartInit()
+	{
+		SmartDashboard.putString("Drive Gear", "--");
+	}
+
 	public void gyroReset()
 	{
 		gyro.reset();
