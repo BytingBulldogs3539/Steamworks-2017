@@ -44,8 +44,8 @@ public class Robot extends IterativeRobot
 
 		SmartInit();
 
-		UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
-		camera.setResolution(480, 360);
+		//UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
+		//camera.setResolution(480, 360);
 
 	}
 
