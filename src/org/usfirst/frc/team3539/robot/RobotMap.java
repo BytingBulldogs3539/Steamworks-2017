@@ -95,4 +95,8 @@ public class RobotMap//test
 	public static final int pcm = 10;
 
 	//TEST
+	
+	
+	//Light
+	public static int ballcount= 0;
 }
