@@ -13,29 +13,30 @@ public class AutonDriveForward extends Command
 	
 	public AutonDriveForward(int ticks)
 	{
-		System.out.println("Constructed AutonDriveForward");
 		requires(Robot.driveTrain);
 		myTicks = ticks;
 	}
 
 	protected void initialize()
 	{
+		Robot.driveTrain.talonControlPosition();
+		Robot.driveTrain.enableControl();
 		Robot.driveTrain.driveXTicks(myTicks);
 	}
 
 	protected void execute()
 	{
-		System.out.println("Execute");
 	}
 
 	protected boolean isFinished()
 	{
-		return true;
+		return false;
 	}
 
 	protected void end()
 	{
 		System.out.println("end");
+		Robot.driveTrain.talonControlVBus();
 	}
 
 	protected void interrupted()
