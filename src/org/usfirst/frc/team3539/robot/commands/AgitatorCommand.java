@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class AgitatorCommand extends Command
+public class AgitatorCommand extends BulldogCommand
 {
 	public AgitatorCommand()
 	{
@@ -18,6 +18,7 @@ public class AgitatorCommand extends Command
 
 	protected void initialize()
 	{
+		super.initialize("AgitatorCommand");
 	}
 
 	protected void execute()
@@ -33,6 +34,7 @@ public class AgitatorCommand extends Command
 	protected void end()
 	{
 		Robot.shooter.setMotorPower(0);
+		super.end("AgitatorCommand");
 	}
 
 	protected void interrupted()
