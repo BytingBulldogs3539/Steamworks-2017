@@ -1,6 +1,7 @@
 package org.usfirst.frc.team3539.robot.commands;
 
 import org.usfirst.frc.team3539.robot.Robot;
+import org.usfirst.frc.team3539.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -9,14 +10,11 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 
 public class LightCommand extends Command
-{
-	int BallCount;
-
+{	
 	public LightCommand()
 	{
-		System.out.println(BallCount);
-		// Use requires() here to declare subsystem dependencies
-		// eg. requires(chassis);
+		System.out.println(RobotMap.ballCount);
+		requires(Robot.shooter);
 	}
 
 	// Called just before this Command runs the first time
@@ -31,7 +29,7 @@ public class LightCommand extends Command
 		if(Robot.shooter.getlight() == true)
 		{
 			Robot.shooter.ballCount();
-			System.out.println(BallCount);
+			System.out.println(RobotMap.ballCount);
 		}
 	}
 
