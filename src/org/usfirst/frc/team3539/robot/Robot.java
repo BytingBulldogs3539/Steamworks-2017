@@ -35,7 +35,7 @@ public class Robot extends IterativeRobot
 	public static Boolean light;
 
 	public static final LightCommand ligh = new LightCommand();
-	public static final LightSensor lighhtt = new LightSensor();
+	//public static final LightSensor lighhtt = new LightSensor();
 	
 	Command autoMode, teleopMode;
 	SendableChooser<Command> autoChooser, teleopChooser, selectCommands;
@@ -144,9 +144,10 @@ public class Robot extends IterativeRobot
 		selectCommands = new SendableChooser<Command>();
 		selectCommands.addObject("Climb", new ClimbCommand());
 		selectCommands.addObject("Climb", new LockCommand());
+		
 
 		SmartDashboard.putData("Command Select", selectCommands);
-
+		
 		SmartDashboard.putData(Scheduler.getInstance());
 	}
 }

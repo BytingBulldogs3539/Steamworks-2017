@@ -1,5 +1,6 @@
 package org.usfirst.frc.team3539.robot.subsystems;
 
+import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
 
 import com.ctre.CANTalon;
@@ -16,6 +17,11 @@ public class Shooter extends BulldogSystem
 
 	//private Encoder servoEncoder;
 
+	public static void init(Boolean lightSensor_in)
+	{
+		Robot.light = lightSensor_in;
+
+	}
 	public Shooter()
 	{
 		super("Shooter");
@@ -75,6 +81,15 @@ public class Shooter extends BulldogSystem
 		agitatorMotor.set(power);
 	}
 
+	public Boolean getlight()
+	{
+		return Robot.light;
+	}
+	public void ballCount()
+	{
+		
+		RobotMap.ballcount +=1;
+	}
 	public void initDefaultCommand()
 	{
 	}
