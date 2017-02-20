@@ -107,6 +107,7 @@ public class Robot extends IterativeRobot
 
 	public void Update()
 	{
+		
 		oi.Update();
 		intake.Update();
 		shooter.Update();
