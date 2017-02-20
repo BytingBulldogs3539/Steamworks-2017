@@ -31,6 +31,7 @@ public class LightCommand extends Command
 		if(Robot.lighhtt.getlight() == true)
 		{
 			Robot.lighhtt.ballCount();
+			System.out.println(BallCount);
 			
 		}
 	}
