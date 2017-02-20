@@ -32,7 +32,6 @@ public class LightCommand extends Command
 		{
 			Robot.shooter.ballCount();
 			System.out.println(BallCount);
-			
 		}
 	}
 

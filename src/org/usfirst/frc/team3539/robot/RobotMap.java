@@ -99,4 +99,5 @@ public class RobotMap//test
 	
 	//LIGHT
 	public static int ballCount = 0;
+	public static Boolean light;
 }

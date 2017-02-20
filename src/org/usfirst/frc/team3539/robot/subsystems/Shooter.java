@@ -1,6 +1,5 @@
 package org.usfirst.frc.team3539.robot.subsystems;
 
-import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
 
 import com.ctre.CANTalon;
@@ -15,13 +14,13 @@ public class Shooter extends BulldogSystem
 	private CANTalon shooterHoodMotor;
 	private CANTalon agitatorMotor;
 
-	//private Encoder servoEncoder;
+	// private Encoder servoEncoder;
 
 	public static void init(Boolean lightSensor_in)
 	{
-		Robot.light = lightSensor_in;
-
+		RobotMap.light = lightSensor_in;
 	}
+
 	public Shooter()
 	{
 		super("Shooter");
@@ -74,7 +73,8 @@ public class Shooter extends BulldogSystem
 
 	public void setHoodAngle(double angle)
 	{
-		shooterHoodMotor.set(angle); //Sets "outputValue", Might be wrong method
+		shooterHoodMotor.set(angle); // Sets "outputValue", Might be wrong
+										// method
 	}
 
 	public void setAgitatorMotorPower(double power)
@@ -84,13 +84,14 @@ public class Shooter extends BulldogSystem
 
 	public Boolean getlight()
 	{
-		return Robot.light;
+		return RobotMap.light;
 	}
+
 	public void ballCount()
 	{
-		
-		//RobotMap.ballcount +=1;
+		RobotMap.ballCount += 1;
 	}
+
 	public void initDefaultCommand()
 	{
 	}
