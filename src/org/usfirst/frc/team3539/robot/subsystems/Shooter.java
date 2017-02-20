@@ -60,6 +60,7 @@ public class Shooter extends BulldogSystem
 	{
 		SmartDashboard.putDouble("Shooter RPM", shooterTwoMotor.getPulseWidthVelocity());
 		SmartDashboard.putDouble("Shooter Encoder", shooterHoodMotor.getPulseWidthPosition());
+		SmartDashboard.putInt("Ball Count", RobotMap.ballCount);
 	}
 
 	@Override
@@ -88,7 +89,7 @@ public class Shooter extends BulldogSystem
 	public void ballCount()
 	{
 		
-		RobotMap.ballcount +=1;
+		//RobotMap.ballcount +=1;
 	}
 	public void initDefaultCommand()
 	{
