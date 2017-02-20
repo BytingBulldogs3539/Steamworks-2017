@@ -23,15 +23,19 @@ public class ShooterCommand extends Command
 
 	protected void execute()
 	{
-		Robot.shooter.setMotorPower(RobotMap.shootSpeed);
+		/*Robot.shooter.setMotorPower(RobotMap.shootSpeed);
 		Robot.shooter.setAgitatorMotorPower(RobotMap.agitatorSpeed);
-		
-		if(Robot.shooter.getlight() == false)
+		System.out.println(Robot.shooter.getlight());
+
+		if (Robot.shooter.getlight() == 1)
 		{
 			Robot.shooter.ballCount();
-			System.out.println(RobotMap.ballCount);
-		}
-		
+			System.out.println("dominik" + RobotMap.ballCount);
+		} else
+		{
+			System.out.println("dominik" + RobotMap.ballCount);
+		}*/
+
 	}
 
 	protected boolean isFinished()

@@ -89,6 +89,7 @@ public class Robot extends IterativeRobot
 		if(autoMode != null)
 			autoMode.cancel();
 		driveTrain.gyroReset();
+		Scheduler.getInstance().add(new DriveCommand());
 	}
 
 	// This function is called periodically during operator control

@@ -1,5 +1,7 @@
 package org.usfirst.frc.team3539.robot;
 
+import edu.wpi.first.wpilibj.DigitalInput;
+
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -99,5 +101,5 @@ public class RobotMap//test
 	
 	//LIGHT
 	public static int ballCount = 0;
-	public static Boolean light = true;
+	public static DigitalInput light;
 }

@@ -18,6 +18,7 @@ public class TransmissionCommand extends Command
 
 	protected void initialize()
 	{
+		System.out.println("Init TransmissionCommand");
 	}
 
 	protected void execute()

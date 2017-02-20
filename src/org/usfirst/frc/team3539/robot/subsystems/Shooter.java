@@ -5,6 +5,7 @@ import org.usfirst.frc.team3539.robot.RobotMap;
 import com.ctre.CANTalon;
 import com.ctre.CANTalon.TalonControlMode;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Shooter extends BulldogSystem
@@ -16,7 +17,7 @@ public class Shooter extends BulldogSystem
 
 	// private Encoder servoEncoder;
 
-	public static void init(Boolean lightSensor_in)
+	public static void init(DigitalInput lightSensor_in)
 	{
 		RobotMap.light = lightSensor_in;
 	}
@@ -82,7 +83,7 @@ public class Shooter extends BulldogSystem
 		agitatorMotor.set(power);
 	}
 
-	public Boolean getlight()
+	public DigitalInput getlight()
 	{
 		return RobotMap.light;
 	}

@@ -18,6 +18,7 @@ public class DriveCommand extends Command
 
 	protected void initialize()
 	{
+		System.out.println("Init DriveCommand");
 	}
 
 	protected void execute()
