@@ -83,16 +83,12 @@ public class Shooter extends BulldogSystem
 		agitatorMotor.set(power);
 	}
 
-	public DigitalInput getlight()
-	{
-		return RobotMap.light;
-	}
-
+	/*
 	public void ballCount()
 	{
-		RobotMap.ballCount += 1;
+		RobotMap.ballCount++;
 	}
-
+*/
 	public void initDefaultCommand()
 	{
 	}
