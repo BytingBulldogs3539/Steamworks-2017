@@ -4,13 +4,18 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 //import edu.wpi.first.wpilibj.DigitalInput;
 import org.usfirst.frc.team3539.robot.*;
 
-public class LightSensor extends Subsystem
+public class LightSensor extends BulldogSystem
 {
+
+	public LightSensor()
+	{
+		super("LightSensor");
+		// TODO Auto-generated constructor stub
+	}
 
 	public static void init(Boolean lightSensor_in)
 	{
 		Robot.light = lightSensor_in;
-
 	}
 
 	public void ballCount()
@@ -24,8 +29,22 @@ public class LightSensor extends Subsystem
 		return Robot.light;
 	}
 
-	protected void initDefaultCommand()
+	public void initDefaultCommand()
 	{
+		
+	}
+
+	@Override
+	public void Update()
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void SmartInit()
+	{
+		// TODO Auto-generated method stub
 		
 	}
 }
