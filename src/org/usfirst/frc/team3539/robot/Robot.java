@@ -127,7 +127,7 @@ public class Robot extends IterativeRobot
 
 		SmartDashboard.putData("Auto mode", autoChooser);
 		autoChooser.addDefault("No Auton, Default", new VoidCommand());
-		autoChooser.addObject("Drive Forward", new AutonDriveForward(50000));
+		autoChooser.addObject("Drive Forward", new AutonDriveForward());
 
 		SmartDashboard.putData("Tele mode", teleopChooser);
 		teleopChooser.addDefault("Vision, Default", new VoidCommand()); //Switch with teleop commands

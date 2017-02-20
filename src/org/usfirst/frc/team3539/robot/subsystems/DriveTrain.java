@@ -9,6 +9,7 @@ import com.ctre.CANTalon.TalonControlMode;
 
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.PIDSourceType;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -65,14 +66,13 @@ public class DriveTrain extends BulldogSystem
 		rfMotor.setPID(RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee, RobotMap.driveEff, RobotMap.driveEyeZone,
 				RobotMap.driveLoopRamp, RobotMap.driveProfile);
 
-		//lfMotor.reverseOutput(true);
-		//lfMotor.reverseSensor(true);
-		
 		resetEncoder();
 		
 		lfMotor.setAllowableClosedLoopErr(RobotMap.driveLoopError);
 		rfMotor.setAllowableClosedLoopErr(RobotMap.driveLoopError);
 		
+		//lfMotor.setPIDSourceType(PIDSourceType.kDisplacement);
+		//rfMotor.setPIDSourceType(PIDSourceType.kDisplacement);
 		
 		persistentTick = 0;
 		distanceTraveled = 0;
@@ -89,7 +89,7 @@ public class DriveTrain extends BulldogSystem
 	{
 		persistentTick += ticks;
 		lfMotor.set(ticks);
-		//rfMotor.set
+		rfMotor.set(ticks);
 	}
 
 	public void enableControl()

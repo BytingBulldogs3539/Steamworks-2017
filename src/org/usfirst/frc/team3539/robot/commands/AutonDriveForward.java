@@ -9,23 +9,27 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class AutonDriveForward extends Command
 {
-	private int myTicks;
+	private boolean yes = true;
 	
-	public AutonDriveForward(int ticks)
+	public AutonDriveForward()
 	{
 		requires(Robot.driveTrain);
-		myTicks = ticks;
 	}
 
 	protected void initialize()
 	{
-		Robot.driveTrain.talonControlPosition();
-		Robot.driveTrain.enableControl();
-		Robot.driveTrain.driveXTicks(myTicks);
 	}
 
 	protected void execute()
 	{
+		if(yes)
+		{
+			yes = false;
+
+			Robot.driveTrain.talonControlPosition();
+			Robot.driveTrain.enableControl();
+			Robot.driveTrain.driveXTicks(50000);
+		}
 	}
 
 	protected boolean isFinished()
