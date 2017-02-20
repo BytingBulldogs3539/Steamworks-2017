@@ -26,7 +26,7 @@ public class LightCommand extends Command
 	// Called repeatedly when t+his Command is scheduled to run
 	protected void execute()
 	{
-		if(Robot.shooter.getlight() == true)
+		if(Robot.shooter.getlight() == false)
 		{
 			Robot.shooter.ballCount();
 			System.out.println(RobotMap.ballCount);
