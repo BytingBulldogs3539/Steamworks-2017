@@ -97,6 +97,6 @@ public class RobotMap//test
 	//TEST
 	
 	
-	//Light
-	public static int ballcount= 0;
+	//LIGHT
+	public static int ballCount = 0;
 }
