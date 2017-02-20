@@ -15,6 +15,7 @@ public class PIDtake2
 	private final int izone_lowbound;  // apply ir
 	private final int izone_highbound;
 	private int accumulation;
+	private double p_gradient;
 	private Encoder e;
 	
 	public PIDtake2(double p, double i, double d, int target, Encoder e)
@@ -22,6 +23,7 @@ public class PIDtake2
 		this.P = p;
 		this.I = i;
 		this.D = d;
+		
 		targetencpos = target;
 		getEncPos();
 		univerror = targetencpos - currentencpos;
@@ -31,6 +33,7 @@ public class PIDtake2
 		this.e = e;
 		accumulation = 0;
 		p_motoroutput = 0;
+		p_gradient = 0;
 	}
 	
 	public void getEncPos()
@@ -55,6 +58,11 @@ public class PIDtake2
 	public void calcError()
 	{
 		univerror = targetencpos - currentencpos;
+	}
+	
+	public void calcPGradient()
+	{
+		//p_gradient = (double) (calcError() / targetencpos);
 	}
 	
 	public double UpdatePID() // add common ratio, etc
