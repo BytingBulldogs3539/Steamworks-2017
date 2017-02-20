@@ -25,7 +25,7 @@ public class AutonDriveForward extends Command
 		if(yes)
 		{
 			yes = false;
-
+			System.out.println("Execute Inner");
 			Robot.driveTrain.talonControlPosition();
 			Robot.driveTrain.enableControl();
 			Robot.driveTrain.driveXTicks(50000);

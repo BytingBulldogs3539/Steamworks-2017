@@ -173,7 +173,7 @@ public class DriveTrain extends BulldogSystem
 	@SuppressWarnings("deprecation")
 	public void Update()
 	{
-	/*	if(manipulatorStatus == true)
+		if(manipulatorStatus == true)
 		{
 			SmartDashboard.putString("Drive Gear", "High");
 		}
@@ -189,8 +189,6 @@ public class DriveTrain extends BulldogSystem
 
 		SmartDashboard.putDouble("Left Encoder Value", lfMotor.getEncPosition());
 		SmartDashboard.putDouble("Right Encoder Value", rfMotor.getEncPosition());
-		
-		System.out.println("Talon pos: " + lfMotor.getPosition());*/
 	}
 
 	@Override
