@@ -3,7 +3,7 @@ package org.usfirst.frc.team3539.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 
 // Standard Java libraries
-import java.text.SimpleDateFormat;
+import org.usfirst.frc.team3539.robot.utilities.*;
 
 /**
  * Base class for all Commands for Team 3539
@@ -27,9 +27,7 @@ public abstract class BulldogCommand extends Command
 	{
 		super.initialize();
 		
-		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date());
-		
-		System.out.println("Starting " + name + " at [" + timeStamp + "]");
+		BulldogLogger.getInstance().logDebug("Starting " + name);
 	}
 	
 	/**
@@ -40,9 +38,7 @@ public abstract class BulldogCommand extends Command
 	protected void end(String name)
 	{
 		super.end();
-		
-		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date());
-		
-		System.out.println("  Ending " + name + " at [" + timeStamp + "]");
+
+		BulldogLogger.getInstance().logDebug("Ending " + name);
 	}
 }
