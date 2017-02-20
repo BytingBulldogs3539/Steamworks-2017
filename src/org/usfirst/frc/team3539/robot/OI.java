@@ -60,8 +60,9 @@ public class OI
 		twobuttony.whenPressed(new VisionTrackCommand()); // Test
 
 		twobumperr.whileHeld(new ClimbCommand()); // Done
-		twotriggerl.whenPressed(new UnjamAgitatorCommand()); // Test
 		twobumperl.whenPressed(new UnjamIntakeCommand()); // Done
+		
+		twotriggerl.whenPressed(new UnjamAgitatorCommand()); // Test
 	}
 
 	public void Update()

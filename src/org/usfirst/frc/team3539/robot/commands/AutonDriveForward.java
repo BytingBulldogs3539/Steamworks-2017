@@ -45,6 +45,7 @@ public class AutonDriveForward extends Command
 
 	protected void interrupted()
 	{
+		System.out.println("Interupted");
 		end();
 	}
 }
