@@ -33,7 +33,7 @@ public class Robot extends IterativeRobot
 	public static Compressor c;
 	public static OI oi;
 
-	public static final LightCommand ligh = new LightCommand();
+	//public static final LightCommand ligh = new LightCommand();
 	
 	Command autoMode, teleopMode;
 	SendableChooser<Command> autoChooser, teleopChooser, selectCommands;
