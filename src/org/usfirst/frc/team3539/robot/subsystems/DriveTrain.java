@@ -4,6 +4,7 @@ import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
 
 import com.ctre.CANTalon;
+import com.ctre.CANTalon.FeedbackDevice;
 import com.ctre.CANTalon.TalonControlMode;
 
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
@@ -18,8 +19,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 @SuppressWarnings("unused")
 public class DriveTrain extends BulldogSystem
 {
-	private CANTalon lfMotor, lbMotor, rfMotor, rbMotor;
+	public CANTalon lfMotor, lbMotor, rfMotor, rbMotor;
 
+	public FeedbackDevice lEncoder;
 	private CANTalon driveCan;
 
 	private RobotDrive drive;
@@ -53,6 +55,7 @@ public class DriveTrain extends BulldogSystem
 		lbMotor.set(RobotMap.lfMotorTalon);
 		rbMotor.set(RobotMap.rfMotorTalon);
 
+	
 		drive = new RobotDrive(lfMotor, lbMotor, rfMotor, rbMotor);
 		drive.setSafetyEnabled(false);
 
@@ -238,5 +241,10 @@ public class DriveTrain extends BulldogSystem
 
 	public void initDefaultCommand()
 	{
+	}
+	public void testDrive(double in)
+	{
+		System.out.println("ffff");
+		drive.tankDrive(in, in);
 	}
 }
