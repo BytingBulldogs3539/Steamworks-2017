@@ -29,8 +29,8 @@ public class ShooterCommand extends Command
 		
 		Robot.shooter.setMotorPower(RobotMap.shootSpeed);
 		//System.out.println(RobotMap.light.get());
-		if (RobotMap.shooterRpm >= RobotMap.shootSpeed*28333.33-5000)
-		{
+		if (RobotMap.shooterRpm >= RobotMap.shootSpeed*28333.33-2000)
+		{//Touched
 			Robot.shooter.setAgitatorMotorPower(RobotMap.agitatorSpeed);
 		}
 		else
@@ -40,10 +40,7 @@ public class ShooterCommand extends Command
 		
 		Robot.shooter.setMotorPower(SmartDashboard.getDouble("Shooter Speed"));
 		Robot.shooter.setAgitatorMotorPower(RobotMap.agitatorSpeed);
-<<<<<<< HEAD
 		//System.out.println(Robot.shooter.getlight());
-=======
-		
 		
 	/*	if (RobotMap.light.get() == true)
 	
