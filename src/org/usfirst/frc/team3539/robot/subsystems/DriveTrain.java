@@ -88,10 +88,12 @@ public class DriveTrain extends BulldogSystem
 	public void driveXTicks(double ticks)
 	{
 		persistentTick += ticks;
-	//	lfMotor.set(ticks);
-	//	rfMotor.set(ticks);
-		rfMotor.setEncPosition((int) ticks);
-		lfMotor.setEncPosition((int) ticks);
+		rfMotor.enable();
+		lfMotor.enable();
+		lfMotor.set(ticks);
+		rfMotor.set(ticks);
+	//	rfMotor.setEncPosition((int) ticks);
+	//	lfMotor.setEncPosition((int) ticks);
 	}
 
 	public void enableControl()
