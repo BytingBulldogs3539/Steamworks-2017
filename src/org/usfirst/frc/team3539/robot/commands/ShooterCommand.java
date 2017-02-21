@@ -4,6 +4,7 @@ import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -19,22 +20,32 @@ public class ShooterCommand extends Command
 
 	protected void initialize()
 	{
+	
 	}
 
+	@SuppressWarnings("deprecation")
 	protected void execute()
 	{
-		/*Robot.shooter.setMotorPower(RobotMap.shootSpeed);
-		Robot.shooter.setAgitatorMotorPower(RobotMap.agitatorSpeed);
+		
+		Robot.shooter.setMotorPower(RobotMap.shootSpeed);
 		System.out.println(Robot.shooter.getlight());
-
-		if (Robot.shooter.getlight() == 1)
+		if (RobotMap.shooterRpm >= SmartDashboard.getDouble("Select Agitator Activate Speed"))
+		{
+			Robot.shooter.setAgitatorMotorPower(RobotMap.agitatorSpeed);
+		}
+		else
+		{
+			Robot.shooter.setAgitatorMotorPower(0);
+		}
+		/*if (Robot.shooter.getlight() == 1)
 		{
 			Robot.shooter.ballCount();
 			System.out.println("dominik" + RobotMap.ballCount);
 		} else
 		{
 			System.out.println("dominik" + RobotMap.ballCount);
-		}*/
+		}
+		*/
 
 	}
 

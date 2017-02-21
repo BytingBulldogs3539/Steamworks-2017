@@ -27,7 +27,7 @@ public class UnjamAgitatorCommand extends Command
 
 	protected boolean isFinished()
 	{
-		return(!Robot.oi.twotriggerl.get());
+		return(!Robot.oi.twobumperr.get());
 	}
 
 	protected void end()
