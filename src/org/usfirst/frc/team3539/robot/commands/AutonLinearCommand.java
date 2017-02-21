@@ -19,7 +19,7 @@ public class AutonLinearCommand extends Command
 
 	protected void initialize()
 	{
-		linear = new KennyPID(0, 10000, 5000, 1000, 200, 10, true);
+		linear = new KennyPID(0, 20000, 5000, 1000, 200, 10, true);
 	}
 
 	protected void execute()

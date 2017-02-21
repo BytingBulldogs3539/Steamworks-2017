@@ -10,13 +10,14 @@ import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SPI;
+import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
 *@author Kenny T.
 */
 @SuppressWarnings("unused")
-public class DriveTrain extends BulldogSystem
+public class PIDDriveTrain extends PIDSubsystem
 {
 	private CANTalon lfMotor, lbMotor, rfMotor, rbMotor;
 
@@ -29,10 +30,9 @@ public class DriveTrain extends BulldogSystem
 	private int persistentTick, eGyro;
 	private double distanceTraveled;
 
-	public DriveTrain()
+	public PIDDriveTrain()
 	{
-		super("DriveTrain");
-
+		super(0, 0, 0);
 		gyro = new ADXRS450_Gyro(SPI.Port.kOnboardCS0);
 
 		lfMotor = new CANTalon(RobotMap.lfMotorTalon);
@@ -40,11 +40,9 @@ public class DriveTrain extends BulldogSystem
 		rfMotor = new CANTalon(RobotMap.rfMotorTalon);
 		rbMotor = new CANTalon(RobotMap.rbMotorTalon);
 
-		//lfMotor.changeControlMode(TalonControlMode.Position);
-		//rfMotor.changeControlMode(TalonControlMode.Position);
-		lfMotor.changeControlMode(TalonControlMode.PercentVbus);
-		rfMotor.changeControlMode(TalonControlMode.PercentVbus);
-		
+		lfMotor.changeControlMode(TalonControlMode.Position);
+		rfMotor.changeControlMode(TalonControlMode.Position);
+
 		lfMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
 		rfMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
 
@@ -186,57 +184,21 @@ public class DriveTrain extends BulldogSystem
 		return gyro.getAngle();
 	}
 
-	@Override
-	@SuppressWarnings("deprecation")
-	public void Update()
-	{
-		if(manipulatorStatus == true)
-		{
-			SmartDashboard.putString("Drive Gear", "High");
-		}
-		else
-		{
-			SmartDashboard.putString("Drive Gear", "Low");
-		}
-
-		SmartDashboard.putDouble("Gyro Velocity", gyro.getRate());
-
-		SmartDashboard.putDouble("Gyro Absolute Angle", getGyroAngle());
-		SmartDashboard.putDouble("Gryo Relative Angle", getGyroRelative());
-
-		SmartDashboard.putDouble("Left Encoder Value", getLeftEncoderPosition());
-		SmartDashboard.putDouble("Right Encoder Value", getRightEncoderPosition());
-	}
-
-	@Override
-	@SuppressWarnings("deprecation")
-	public void SmartInit()
-	{
-		SmartDashboard.putString("Drive Gear", "--");
-
-		SmartDashboard.putDouble("Left Encoder Value", 0);
-		SmartDashboard.putDouble("Right Encoder Value", 0);
-
-		SmartDashboard.putDouble("RobotMap.drivePea", RobotMap.drivePea);
-		SmartDashboard.putDouble("RobotMap.driveEye", RobotMap.driveEye);
-		SmartDashboard.putDouble("RobotMap.driveDee", RobotMap.driveDee);
-		SmartDashboard.putDouble("RobotMap.driveEff", RobotMap.driveEff);
-		SmartDashboard.putInt("RobotMap.driveEyeZone", RobotMap.driveEyeZone);
-		SmartDashboard.putDouble("RobotMap.driveLoopRamp", RobotMap.driveLoopRamp);
-		SmartDashboard.putInt("RobotMap.driveProfile", RobotMap.driveProfile);
-		SmartDashboard.putInt("driveLoopError", RobotMap.driveLoopError);
-
-		RobotMap.drivePea = SmartDashboard.getDouble("RobotMap.drivePea");
-		RobotMap.driveEye = SmartDashboard.getDouble("RobotMap.driveEye");
-		RobotMap.driveDee = SmartDashboard.getDouble("RobotMap.driveDee");
-		RobotMap.driveEff = SmartDashboard.getDouble("RobotMap.driveEff");
-		RobotMap.driveEyeZone = SmartDashboard.getInt("RobotMap.driveEyeZone");
-		RobotMap.driveLoopRamp = SmartDashboard.getDouble("RobotMap.driveLoopRamp");
-		RobotMap.driveProfile = SmartDashboard.getInt("RobotMap.driveProfile");
-		RobotMap.driveLoopError = SmartDashboard.getInt("driveLoopError");
-	}
-
 	public void initDefaultCommand()
 	{
+	}
+
+	@Override
+	protected double returnPIDInput()
+	{
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	protected void usePIDOutput(double output)
+	{
+		// TODO Auto-generated method stub
+		
 	}
 }
