@@ -1,12 +1,6 @@
 package org.usfirst.frc.team3539.robot;
 
-import org.usfirst.frc.team3539.robot.commands.AutonDriveForward;
-import org.usfirst.frc.team3539.robot.commands.AutonLinearCommand;
-import org.usfirst.frc.team3539.robot.commands.ClimbCommand;
-import org.usfirst.frc.team3539.robot.commands.DriveCommand;
-import org.usfirst.frc.team3539.robot.commands.LightCommand;
-import org.usfirst.frc.team3539.robot.commands.LockCommand;
-import org.usfirst.frc.team3539.robot.commands.VoidCommand;
+import org.usfirst.frc.team3539.robot.commands.*;
 import org.usfirst.frc.team3539.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team3539.robot.subsystems.GearManipulator;
 import org.usfirst.frc.team3539.robot.subsystems.Intake;
@@ -38,11 +32,11 @@ public class Robot extends IterativeRobot
 	public static final Shooter shooter = new Shooter();
 	public static final Intake intake = new Intake();
 	public static final GearManipulator manipulator = new GearManipulator();
-
+	
 	public static Compressor c;
 	public static OI oi;
 
-	public static final LightCommand ligh = new LightCommand();
+	public static final LightCommand light = new LightCommand();
 
 	Command autoMode, teleopMode;
 	SendableChooser<Command> autoChooser, teleopChooser, selectCommands;
@@ -135,11 +129,10 @@ public class Robot extends IterativeRobot
 
 		autoChooser = new SendableChooser<Command>();
 		teleopChooser = new SendableChooser<Command>();
-
+		
 		SmartDashboard.putData("Auto mode", autoChooser);
 		autoChooser.addDefault("No Auton, Default", new VoidCommand());
-		autoChooser.addObject("Drive Forward", new AutonDriveForward());
-		autoChooser.addObject("Drive Linear", new AutonLinearCommand());
+		autoChooser.addObject("Drive Forward", new AutonDrive(20000));
 
 		SmartDashboard.putData("Tele mode", teleopChooser);
 		teleopChooser.addDefault("Vision, Default", new VoidCommand()); //Switch with teleop commands

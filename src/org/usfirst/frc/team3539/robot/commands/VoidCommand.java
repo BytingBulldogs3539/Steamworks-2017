@@ -1,15 +1,15 @@
 package org.usfirst.frc.team3539.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class VoidCommand extends Command
+public class VoidCommand extends BulldogCommand
 {
 
 	public VoidCommand()
 	{
+		super("VoidCommand");
 	}
 
 	protected void initialize()
