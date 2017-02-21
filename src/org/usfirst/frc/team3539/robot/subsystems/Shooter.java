@@ -58,6 +58,7 @@ public class Shooter extends BulldogSystem
 	@SuppressWarnings("deprecation")
 	public void Update()
 	{
+		SmartDashboard.putBoolean("Light", RobotMap.light.get());
 		SmartDashboard.putDouble("Shooter RPM", shooterTwoMotor.getPulseWidthVelocity());
 		SmartDashboard.putDouble("Shooter Encoder", shooterHoodMotor.getPulseWidthPosition());
 		SmartDashboard.putInt("Ball Count", RobotMap.ballCount);
