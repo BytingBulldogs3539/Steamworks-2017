@@ -3,16 +3,16 @@ package org.usfirst.frc.team3539.robot.commands;
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
 
-import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class UnjamIntakeCommand extends Command
+public class UnjamIntakeCommand extends BulldogCommand
 {
 
 	public UnjamIntakeCommand()
 	{
+		super("UnjamIntakeCommand");
 		requires(Robot.intake);
 	}
 

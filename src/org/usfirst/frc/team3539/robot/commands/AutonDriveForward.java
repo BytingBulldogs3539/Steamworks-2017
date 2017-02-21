@@ -1,29 +1,28 @@
 package org.usfirst.frc.team3539.robot.commands;
 
 import org.usfirst.frc.team3539.robot.Robot;
-import org.usfirst.frc.team3539.robot.RobotMap;
 
 
 /**
  *
  */
-public class DriveCommand extends BulldogCommand
+public class AutonDriveForward extends BulldogCommand
 {
-	public DriveCommand()
+	
+	public AutonDriveForward()
 	{
-		super("DriveCommand");
+		super("AutonDriveForward");
 		requires(Robot.driveTrain);
 	}
 
 	protected void initialize()
 	{
-		System.out.println("Init DriveCommand");
 	}
 
 	protected void execute()
-	{
-		Robot.driveTrain.driveArcade(Robot.oi.controller1.getRawAxis(RobotMap.Y_AxisL),
-				Robot.oi.controller1.getRawAxis(RobotMap.X_AxisR));
+	{			
+			System.out.println("Execute");
+			Robot.driveTrain.driveXTicks(1000);
 	}
 
 	protected boolean isFinished()
@@ -33,10 +32,13 @@ public class DriveCommand extends BulldogCommand
 
 	protected void end()
 	{
+		System.out.println("end");
+		Robot.driveTrain.talonControlVBus();
 	}
 
 	protected void interrupted()
 	{
+		System.out.println("Interupted");
 		end();
 	}
 }

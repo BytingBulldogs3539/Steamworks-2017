@@ -3,13 +3,12 @@ package org.usfirst.frc.team3539.robot.commands;
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
 
-import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  */
-public class ShooterCommand extends Command
+public class ShooterCommand extends BulldogCommand
 {
 
 	public ShooterCommand()
@@ -20,7 +19,7 @@ public class ShooterCommand extends Command
 
 	protected void initialize()
 	{
-
+		
 	}
 
 	@SuppressWarnings("deprecation")
@@ -29,7 +28,8 @@ public class ShooterCommand extends Command
 
 		Robot.shooter.setMotorPower(RobotMap.shootSpeed);
 		//System.out.println(RobotMap.light.get());
-		if(RobotMap.shooterRpm >= RobotMap.shootSpeed * 28333.33 - 5000)
+		double desiredSpeed = Math.abs(RobotMap.shootSpeed*28333);
+		if(RobotMap.shooterRpm >= desiredSpeed)
 		{
 			Robot.shooter.setAgitatorMotorPower(RobotMap.agitatorSpeed);
 		}
@@ -37,19 +37,27 @@ public class ShooterCommand extends Command
 		{
 			Robot.shooter.setAgitatorMotorPower(0);
 		}
+<<<<<<< HEAD
+		//System.out.println(Robot.shooter.getlight());
+=======
 
 		Robot.shooter.setMotorPower(SmartDashboard.getDouble("Shooter Speed"));
 
-		/*if (RobotMap.light.get() == true)
+		Robot.shooter.setAgitatorMotorPower(RobotMap.agitatorSpeed);
+>>>>>>> origin/master
+		
+		if (RobotMap.light.get() == false)
+
 		{
 			RobotMap.ballCount++;
-			System.out.println("dominik" + RobotMap.ballCount);
-		} else
-		{
-			System.out.println("dominik" + RobotMap.ballCount);
-		}
-		*/
+		}//ballcount
+	
+		
+	
 
+		
+			
+		
 	}
 
 	protected boolean isFinished()

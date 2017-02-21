@@ -2,12 +2,11 @@ package org.usfirst.frc.team3539.robot.commands;
 
 import org.usfirst.frc.team3539.robot.Robot;
 
-import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class TransmissionCommand extends Command
+public class TransmissionCommand extends BulldogCommand
 {
 
 	public TransmissionCommand()
