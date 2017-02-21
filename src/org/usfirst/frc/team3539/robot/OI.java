@@ -59,7 +59,7 @@ public class OI
 		twobuttonx.whenPressed(new SetPointCommand()); // Test
 		twobuttony.whenPressed(new VisionTrackCommand()); // Test
 
-		twobumperr.whileHeld(new ClimbCommand()); // Done
+		twobumperr.whileHeld(new UnjamAgitatorCommand()); // Done
 		twobumperl.whenPressed(new UnjamIntakeCommand()); // Done
 		
 		twotriggerl.whenPressed(new UnjamAgitatorCommand()); // Test
