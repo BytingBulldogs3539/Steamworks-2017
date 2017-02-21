@@ -59,11 +59,13 @@ public class KennyPID
 
 	public double normalizeLinear(double left, double right)
 	{
+		System.out.println("normalizeLinear ran");
 		return (left + right) / 2;
 	}
 
 	public double linearCalc(double leftEncoder, double rightEncoder)
 	{
+		System.out.println("linearCalc ran");
 		if(itsBackwards)
 		{
 			rightEncoder = rightEncoder * -1;
@@ -91,6 +93,7 @@ public class KennyPID
 		{
 			System.out.println("Perfect Range .D");
 			inRange++;
+			System.out.println("inRange: " + inRange + " / " + "inRangeTarget");
 		}
 		if(linear > targetishTop && linear <= accTop)
 		{
