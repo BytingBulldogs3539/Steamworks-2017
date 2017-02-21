@@ -37,14 +37,11 @@ public class ShooterCommand extends BulldogCommand
 		{
 			Robot.shooter.setAgitatorMotorPower(0);
 		}
-<<<<<<< HEAD
 		//System.out.println(Robot.shooter.getlight());
-=======
 
 		Robot.shooter.setMotorPower(SmartDashboard.getDouble("Shooter Speed"));
 
 		Robot.shooter.setAgitatorMotorPower(RobotMap.agitatorSpeed);
->>>>>>> origin/master
 		
 		if (RobotMap.light.get() == false)
 
