@@ -28,8 +28,8 @@ public class ShooterCommand extends Command
 	{
 		
 		Robot.shooter.setMotorPower(RobotMap.shootSpeed);
-		System.out.println(RobotMap.light.get());
-		if (RobotMap.shooterRpm >= SmartDashboard.getDouble("Select Agitator Activate Speed"))
+		//System.out.println(RobotMap.light.get());
+		if (RobotMap.shooterRpm >= RobotMap.shootSpeed*28333.33-5000)
 		{
 			Robot.shooter.setAgitatorMotorPower(RobotMap.agitatorSpeed);
 		}
@@ -38,14 +38,14 @@ public class ShooterCommand extends Command
 			Robot.shooter.setAgitatorMotorPower(0);
 		}
 		
-		Robot.shooter.setMotorPower(RobotMap.shootSpeed);
+		Robot.shooter.setMotorPower(SmartDashboard.getDouble("Shooter Speed"));
 		Robot.shooter.setAgitatorMotorPower(RobotMap.agitatorSpeed);
 <<<<<<< HEAD
 		//System.out.println(Robot.shooter.getlight());
 =======
 		
 		
-		if (RobotMap.light.get() == true)
+	/*	if (RobotMap.light.get() == true)
 	
 		System.out.println(RobotMap.light.get());
 >>>>>>> origin/master
@@ -58,7 +58,7 @@ public class ShooterCommand extends Command
 		{
 			System.out.println("dominik" + RobotMap.ballCount);
 		}
-
+*/
 		
 	}
 
