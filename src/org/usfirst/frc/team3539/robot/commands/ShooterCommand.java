@@ -40,19 +40,16 @@ public class ShooterCommand extends Command
 
 		Robot.shooter.setMotorPower(SmartDashboard.getDouble("Shooter Speed"));
 
-		if (RobotMap.light.get() == true)
-		{
-			System.out.println("True");
-		}
-		else
+		/*if (RobotMap.light.get() == true)
 		{
 			RobotMap.ballCount++;
-			if ((RobotMap.ballCount + 1) > RobotMap.prevCount)
-			{
-				RobotMap.ballCount -= 1;
-			}
+			System.out.println("dominik" + RobotMap.ballCount);
+		} else
+		{
+			System.out.println("dominik" + RobotMap.ballCount);
 		}
-		RobotMap.prevCount = RobotMap.ballCount;
+		*/
+
 	}
 
 	protected boolean isFinished()

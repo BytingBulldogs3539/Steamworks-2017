@@ -84,6 +84,12 @@ public class Shooter extends BulldogSystem
 		agitatorMotor.set(power);
 	}
 
+	/*
+	public void ballCount()
+	{
+		RobotMap.ballCount++;
+	}
+*/
 	public void initDefaultCommand()
 	{
 	}
