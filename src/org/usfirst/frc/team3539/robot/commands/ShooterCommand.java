@@ -42,7 +42,7 @@ public class ShooterCommand extends Command
 =======
 		Robot.shooter.setMotorPower(RobotMap.shootSpeed);
 		Robot.shooter.setAgitatorMotorPower(RobotMap.agitatorSpeed);
-		System.out.println(RobotMap.light.get);
+		System.out.println(RobotMap.light.get());
 		
 		if (RobotMap.light.get() == true)
 >>>>>>> origin/master
