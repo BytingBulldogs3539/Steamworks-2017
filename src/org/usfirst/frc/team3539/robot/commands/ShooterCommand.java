@@ -42,26 +42,18 @@ public class ShooterCommand extends BulldogCommand
 		Robot.shooter.setMotorPower(SmartDashboard.getDouble("Shooter Speed"));
 
 		Robot.shooter.setAgitatorMotorPower(RobotMap.agitatorSpeed);
-		//System.out.println(Robot.shooter.getlight());
 		
-	/*	if (RobotMap.light.get() == true)
-	
-		System.out.println(RobotMap.light.get());
->>>>>>> origin/master
-		
-		if (RobotMap.light.get() == true)
-=======
+		if (RobotMap.light.get() == false)
 
-		/*if (RobotMap.light.get() == true)
->>>>>>> origin/master
 		{
 			RobotMap.ballCount++;
-			System.out.println("dominik" + RobotMap.ballCount);
-		} else
-		{
+	
 		
-			System.out.println("dominik" + RobotMap.ballCount);
-		*/
+	
+
+		
+			
+		
 	}
 
 	protected boolean isFinished()
