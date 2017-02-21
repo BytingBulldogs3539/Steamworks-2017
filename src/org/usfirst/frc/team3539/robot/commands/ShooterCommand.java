@@ -47,6 +47,7 @@ public class ShooterCommand extends BulldogCommand
 
 		{
 			RobotMap.ballCount++;
+		}//ballcount
 	
 		
 	
