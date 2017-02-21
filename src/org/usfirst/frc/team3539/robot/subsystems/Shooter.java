@@ -1,5 +1,6 @@
 package org.usfirst.frc.team3539.robot.subsystems;
 
+import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
 
 import com.ctre.CANTalon;
@@ -46,6 +47,9 @@ public class Shooter extends BulldogSystem
 		shooterHoodMotor.enableReverseSoftLimit(true);
 
 		shooterOneMotor.setEncPosition(0);
+		//DigitalInput light = new DigitalInput(1);//finnaly
+		//DigitalInput lightt = new DigitalInput(0);//finnaly
+
 	}
 
 	public void setMotorPower(double power)
@@ -58,6 +62,7 @@ public class Shooter extends BulldogSystem
 	@SuppressWarnings("deprecation")
 	public void Update()
 	{
+		SmartDashboard.putBoolean("Lightt", RobotMap.lightt.get());
 		SmartDashboard.putBoolean("Light", RobotMap.light.get());
 		SmartDashboard.putDouble("Shooter RPM", shooterTwoMotor.getPulseWidthVelocity());
 		SmartDashboard.putDouble("Shooter Encoder", shooterHoodMotor.getPulseWidthPosition());
