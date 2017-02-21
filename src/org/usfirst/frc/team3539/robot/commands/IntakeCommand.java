@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class IntakeCommand extends Command
+public class IntakeCommand extends BulldogCommand
 {
 	public IntakeCommand()
 	{

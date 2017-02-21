@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class SetPointCommand extends Command
+public class SetPointCommand extends BulldogCommand
 {
 
 	public SetPointCommand()

@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class HoodCommand extends Command
+public class HoodCommand extends BulldogCommand
 {
 
 	public HoodCommand()

@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
-public class ShooterCommand extends Command
+public class ShooterCommand extends BulldogCommand
 {
 
 	public ShooterCommand()

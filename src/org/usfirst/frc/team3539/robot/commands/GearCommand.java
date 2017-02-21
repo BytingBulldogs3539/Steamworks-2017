@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class GearCommand extends Command
+public class GearCommand extends BulldogCommand
 {
 
 	public GearCommand()

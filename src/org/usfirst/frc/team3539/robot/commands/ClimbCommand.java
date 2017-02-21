@@ -8,10 +8,11 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ClimbCommand extends Command
+public class ClimbCommand extends BulldogCommand
 {
 	public ClimbCommand()
 	{
+		super("ClimbCommand");
 		requires(Robot.intake);
 	}
 

@@ -7,12 +7,13 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class AutonDriveForward extends Command
+public class AutonDriveForward extends BulldogCommand
 {
 	private boolean yes = true;
 	
 	public AutonDriveForward()
 	{
+		super("AutonDriveForward");
 		requires(Robot.driveTrain);
 	}
 

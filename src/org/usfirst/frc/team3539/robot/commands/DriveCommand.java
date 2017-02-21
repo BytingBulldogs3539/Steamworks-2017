@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class DriveCommand extends Command
+public class DriveCommand extends BulldogCommand
 {
 	public DriveCommand()
 	{

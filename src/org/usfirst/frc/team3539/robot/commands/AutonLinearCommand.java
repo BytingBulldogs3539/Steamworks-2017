@@ -8,12 +8,13 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class AutonLinearCommand extends Command
+public class AutonLinearCommand extends BulldogCommand
 {
 	KennyPID linear;
 
 	public AutonLinearCommand()
 	{
+		super("AutonLinearCommand");
 		requires(Robot.driveTrain);
 	}
 

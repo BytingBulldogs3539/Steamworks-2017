@@ -9,10 +9,11 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 
-public class LightCommand extends Command
+public class LightCommand extends BulldogCommand
 {	
 	public LightCommand()
 	{
+		super("LightCommand");
 		System.out.println(RobotMap.ballCount);
 		requires(Robot.shooter);
 	}

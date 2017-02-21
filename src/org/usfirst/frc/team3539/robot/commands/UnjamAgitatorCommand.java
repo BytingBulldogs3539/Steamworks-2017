@@ -8,11 +8,12 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class UnjamAgitatorCommand extends Command
+public class UnjamAgitatorCommand extends BulldogCommand
 {
 
 	public UnjamAgitatorCommand()
 	{
+		super("UnjamAgitatorCommand");
 		requires(Robot.shooter);
 	}
 

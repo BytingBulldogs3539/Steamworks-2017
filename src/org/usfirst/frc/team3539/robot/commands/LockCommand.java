@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class LockCommand extends Command
+public class LockCommand extends BulldogCommand
 {
 
 	public LockCommand()

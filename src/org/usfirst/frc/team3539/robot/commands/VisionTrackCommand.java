@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class VisionTrackCommand extends Command
+public class VisionTrackCommand extends BulldogCommand
 {
 	public VisionTrackCommand()
 	{

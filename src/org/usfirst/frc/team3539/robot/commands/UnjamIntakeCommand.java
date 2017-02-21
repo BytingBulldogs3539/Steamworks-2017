@@ -8,11 +8,12 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class UnjamIntakeCommand extends Command
+public class UnjamIntakeCommand extends BulldogCommand
 {
 
 	public UnjamIntakeCommand()
 	{
+		super("UnjamIntakeCommand");
 		requires(Robot.intake);
 	}
 
