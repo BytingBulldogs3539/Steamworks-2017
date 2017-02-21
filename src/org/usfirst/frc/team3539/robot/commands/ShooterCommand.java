@@ -25,7 +25,7 @@ public class ShooterCommand extends Command
 	{
 		Robot.shooter.setMotorPower(RobotMap.shootSpeed);
 		Robot.shooter.setAgitatorMotorPower(RobotMap.agitatorSpeed);
-		System.out.println(Robot.shooter.getlight());
+		//System.out.println(Robot.shooter.getlight());
 		
 		if (RobotMap.light.get() == true)
 		{
