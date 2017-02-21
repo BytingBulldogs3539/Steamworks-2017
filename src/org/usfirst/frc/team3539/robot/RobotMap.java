@@ -104,4 +104,5 @@ public class RobotMap//test
 	//LIGHT
 	public static int ballCount = 0;
 	public static DigitalInput light;
+	public static int prevCount = RobotMap.ballCount;
 }
