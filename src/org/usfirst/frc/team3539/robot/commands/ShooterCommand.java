@@ -20,25 +20,31 @@ public class ShooterCommand extends Command
 
 	protected void initialize()
 	{
-	
+
 	}
 
 	@SuppressWarnings("deprecation")
 	protected void execute()
 	{
-		
+
 		Robot.shooter.setMotorPower(RobotMap.shootSpeed);
 		//System.out.println(RobotMap.light.get());
+<<<<<<< HEAD
 		if (RobotMap.shooterRpm >= RobotMap.shootSpeed*28333.33-2000)
 		{//Touched
+=======
+		if(RobotMap.shooterRpm >= RobotMap.shootSpeed * 28333.33 - 5000)
+		{
+>>>>>>> origin/master
 			Robot.shooter.setAgitatorMotorPower(RobotMap.agitatorSpeed);
 		}
 		else
 		{
 			Robot.shooter.setAgitatorMotorPower(0);
 		}
-		
+
 		Robot.shooter.setMotorPower(SmartDashboard.getDouble("Shooter Speed"));
+<<<<<<< HEAD
 		Robot.shooter.setAgitatorMotorPower(RobotMap.agitatorSpeed);
 		//System.out.println(Robot.shooter.getlight());
 		
@@ -48,6 +54,10 @@ public class ShooterCommand extends Command
 >>>>>>> origin/master
 		
 		if (RobotMap.light.get() == true)
+=======
+
+		/*if (RobotMap.light.get() == true)
+>>>>>>> origin/master
 		{
 			RobotMap.ballCount++;
 			System.out.println("dominik" + RobotMap.ballCount);
@@ -55,8 +65,8 @@ public class ShooterCommand extends Command
 		{
 			System.out.println("dominik" + RobotMap.ballCount);
 		}
-*/
-		
+		*/
+
 	}
 
 	protected boolean isFinished()
