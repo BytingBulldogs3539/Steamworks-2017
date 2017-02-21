@@ -94,28 +94,15 @@ public class DriveTrain extends BulldogSystem
 		eGyro = 0;
 	}
 
-	public void driveXTicks(double ticks)
-	{
-		persistentTick += ticks;
-		lfMotor.set(ticks);
-		//rfMotor.set(-ticks);
-		System.out.println("ticks = " + ticks);
-	}
-
 	public void driveLinear(double speed)
 	{
 		lfMotor.set(speed);
 		rfMotor.set(-speed);
 	}
-
-	public double getLeftEncoderPosition()
+	
+	public double getBalancedEncoderPosition()
 	{
-		return lfMotor.getEncPosition();
-	}
-
-	public double getRightEncoderPosition()
-	{
-		return rfMotor.getEncPosition();
+		return (lfMotor.getEncPosition() - rfMotor.getEncPosition()) / 2;
 	}
 
 	public void zeroItOut()
@@ -207,8 +194,8 @@ public class DriveTrain extends BulldogSystem
 		SmartDashboard.putDouble("Gyro Absolute Angle", getGyroAngle());
 		SmartDashboard.putDouble("Gryo Relative Angle", getGyroRelative());
 
-		SmartDashboard.putDouble("Left Encoder Value", getLeftEncoderPosition());
-		SmartDashboard.putDouble("Right Encoder Value", getRightEncoderPosition());
+		SmartDashboard.putDouble("Left Encoder Value", lfMotor.getEncPosition());
+		SmartDashboard.putDouble("Right Encoder Value", rfMotor.getEncPosition());
 	}
 
 	@Override
