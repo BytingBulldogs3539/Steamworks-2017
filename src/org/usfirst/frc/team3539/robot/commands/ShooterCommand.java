@@ -3,7 +3,6 @@ package org.usfirst.frc.team3539.robot.commands;
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
 
-import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
@@ -38,26 +37,27 @@ public class ShooterCommand extends BulldogCommand
 		{
 			Robot.shooter.setAgitatorMotorPower(0);
 		}
+<<<<<<< HEAD
 		//System.out.println(Robot.shooter.getlight());
-		
-	/*	if (RobotMap.light.get() == true)
-	
-		System.out.println(RobotMap.light.get());
->>>>>>> origin/master
-		
-		if (RobotMap.light.get() == true)
 =======
 
-		/*if (RobotMap.light.get() == true)
+		Robot.shooter.setMotorPower(SmartDashboard.getDouble("Shooter Speed"));
+
+		Robot.shooter.setAgitatorMotorPower(RobotMap.agitatorSpeed);
 >>>>>>> origin/master
+		
+		if (RobotMap.light.get() == false)
+
 		{
 			RobotMap.ballCount++;
-			System.out.println("dominik" + RobotMap.ballCount);
-		} else
-		{
+		}//ballcount
+	
 		
-			System.out.println("dominik" + RobotMap.ballCount);
-		*/
+	
+
+		
+			
+		
 	}
 
 	protected boolean isFinished()
