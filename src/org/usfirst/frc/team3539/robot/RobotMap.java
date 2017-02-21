@@ -106,6 +106,7 @@ public class RobotMap//test
 	
 	public static DigitalInput light = new DigitalInput(1);//finnaly incorrect number 
 	public static DigitalInput lightt = new DigitalInput(0);//finnaly
+	public static int prevCount = ballCount;
 
 
 
