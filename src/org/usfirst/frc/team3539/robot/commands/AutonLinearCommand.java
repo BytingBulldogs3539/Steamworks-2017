@@ -3,7 +3,6 @@ package org.usfirst.frc.team3539.robot.commands;
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.utilities.KennyPID;
 
-import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *

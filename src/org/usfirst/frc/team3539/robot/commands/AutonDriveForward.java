@@ -2,14 +2,12 @@ package org.usfirst.frc.team3539.robot.commands;
 
 import org.usfirst.frc.team3539.robot.Robot;
 
-import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
 public class AutonDriveForward extends BulldogCommand
 {
-	private boolean yes = true;
 	
 	public AutonDriveForward()
 	{
