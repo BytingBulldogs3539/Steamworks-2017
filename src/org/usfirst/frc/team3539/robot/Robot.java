@@ -1,7 +1,16 @@
 package org.usfirst.frc.team3539.robot;
 
-import org.usfirst.frc.team3539.robot.commands.*;
-import org.usfirst.frc.team3539.robot.subsystems.*;
+import org.usfirst.frc.team3539.robot.commands.AutonDriveForward;
+import org.usfirst.frc.team3539.robot.commands.AutonLinearCommand;
+import org.usfirst.frc.team3539.robot.commands.ClimbCommand;
+import org.usfirst.frc.team3539.robot.commands.DriveCommand;
+import org.usfirst.frc.team3539.robot.commands.LightCommand;
+import org.usfirst.frc.team3539.robot.commands.LockCommand;
+import org.usfirst.frc.team3539.robot.commands.VoidCommand;
+import org.usfirst.frc.team3539.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team3539.robot.subsystems.GearManipulator;
+import org.usfirst.frc.team3539.robot.subsystems.Intake;
+import org.usfirst.frc.team3539.robot.subsystems.Shooter;
 
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.CameraServer;
@@ -34,7 +43,7 @@ public class Robot extends IterativeRobot
 	public static OI oi;
 
 	public static final LightCommand ligh = new LightCommand();
-	
+
 	Command autoMode, teleopMode;
 	SendableChooser<Command> autoChooser, teleopChooser, selectCommands;
 
@@ -68,7 +77,7 @@ public class Robot extends IterativeRobot
 	public void autonomousInit()
 	{
 		System.out.println("autonomousInit");
-		
+
 		autoMode = (Command) autoChooser.getSelected(); //Command to disable auton
 		if(autoMode != null)
 			autoMode.start();
@@ -108,7 +117,7 @@ public class Robot extends IterativeRobot
 
 	public void Update()
 	{
-		
+
 		oi.Update();
 		intake.Update();
 		shooter.Update();
@@ -130,6 +139,7 @@ public class Robot extends IterativeRobot
 		SmartDashboard.putData("Auto mode", autoChooser);
 		autoChooser.addDefault("No Auton, Default", new VoidCommand());
 		autoChooser.addObject("Drive Forward", new AutonDriveForward());
+		autoChooser.addObject("Drive Linear", new AutonLinearCommand());
 
 		SmartDashboard.putData("Tele mode", teleopChooser);
 		teleopChooser.addDefault("Vision, Default", new VoidCommand()); //Switch with teleop commands
@@ -143,10 +153,9 @@ public class Robot extends IterativeRobot
 		selectCommands = new SendableChooser<Command>();
 		selectCommands.addObject("Climb", new ClimbCommand());
 		selectCommands.addObject("Climb", new LockCommand());
-		
 
 		SmartDashboard.putData("Command Select", selectCommands);
-		
+
 		SmartDashboard.putData(Scheduler.getInstance());
 	}
 }
