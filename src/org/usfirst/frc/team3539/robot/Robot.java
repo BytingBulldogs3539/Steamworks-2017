@@ -49,8 +49,8 @@ public class Robot extends IterativeRobot
 
 		SmartInit();
 
-		UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
-		camera.setResolution(480, 360);
+		//UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
+		//camera.setResolution(480, 360);
 	}
 
 	/**
@@ -113,10 +113,10 @@ public class Robot extends IterativeRobot
 	{
 
 		oi.Update();
-		intake.Update();
-		shooter.Update();
-		manipulator.Update();
-		driveTrain.Update();
+		//intake.Update();
+		//shooter.Update();
+		//manipulator.Update();
+		//driveTrain.Update();
 	}
 
 	public void SmartInit()
@@ -138,7 +138,7 @@ public class Robot extends IterativeRobot
 		SmartDashboard.putData("Tele mode", teleopChooser);
 		teleopChooser.addDefault("Vision, Default", new VoidCommand()); //Switch with teleop commands
 		teleopChooser.addObject("No Vision", new VoidCommand());
-
+		
 		SmartDashboard.putData(shooter);
 		SmartDashboard.putData(intake);
 		SmartDashboard.putData(manipulator);
