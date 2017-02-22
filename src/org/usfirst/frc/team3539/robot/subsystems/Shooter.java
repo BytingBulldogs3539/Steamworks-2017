@@ -35,22 +35,15 @@ public class Shooter extends BulldogSystem
 		agitatorMotor = new CANTalon(RobotMap.agitatorTalon);
 
 		shooterHoodMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Absolute);
-
-		shooterOneMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Absolute);
+		
 		shooterTwoMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Absolute);
 
-	//	shooterTwoMotor.changeControlMode(TalonControlMode.Follower);
-		//shooterTwoMotor.set(RobotMap.shooterOneMotorTalon);
-
-		shooterHoodMotor.setForwardSoftLimit(94);
-		shooterHoodMotor.enableForwardSoftLimit(false);
+/*		shooterHoodMotor.setForwardSoftLimit(94);
+		shooterHoodMotor.enableForwardSoftLimit(false); 	 // Needs To Be Fixed
 		shooterHoodMotor.setReverseSoftLimit(944);
 		shooterHoodMotor.enableReverseSoftLimit(false);
-
+*/
 		shooterOneMotor.setEncPosition(0);
-		//DigitalInput light = new DigitalInput(1);//finnaly
-		//DigitalInput lightt = new DigitalInput(0);//finnaly
-
 	}
 
 	public void setMotorPower(double power)
@@ -69,25 +62,20 @@ public class Shooter extends BulldogSystem
 		SmartDashboard.putBoolean("Lightt", RobotMap.lightt.get());
 		SmartDashboard.putBoolean("Light", RobotMap.light.get());
 		SmartDashboard.putDouble("Shooter RPM", shooterTwoMotor.getPulseWidthVelocity());
-		SmartDashboard.putDouble("Shooter Encoder", shooterHoodMotor.getPulseWidthPosition());
+		SmartDashboard.putDouble("Shooter Hood Encoder", shooterHoodMotor.getPulseWidthPosition());
 		SmartDashboard.putInt("Ball Count", RobotMap.ballCount);
 		SmartDashboard.putDouble("Agitator Speed", RobotMap.agitatorSpeed);
-		
-		RobotMap.shooterRpm = Math.abs(shooterTwoMotor.getPulseWidthVelocity());
+		RobotMap.shootSpeed = SmartDashboard.getNumber("Shooter Speed");
+		SmartDashboard.putNumber("Shooter Speed", (RobotMap.shootSpeed * -1));
 	}
-
-	@Override
-	@SuppressWarnings("deprecation")
+	
 	public void SmartInit()
 	{
-		SmartDashboard.putNumber("Shooter Speed", (RobotMap.shootSpeed * -1));
-
-		RobotMap.shootSpeed = SmartDashboard.getNumber("Shooter Speed");
 	}
 
 	public void setHoodAngle(double angle)
 	{
-		shooterHoodMotor.set(angle*-1); // Sets "outputValue", Might be wrong method
+		shooterHoodMotor.set(angle*-1);
 		System.out.println("Angle" + angle);
 	}
 
@@ -96,12 +84,6 @@ public class Shooter extends BulldogSystem
 		agitatorMotor.set(power);
 	}
 
-	/*
-	public void ballCount()
-	{
-		RobotMap.ballCount++;
-	}
-*/
 	public void initDefaultCommand()
 	{
 	}
