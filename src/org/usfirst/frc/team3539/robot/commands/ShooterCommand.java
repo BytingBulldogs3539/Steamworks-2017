@@ -28,7 +28,7 @@ public class ShooterCommand extends BulldogCommand
 		Robot.shooter.setMotorPower(RobotMap.shootSpeed);
 		
 		double desiredSpeed = Math.abs(RobotMap.shootSpeed*28333+2000);
-		if(RobotMap.shooterRpm >= desiredSpeed)
+		if(Math.abs(RobotMap.shooterRpm) >= desiredSpeed)
 		{
 			Robot.shooter.setAgitatorMotorPower(RobotMap.agitatorSpeed);
 		}

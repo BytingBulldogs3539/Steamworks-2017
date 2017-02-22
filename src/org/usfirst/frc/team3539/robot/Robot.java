@@ -144,7 +144,6 @@ public class Robot extends IterativeRobot
 
 		selectCommands = new SendableChooser<Command>();
 		selectCommands.addObject("Climb", new ClimbCommand());
-		selectCommands.addObject("Climb", new LockCommand());
 
 		SmartDashboard.putData("Command Select", selectCommands);
 
