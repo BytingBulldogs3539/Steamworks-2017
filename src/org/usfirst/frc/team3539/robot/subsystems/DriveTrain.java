@@ -42,18 +42,21 @@ public class DriveTrain extends BulldogSystem
 		rfMotor = new CANTalon(RobotMap.rfMotorTalon);
 		rbMotor = new CANTalon(RobotMap.rbMotorTalon);
 
-		//lfMotor.changeControlMode(TalonControlMode.Position);
-		//rfMotor.changeControlMode(TalonControlMode.Position);
 		lfMotor.changeControlMode(TalonControlMode.PercentVbus);
 		rfMotor.changeControlMode(TalonControlMode.PercentVbus);
+		rbMotor.changeControlMode(TalonControlMode.PercentVbus);
+		lbMotor.changeControlMode(TalonControlMode.PercentVbus);
 		
 		lfMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
 		rfMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
-
-		lbMotor.changeControlMode(TalonControlMode.Follower);
-		rbMotor.changeControlMode(TalonControlMode.Follower);
-		lbMotor.set(RobotMap.lfMotorTalon);
-		rbMotor.set(RobotMap.rfMotorTalon);
+		rbMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
+		lbMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
+		
+		
+		//lbMotor.changeControlMode(TalonControlMode.Follower);
+		//rbMotor.changeControlMode(TalonControlMode.Follower);
+		//lbMotor.set(RobotMap.lfMotorTalon);
+		//rbMotor.set(RobotMap.rfMotorTalon);
 
 	
 		drive = new RobotDrive(lfMotor, lbMotor, rfMotor, rbMotor);
@@ -72,16 +75,7 @@ public class DriveTrain extends BulldogSystem
 
 		manipulatorSol.set(DoubleSolenoid.Value.kOff);
 
-		//lfMotor.setPID(RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee, RobotMap.driveEff, RobotMap.driveEyeZone,
-		//		RobotMap.driveLoopRamp, RobotMap.driveProfile);
-		//rfMotor.setPID(RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee, RobotMap.driveEff, RobotMap.driveEyeZone,
-		//		RobotMap.driveLoopRamp, RobotMap.driveProfile);
-
-		//lfMotor.enableControl();
-		//rfMotor.enableControl();
-
-		lfMotor.setEncPosition(0);
-		rfMotor.setEncPosition(0);
+	this.zeroItOut();
 
 		//lfMotor.setAllowableClosedLoopErr(RobotMap.driveLoopError);
 		//rfMotor.setAllowableClosedLoopErr(RobotMap.driveLoopError);
@@ -98,6 +92,8 @@ public class DriveTrain extends BulldogSystem
 	{
 		lfMotor.set(speed);
 		rfMotor.set(-speed);
+		rbMotor.set(-speed);
+		lbMotor.set(speed);
 	}
 	
 	public double getBalancedEncoderPosition()
@@ -109,12 +105,18 @@ public class DriveTrain extends BulldogSystem
 	{
 		lfMotor.setEncPosition(0);
 		rfMotor.setEncPosition(0);
+		rbMotor.setEncPosition(0);
+		lbMotor.setEncPosition(0);
+
 	}
 
 	public void disableControl()
 	{
 		lfMotor.disableControl();
 		rfMotor.disableControl();
+		lbMotor.disableControl();
+		rbMotor.disableControl();
+		
 	}
 
 	public void turnToAngle(double angle)
@@ -131,6 +133,7 @@ public class DriveTrain extends BulldogSystem
 	{
 		lfMotor.changeControlMode(TalonControlMode.PercentVbus);
 		rfMotor.changeControlMode(TalonControlMode.PercentVbus);
+		
 	}
 
 	public void driveArcade(double leftStick, double rightStick)
@@ -180,7 +183,7 @@ public class DriveTrain extends BulldogSystem
 	@SuppressWarnings("deprecation")
 	public void Update()
 	{
-		if(manipulatorStatus == true)
+		/*if(manipulatorStatus == true)
 		{
 			SmartDashboard.putString("Drive Gear", "High");
 		}
@@ -195,7 +198,7 @@ public class DriveTrain extends BulldogSystem
 		SmartDashboard.putDouble("Gryo Relative Angle", getGyroRelative());
 
 		SmartDashboard.putDouble("Left Encoder Value", lfMotor.getEncPosition());
-		SmartDashboard.putDouble("Right Encoder Value", rfMotor.getEncPosition());
+		SmartDashboard.putDouble("Right Encoder Value", rfMotor.getEncPosition());*/
 	}
 
 	@Override
