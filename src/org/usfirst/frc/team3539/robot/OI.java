@@ -1,16 +1,6 @@
 package org.usfirst.frc.team3539.robot;
 
-import org.usfirst.frc.team3539.robot.commands.AimAndShoot;
-import org.usfirst.frc.team3539.robot.commands.ClimbCommand;
-import org.usfirst.frc.team3539.robot.commands.GearCommand;
-import org.usfirst.frc.team3539.robot.commands.HoodCommand;
-import org.usfirst.frc.team3539.robot.commands.IntakeCommand;
-import org.usfirst.frc.team3539.robot.commands.SetPointCommand;
-import org.usfirst.frc.team3539.robot.commands.ShooterCommand;
-import org.usfirst.frc.team3539.robot.commands.TransmissionCommand;
-import org.usfirst.frc.team3539.robot.commands.UnjamAgitatorCommand;
-import org.usfirst.frc.team3539.robot.commands.UnjamIntakeCommand;
-import org.usfirst.frc.team3539.robot.commands.VisionTrackCommand;
+import org.usfirst.frc.team3539.robot.commands.*;
 import org.usfirst.frc.team3539.robot.utilities.TriggerButton;
 
 import edu.wpi.first.wpilibj.Joystick;
