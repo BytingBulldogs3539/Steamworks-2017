@@ -3,7 +3,9 @@ package org.usfirst.frc.team3539.robot.commands;
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
 
+import edu.wpi.first.wpilibj.NamedSendable;
 import edu.wpi.first.wpilibj.command.PIDCommand;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -22,6 +24,7 @@ public class AutonDrive extends PIDCommand
 	protected void initialize()
 	{
 		this.getPIDController().setPID(RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
+		SmartDashboard.putData((NamedSendable) this.getPIDController());
 		Robot.driveTrain.zeroEncoders();
 		this.setSetpoint(myTicks);
 	}
