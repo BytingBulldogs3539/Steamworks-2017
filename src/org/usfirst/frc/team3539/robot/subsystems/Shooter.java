@@ -66,11 +66,12 @@ public class Shooter extends BulldogSystem
 		SmartDashboard.putInt("Ball Count", RobotMap.ballCount);
 		SmartDashboard.putDouble("Agitator Speed", RobotMap.agitatorSpeed);
 		RobotMap.shootSpeed = SmartDashboard.getNumber("Shooter Speed");
-		SmartDashboard.putNumber("Shooter Speed", (RobotMap.shootSpeed * -1));
+
 	}
 	
 	public void SmartInit()
 	{
+		SmartDashboard.putNumber("Shooter Speed", (RobotMap.shootSpeed * -1));
 	}
 
 	public void setHoodAngle(double angle)
