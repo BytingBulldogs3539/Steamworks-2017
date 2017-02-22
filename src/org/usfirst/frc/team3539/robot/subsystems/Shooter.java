@@ -41,10 +41,10 @@ public class Shooter extends BulldogSystem
 		shooterTwoMotor.changeControlMode(TalonControlMode.Follower);
 		shooterTwoMotor.set(RobotMap.shooterOneMotorTalon);
 
-		/*//shooterHoodMotor.setForwardSoftLimit();
-		shooterHoodMotor.enableForwardSoftLimit(true);
-		//shooterHoodMotor.setReverseSoftLimit(2339);
-		shooterHoodMotor.enableReverseSoftLimit(true);*/
+		shooterHoodMotor.setForwardSoftLimit(94);
+		shooterHoodMotor.enableForwardSoftLimit(false);
+		shooterHoodMotor.setReverseSoftLimit(944);
+		shooterHoodMotor.enableReverseSoftLimit(false);
 
 		shooterOneMotor.setEncPosition(0);
 		//DigitalInput light = new DigitalInput(1);//finnaly
@@ -57,7 +57,10 @@ public class Shooter extends BulldogSystem
 		shooterOneMotor.set(power);
 		shooterTwoMotor.set(power);
 	}
-
+	public double GetPosition()
+	{
+		return shooterHoodMotor.getEncPosition();
+	}
 	@Override
 	@SuppressWarnings("deprecation")
 	public void Update()
@@ -83,7 +86,8 @@ public class Shooter extends BulldogSystem
 
 	public void setHoodAngle(double angle)
 	{
-		shooterHoodMotor.set(angle); // Sets "outputValue", Might be wrong method
+		shooterHoodMotor.set(angle*-1); // Sets "outputValue", Might be wrong method
+		System.out.println("Angle" + angle);
 	}
 
 	public void setAgitatorMotorPower(double power)
