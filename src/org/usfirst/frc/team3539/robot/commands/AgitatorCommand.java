@@ -4,8 +4,9 @@ import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
 
 /**
- *
+ *Runs the Agitator clockwise and stops on trigger depress
  */
+
 public class AgitatorCommand extends BulldogCommand
 {
 	public AgitatorCommand()
@@ -31,7 +32,7 @@ public class AgitatorCommand extends BulldogCommand
 
 	protected void end()
 	{
-		Robot.shooter.setMotorPower(0);
+		Robot.shooter.setAgitatorMotorPower(0);
 		super.end("AgitatorCommand");
 	}
 

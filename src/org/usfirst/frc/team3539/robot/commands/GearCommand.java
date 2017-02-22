@@ -2,10 +2,10 @@ package org.usfirst.frc.team3539.robot.commands;
 
 import org.usfirst.frc.team3539.robot.Robot;
 
-
 /**
- *
+ * Toggles the Gear Holders open or closed based on their previous state
  */
+
 public class GearCommand extends BulldogCommand
 {
 

@@ -27,7 +27,7 @@ public abstract class BulldogCommand extends Command
 	{
 		super.initialize();
 		
-		BulldogLogger.getInstance().logDebug("Starting " + name);
+		BulldogLogger.getInstance().logDebug("Initializing " + name);
 	}
 	
 	/**

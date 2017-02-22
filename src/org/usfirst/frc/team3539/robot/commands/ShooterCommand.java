@@ -19,7 +19,6 @@ public class ShooterCommand extends BulldogCommand
 
 	protected void initialize()
 	{
-		
 	}
 
 	@SuppressWarnings("deprecation")
