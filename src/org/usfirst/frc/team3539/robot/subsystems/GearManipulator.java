@@ -74,11 +74,11 @@ public class GearManipulator extends BulldogSystem
 	{
 		if(hoodStatus == true)
 		{
-			SmartDashboard.putString("Hood Status", "Opened");
+			SmartDashboard.putString("Hood Status", "Closed");
 		}
 		else
 		{
-			SmartDashboard.putString("Hood Status", "Closed");
+			SmartDashboard.putString("Hood Status", "Opened");
 		}
 
 		if(gearStatus == true)

@@ -1,5 +1,6 @@
 package org.usfirst.frc.team3539.robot;
 
+import org.usfirst.frc.team3539.robot.commands.AimAndShoot;
 import org.usfirst.frc.team3539.robot.commands.ClimbCommand;
 import org.usfirst.frc.team3539.robot.commands.GearCommand;
 import org.usfirst.frc.team3539.robot.commands.HoodCommand;
@@ -56,7 +57,7 @@ public class OI
 		// STICKTWO
 		twobuttona.whenPressed(new GearCommand()); // Done
 		twobuttonb.whenPressed(new HoodCommand()); // Done
-		twobuttonx.whenPressed(new SetPointCommand()); // Test
+		twobuttonx.whenPressed(new AimAndShoot()); // Test
 		twobuttony.whenPressed(new VisionTrackCommand()); // Test
 
 		twobumperr.whileHeld(new UnjamAgitatorCommand()); // Done
