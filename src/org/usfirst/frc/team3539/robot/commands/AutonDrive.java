@@ -24,9 +24,14 @@ public class AutonDrive extends PIDCommand
 	protected void initialize()
 	{
 		this.getPIDController().setPID(RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
-		SmartDashboard.putData((NamedSendable) this.getPIDController());
+		//SmartDashboard.putData(this.getPIDController().getTable());
 		Robot.driveTrain.zeroEncoders();
 		this.setSetpoint(myTicks);
+		
+		//possible methods
+		
+		//this.getPIDController().updateTable();
+		//this.getPIDController().setOutputRange(-1, 1);
 	}
 
 	protected void execute()
