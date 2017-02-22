@@ -21,15 +21,13 @@ public class DriveTrain extends BulldogSystem
 {
 	public CANTalon lfMotor, lbMotor, rfMotor, rbMotor;
 
-	public FeedbackDevice lEncoder;
 	private CANTalon driveCan;
 
 	private RobotDrive drive;
 	private DoubleSolenoid manipulatorSol;
 	private boolean manipulatorStatus;
 	private ADXRS450_Gyro gyro;
-	private int persistentTick, eGyro;
-	private double distanceTraveled;
+	private int persistentTick;
 
 	public DriveTrain()
 	{
@@ -71,8 +69,6 @@ public class DriveTrain extends BulldogSystem
 		this.zeroEncoders();
 
 		persistentTick = 0;
-		distanceTraveled = 0;
-		eGyro = 0;
 	}
 
 	public void driveLinear(double speed)
@@ -113,8 +109,7 @@ public class DriveTrain extends BulldogSystem
 
 	public double getTotalDistance()
 	{
-		distanceTraveled = Math.abs((lfMotor.getEncPosition() + rfMotor.getEncPosition()) / 2);
-		return distanceTraveled;
+		return Math.abs((lfMotor.getEncPosition() + rfMotor.getEncPosition()) / 2);
 	}
 
 	public void talonControlVBus()
@@ -153,7 +148,6 @@ public class DriveTrain extends BulldogSystem
 
 	public void gyroReset()
 	{
-		eGyro = 0;
 		gyro.reset();
 		System.out.println("Gyro Zeroed");
 	}
@@ -193,13 +187,16 @@ public class DriveTrain extends BulldogSystem
 		RobotMap.driveEye = SmartDashboard.getDouble("RobotMap.driveEye");
 		RobotMap.driveDee = SmartDashboard.getDouble("RobotMap.driveDee");
 
+		RobotMap.turnPea = SmartDashboard.getDouble("RobotMap.turnPea");
+		RobotMap.turnEye = SmartDashboard.getDouble("RobotMap.turnEye");
+		RobotMap.turnDee = SmartDashboard.getDouble("RobotMap.turnDee");
+
 	}
 
 	@Override
 	@SuppressWarnings("deprecation")
 	public void SmartInit()
 	{
-		System.out.println("SmartInit Drive Train");
 		SmartDashboard.putString("Drive Gear", "--");
 
 		SmartDashboard.putDouble("Left Encoder Value", 0);
@@ -217,14 +214,6 @@ public class DriveTrain extends BulldogSystem
 		SmartDashboard.putDouble("RobotMap.turnPea", RobotMap.turnPea);
 		SmartDashboard.putDouble("RobotMap.turnEye", RobotMap.turnEye);
 		SmartDashboard.putDouble("RobotMap.turnDee", RobotMap.turnDee);
-
-		RobotMap.drivePea = SmartDashboard.getDouble("RobotMap.drivePea");
-		RobotMap.driveEye = SmartDashboard.getDouble("RobotMap.driveEye");
-		RobotMap.driveDee = SmartDashboard.getDouble("RobotMap.driveDee");
-
-		RobotMap.turnPea = SmartDashboard.getDouble("RobotMap.turnPea");
-		RobotMap.turnEye = SmartDashboard.getDouble("RobotMap.turnEye");
-		RobotMap.turnDee = SmartDashboard.getDouble("RobotMap.turnDee");
 	}
 
 	public void initDefaultCommand()

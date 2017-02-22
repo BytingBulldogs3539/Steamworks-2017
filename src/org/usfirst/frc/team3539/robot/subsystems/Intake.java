@@ -59,17 +59,16 @@ public class Intake extends BulldogSystem
 	public void Update()
 	{
 		SmartDashboard.putBoolean("Lock Status", lockStatus);
+		
+		RobotMap.intakeSpeed = SmartDashboard.getNumber("Intake Speed");
+		RobotMap.unjamIntakeSpeed = SmartDashboard.getNumber("Intake Unjam Speed");
 	}
 
 	@Override
-	@SuppressWarnings("deprecation")
 	public void SmartInit()
 	{
 		SmartDashboard.putNumber("Intake Speed", RobotMap.intakeSpeed);
 		SmartDashboard.putNumber("Intake Unjam Speed", RobotMap.unjamIntakeSpeed);
-
-		RobotMap.intakeSpeed = SmartDashboard.getNumber("Intake Speed");
-		RobotMap.unjamIntakeSpeed = SmartDashboard.getNumber("Intake Unjam Speed");
 	}
 
 	public void initDefaultCommand()

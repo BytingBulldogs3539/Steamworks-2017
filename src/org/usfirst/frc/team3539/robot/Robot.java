@@ -121,10 +121,10 @@ public class Robot extends IterativeRobot
 	public void SmartInit()
 	{
 		oi.SmartInit();
-		//intake.SmartInit();
-		//shooter.SmartInit();
-		//manipulator.SmartInit();
-		//driveTrain.SmartInit();
+		intake.SmartInit();
+		shooter.SmartInit();
+		manipulator.SmartInit();
+		driveTrain.SmartInit();
 
 		autonChooser = new SendableChooser<Command>();
 		teleopChooser = new SendableChooser<Command>();
