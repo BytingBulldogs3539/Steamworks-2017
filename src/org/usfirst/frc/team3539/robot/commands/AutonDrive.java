@@ -3,7 +3,6 @@ package org.usfirst.frc.team3539.robot.commands;
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
 
-import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.command.PIDCommand;
 
 /**
@@ -12,7 +11,6 @@ import edu.wpi.first.wpilibj.command.PIDCommand;
 public class AutonDrive extends PIDCommand
 {
 	private double myTicks;
-	private int confidence;
 
 	public AutonDrive(double ticks)
 	{
@@ -26,8 +24,6 @@ public class AutonDrive extends PIDCommand
 		this.getPIDController().setPID(RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
 		Robot.driveTrain.zeroEncoders();
 		this.setSetpoint(myTicks);
-		confidence = 0;
-
 	}
 
 	protected void execute()
@@ -36,20 +32,12 @@ public class AutonDrive extends PIDCommand
 
 	protected boolean isFinished()
 	{
-		if (Math.abs(myTicks - Robot.driveTrain.getBalancedEncoderPosition()) < 50)
+		if(Math.abs(myTicks - Robot.driveTrain.getBalancedEncoderPosition()) < 50)
 		{
-			confidence++;
-			if (confidence > 20)
-			{
-				//System.out.println("Building confidence: " + confidence + " / 20");
-				return true;
-			}
-			return false;
-		} 
+			return true;
+		}
 		else
 		{
-			//System.out.println("Confidence zero");
-			confidence = 0;
 			return false;
 		}
 	}
