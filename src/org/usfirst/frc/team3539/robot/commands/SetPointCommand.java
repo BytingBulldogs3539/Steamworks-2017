@@ -58,6 +58,6 @@ public class SetPointCommand extends PIDCommand
 	protected void usePIDOutput(double output)
 	{
 		// TODO Auto-generated method stub
-		Robot.shooter.setHoodAngle(output);
+		Robot.shooter.setHoodAngle(-output);
 	}
 }
