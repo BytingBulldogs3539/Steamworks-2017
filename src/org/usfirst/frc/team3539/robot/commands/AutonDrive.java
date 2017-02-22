@@ -50,7 +50,7 @@ public class AutonDrive extends PIDCommand
 	@Override
 	protected double returnPIDInput()
 	{
-		return Robot.driveTrain.lfMotor.getEncPosition();
+		return Robot.driveTrain.getBalancedEncoderPosition();
 	}
 
 	@Override

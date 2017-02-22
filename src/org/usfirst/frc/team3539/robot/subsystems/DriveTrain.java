@@ -210,20 +210,19 @@ public class DriveTrain extends BulldogSystem
 		SmartDashboard.putDouble("RobotMap.drivePea", RobotMap.drivePea);
 		SmartDashboard.putDouble("RobotMap.driveEye", RobotMap.driveEye);
 		SmartDashboard.putDouble("RobotMap.driveDee", RobotMap.driveDee);
-		SmartDashboard.putDouble("RobotMap.driveEff", RobotMap.driveEff);
-		SmartDashboard.putInt("RobotMap.driveEyeZone", RobotMap.driveEyeZone);
-		SmartDashboard.putDouble("RobotMap.driveLoopRamp", RobotMap.driveLoopRamp);
-		SmartDashboard.putInt("RobotMap.driveProfile", RobotMap.driveProfile);
-		SmartDashboard.putInt("driveLoopError", RobotMap.driveLoopError);
+		
+
+		SmartDashboard.putDouble("RobotMap.turnPea", RobotMap.turnPea);
+		SmartDashboard.putDouble("RobotMap.turnEye", RobotMap.turnEye);
+		SmartDashboard.putDouble("RobotMap.turnDee", RobotMap.turnDee);
 
 		RobotMap.drivePea = SmartDashboard.getDouble("RobotMap.drivePea");
 		RobotMap.driveEye = SmartDashboard.getDouble("RobotMap.driveEye");
 		RobotMap.driveDee = SmartDashboard.getDouble("RobotMap.driveDee");
-		RobotMap.driveEff = SmartDashboard.getDouble("RobotMap.driveEff");
-		RobotMap.driveEyeZone = SmartDashboard.getInt("RobotMap.driveEyeZone");
-		RobotMap.driveLoopRamp = SmartDashboard.getDouble("RobotMap.driveLoopRamp");
-		RobotMap.driveProfile = SmartDashboard.getInt("RobotMap.driveProfile");
-		RobotMap.driveLoopError = SmartDashboard.getInt("driveLoopError");
+
+		RobotMap.turnPea = SmartDashboard.getDouble("RobotMap.turnPea");
+		RobotMap.turnEye = SmartDashboard.getDouble("RobotMap.turnEye");
+		RobotMap.turnDee = SmartDashboard.getDouble("RobotMap.turnDee");
 	}
 
 	public void initDefaultCommand()

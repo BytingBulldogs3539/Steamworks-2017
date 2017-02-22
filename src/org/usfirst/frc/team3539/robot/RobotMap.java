@@ -51,11 +51,10 @@ public class RobotMap//test
 	public static double drivePea = .0003;
 	public static double driveEye = .000001;
 	public static double driveDee = .0001;
-	public static double driveEff = 0;
-	public static int driveEyeZone = 0;
-	public static double driveLoopRamp = 0;
-	public static int driveProfile = 0;
-	public static int driveLoopError = 0;
+	
+	public static double turnPea = .0003;
+	public static double turnEye = .000001;
+	public static double turnDee = .0001;
 
 	public static double shootPea = 0;
 	public static double shootEye = 0;
