@@ -28,7 +28,7 @@ public class ShooterCommand extends BulldogCommand
 		Robot.shooter.setMotorPower(RobotMap.shootSpeed);
 		
 		double desiredSpeed = Math.abs(RobotMap.shootSpeed*28333+2000);
-		if(Math.abs(RobotMap.shooterRpm) >= desiredSpeed)
+		if(RobotMap.shooterRpm >= desiredSpeed)
 		{
 			Robot.shooter.setAgitatorMotorPower(RobotMap.agitatorSpeed);
 		}
@@ -36,10 +36,9 @@ public class ShooterCommand extends BulldogCommand
 		{
 			Robot.shooter.setAgitatorMotorPower(0);
 		}
+		System.out.println(desiredSpeed);
 
 		Robot.shooter.setMotorPower(SmartDashboard.getDouble("Shooter Speed"));
-
-		Robot.shooter.setAgitatorMotorPower(RobotMap.agitatorSpeed);
 		
 	
 	if (RobotMap.light.get() == false)
@@ -57,8 +56,8 @@ public class ShooterCommand extends BulldogCommand
 
 	protected boolean isFinished()
 	{
-		System.out.println(Robot.oi.shooterTrigger.getValue());
-		return !Robot.oi.shooterTrigger.getValue();
+		//return !Robot.oi.shooterTrigger.getValue();
+		return !Robot.oi.twobuttonx.get();
 	}
 
 	protected void end()

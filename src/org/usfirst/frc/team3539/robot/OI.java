@@ -47,7 +47,7 @@ public class OI
 		// STICKTWO
 		twobuttona.whenPressed(new GearCommand()); // Done
 		twobuttonb.whenPressed(new HoodCommand()); // Done
-		twobuttonx.whenPressed(new AimAndShoot()); // Test
+		twobuttonx.whenPressed(new SetPointCommand(1980)); // Test
 		twobuttony.whenPressed(new VisionTrackCommand()); // Test
 
 		twobumperr.whileHeld(new UnjamAgitatorCommand()); // Done

@@ -14,7 +14,7 @@ public class SetPointCommand extends PIDCommand
 	public int setpoint;
 	public SetPointCommand(int mysetpoint)
 	{
-		super("SetPointCommand",0,0,0);
+		super("SetPointCommand",.0001,0,0);
 		requires(Robot.shooter);
 		setpoint = mysetpoint;
 	}
@@ -22,7 +22,7 @@ public class SetPointCommand extends PIDCommand
 	protected void initialize()
 	{
 		this.setSetpoint(setpoint);
-		RobotMap.shootSpeed = .6;
+		
 		
 	}
 
@@ -34,12 +34,12 @@ public class SetPointCommand extends PIDCommand
 
 	protected boolean isFinished()
 	{
-		return true;
+		return false;
 	}
 
 	protected void end()
 	{
-		
+		RobotMap.shootSpeed = .6;
 	}
 
 	protected void interrupted()
@@ -58,6 +58,6 @@ public class SetPointCommand extends PIDCommand
 	protected void usePIDOutput(double output)
 	{
 		// TODO Auto-generated method stub
-		Robot.shooter.setHoodAngle(-output);
+		Robot.shooter.setHoodAngle(output/3);
 	}
 }
