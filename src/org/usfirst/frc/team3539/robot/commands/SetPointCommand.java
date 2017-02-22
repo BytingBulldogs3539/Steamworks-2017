@@ -4,6 +4,7 @@ import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.PIDCommand;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
 /**
@@ -14,7 +15,7 @@ public class SetPointCommand extends PIDCommand
 	public int setpoint;
 	public SetPointCommand(int mysetpoint)
 	{
-		super("SetPointCommand",.000001,0,0);
+		super("SetPointCommand",SmartDashboard.getDouble("PIDShoot"),0,0);
 		requires(Robot.shooter);
 		setpoint = mysetpoint;
 	}
@@ -34,7 +35,7 @@ public class SetPointCommand extends PIDCommand
 
 	protected boolean isFinished()
 	{
-		return false;
+		return true;
 	}
 
 	protected void end()
