@@ -4,9 +4,7 @@ import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
 
 
-/**
- *
- */
+
 public class ClimbCommand extends BulldogCommand
 {
 	public ClimbCommand()

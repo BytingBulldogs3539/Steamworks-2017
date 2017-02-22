@@ -1,7 +1,5 @@
 package org.usfirst.frc.team3539.robot.commands;
 
-import javax.swing.plaf.synth.SynthSeparatorUI;
-
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
 

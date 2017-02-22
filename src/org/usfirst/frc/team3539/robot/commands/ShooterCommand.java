@@ -37,7 +37,6 @@ public class ShooterCommand extends BulldogCommand
 		{
 			Robot.shooter.setAgitatorMotorPower(0);
 		}
-		//System.out.println(Robot.shooter.getlight());
 
 		Robot.shooter.setMotorPower(SmartDashboard.getDouble("Shooter Speed"));
 
