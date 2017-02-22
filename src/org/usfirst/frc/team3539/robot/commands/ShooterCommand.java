@@ -27,7 +27,7 @@ public class ShooterCommand extends BulldogCommand
 	{
 
 		Robot.shooter.setMotorPower(RobotMap.shootSpeed);
-		//System.out.println(RobotMap.light.get());
+		
 		double desiredSpeed = Math.abs(RobotMap.shootSpeed*28333+2000);
 		if(RobotMap.shooterRpm >= desiredSpeed)
 		{
@@ -42,27 +42,14 @@ public class ShooterCommand extends BulldogCommand
 		Robot.shooter.setMotorPower(SmartDashboard.getDouble("Shooter Speed"));
 
 		Robot.shooter.setAgitatorMotorPower(RobotMap.agitatorSpeed);
-		if (RobotMap.light.get() == true)
-		{
-			System.out.println("True");
-		}
-		else
-		{
-			RobotMap.ballCount++;
-			if ((RobotMap.ballCount + 1) > RobotMap.prevCount)
-			{
-				RobotMap.ballCount -= 1;
-			}
-		}
-		RobotMap.prevCount = RobotMap.ballCount;
-	}
-	//	if (RobotMap.light.get() == false)
-
-		//{
-		//	RobotMap.ballCount++;
-		//}//ballcount
-	
 		
+	
+	if (RobotMap.light.get() == false)
+
+		    {
+			RobotMap.ballCount++;
+			}
+		}		
 	
 
 		
