@@ -111,19 +111,12 @@ public class Robot extends IterativeRobot
 
 	public void Update()
 	{
-
 		oi.Update();
-<<<<<<< HEAD
 //		intake.Update();
 //		shooter.Update();
 //		manipulator.Update();
 //		driveTrain.Update();
-=======
-		//intake.Update();
-		//shooter.Update();
-		//manipulator.Update();
-		//driveTrain.Update();
->>>>>>> origin/master
+
 	}
 
 	public void SmartInit()
