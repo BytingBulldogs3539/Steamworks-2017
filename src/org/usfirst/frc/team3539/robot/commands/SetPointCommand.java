@@ -15,7 +15,7 @@ public class SetPointCommand extends PIDCommand
 	public int setpoint;
 	public SetPointCommand(int mysetpoint)
 	{
-		super("SetPointCommand",SmartDashboard.getDouble("PIDShoot"),0,0);
+		super("SetPointCommand",0,0,0);
 		requires(Robot.shooter);
 		setpoint = mysetpoint;
 	}
