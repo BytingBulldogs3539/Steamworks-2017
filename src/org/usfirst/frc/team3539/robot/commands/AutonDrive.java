@@ -17,17 +17,13 @@ public class AutonDrive extends PIDCommand
 	public AutonDrive(double ticks)
 	{
 		super("test", RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
-		System.out.println("Create");
 		myTicks = ticks;
 		requires(Robot.driveTrain);
 	}
 
 	protected void initialize()
 	{
-		System.out.println("Init");
 		this.getPIDController().setPID(RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
-		System.out.println("P: " + RobotMap.drivePea);
-
 		Robot.driveTrain.zeroEncoders();
 		this.setSetpoint(myTicks);
 		confidence = 0;

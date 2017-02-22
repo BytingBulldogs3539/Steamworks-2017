@@ -1,5 +1,7 @@
 package org.usfirst.frc.team3539.robot.commands;
 
+import javax.swing.plaf.synth.SynthSeparatorUI;
+
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
 
@@ -17,7 +19,7 @@ public class DriveCommand extends BulldogCommand
 
 	protected void initialize()
 	{
-		System.out.println("Init DriveCommand");
+		System.out.println("DriveCommand was initialized");
 	}
 
 	protected void execute()
@@ -33,6 +35,7 @@ public class DriveCommand extends BulldogCommand
 
 	protected void end()
 	{
+		System.out.println("DriveCommand was ended");
 	}
 
 	protected void interrupted()

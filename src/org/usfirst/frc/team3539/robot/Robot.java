@@ -27,7 +27,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends IterativeRobot
 {
 	//SUBSYSTEMS
-	//public static final TankDrive tankDriveTrain = new TankDrive();
 	public static final DriveTrain driveTrain = new DriveTrain();
 	public static final Shooter shooter = new Shooter();
 	public static final Intake intake = new Intake();
@@ -73,7 +72,7 @@ public class Robot extends IterativeRobot
 		System.out.println("autonomousInit");
 		Update();
 
-		autonMode = (Command) autonChooser.getSelected(); //Command to disable auton
+		autonMode = (Command) autonChooser.getSelected();
 		if(autonMode != null)
 			autonMode.start();
 		driveTrain.gyroReset();
@@ -117,11 +116,6 @@ public class Robot extends IterativeRobot
 		shooter.Update();
 		manipulator.Update();
 		driveTrain.Update();
-//		intake.Update();
-//		shooter.Update();
-//		manipulator.Update();
-//		driveTrain.Update();
-
 	}
 
 	public void SmartInit()
@@ -138,7 +132,6 @@ public class Robot extends IterativeRobot
 		SmartDashboard.putData("Auto mode", autonChooser);
 		autonChooser.addDefault("No Auton, Default", new VoidCommand());
 		autonChooser.addObject("Drive Forward", new AutonDrive(100000));
-		//autonChooser.addObject("Linear", new AutonDrive(20000));
 
 		SmartDashboard.putData("Tele mode", teleopChooser);
 		teleopChooser.addDefault("Vision, Default", new VoidCommand()); //Switch with teleop commands
@@ -148,10 +141,6 @@ public class Robot extends IterativeRobot
 		SmartDashboard.putData(intake);
 		SmartDashboard.putData(manipulator);
 		SmartDashboard.putData(driveTrain);
-		SmartDashboard.putDouble("Intake Speed", RobotMap.intakeMotorTalon);
-		
-		
-		//SmartDashboard.putData(new AutonDrive(20000));
 
 		selectCommands = new SendableChooser<Command>();
 		selectCommands.addObject("Climb", new ClimbCommand());
