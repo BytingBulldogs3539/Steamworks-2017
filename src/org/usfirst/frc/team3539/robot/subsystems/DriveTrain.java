@@ -211,6 +211,10 @@ public class DriveTrain extends BulldogSystem
 		SmartDashboard.putDouble("RobotMap.driveEye", RobotMap.driveEye);
 		SmartDashboard.putDouble("RobotMap.driveDee", RobotMap.driveDee);
 		
+		SmartDashboard.putDouble("Left Front Motor", RobotMap.lfMotorTalon);
+		SmartDashboard.putDouble("Left Back Motor", RobotMap.lbMotorTalon);
+		SmartDashboard.putDouble("Right Back Motor", RobotMap.rbMotorTalon);
+		SmartDashboard.putDouble("Right Front Motor", RobotMap.rfMotorTalon);
 
 		SmartDashboard.putDouble("RobotMap.turnPea", RobotMap.turnPea);
 		SmartDashboard.putDouble("RobotMap.turnEye", RobotMap.turnEye);

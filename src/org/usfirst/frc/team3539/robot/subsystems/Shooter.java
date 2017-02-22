@@ -67,6 +67,8 @@ public class Shooter extends BulldogSystem
 		SmartDashboard.putDouble("Shooter RPM", shooterTwoMotor.getPulseWidthVelocity());
 		SmartDashboard.putDouble("Shooter Encoder", shooterHoodMotor.getPulseWidthPosition());
 		SmartDashboard.putInt("Ball Count", RobotMap.ballCount);
+		SmartDashboard.putDouble("Agitator Speed", RobotMap.agitatorSpeed);
+		
 		RobotMap.shooterRpm = Math.abs(shooterTwoMotor.getPulseWidthVelocity());
 	}
 

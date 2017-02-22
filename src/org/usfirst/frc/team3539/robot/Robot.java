@@ -143,6 +143,8 @@ public class Robot extends IterativeRobot
 		SmartDashboard.putData(intake);
 		SmartDashboard.putData(manipulator);
 		SmartDashboard.putData(driveTrain);
+		SmartDashboard.putDouble("Intake Speed", RobotMap.intakeMotorTalon);
+		
 		
 		SmartDashboard.putData(new AutonDrive(20000));
 
