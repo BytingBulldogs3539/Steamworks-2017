@@ -38,8 +38,8 @@ public class Robot extends IterativeRobot
 
 	public static final LightCommand light = new LightCommand();
 
-	Command autoMode, teleopMode;
-	SendableChooser<Command> autoChooser, teleopChooser, selectCommands;
+	Command autonMode, teleopMode;
+	SendableChooser<Command> autonChooser, teleopChooser, selectCommands;
 
 	public void robotInit()
 	{
@@ -72,9 +72,9 @@ public class Robot extends IterativeRobot
 	{
 		System.out.println("autonomousInit");
 
-		autoMode = (Command) autoChooser.getSelected(); //Command to disable auton
-		if(autoMode != null)
-			autoMode.start();
+		autonMode = (Command) autonChooser.getSelected(); //Command to disable auton
+		if(autonMode != null)
+			autonMode.start();
 		driveTrain.gyroReset();
 	}
 
@@ -89,8 +89,8 @@ public class Robot extends IterativeRobot
 	public void teleopInit()
 	{
 		System.out.println("teleopInit");
-		if(autoMode != null)
-			autoMode.cancel();
+		if(autonMode != null)
+			autonMode.cancel();
 		driveTrain.gyroReset();
 		Scheduler.getInstance().add(new DriveCommand());
 	}
@@ -127,12 +127,13 @@ public class Robot extends IterativeRobot
 		manipulator.SmartInit();
 		driveTrain.SmartInit();
 
-		autoChooser = new SendableChooser<Command>();
+		autonChooser = new SendableChooser<Command>();
 		teleopChooser = new SendableChooser<Command>();
 		
-		SmartDashboard.putData("Auto mode", autoChooser);
-		autoChooser.addDefault("No Auton, Default", new VoidCommand());
-		autoChooser.addObject("Drive Forward", new AutonDrive(20000));
+		SmartDashboard.putData("Auto mode", autonChooser);
+		autonChooser.addDefault("No Auton, Default", new VoidCommand());
+		autonChooser.addObject("Drive Forward", new AutonDrive(20000));
+		autonChooser.addObject("Linear", new AutonDrive(20000));
 
 		SmartDashboard.putData("Tele mode", teleopChooser);
 		teleopChooser.addDefault("Vision, Default", new VoidCommand()); //Switch with teleop commands
@@ -142,6 +143,8 @@ public class Robot extends IterativeRobot
 		SmartDashboard.putData(intake);
 		SmartDashboard.putData(manipulator);
 		SmartDashboard.putData(driveTrain);
+		
+		SmartDashboard.putData(new AutonDrive(20000));
 
 		selectCommands = new SendableChooser<Command>();
 		selectCommands.addObject("Climb", new ClimbCommand());
