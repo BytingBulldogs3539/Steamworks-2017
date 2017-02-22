@@ -52,11 +52,6 @@ public class DriveTrain extends BulldogSystem
 		rbMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
 		lbMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
 
-		// lbMotor.changeControlMode(TalonControlMode.Follower);
-		// rbMotor.changeControlMode(TalonControlMode.Follower);
-		// lbMotor.set(RobotMap.lfMotorTalon);
-		// rbMotor.set(RobotMap.rfMotorTalon);
-
 		drive = new RobotDrive(lfMotor, lbMotor, rfMotor, rbMotor);
 		drive.setSafetyEnabled(false);
 
@@ -103,7 +98,7 @@ public class DriveTrain extends BulldogSystem
 
 	}
 
-	public void disableControl()
+	public void disablePIDControl()
 	{
 		lfMotor.disableControl();
 		rfMotor.disableControl();
@@ -160,7 +155,7 @@ public class DriveTrain extends BulldogSystem
 	{
 		eGyro = 0;
 		gyro.reset();
-		System.out.println("gyro was reset");
+		System.out.println("Gyro Zeroed");
 	}
 
 	public double getGyroRelative()
