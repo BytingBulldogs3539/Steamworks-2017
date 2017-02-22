@@ -71,6 +71,7 @@ public class Robot extends IterativeRobot
 	public void autonomousInit()
 	{
 		System.out.println("autonomousInit");
+		Update();
 
 		autonMode = (Command) autonChooser.getSelected(); //Command to disable auton
 		if(autonMode != null)
@@ -113,10 +114,10 @@ public class Robot extends IterativeRobot
 	{
 
 		oi.Update();
-		//intake.Update();
-		//shooter.Update();
-		//manipulator.Update();
-		//driveTrain.Update();
+		intake.Update();
+		shooter.Update();
+		manipulator.Update();
+		driveTrain.Update();
 	}
 
 	public void SmartInit()
@@ -133,7 +134,7 @@ public class Robot extends IterativeRobot
 		SmartDashboard.putData("Auto mode", autonChooser);
 		autonChooser.addDefault("No Auton, Default", new VoidCommand());
 		autonChooser.addObject("Drive Forward", new AutonDrive(20000));
-		autonChooser.addObject("Linear", new AutonDrive(20000));
+		//autonChooser.addObject("Linear", new AutonDrive(20000));
 
 		SmartDashboard.putData("Tele mode", teleopChooser);
 		teleopChooser.addDefault("Vision, Default", new VoidCommand()); //Switch with teleop commands
@@ -146,7 +147,7 @@ public class Robot extends IterativeRobot
 		SmartDashboard.putDouble("Intake Speed", RobotMap.intakeMotorTalon);
 		
 		
-		SmartDashboard.putData(new AutonDrive(20000));
+		//SmartDashboard.putData(new AutonDrive(20000));
 
 		selectCommands = new SendableChooser<Command>();
 		selectCommands.addObject("Climb", new ClimbCommand());

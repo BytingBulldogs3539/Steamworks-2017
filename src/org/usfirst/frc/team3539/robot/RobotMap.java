@@ -48,9 +48,9 @@ public class RobotMap//test
 	public static final int driveSolOff = 1; //ORIGINAL= 1, 0
 
 	//PID
-	public static double drivePea = .0003;
-	public static double driveEye = .000001;
-	public static double driveDee = .0001;
+	public static double drivePea = .0001;
+	public static double driveEye = 0;
+	public static double driveDee = 0;
 	
 	public static double turnPea = .0003;
 	public static double turnEye = .000001;

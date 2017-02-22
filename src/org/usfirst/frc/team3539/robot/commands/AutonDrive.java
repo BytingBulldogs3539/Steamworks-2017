@@ -3,6 +3,7 @@ package org.usfirst.frc.team3539.robot.commands;
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
 
+import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.command.PIDCommand;
 
 /**
@@ -11,18 +12,25 @@ import edu.wpi.first.wpilibj.command.PIDCommand;
 public class AutonDrive extends PIDCommand
 {
 	private double myTicks;
-	
+	private int confidence;
+
 	public AutonDrive(double ticks)
 	{
 		super("test", RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
+		System.out.println("Create");
 		myTicks = ticks;
 		requires(Robot.driveTrain);
 	}
 
 	protected void initialize()
 	{
-		Robot.driveTrain.zeroItOut();
+		System.out.println("Init");
+		this.getPIDController().setPID(RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
+		System.out.println("P: " + RobotMap.drivePea);
+
+		Robot.driveTrain.zeroEncoders();
 		this.setSetpoint(myTicks);
+		confidence = 0;
 
 	}
 
@@ -32,14 +40,27 @@ public class AutonDrive extends PIDCommand
 
 	protected boolean isFinished()
 	{
-		return false;
-		// return Math.abs(10000- Robot.driveTrain.lfMotor.getEncPosition() ) >
-		// 10;
+		if (Math.abs(myTicks - Robot.driveTrain.getBalancedEncoderPosition()) < 50)
+		{
+			confidence++;
+			if (confidence > 20)
+			{
+				//System.out.println("Building confidence: " + confidence + " / 20");
+				return true;
+			}
+			return false;
+		} 
+		else
+		{
+			//System.out.println("Confidence zero");
+			confidence = 0;
+			return false;
+		}
 	}
 
 	protected void end()
 	{
-		Robot.driveTrain.testDrive(0);
+		Robot.driveTrain.stopDrive();
 	}
 
 	protected void interrupted()
@@ -63,6 +84,6 @@ public class AutonDrive extends PIDCommand
 		if (output < -1)
 			out = -1;
 
-		Robot.driveTrain.testDrive(out);
+		Robot.driveTrain.driveLinear(out);
 	}
 }
