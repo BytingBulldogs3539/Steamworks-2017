@@ -21,11 +21,8 @@ public class RobotMap//test
 	public static final int X_AxisR = 4;
 	public static final int Y_AxisR = 5;
 
-	public static final int T_Axis = 3; //Trigger Axis
 	public static final int RIGHT_TRIGGER = 3;
 	public static final int LEFT_TRIGGER = 2;
-
-	public static final double Tdepression = .5; //How far the trigger must be pressed
 
 	//BUTTON
 	public static final int buttona = 1;
@@ -44,8 +41,8 @@ public class RobotMap//test
 	public static final int lbMotorTalon = 7;
 	public static final int rfMotorTalon = 4;
 	public static final int rbMotorTalon = 3;
-	public static final int driveSolOn = 0; // solens are pcm numbers
-	public static final int driveSolOff = 1; //ORIGINAL= 1, 0
+	public static final int driveSolOn = 0;
+	public static final int driveSolOff = 1;
 
 	//PID
 	public static double drivePea = .0001;
@@ -77,7 +74,7 @@ public class RobotMap//test
 
 	//LOCK (in intake)
 	public static final int lockSolOn = 6;
-	public static final int lockSolOff = 7; // ORIGINAL= 6,7
+	public static final int lockSolOff = 7;
 
 	//SHOOTER
 	public static final int shooterTwoMotorTalon = 1;
@@ -90,26 +87,19 @@ public class RobotMap//test
 
 	//GEAR
 	public static final int hoodSolOn = 2;
-	public static final int hoodSolOff = 3; // ORIGINAL= 2, 3
+	public static final int hoodSolOff = 3;
 	public static final int gearSolOn = 4;
-	public static final int gearSolOff = 5; // ORIGINAL= 4, 5
+	public static final int gearSolOff = 5;
 
 	//PCM
 	public static final int pcm = 10;
-
-	//TEST
-	
 	
 	//LIGHT
 	public static int ballCount = 0;
 	
-	public static DigitalInput light = new DigitalInput(1);//finnaly incorrect number 
-	public static DigitalInput lightt = new DigitalInput(0);//finnaly
+	public static DigitalInput light = new DigitalInput(1);
+	public static DigitalInput lightt = new DigitalInput(0);
 	public static int prevCount = ballCount;
 
-
-
-	
-	
 	//LightWhite = new DigitalInput(5);
 }
