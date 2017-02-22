@@ -137,7 +137,7 @@ public class Robot extends IterativeRobot
 		
 		SmartDashboard.putData("Auto mode", autonChooser);
 		autonChooser.addDefault("No Auton, Default", new VoidCommand());
-		autonChooser.addObject("Drive Forward", new AutonDrive(20000));
+		autonChooser.addObject("Drive Forward", new AutonDrive(100000));
 		//autonChooser.addObject("Linear", new AutonDrive(20000));
 
 		SmartDashboard.putData("Tele mode", teleopChooser);

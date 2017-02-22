@@ -82,6 +82,10 @@ public class DriveTrain extends BulldogSystem
 
 	public void driveLinear(double speed)
 	{
+		if(speed > 0.8)
+		{
+			speed = 0.8;
+		}
 		drive.tankDrive(speed, speed);
 	}
 

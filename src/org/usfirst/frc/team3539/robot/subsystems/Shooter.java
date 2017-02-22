@@ -37,9 +37,10 @@ public class Shooter extends BulldogSystem
 		shooterHoodMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Absolute);
 
 		shooterOneMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Absolute);
+		shooterTwoMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Absolute);
 
-		shooterTwoMotor.changeControlMode(TalonControlMode.Follower);
-		shooterTwoMotor.set(RobotMap.shooterOneMotorTalon);
+	//	shooterTwoMotor.changeControlMode(TalonControlMode.Follower);
+		//shooterTwoMotor.set(RobotMap.shooterOneMotorTalon);
 
 		shooterHoodMotor.setForwardSoftLimit(94);
 		shooterHoodMotor.enableForwardSoftLimit(false);
