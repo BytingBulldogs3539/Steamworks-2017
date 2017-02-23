@@ -4,7 +4,6 @@ import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
 
 import com.ctre.CANTalon;
-import com.ctre.CANTalon.FeedbackDevice;
 import com.ctre.CANTalon.TalonControlMode;
 
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
@@ -73,11 +72,12 @@ public class DriveTrain extends BulldogSystem
 
 	public void driveLinear(double speed)
 	{
-		if(speed > 0.8)
-		{
-			speed = 0.8;
-		}
 		drive.tankDrive(speed, speed);
+	}
+
+	public void turnLinear(double speed)
+	{
+		drive.arcadeDrive(0, speed);
 	}
 
 	public double getBalancedEncoderPosition()
@@ -103,10 +103,6 @@ public class DriveTrain extends BulldogSystem
 
 	}
 
-	public void turnToAngle(double angle)
-	{
-	}
-
 	public double getTotalDistance()
 	{
 		return Math.abs((lfMotor.getEncPosition() + rfMotor.getEncPosition()) / 2);
@@ -123,10 +119,11 @@ public class DriveTrain extends BulldogSystem
 
 	public void driveArcade(double leftStick, double rightStick)
 	{
-		if (Robot.oi.invertTrigger.checkValue())
+		if(Robot.oi.invertTrigger.checkValue())
 		{
 			drive.arcadeDrive(-leftStick, rightStick);
-		} else
+		}
+		else
 		{
 			drive.arcadeDrive(leftStick, rightStick);
 		}
@@ -136,11 +133,11 @@ public class DriveTrain extends BulldogSystem
 	{
 		manipulatorStatus = !manipulatorStatus;
 
-		if (manipulatorStatus == true)
+		if(manipulatorStatus == true)
 		{
 			manipulatorSol.set(DoubleSolenoid.Value.kForward);
 		}
-		if (manipulatorStatus == false)
+		if(manipulatorStatus == false)
 		{
 			manipulatorSol.set(DoubleSolenoid.Value.kReverse);
 		}
@@ -167,10 +164,11 @@ public class DriveTrain extends BulldogSystem
 	public void Update()
 	{
 
-		if (manipulatorStatus == true)
+		if(manipulatorStatus == true)
 		{
 			SmartDashboard.putString("Drive Gear", "High");
-		} else
+		}
+		else
 		{
 			SmartDashboard.putString("Drive Gear", "Low");
 		}
