@@ -75,6 +75,16 @@ public class GearManipulator extends BulldogSystem
 		}
 	}
 
+	public void holderOpen()
+	{
+		gear.set(DoubleSolenoid.Value.kForward);
+	}
+
+	public void holderClose()
+	{
+		gear.set(DoubleSolenoid.Value.kReverse);
+	}
+
 	public void initDefaultCommand()
 	{
 	}
