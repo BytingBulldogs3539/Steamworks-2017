@@ -2,7 +2,6 @@ package org.usfirst.frc.team3539.robot.commands;
 
 import org.usfirst.frc.team3539.robot.Robot;
 
-
 /**
  *
  */
@@ -17,20 +16,21 @@ public class HoodCommand extends BulldogCommand
 
 	protected void initialize()
 	{
+		Robot.manipulator.hoodOpen();
 	}
 
 	protected void execute()
 	{
-		Robot.manipulator.flipHood();		
 	}
 
 	protected boolean isFinished()
 	{
-		return true;
+		return !Robot.oi.twobuttonb.get();
 	}
 
 	protected void end()
 	{
+		Robot.manipulator.hoodClose();
 	}
 
 	protected void interrupted()
