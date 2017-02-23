@@ -38,7 +38,7 @@ public class OI
 	public JoystickButton twobumperr = new JoystickButton(controller2, RobotMap.bumperr);
 
 	public TriggerButton intakeTrigger = new TriggerButton(2, controller2, new IntakeCommand());
-	public TriggerButton shooterTrigger = new TriggerButton(3, controller2, new ShooterCommand());
+	public TriggerButton shooterTrigger = new TriggerButton(3, controller2, new ShooterCommand(1980, 10));//not real values
 	public TriggerButton invertTrigger = new TriggerButton(3, controller1);
 
 	public OI()
@@ -54,11 +54,6 @@ public class OI
 		// STICKTWO
 		twobuttona.whenPressed(new GearCommand()); // Done
 		twobuttonb.whenPressed(new HoodCommand()); // Done
-<<<<<<< HEAD
-		twobuttonx.whenPressed(new SetPointCommand(1980)); // Test
-		twobuttony.whenPressed(new VisionTrackCommand()); // Test
-=======
->>>>>>> origin/master
 
 		twobuttonx.whenPressed(new TriggerModifierCommand()); // Test
 		twobuttony.whenPressed(new ClimbCommand()); // Done
