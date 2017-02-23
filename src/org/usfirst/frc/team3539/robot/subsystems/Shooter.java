@@ -112,7 +112,7 @@ public class Shooter extends BulldogSystem
 		SmartDashboard.putNumber("Shooter Speed", (RobotMap.shootSpeed * -1));
 	}
 
-	public void setHoodAngle(double angle)
+	public void setHoodAngle(double angle) //This needs to be integrated into PID
 	{
 		shooterHoodMotor.set(angle * -1);
 		System.out.println("Angle" + angle);

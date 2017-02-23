@@ -9,7 +9,7 @@ import org.usfirst.frc.team3539.robot.RobotMap;
 public class ShooterCommand extends BulldogCommand
 {
 
-	public ShooterCommand()
+	public ShooterCommand(double targetRPM, double hoodAngle)
 	{
 		super("ShooterCommand");
 		requires(Robot.shooter);
@@ -17,15 +17,17 @@ public class ShooterCommand extends BulldogCommand
 
 	protected void initialize()
 	{
+		//set hood angle command?
 	}
 
 	protected void execute()
 	{
+
 		if(RobotMap.triggerModified)
 		{
 			Robot.shooter.setAgitatorMotorPower(RobotMap.unjamAgitatorSpeed);
 		}
-		else
+		else if(true) //is hood angle set?
 		{
 			Robot.shooter.readyShooter(30000, 100); //not real values
 			Robot.shooter.countBall();
