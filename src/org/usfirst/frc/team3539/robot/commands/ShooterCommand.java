@@ -3,15 +3,13 @@ package org.usfirst.frc.team3539.robot.commands;
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
 
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
 /**
  *
  */
 public class ShooterCommand extends BulldogCommand
 {
 
-	public ShooterCommand()
+	public ShooterCommand(double targetRPM, double hoodAngle)
 	{
 		super("ShooterCommand");
 		requires(Robot.shooter);
@@ -19,23 +17,29 @@ public class ShooterCommand extends BulldogCommand
 
 	protected void initialize()
 	{
+		//set hood angle command?
 	}
 
-	@SuppressWarnings("deprecation")
 	protected void execute()
 	{
 
+<<<<<<< HEAD
 		Robot.shooter.setMotorPower(RobotMap.shootSpeed);
 		
 		double desiredSpeed = Math.abs(RobotMap.shootSpeed*28333+2000);
 		if(RobotMap.shooterRpm >= desiredSpeed)
+=======
+		if(RobotMap.triggerModified)
+>>>>>>> origin/master
 		{
-			Robot.shooter.setAgitatorMotorPower(RobotMap.agitatorSpeed);
+			Robot.shooter.setAgitatorMotorPower(RobotMap.unjamAgitatorSpeed);
 		}
-		else
+		else if(true) //is hood angle set?
 		{
-			Robot.shooter.setAgitatorMotorPower(0);
+			Robot.shooter.readyShooter(30000, 100); //not real values
+			Robot.shooter.countBall();
 		}
+<<<<<<< HEAD
 		System.out.println(desiredSpeed);
 
 		Robot.shooter.setMotorPower(SmartDashboard.getDouble("Shooter Speed"));
@@ -58,6 +62,13 @@ public class ShooterCommand extends BulldogCommand
 	{
 		//return !Robot.oi.shooterTrigger.getValue();
 		return !Robot.oi.twobuttonx.get();
+=======
+	}
+
+	protected boolean isFinished()
+	{
+		return !Robot.oi.shooterTrigger.getValue();
+>>>>>>> origin/master
 	}
 
 	protected void end()

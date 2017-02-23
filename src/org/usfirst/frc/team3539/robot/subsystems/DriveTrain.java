@@ -4,7 +4,6 @@ import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
 
 import com.ctre.CANTalon;
-import com.ctre.CANTalon.FeedbackDevice;
 import com.ctre.CANTalon.TalonControlMode;
 
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
@@ -27,7 +26,6 @@ public class DriveTrain extends BulldogSystem
 	private DoubleSolenoid manipulatorSol;
 	private boolean manipulatorStatus;
 	private ADXRS450_Gyro gyro;
-	private int persistentTick;
 
 	public DriveTrain()
 	{
@@ -67,17 +65,16 @@ public class DriveTrain extends BulldogSystem
 		manipulatorSol.set(DoubleSolenoid.Value.kOff);
 
 		this.zeroEncoders();
-
-		persistentTick = 0;
 	}
 
 	public void driveLinear(double speed)
 	{
-		if(speed > 0.8)
-		{
-			speed = 0.8;
-		}
 		drive.tankDrive(speed, speed);
+	}
+
+	public void turnLinear(double speed)
+	{
+		drive.arcadeDrive(0, speed);
 	}
 
 	public double getBalancedEncoderPosition()
@@ -103,15 +100,6 @@ public class DriveTrain extends BulldogSystem
 
 	}
 
-	public void turnToAngle(double angle)
-	{
-	}
-
-	public double getTotalDistance()
-	{
-		return Math.abs((lfMotor.getEncPosition() + rfMotor.getEncPosition()) / 2);
-	}
-
 	public void talonControlVBus()
 	{
 		lfMotor.changeControlMode(TalonControlMode.PercentVbus);
@@ -123,10 +111,11 @@ public class DriveTrain extends BulldogSystem
 
 	public void driveArcade(double leftStick, double rightStick)
 	{
-		if (Robot.oi.invertTrigger.checkValue())
+		if(Robot.oi.invertTrigger.checkValue())
 		{
 			drive.arcadeDrive(-leftStick, rightStick);
-		} else
+		}
+		else
 		{
 			drive.arcadeDrive(leftStick, rightStick);
 		}
@@ -136,11 +125,11 @@ public class DriveTrain extends BulldogSystem
 	{
 		manipulatorStatus = !manipulatorStatus;
 
-		if (manipulatorStatus == true)
+		if(manipulatorStatus == true)
 		{
 			manipulatorSol.set(DoubleSolenoid.Value.kForward);
 		}
-		if (manipulatorStatus == false)
+		if(manipulatorStatus == false)
 		{
 			manipulatorSol.set(DoubleSolenoid.Value.kReverse);
 		}
@@ -167,10 +156,11 @@ public class DriveTrain extends BulldogSystem
 	public void Update()
 	{
 
-		if (manipulatorStatus == true)
+		if(manipulatorStatus == true)
 		{
 			SmartDashboard.putString("Drive Gear", "High");
-		} else
+		}
+		else
 		{
 			SmartDashboard.putString("Drive Gear", "Low");
 		}
@@ -187,6 +177,11 @@ public class DriveTrain extends BulldogSystem
 		RobotMap.driveEye = SmartDashboard.getDouble("RobotMap.driveEye");
 		RobotMap.driveDee = SmartDashboard.getDouble("RobotMap.driveDee");
 
+		SmartDashboard.putDouble("Left Front Motor", lfMotor.getBusVoltage());
+		SmartDashboard.putDouble("Left Back Motor", lbMotor.getBusVoltage());
+		SmartDashboard.putDouble("Right Back Motor", rfMotor.getBusVoltage());
+		SmartDashboard.putDouble("Right Front Motor", rbMotor.getBusVoltage());
+
 		RobotMap.turnPea = SmartDashboard.getDouble("RobotMap.turnPea");
 		RobotMap.turnEye = SmartDashboard.getDouble("RobotMap.turnEye");
 		RobotMap.turnDee = SmartDashboard.getDouble("RobotMap.turnDee");
@@ -199,6 +194,14 @@ public class DriveTrain extends BulldogSystem
 	{
 		SmartDashboard.putString("Drive Gear", "--");
 
+		SmartDashboard.putDouble("Gyro Velocity", 0);
+
+		SmartDashboard.putDouble("Gyro Absolute Angle", 0);
+		SmartDashboard.putDouble("Gryo Relative Angle", 0);
+
+		SmartDashboard.putDouble("Left Encoder Value", 0);
+		SmartDashboard.putDouble("Right Encoder Value", 0);
+
 		SmartDashboard.putDouble("Left Encoder Value", 0);
 		SmartDashboard.putDouble("Right Encoder Value", 0);
 
@@ -206,10 +209,10 @@ public class DriveTrain extends BulldogSystem
 		SmartDashboard.putDouble("RobotMap.driveEye", RobotMap.driveEye);
 		SmartDashboard.putDouble("RobotMap.driveDee", RobotMap.driveDee);
 
-		SmartDashboard.putDouble("Left Front Motor", RobotMap.lfMotorTalon);
-		SmartDashboard.putDouble("Left Back Motor", RobotMap.lbMotorTalon);
-		SmartDashboard.putDouble("Right Back Motor", RobotMap.rbMotorTalon);
-		SmartDashboard.putDouble("Right Front Motor", RobotMap.rfMotorTalon);
+		SmartDashboard.putDouble("Left Front Motor", 0);
+		SmartDashboard.putDouble("Left Back Motor", 0);
+		SmartDashboard.putDouble("Right Back Motor", 0);
+		SmartDashboard.putDouble("Right Front Motor", 0);
 
 		SmartDashboard.putDouble("RobotMap.turnPea", RobotMap.turnPea);
 		SmartDashboard.putDouble("RobotMap.turnEye", RobotMap.turnEye);
@@ -220,7 +223,7 @@ public class DriveTrain extends BulldogSystem
 	{
 	}
 
-	public void stopDrive()
+	public void stopTrain()
 	{
 		drive.arcadeDrive(0, 0);
 	}

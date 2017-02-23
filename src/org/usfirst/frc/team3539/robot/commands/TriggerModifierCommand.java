@@ -3,32 +3,34 @@ package org.usfirst.frc.team3539.robot.commands;
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
 
-public class ClimbCommand extends BulldogCommand
+/**
+ *
+ */
+public class TriggerModifierCommand extends BulldogCommand
 {
-	public ClimbCommand()
+
+	public TriggerModifierCommand()
 	{
-		super("ClimbCommand");
-		requires(Robot.intake);
+		super("TriggerModifierCommand");
 	}
 
 	protected void initialize()
 	{
-		Robot.intake.lockOn();
 	}
 
 	protected void execute()
 	{
-		Robot.intake.setMotorPower(RobotMap.climbSpeed);
+		RobotMap.triggerModified = true;
 	}
 
 	protected boolean isFinished()
 	{
-		return !Robot.oi.twobuttony.get();
+		return !Robot.oi.twobuttonx.get();
 	}
 
 	protected void end()
 	{
-		Robot.intake.setMotorPower(0);
+		RobotMap.triggerModified = false;
 	}
 
 	protected void interrupted()

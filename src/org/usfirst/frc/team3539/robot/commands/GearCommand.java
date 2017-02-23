@@ -21,16 +21,17 @@ public class GearCommand extends BulldogCommand
 
 	protected void execute()
 	{
-		Robot.manipulator.GearHolders();
+		Robot.manipulator.holderOpen();
 	}
 
 	protected boolean isFinished()
 	{
-		return true;
+		return !Robot.oi.twobuttona.get();
 	}
 
 	protected void end()
 	{
+		Robot.manipulator.holderClose();
 	}
 
 	protected void interrupted()

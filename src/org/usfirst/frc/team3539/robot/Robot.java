@@ -1,6 +1,10 @@
 package org.usfirst.frc.team3539.robot;
 
-import org.usfirst.frc.team3539.robot.commands.*;
+import org.usfirst.frc.team3539.robot.commands.AutonDrive;
+import org.usfirst.frc.team3539.robot.commands.AutonTurn;
+import org.usfirst.frc.team3539.robot.commands.ClimbCommand;
+import org.usfirst.frc.team3539.robot.commands.DriveCommand;
+import org.usfirst.frc.team3539.robot.commands.VoidCommand;
 import org.usfirst.frc.team3539.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team3539.robot.subsystems.GearManipulator;
 import org.usfirst.frc.team3539.robot.subsystems.Intake;
@@ -31,11 +35,10 @@ public class Robot extends IterativeRobot
 	public static final Shooter shooter = new Shooter();
 	public static final Intake intake = new Intake();
 	public static final GearManipulator manipulator = new GearManipulator();
-	
+
 	public static Compressor c;
 	public static OI oi;
-
-	
+	public static UsbCamera camera;
 
 	Command autonMode, teleopMode;
 	SendableChooser<Command> autonChooser, teleopChooser, selectCommands;
@@ -48,8 +51,8 @@ public class Robot extends IterativeRobot
 
 		SmartInit();
 
-		//UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
-		//camera.setResolution(480, 360);
+		camera = CameraServer.getInstance().startAutomaticCapture();
+		camera.setResolution(480, 360);
 	}
 
 	/**
@@ -128,15 +131,17 @@ public class Robot extends IterativeRobot
 
 		autonChooser = new SendableChooser<Command>();
 		teleopChooser = new SendableChooser<Command>();
-		
+
 		SmartDashboard.putData("Auto mode", autonChooser);
 		autonChooser.addDefault("No Auton, Default", new VoidCommand());
-		autonChooser.addObject("Drive Forward", new AutonDrive(100000));
+		autonChooser.addObject("Drive Forward", new AutonDrive(20000));
+		autonChooser.addObject("Auton Turn 180", new AutonTurn(180));
+		autonChooser.addObject("Auton Turn 90", new AutonTurn(90));
 
 		SmartDashboard.putData("Tele mode", teleopChooser);
 		teleopChooser.addDefault("Vision, Default", new VoidCommand()); //Switch with teleop commands
 		teleopChooser.addObject("No Vision", new VoidCommand());
-		
+
 		SmartDashboard.putData(shooter);
 		SmartDashboard.putData(intake);
 		SmartDashboard.putData(manipulator);

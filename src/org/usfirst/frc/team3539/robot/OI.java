@@ -1,10 +1,17 @@
 package org.usfirst.frc.team3539.robot;
 
-import org.usfirst.frc.team3539.robot.commands.*;
+import org.usfirst.frc.team3539.robot.commands.ClimbCommand;
+import org.usfirst.frc.team3539.robot.commands.GearCommand;
+import org.usfirst.frc.team3539.robot.commands.HoodCommand;
+import org.usfirst.frc.team3539.robot.commands.IntakeCommand;
+import org.usfirst.frc.team3539.robot.commands.ShooterCommand;
+import org.usfirst.frc.team3539.robot.commands.TransmissionCommand;
+import org.usfirst.frc.team3539.robot.commands.TriggerModifierCommand;
 import org.usfirst.frc.team3539.robot.utilities.TriggerButton;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -47,23 +54,28 @@ public class OI
 		// STICKTWO
 		twobuttona.whenPressed(new GearCommand()); // Done
 		twobuttonb.whenPressed(new HoodCommand()); // Done
+<<<<<<< HEAD
 		twobuttonx.whenPressed(new SetPointCommand(1980)); // Test
 		twobuttony.whenPressed(new VisionTrackCommand()); // Test
+=======
+>>>>>>> origin/master
 
-		twobumperr.whileHeld(new UnjamAgitatorCommand()); // Done
-		twobumperl.whenPressed(new UnjamIntakeCommand()); // Done
-		
-		twotriggerl.whenPressed(new UnjamAgitatorCommand()); // Test
+		twobuttonx.whenPressed(new TriggerModifierCommand()); // Test
+		twobuttony.whenPressed(new ClimbCommand()); // Done
+
+		//twobumperr.whenPressed(new ShooterCommand(Velocity of shooter, hood angle));
+		//twobumperl.whenPressed(new ShooterCommand(Velocity of shooter, hood angle));
 	}
 
 	public void Update()
 	{
 		intakeTrigger.checkValue();
 		shooterTrigger.checkValue();
+		SmartDashboard.putBoolean("triggerModified", RobotMap.triggerModified);
 	}
 
 	public void SmartInit()
 	{
-
+		SmartDashboard.putBoolean("triggerModified", RobotMap.triggerModified);
 	}
 }

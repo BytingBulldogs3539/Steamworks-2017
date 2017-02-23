@@ -37,6 +37,16 @@ public class GearManipulator extends BulldogSystem
 		gear = new DoubleSolenoid(RobotMap.pcm, RobotMap.gearSolOn, RobotMap.gearSolOff);
 	}
 
+	public void hoodOpen()
+	{
+		hood.set(DoubleSolenoid.Value.kForward);
+	}
+
+	public void hoodClose()
+	{
+		hood.set(DoubleSolenoid.Value.kReverse);
+	}
+
 	public void flipHood()
 	{
 		hoodStatus = !hoodStatus;
@@ -63,6 +73,16 @@ public class GearManipulator extends BulldogSystem
 		{
 			gear.set(DoubleSolenoid.Value.kReverse);
 		}
+	}
+
+	public void holderOpen()
+	{
+		gear.set(DoubleSolenoid.Value.kForward);
+	}
+
+	public void holderClose()
+	{
+		gear.set(DoubleSolenoid.Value.kReverse);
 	}
 
 	public void initDefaultCommand()
