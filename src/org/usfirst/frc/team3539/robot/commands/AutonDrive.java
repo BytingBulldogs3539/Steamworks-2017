@@ -3,9 +3,7 @@ package org.usfirst.frc.team3539.robot.commands;
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
 
-import edu.wpi.first.wpilibj.NamedSendable;
 import edu.wpi.first.wpilibj.command.PIDCommand;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -27,9 +25,9 @@ public class AutonDrive extends PIDCommand
 		//SmartDashboard.putData(this.getPIDController().getTable());
 		Robot.driveTrain.zeroEncoders();
 		this.setSetpoint(myTicks);
-		
+
 		//possible methods
-		
+
 		//this.getPIDController().updateTable();
 		//this.getPIDController().setOutputRange(-1, 1);
 	}
@@ -52,7 +50,7 @@ public class AutonDrive extends PIDCommand
 
 	protected void end()
 	{
-		Robot.driveTrain.stopDrive();
+		Robot.driveTrain.stopTrain();
 	}
 
 	protected void interrupted()
@@ -71,9 +69,9 @@ public class AutonDrive extends PIDCommand
 	{
 		double out = output;
 
-		if (output > 1)
+		if(output > 1)
 			out = 1;
-		if (output < -1)
+		if(output < -1)
 			out = -1;
 
 		Robot.driveTrain.driveLinear(out);

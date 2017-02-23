@@ -1,6 +1,7 @@
 package org.usfirst.frc.team3539.robot;
 
 import org.usfirst.frc.team3539.robot.commands.AutonDrive;
+import org.usfirst.frc.team3539.robot.commands.AutonTurn;
 import org.usfirst.frc.team3539.robot.commands.ClimbCommand;
 import org.usfirst.frc.team3539.robot.commands.DriveCommand;
 import org.usfirst.frc.team3539.robot.commands.VoidCommand;
@@ -134,6 +135,8 @@ public class Robot extends IterativeRobot
 		SmartDashboard.putData("Auto mode", autonChooser);
 		autonChooser.addDefault("No Auton, Default", new VoidCommand());
 		autonChooser.addObject("Drive Forward", new AutonDrive(20000));
+		autonChooser.addObject("Auton Turn 180", new AutonTurn(180));
+		autonChooser.addObject("Auton Turn 90", new AutonTurn(90));
 
 		SmartDashboard.putData("Tele mode", teleopChooser);
 		teleopChooser.addDefault("Vision, Default", new VoidCommand()); //Switch with teleop commands

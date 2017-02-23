@@ -24,6 +24,7 @@ public class AutonTurn extends PIDCommand
 		this.getPIDController().setPID(RobotMap.turnPea, RobotMap.turnEye, RobotMap.turnDee);
 
 		Robot.driveTrain.gyroReset();
+		Robot.driveTrain.zeroEncoders();
 
 		this.setSetpoint(newAngle);
 
@@ -41,7 +42,7 @@ public class AutonTurn extends PIDCommand
 
 	protected void end()
 	{
-		Robot.driveTrain.stopDrive();
+		Robot.driveTrain.stopTrain();
 	}
 
 	protected void interrupted()
@@ -52,8 +53,6 @@ public class AutonTurn extends PIDCommand
 	@Override
 	protected double returnPIDInput()
 	{
-		//return Robot.driveTrain.getBalancedEncoderPosition();
-
 		return Robot.driveTrain.getGyroAngle();
 	}
 
