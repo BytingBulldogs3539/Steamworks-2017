@@ -28,7 +28,7 @@ public class ShooterCommand extends BulldogCommand
 		}
 		else if(true) //is hood angle set?
 		{
-			Robot.shooter.readyShooter(30000, 100); //not real values
+			Robot.shooter.readyShooter(20000, 100, -.8); //not real values
 			Robot.shooter.countBall();
 		}
 	}

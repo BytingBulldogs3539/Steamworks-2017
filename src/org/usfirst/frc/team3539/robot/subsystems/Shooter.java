@@ -56,10 +56,12 @@ public class Shooter extends BulldogSystem
 		return Math.abs(shooterTwoMotor.getPulseWidthVelocity());
 	}
 
-	public void readyShooter(double rpm, double hoodAngle) //rpm caps at ______, hoodAngle starts at ___ and ends at ___
+	public void readyShooter(double rpm, double hoodAngle, double power) //rpm caps at ______, hoodAngle starts at ___ and ends at ___
 	{
 		//desiredRPM / maxRMX + pidControllerError
 
+		Robot.shooter.setMotorPower(power);
+		
 		if(getShooterRPM() >= rpm && hoodAngle == hoodAngle) //replace hoodAngle with boolean from PID
 		{
 			Robot.shooter.setAgitatorMotorPower(RobotMap.agitatorSpeed);
