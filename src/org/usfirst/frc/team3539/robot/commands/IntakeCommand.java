@@ -3,7 +3,6 @@ package org.usfirst.frc.team3539.robot.commands;
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
 
-
 /**
  *
  */
@@ -17,12 +16,26 @@ public class IntakeCommand extends BulldogCommand
 
 	protected void initialize()
 	{
-		Robot.intake.lockOff();
+		if(RobotMap.triggerModified)
+		{
+			Robot.intake.lockOn();
+		}
+		else
+		{
+			Robot.intake.lockOff();
+		}
 	}
 
 	protected void execute()
 	{
-		Robot.intake.setMotorPower(RobotMap.intakeSpeed);
+		if(RobotMap.triggerModified)
+		{
+			Robot.intake.setMotorPower(RobotMap.unjamIntakeSpeed);
+		}
+		else
+		{
+			Robot.intake.setMotorPower(RobotMap.intakeSpeed);
+		}
 	}
 
 	protected boolean isFinished()

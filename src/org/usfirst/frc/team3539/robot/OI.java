@@ -1,6 +1,14 @@
 package org.usfirst.frc.team3539.robot;
 
-import org.usfirst.frc.team3539.robot.commands.*;
+import org.usfirst.frc.team3539.robot.commands.ClimbCommand;
+import org.usfirst.frc.team3539.robot.commands.GearCommand;
+import org.usfirst.frc.team3539.robot.commands.HoodCommand;
+import org.usfirst.frc.team3539.robot.commands.IntakeCommand;
+import org.usfirst.frc.team3539.robot.commands.ShooterCommand;
+import org.usfirst.frc.team3539.robot.commands.TransmissionCommand;
+import org.usfirst.frc.team3539.robot.commands.TriggerModifierCommand;
+import org.usfirst.frc.team3539.robot.commands.UnjamAgitatorCommand;
+import org.usfirst.frc.team3539.robot.commands.UnjamIntakeCommand;
 import org.usfirst.frc.team3539.robot.utilities.TriggerButton;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -47,12 +55,12 @@ public class OI
 		// STICKTWO
 		twobuttona.whenPressed(new GearCommand()); // Done
 		twobuttonb.whenPressed(new HoodCommand()); // Done
-		twobuttonx.whenPressed(new AimAndShoot()); // Test
-		twobuttony.whenPressed(new VisionTrackCommand()); // Test
+		twobuttonx.whenPressed(new TriggerModifierCommand()); // Test
+		twobuttony.whenPressed(new ClimbCommand()); // Test
 
 		twobumperr.whileHeld(new UnjamAgitatorCommand()); // Done
 		twobumperl.whenPressed(new UnjamIntakeCommand()); // Done
-		
+
 		twotriggerl.whenPressed(new UnjamAgitatorCommand()); // Test
 	}
 

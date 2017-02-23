@@ -34,7 +34,8 @@ public class RobotMap//test
 	public static final int bumperl = 5;
 	public static final int bumperr = 6;
 
-	//SENSOR
+	//TRIGGER MODIFIER
+	public static boolean triggerModified = false;
 
 	//DRIVE
 	public static final int lfMotorTalon = 6;
@@ -48,7 +49,7 @@ public class RobotMap//test
 	public static double drivePea = .0001;
 	public static double driveEye = 0;
 	public static double driveDee = 0;
-	
+
 	public static double turnPea = .0003;
 	public static double turnEye = .000001;
 	public static double turnDee = .0001;
@@ -83,7 +84,7 @@ public class RobotMap//test
 	public static final double shooterSpeedModifier = 1.0;
 	public static final int shooterServoTalon = 9;
 	public static double shooterRpm = 0;
-	public static double selectSpeed= 0;
+	public static double selectSpeed = 0;
 
 	//GEAR
 	public static final int hoodSolOn = 2;
@@ -93,10 +94,10 @@ public class RobotMap//test
 
 	//PCM
 	public static final int pcm = 10;
-	
+
 	//LIGHT
 	public static int ballCount = 0;
-	
+
 	public static DigitalInput light = new DigitalInput(1);
 	public static DigitalInput lightt = new DigitalInput(0);
 	public static int prevCount = ballCount;

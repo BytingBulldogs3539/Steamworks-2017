@@ -3,7 +3,6 @@ package org.usfirst.frc.team3539.robot.commands;
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
 
-
 /**
  *
  */
@@ -28,7 +27,7 @@ public class UnjamIntakeCommand extends BulldogCommand
 
 	protected boolean isFinished()
 	{
-		return(!Robot.oi.twobumperl.get());
+		return !Robot.oi.intakeTrigger.getValue();
 	}
 
 	protected void end()
