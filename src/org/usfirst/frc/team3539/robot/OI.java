@@ -11,6 +11,7 @@ import org.usfirst.frc.team3539.robot.utilities.TriggerButton;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -55,7 +56,7 @@ public class OI
 		twobuttonb.whenPressed(new HoodCommand()); // Done
 
 		twobuttonx.whenPressed(new TriggerModifierCommand()); // Test
-		twobuttony.whenPressed(new ClimbCommand()); // Test
+		twobuttony.whenPressed(new ClimbCommand()); // Done
 
 		//twobumperr.whenPressed(new ShooterCommand(Velocity of shooter, hood angle));
 		//twobumperl.whenPressed(new ShooterCommand(Velocity of shooter, hood angle));
@@ -65,10 +66,11 @@ public class OI
 	{
 		intakeTrigger.checkValue();
 		shooterTrigger.checkValue();
+		SmartDashboard.putBoolean("triggerModified", RobotMap.triggerModified);
 	}
 
 	public void SmartInit()
 	{
-
+		SmartDashboard.putBoolean("triggerModified", RobotMap.triggerModified);
 	}
 }
