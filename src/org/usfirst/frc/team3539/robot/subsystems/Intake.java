@@ -56,6 +56,7 @@ public class Intake extends BulldogSystem
 	}
 
 	@Override
+	@SuppressWarnings("deprecation")
 	public void Update()
 	{
 		SmartDashboard.putBoolean("Lock Status", lockStatus);

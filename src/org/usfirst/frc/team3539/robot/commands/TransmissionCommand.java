@@ -12,7 +12,7 @@ public class TransmissionCommand extends BulldogCommand
 	public TransmissionCommand()
 	{
 		super("TransmissionCommand");
-		requires(Robot.driveTrain);
+		//requires(Robot.driveTrain);
 	}
 
 	protected void initialize()

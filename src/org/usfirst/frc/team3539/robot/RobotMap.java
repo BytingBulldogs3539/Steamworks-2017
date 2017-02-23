@@ -9,8 +9,8 @@ package org.usfirst.frc.team3539.robot;
 public class RobotMap//test
 {
 	//CONTROLLER PORT
-	public static final int controllerOnePort = 0;
-	public static final int controllerTwoPort = 1;
+	public static final int controllerOnePort = 1;
+	public static final int controllerTwoPort = 0;
 
 	//CONTROLLER AXIS
 	public static final int X_AxisL = 0;

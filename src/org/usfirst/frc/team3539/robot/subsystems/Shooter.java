@@ -95,21 +95,34 @@ public class Shooter extends BulldogSystem
 	@SuppressWarnings("deprecation")
 	public void Update()
 	{
-		SmartDashboard.putNumber("ballCount", RobotMap.ballCount);
+		SmartDashboard.putNumber("Ball Count", RobotMap.ballCount);
 		SmartDashboard.putBoolean("lightSensorTwo", lightSensorTwo.get());
 		SmartDashboard.putBoolean("lightSensorOne", lightSensorOne.get());
 
 		SmartDashboard.putDouble("Shooter RPM", getShooterRPM());
 		SmartDashboard.putDouble("Shooter Hood Encoder", shooterHoodMotor.getPulseWidthPosition());
-		SmartDashboard.putInt("Ball Count", RobotMap.ballCount);
+		
 		SmartDashboard.putDouble("Agitator Speed", RobotMap.agitatorSpeed);
+		
 		RobotMap.shootSpeed = SmartDashboard.getNumber("Shooter Speed");
+		RobotMap.agitatorSpeed = SmartDashboard.getNumber("Agitator Speed");
 
 	}
 
+	@Override
+	@SuppressWarnings("deprecation")
 	public void SmartInit()
 	{
 		SmartDashboard.putNumber("Shooter Speed", (RobotMap.shootSpeed * -1));
+		
+		SmartDashboard.putNumber("Ball Count", RobotMap.ballCount);
+		SmartDashboard.putBoolean("lightSensorTwo", lightSensorTwo.get());
+		SmartDashboard.putBoolean("lightSensorOne", lightSensorOne.get());
+
+		SmartDashboard.putDouble("Shooter RPM", 0);
+		SmartDashboard.putDouble("Shooter Hood Encoder", shooterHoodMotor.getPulseWidthPosition());
+		
+		SmartDashboard.putDouble("Agitator Speed", RobotMap.agitatorSpeed);
 	}
 
 	public void setHoodAngle(double angle) //This needs to be integrated into PID

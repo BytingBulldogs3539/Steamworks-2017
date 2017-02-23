@@ -2,6 +2,7 @@ package org.usfirst.frc.team3539.robot.subsystems;
 
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
+import org.usfirst.frc.team3539.robot.commands.DriveCommand;
 
 import com.ctre.CANTalon;
 import com.ctre.CANTalon.TalonControlMode;
@@ -218,9 +219,15 @@ public class DriveTrain extends BulldogSystem
 		SmartDashboard.putDouble("RobotMap.turnEye", RobotMap.turnEye);
 		SmartDashboard.putDouble("RobotMap.turnDee", RobotMap.turnDee);
 	}
+	
+	public void defaultSetter()
+	{
+		
+	}
 
 	public void initDefaultCommand()
 	{
+		setDefaultCommand(new DriveCommand());
 	}
 
 	public void stopTrain()

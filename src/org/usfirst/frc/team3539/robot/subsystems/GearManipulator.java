@@ -35,6 +35,9 @@ public class GearManipulator extends BulldogSystem
 
 		gearCan = new CANTalon(RobotMap.pcm);
 		gear = new DoubleSolenoid(RobotMap.pcm, RobotMap.gearSolOn, RobotMap.gearSolOff);
+		
+		this.hoodClose();
+		this.holderClose();
 	}
 
 	public void hoodOpen()
