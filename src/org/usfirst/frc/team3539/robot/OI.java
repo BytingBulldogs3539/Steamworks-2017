@@ -7,8 +7,6 @@ import org.usfirst.frc.team3539.robot.commands.IntakeCommand;
 import org.usfirst.frc.team3539.robot.commands.ShooterCommand;
 import org.usfirst.frc.team3539.robot.commands.TransmissionCommand;
 import org.usfirst.frc.team3539.robot.commands.TriggerModifierCommand;
-import org.usfirst.frc.team3539.robot.commands.UnjamAgitatorCommand;
-import org.usfirst.frc.team3539.robot.commands.UnjamIntakeCommand;
 import org.usfirst.frc.team3539.robot.utilities.TriggerButton;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -55,13 +53,12 @@ public class OI
 		// STICKTWO
 		twobuttona.whenPressed(new GearCommand()); // Done
 		twobuttonb.whenPressed(new HoodCommand()); // Done
+
 		twobuttonx.whenPressed(new TriggerModifierCommand()); // Test
 		twobuttony.whenPressed(new ClimbCommand()); // Test
 
-		twobumperr.whileHeld(new UnjamAgitatorCommand()); // Done
-		twobumperl.whenPressed(new UnjamIntakeCommand()); // Done
-
-		twotriggerl.whenPressed(new UnjamAgitatorCommand()); // Test
+		//twobumperr.whenPressed(new ShooterCommand(Velocity of shooter, hood angle));
+		//twobumperl.whenPressed(new ShooterCommand(Velocity of shooter, hood angle));
 	}
 
 	public void Update()

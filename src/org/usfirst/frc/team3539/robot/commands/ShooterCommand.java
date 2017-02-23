@@ -24,27 +24,33 @@ public class ShooterCommand extends BulldogCommand
 	@SuppressWarnings("deprecation")
 	protected void execute()
 	{
-
-		Robot.shooter.setMotorPower(RobotMap.shootSpeed);
-
-		double desiredSpeed = Math.abs(RobotMap.shootSpeed * 28333 + 2000);
-		if(Math.abs(RobotMap.shooterRpm) >= desiredSpeed)
+		if(RobotMap.triggerModified)
 		{
-			Robot.shooter.setAgitatorMotorPower(RobotMap.agitatorSpeed);
+			Robot.shooter.setAgitatorMotorPower(RobotMap.unjamAgitatorSpeed);
 		}
 		else
 		{
-			Robot.shooter.setAgitatorMotorPower(0);
-		}
+			Robot.shooter.setMotorPower(RobotMap.shootSpeed);
 
-		Robot.shooter.setMotorPower(SmartDashboard.getDouble("Shooter Speed"));
+			double desiredSpeed = Math.abs(RobotMap.shootSpeed * 28333 + 2000);
+			if(Math.abs(RobotMap.shooterRpm) >= desiredSpeed)
+			{
+				Robot.shooter.setAgitatorMotorPower(RobotMap.agitatorSpeed);
+			}
+			else
+			{
+				Robot.shooter.setAgitatorMotorPower(0);
+			}
 
-		Robot.shooter.setAgitatorMotorPower(RobotMap.agitatorSpeed);
+			Robot.shooter.setMotorPower(SmartDashboard.getDouble("Shooter Speed"));
 
-		if(RobotMap.light.get() == false)
+			Robot.shooter.setAgitatorMotorPower(RobotMap.agitatorSpeed);
 
-		{
-			RobotMap.ballCount++;
+			if(RobotMap.light.get() == false)
+
+			{
+				RobotMap.ballCount++;
+			}
 		}
 	}
 

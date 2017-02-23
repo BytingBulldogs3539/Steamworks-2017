@@ -16,14 +16,7 @@ public class IntakeCommand extends BulldogCommand
 
 	protected void initialize()
 	{
-		if(RobotMap.triggerModified)
-		{
-			Robot.intake.lockOn();
-		}
-		else
-		{
-			Robot.intake.lockOff();
-		}
+		Robot.intake.lockOff();
 	}
 
 	protected void execute()
