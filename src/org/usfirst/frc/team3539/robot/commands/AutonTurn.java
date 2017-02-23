@@ -25,7 +25,7 @@ public class AutonTurn extends PIDCommand
 
 		Robot.driveTrain.gyroReset();
 
-		//this.setSetpoint(newAngle);
+		this.setSetpoint(newAngle);
 
 		this.getPIDController().setOutputRange(-1, 1);
 	}
