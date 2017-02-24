@@ -88,10 +88,11 @@ public class Shooter extends BulldogSystem
 		}
 	}
 
-	public int GetShooterVelocity()
-	{
-		return shooterOneMotor.getEncVelocity();
-	}
+	//public int GetShooterVelocity()
+	//{
+	//	return shooterTwoMotor.getEncVelocity();
+	//}
+	
 	public double GetPosition()
 	{
 		return shooterHoodMotor.getEncPosition();
@@ -113,13 +114,17 @@ public class Shooter extends BulldogSystem
 		RobotMap.shootSpeed = SmartDashboard.getNumber("Shooter Speed");
 		RobotMap.agitatorSpeed = SmartDashboard.getNumber("Agitator Speed");
 		RobotMap.shooterRpm = SmartDashboard.getDouble("Target RPM for shooter");
+		
+		RobotMap.shootPea = SmartDashboard.getDouble("shootPea");
+		RobotMap.shootEye = SmartDashboard.getDouble("shootEye");
+		RobotMap.shootDee = SmartDashboard.getDouble("shootDee");
 	}
 
 	@Override
 	@SuppressWarnings("deprecation")
 	public void SmartInit()
 	{
-		SmartDashboard.putNumber("Shooter Speed", (RobotMap.shootSpeed * -1));
+		SmartDashboard.putNumber("Shooter Speed", (RobotMap.shootSpeed));
 		
 		SmartDashboard.putNumber("Ball Count", RobotMap.ballCount);
 		SmartDashboard.putBoolean("lightSensorTwo", lightSensorTwo.get());
@@ -130,6 +135,10 @@ public class Shooter extends BulldogSystem
 		
 		SmartDashboard.putDouble("Agitator Speed", RobotMap.agitatorSpeed);
 		SmartDashboard.putDouble("Target RPM for shooter", RobotMap.shooterRpm);
+		
+		SmartDashboard.putDouble("shootPea", RobotMap.shootPea);
+		SmartDashboard.putDouble("shootEye", RobotMap.shootEye);
+		SmartDashboard.putDouble("shootDee", RobotMap.shootDee);
 	}
 
 	public void setHoodAngle(double angle) //This needs to be integrated into PID

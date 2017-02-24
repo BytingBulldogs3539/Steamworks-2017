@@ -39,7 +39,6 @@ public class SetPointCommand extends PIDCommand
 
 	protected void end()
 	{
-		RobotMap.shootSpeed = .6;
 	}
 
 	protected void interrupted()
