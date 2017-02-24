@@ -44,19 +44,18 @@ public class RobotMap//test
 	public static final int driveSolOff = 1;
 
 	//PID
-	public static double drivePea = .0001;
-	public static double driveEye = 0;
-	public static double driveDee = 0;
+	public static double drivePea = .000054;
+	public static double driveEye = .0000000165;
+	public static double driveDee = .00000001;
 
-	public static double turnPea = .0003;
-	public static double turnEye = .000001;
-	public static double turnDee = .0001;
+	public static double turnPea = .000054;
+	public static double turnEye = .0000000165;
+	public static double turnDee = .00000001;
 
 	public static double shootPea = 0;
 	public static double shootEye = 0;
 	public static double shootDee = 0;
-	public static double shootEff = 0;
-
+	
 	//AIR
 	public static final int compressor = 10;
 

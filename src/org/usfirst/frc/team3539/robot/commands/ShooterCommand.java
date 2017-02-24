@@ -26,7 +26,7 @@ public class ShooterCommand extends PIDCommand
 	protected void initialize()
 	{
 		this.getPIDController().setPID(RobotMap.shootPea, RobotMap.shootEye, RobotMap.shootDee);
-		this.getPIDController().setOutputRange(-1, 1);
+		this.getPIDController().setOutputRange(0, 1);
 		this.setSetpoint(rpm);
 		Robot.shooter.setAgitatorMotorPower(RobotMap.agitatorSpeed);
 	}
