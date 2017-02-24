@@ -82,7 +82,6 @@ public class RobotMap//test
 	public static final double shooterSpeedModifier = 1.0;
 	public static final int shooterServoTalon = 9;
 	public static double shooterRpm = 0;
-	public static double selectSpeed = 0;
 
 	//GEAR
 	public static final int hoodSolOn = 2;

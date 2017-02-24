@@ -88,6 +88,10 @@ public class Shooter extends BulldogSystem
 		}
 	}
 
+	public int GetShooterVelocity()
+	{
+		return shooterOneMotor.getEncVelocity();
+	}
 	public double GetPosition()
 	{
 		return shooterHoodMotor.getEncPosition();
@@ -108,7 +112,7 @@ public class Shooter extends BulldogSystem
 		
 		RobotMap.shootSpeed = SmartDashboard.getNumber("Shooter Speed");
 		RobotMap.agitatorSpeed = SmartDashboard.getNumber("Agitator Speed");
-
+		RobotMap.shooterRpm = SmartDashboard.getDouble("Target RPM for shooter");
 	}
 
 	@Override
@@ -125,6 +129,7 @@ public class Shooter extends BulldogSystem
 		SmartDashboard.putDouble("Shooter Hood Encoder", shooterHoodMotor.getPulseWidthPosition());
 		
 		SmartDashboard.putDouble("Agitator Speed", RobotMap.agitatorSpeed);
+		SmartDashboard.putDouble("Target RPM for shooter", RobotMap.shooterRpm);
 	}
 
 	public void setHoodAngle(double angle) //This needs to be integrated into PID
