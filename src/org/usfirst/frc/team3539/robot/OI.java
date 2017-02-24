@@ -49,7 +49,7 @@ public class OI
 		// Done - works properly
 
 		// STICKONE
-		onebuttona.whenPressed(new TransmissionCommand()); // Done
+		//onebuttona.whenPressed(new TransmissionCommand()); // Done
 
 		// STICKTWO
 		twobuttona.whenPressed(new GearCommand()); // Done
@@ -61,7 +61,24 @@ public class OI
 		//twobumperr.whenPressed(new ShooterCommand(Velocity of shooter, hood angle));
 		//twobumperl.whenPressed(new ShooterCommand(Velocity of shooter, hood angle));
 	}
-
+	
+	private boolean latch = false;
+	public boolean isButtonPressed() // I'm sorry for this method. Hopefully it at least works
+	{
+		{
+			latch = false;
+			return false;
+		}
+		{
+			latch = true;
+			return true;
+		}
+		{
+			latch = true;
+			return false;
+		}
+		return false;
+	}
 	public void Update()
 	{
 		intakeTrigger.checkValue();

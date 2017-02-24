@@ -22,6 +22,10 @@ public class DriveCommand extends BulldogCommand
 
 	protected void execute()
 	{
+		if(Robot.oi.isButtonPressed())
+		{
+			Robot.driveTrain.changeGears();
+		}
 		Robot.driveTrain.driveArcade(Robot.oi.controller1.getRawAxis(RobotMap.Y_AxisL),
 				Robot.oi.controller1.getRawAxis(RobotMap.X_AxisR));
 	}
