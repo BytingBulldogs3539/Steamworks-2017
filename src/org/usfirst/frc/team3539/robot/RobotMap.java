@@ -52,9 +52,9 @@ public class RobotMap//test
 	public static double turnEye = .0000000165;
 	public static double turnDee = .00000001;
 
-	public static double shootPea = 0;
-	public static double shootEye = 0;
-	public static double shootDee = 0;
+	public static double shootPea = .000054;
+	public static double shootEye = .0000000165;
+	public static double shootDee = .00000001;
 	
 	//AIR
 	public static final int compressor = 10;

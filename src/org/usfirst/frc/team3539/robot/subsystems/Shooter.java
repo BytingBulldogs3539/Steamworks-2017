@@ -25,7 +25,7 @@ public class Shooter extends BulldogSystem
 
 		shooterOneMotor = new CANTalon(RobotMap.shooterOneMotorTalon);
 		shooterTwoMotor = new CANTalon(RobotMap.shooterTwoMotorTalon);
-
+		
 		shooterHoodMotor = new CANTalon(RobotMap.shooterServoTalon);
 
 		agitatorMotor = new CANTalon(RobotMap.agitatorTalon);

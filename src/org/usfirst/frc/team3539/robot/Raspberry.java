@@ -11,7 +11,7 @@ public class Raspberry
 	}
 	public static  void Read()
 	{
-		table = NetworkTable.getTable("test");
+		table = NetworkTable.getTable("Test");
 		System.out.println(table.getNumber("Testing"));
 	}
 }

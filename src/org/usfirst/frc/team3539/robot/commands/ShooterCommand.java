@@ -27,19 +27,20 @@ public class ShooterCommand extends PIDCommand
 	{
 		this.getPIDController().setPID(RobotMap.shootPea, RobotMap.shootEye, RobotMap.shootDee);
 		this.getPIDController().setOutputRange(0, 1);
-		this.setSetpoint(rpm);
+		//this.setSetpoint(rpm);
+		
 		Robot.shooter.setAgitatorMotorPower(RobotMap.agitatorSpeed);
 	}
 
 	protected void execute()
 	{
+		//Robot.shooter.setMotorPower(RobotMap.shooterRpm);
 		if (RobotMap.triggerModified)
 		{
 			Robot.shooter.setAgitatorMotorPower(RobotMap.unjamAgitatorSpeed);
 		} else if (true) // is hood angle set?
 		{
-
-			// Robot.shooter.readyShooter(20000, 100, -.6); //not real values
+			Robot.shooter.readyShooter(20000, 100, -.6); //not real values
 			// Robot.shooter.countBall();
 		}
 	}
@@ -71,7 +72,7 @@ public class ShooterCommand extends PIDCommand
 	protected void usePIDOutput(double output)
 	{
 		System.out.println("ouput: " + output);
-		Robot.shooter.setMotorPower(-output);
+		//Robot.shooter.setMotorPower(-output);
 
 	}
 }

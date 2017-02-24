@@ -28,6 +28,9 @@ public class AutonTurn extends PIDCommand
 
 		this.setSetpoint(newAngle);
 
+
+		System.out.println("Init Turn");
+		
 		this.getPIDController().setOutputRange(-1, 1);
 	}
 
@@ -42,6 +45,7 @@ public class AutonTurn extends PIDCommand
 
 	protected void end()
 	{
+		System.out.println("Ended Turn");
 		Robot.driveTrain.stopTrain();
 	}
 
@@ -53,12 +57,14 @@ public class AutonTurn extends PIDCommand
 	@Override
 	protected double returnPIDInput()
 	{
+		System.out.println("Gyro angle" + Robot.driveTrain.getGyroAngle());
 		return Robot.driveTrain.getGyroAngle();
 	}
 
 	@Override
 	protected void usePIDOutput(double output)
 	{
+		System.out.println("output " + output);
 		Robot.driveTrain.turnLinear(output);
 	}
 }
