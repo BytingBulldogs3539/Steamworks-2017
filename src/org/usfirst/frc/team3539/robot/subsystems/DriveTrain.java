@@ -135,18 +135,21 @@ public class DriveTrain extends BulldogSystem
 		}
 	}
 	
-	// ticks per inch = 325.949323452
 	public double inchToEnc(double inch)
 	{
-		return inch * 325.949323452;
+		return inch * RobotMap.ticksPerInch;
 	}
 	
-	// inches per tick = 0.00306796157 
 	public double encToInch(double enc)
 	{
-		return enc * 0.00306796157;
+		return enc * RobotMap.inchesPerTick;
 	}
-
+	
+	public double subtractRobotInches(double distanceInch)
+	{
+		return distanceInch - RobotMap.robotLength;
+	}
+	
 	public void gyroReset()
 	{
 		gyro.reset();

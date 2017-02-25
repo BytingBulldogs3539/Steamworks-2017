@@ -92,4 +92,9 @@ public class RobotMap//test
 
 	//LIGHT
 	public static int ballCount;
+	
+	//Conversions
+	public static final double inchesPerTick = 0.00306796157;
+	public static final double ticksPerInch = 325.949323452;
+	public static final double robotLength = 34;
 }
