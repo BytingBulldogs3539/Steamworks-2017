@@ -1,7 +1,23 @@
 package org.usfirst.frc.team3539.robot;
 
+<<<<<<< HEAD
 import org.usfirst.frc.team3539.robot.commands.*;
 import org.usfirst.frc.team3539.robot.subsystems.*;
+=======
+import org.usfirst.frc.team3539.robot.auton.ForwardGearPlaceGroup;
+import org.usfirst.frc.team3539.robot.auton.TurnLeftGearPlaceGroup;
+import org.usfirst.frc.team3539.robot.auton.TurnRightGearPlaceGroup;
+import org.usfirst.frc.team3539.robot.commands.AutoAim;
+import org.usfirst.frc.team3539.robot.commands.AutonDrive;
+import org.usfirst.frc.team3539.robot.commands.AutonTurn;
+import org.usfirst.frc.team3539.robot.commands.ClimbCommand;
+import org.usfirst.frc.team3539.robot.commands.DriveCommand;
+import org.usfirst.frc.team3539.robot.commands.VoidCommand;
+import org.usfirst.frc.team3539.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team3539.robot.subsystems.GearManipulator;
+import org.usfirst.frc.team3539.robot.subsystems.Intake;
+import org.usfirst.frc.team3539.robot.subsystems.Shooter;
+>>>>>>> origin/master
 
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.CameraServer;
@@ -135,6 +151,10 @@ public class Robot extends IterativeRobot
 		autonChooser.addObject("Drive Forward", new AutonDrive(20000));
 		autonChooser.addObject("Auton Turn 180", new AutonTurn(180));
 		autonChooser.addObject("Auton Turn 90", new AutonTurn(90));
+		autonChooser.addObject("TurnRightGearPlace", new TurnRightGearPlaceGroup());
+		autonChooser.addObject("ForwardGearPlace", new ForwardGearPlaceGroup());
+		autonChooser.addObject("TurnLeftGearPlace", new TurnLeftGearPlaceGroup());
+		autonChooser.addObject("Tunning Drive", new AutonDrive(400));
 
 		SmartDashboard.putData("Tele mode", teleopChooser);
 		teleopChooser.addDefault("Vision, Default", new VoidCommand()); //Switch with teleop commands

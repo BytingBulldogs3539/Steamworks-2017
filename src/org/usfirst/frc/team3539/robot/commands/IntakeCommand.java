@@ -24,6 +24,7 @@ public class IntakeCommand extends BulldogCommand
 		if(RobotMap.triggerModified)
 		{
 			Robot.intake.setMotorPower(RobotMap.unjamIntakeSpeed);
+			Robot.intake.lockOff();
 		}
 		else
 		{

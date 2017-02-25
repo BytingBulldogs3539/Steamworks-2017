@@ -63,26 +63,6 @@ public class OI
 		//twobumperl.whenPressed(new ShooterCommand(Velocity of shooter, hood angle));
 	}
 	
-	private boolean latch = false;
-	public boolean isButtonPressed() // I'm sorry for this method. Hopefully it at least works
-	{
-		if(!onebuttona.get())
-		{
-			latch = false;
-			return false;
-		}
-		if(!latch && onebuttona.get())
-		{
-			latch = true;
-			return true;
-		}
-		if(latch && onebuttona.get())
-		{
-			latch = true;
-			return false;
-		}
-		return false;
-	}
 	public void Update()
 	{
 		intakeTrigger.checkValue();

@@ -134,7 +134,22 @@ public class DriveTrain extends BulldogSystem
 			manipulatorSol.set(DoubleSolenoid.Value.kReverse);
 		}
 	}
-
+	
+	public double inchToEnc(double inch)
+	{
+		return inch * RobotMap.ticksPerInch;
+	}
+	
+	public double encToInch(double enc)
+	{
+		return enc * RobotMap.inchesPerTick;
+	}
+	
+	public double subtractRobotInches(double distanceInch)
+	{
+		return distanceInch - RobotMap.robotLength;
+	}
+	
 	public void gyroReset()
 	{
 		gyro.reset();

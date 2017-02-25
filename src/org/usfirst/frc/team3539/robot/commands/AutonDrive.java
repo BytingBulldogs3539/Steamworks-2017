@@ -12,10 +12,11 @@ public class AutonDrive extends PIDCommand
 {
 	private double myTicks;
 
-	public AutonDrive(double ticks)
+	public AutonDrive(double inches)
 	{
 		super("test", RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
-		myTicks = ticks;
+		inches = Robot.driveTrain.subtractRobotInches(inches);
+		myTicks = Robot.driveTrain.inchToEnc(inches);
 		requires(Robot.driveTrain);
 	}
 
