@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  */
 public class Blue2 extends CommandGroup {
 
-    public Blue2() {
+    public Blue2(int type) {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

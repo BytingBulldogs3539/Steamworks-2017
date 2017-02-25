@@ -37,7 +37,7 @@ public class Robot extends IterativeRobot
 	public static Raspberry raspberry;
 
 	Command autonMode, teleopMode;
-	SendableChooser<Command> autonChooser, teleopChooser, selectCommands;
+	SendableChooser<Command> autonChooser, teleopChooser, selectCommands, positionChooser, teamChooser, typeChooser;
 
 	public void robotInit()
 	{
@@ -131,7 +131,26 @@ public class Robot extends IterativeRobot
 
 		autonChooser = new SendableChooser<Command>();
 		teleopChooser = new SendableChooser<Command>();
+		teamChooser = new SendableChooser<Command>();
+		positionChooser = new SendableChooser<Command>();
+		typeChooser = new SendableChooser<Command>();
 
+		SmartDashboard.putData("Auton Team", teamChooser);
+		teamChooser.addDefault("No Team, Default", new VoidCommand());
+		teamChooser.addObject("Red Team", new SetTeamCommand(2));
+		teamChooser.addObject("Blue Team", new SetTeamCommand(1));
+		SmartDashboard.putData("Auton Position", positionChooser);
+		teamChooser.addDefault("No Position, Default", new VoidCommand());
+		teamChooser.addObject("Position 1", new SetPositionCommand(1));
+		teamChooser.addObject("Position 2", new SetPositionCommand(2));
+		teamChooser.addObject("Position 3", new SetPositionCommand(3));
+		SmartDashboard.putData("Auton Type", typeChooser);
+		teamChooser.addDefault("No Type, Default", new VoidCommand());
+		teamChooser.addDefault("No Position, Default", new VoidCommand());
+		teamChooser.addObject("Type 1", new SetTypeCommand(1));
+		teamChooser.addObject("Type 2", new SetTypeCommand(2));
+		teamChooser.addObject("Type 3", new SetTypeCommand(3));
+		
 		SmartDashboard.putData("Auto mode", autonChooser);
 		autonChooser.addDefault("No Auton, Default", new VoidCommand());
 		autonChooser.addObject("Drive Forward", new AutonDrive(20000));
@@ -148,7 +167,7 @@ public class Robot extends IterativeRobot
 		SmartDashboard.putData("Tele mode", teleopChooser);
 		teleopChooser.addDefault("Vision, Default", new VoidCommand()); //Switch with teleop commands
 		teleopChooser.addObject("No Vision", new VoidCommand());
-
+		
 		SmartDashboard.putData(shooter);
 		SmartDashboard.putData(intake);
 		SmartDashboard.putData(manipulator);

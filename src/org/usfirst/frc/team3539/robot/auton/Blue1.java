@@ -3,11 +3,11 @@ package org.usfirst.frc.team3539.robot.auton;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *  keep off my lawn -d^2
+ *
  */
 public class Blue1 extends CommandGroup {
 
-    public Blue1(String action)
+    public Blue1(int type)
     {
         // Add Commands here:
         // e.g. addSequential(new Command1());
@@ -26,26 +26,26 @@ public class Blue1 extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
-    	if(action.toLowerCase().contains("cross")) // pseudo wrestling
-    	{
-    		//addSequential(new squidward());
-    	}
-    	if(action.toLowerCase().contains("gear"))
-    	{
-    		//addSequential(new turnt);
-    		//addSequential(new squidward);
-    		//addSequential(new gearvomit);a
-    	}
-    	if(action.toLowerCase().contains("shoot"))
-    	{
-    		//addSequential(new back);
-    		//addSequential(new turnt);
-    		//addSequential(new squidward);
-    		//addSequential(new turnt);
-    		//addSequential(new squidward);
-    		//addSequential(new turnt);
-    		//addSequential(new shooty);
-    	}
+//    	if(action.toLowerCase().contains("cross")) // pseudo wrestling
+//    	{
+//    		//addSequential(new squidward());
+//    	}
+//    	if(action.toLowerCase().contains("gear"))
+//    	{
+//    		//addSequential(new turnt);
+//    		//addSequential(new squidward);
+//    		//addSequential(new gearvomit);
+//    	}
+//    	if(action.toLowerCase().contains("shoot"))
+//    	{
+//    		//addSequential(new back);
+//    		//addSequential(new turnt);
+//    		//addSequential(new squidward);
+//    		//addSequential(new turnt);
+//    		//addSequential(new squidward);
+//    		//addSequential(new turnt);
+//    		//addSequential(new shooty);
+//    	}
     	
     }
 }

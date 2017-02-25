@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  */
 public class Red3 extends CommandGroup {
 
-    public Red3() {
+    public Red3(int type) {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
