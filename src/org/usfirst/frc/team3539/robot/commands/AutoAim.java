@@ -51,8 +51,9 @@ public class AutoAim extends PIDCommand
 	@Override
 	protected double returnPIDInput()
 	{
-		System.out.println(Raspberry.Read());
-		return Raspberry.Read();
+		double read = Robot.raspberry.Read();
+		System.out.println(read);
+		return read;
 	}
 
 	@Override

@@ -23,13 +23,9 @@ public class Raspberry
 	{
 		System.out.println("Raspberry: " + table.getNumber("Test"));
 	}
-<<<<<<< HEAD
-	public static double Read()
-=======
-
+	
 	@SuppressWarnings("deprecation")
 	public double Read()
->>>>>>> origin/master
 	{
 		return table.getNumber("Test");
 	}

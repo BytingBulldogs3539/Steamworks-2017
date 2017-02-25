@@ -100,13 +100,7 @@ public class Robot extends IterativeRobot
 		if(autonMode != null)
 			autonMode.cancel();
 		driveTrain.gyroReset();
-<<<<<<< HEAD
-		//Scheduler.getInstance().add(new DriveCommand());
-		Raspberry.Init();
-=======
-		Scheduler.getInstance().add(new DriveCommand());
 		raspberry.Init();
->>>>>>> origin/master
 	}
 
 	// This function is called periodically during operator control
