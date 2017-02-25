@@ -1,24 +1,5 @@
 package org.usfirst.frc.team3539.robot;
 
-<<<<<<< HEAD
-import org.usfirst.frc.team3539.robot.commands.*;
-import org.usfirst.frc.team3539.robot.subsystems.*;
-=======
-import org.usfirst.frc.team3539.robot.auton.ForwardGearPlaceGroup;
-import org.usfirst.frc.team3539.robot.auton.TurnLeftGearPlaceGroup;
-import org.usfirst.frc.team3539.robot.auton.TurnRightGearPlaceGroup;
-import org.usfirst.frc.team3539.robot.commands.AutoAim;
-import org.usfirst.frc.team3539.robot.commands.AutonDrive;
-import org.usfirst.frc.team3539.robot.commands.AutonTurn;
-import org.usfirst.frc.team3539.robot.commands.ClimbCommand;
-import org.usfirst.frc.team3539.robot.commands.DriveCommand;
-import org.usfirst.frc.team3539.robot.commands.VoidCommand;
-import org.usfirst.frc.team3539.robot.subsystems.DriveTrain;
-import org.usfirst.frc.team3539.robot.subsystems.GearManipulator;
-import org.usfirst.frc.team3539.robot.subsystems.Intake;
-import org.usfirst.frc.team3539.robot.subsystems.Shooter;
->>>>>>> origin/master
-
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.Compressor;
@@ -28,6 +9,11 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
+import org.usfirst.frc.team3539.robot.commands.*;
+import org.usfirst.frc.team3539.robot.subsystems.*;
+import org.usfirst.frc.team3539.robot.utilities.*;
+import org.usfirst.frc.team3539.robot.auton.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the
