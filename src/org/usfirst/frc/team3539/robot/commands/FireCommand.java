@@ -25,6 +25,7 @@ public class FireCommand extends Command
 
 	protected void execute()
 	{
+		Robot.shooter.startShooter(RobotMap.shooterRpm);
 	}
 
 	protected boolean isFinished()

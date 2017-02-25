@@ -31,8 +31,8 @@ public class Shooter extends BulldogSystem
 		shooterTwoMotor.set(shooterOneMotor.getDeviceID());
 
 		shooterOneMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Absolute);
-		shooterOneMotor.configNominalOutputVoltage(0, 0);
-		shooterOneMotor.configPeakOutputVoltage(12.0, -12.0);
+		//shooterOneMotor.configNominalOutputVoltage(0, 0);
+		//shooterOneMotor.configPeakOutputVoltage(12.0, -12.0);
 		shooterOneMotor.reverseSensor(true);
 
 		shooterHoodMotor = new CANTalon(RobotMap.shooterServoTalon);
@@ -56,8 +56,9 @@ public class Shooter extends BulldogSystem
 
 	public void setMotorPower(double power)
 	{
+		shooterOneMotor.changeControlMode(CANTalon.TalonControlMode.PercentVbus);
 		shooterOneMotor.set(power);
-		shooterTwoMotor.set(power);
+	//	shooterTwoMotor.set(power);
 	}
 
 	public double getShooterRPM()
@@ -67,21 +68,28 @@ public class Shooter extends BulldogSystem
 
 	public void initShooter()
 	{
+		shooterOneMotor.changeControlMode(CANTalon.TalonControlMode.Speed);
 		shooterOneMotor.setProfile(0);
 		shooterOneMotor.setF(0);
 		shooterOneMotor.setP(0);
 		shooterOneMotor.setI(0);
 		shooterOneMotor.setD(0);
 		shooterOneMotor.set(0);
+		shooterOneMotor.ClearIaccum();
+		shooterOneMotor.enableControl();
+		
+		shooterOneMotor.changeControlMode(CANTalon.TalonControlMode.Speed);
+		shooterOneMotor.reverseSensor(true);
+		shooterOneMotor.setF(.02635);
+		shooterOneMotor.setP(0);
+		shooterOneMotor.setI(0);
+		shooterOneMotor.setD(0);
+		shooterOneMotor.enableControl();
 	}
 	public void startShooter(double rpm)
 	{
-		shooterOneMotor.reverseSensor(true);
-		shooterOneMotor.setF(0);
-		shooterOneMotor.setP(.01);
-		shooterOneMotor.setI(0);
-		shooterOneMotor.setD(.001);
-		shooterOneMotor.set(200);
+
+		shooterOneMotor.set(rpm);
 	}
 	public void readyShooter(double rpm, double hoodAngle, double power) // rpm
 																			// caps
@@ -155,6 +163,9 @@ public class Shooter extends BulldogSystem
 		RobotMap.shootPea = SmartDashboard.getDouble("shootPea");
 		RobotMap.shootEye = SmartDashboard.getDouble("shootEye");
 		RobotMap.shootDee = SmartDashboard.getDouble("shootDee");
+		
+		System.out.println("shooter speed" + shooterOneMotor.getSpeed());
+		System.out.println("shooter speed" + shooterOneMotor.getPulseWidthVelocity());
 	}
 
 	@Override

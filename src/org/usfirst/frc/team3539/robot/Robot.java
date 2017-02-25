@@ -1,15 +1,7 @@
 package org.usfirst.frc.team3539.robot;
 
-import org.usfirst.frc.team3539.robot.commands.AutoAim;
-import org.usfirst.frc.team3539.robot.commands.AutonDrive;
-import org.usfirst.frc.team3539.robot.commands.AutonTurn;
-import org.usfirst.frc.team3539.robot.commands.ClimbCommand;
-import org.usfirst.frc.team3539.robot.commands.DriveCommand;
-import org.usfirst.frc.team3539.robot.commands.VoidCommand;
-import org.usfirst.frc.team3539.robot.subsystems.DriveTrain;
-import org.usfirst.frc.team3539.robot.subsystems.GearManipulator;
-import org.usfirst.frc.team3539.robot.subsystems.Intake;
-import org.usfirst.frc.team3539.robot.subsystems.Shooter;
+import org.usfirst.frc.team3539.robot.commands.*;
+import org.usfirst.frc.team3539.robot.subsystems.*;
 
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.CameraServer;
@@ -152,6 +144,7 @@ public class Robot extends IterativeRobot
 		SmartDashboard.putData(intake);
 		SmartDashboard.putData(manipulator);
 		SmartDashboard.putData(driveTrain);
+		SmartDashboard.putData(new TestMaxVel());
 
 		selectCommands = new SendableChooser<Command>();
 		selectCommands.addObject("Climb", new ClimbCommand());
