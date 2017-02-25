@@ -149,6 +149,7 @@ public class Robot extends IterativeRobot
 		autonChooser.addObject("TurnRightGearPlace", new TurnRightGearPlaceGroup());
 		autonChooser.addObject("ForwardGearPlace", new ForwardGearPlaceGroup());
 		autonChooser.addObject("TurnLeftGearPlace", new TurnLeftGearPlaceGroup());
+		autonChooser.addObject("Tunning Drive", new AutonDrive(400));
 
 		SmartDashboard.putData("Tele mode", teleopChooser);
 		teleopChooser.addDefault("Vision, Default", new VoidCommand()); //Switch with teleop commands
