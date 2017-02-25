@@ -135,16 +135,16 @@ public class DriveTrain extends BulldogSystem
 		}
 	}
 	
-	// ticks per inch = 162.974661726
+	// ticks per inch = 325.949323452
 	public double inchToEnc(double inch)
 	{
-		return inch * 162.974661726;
+		return inch * 325.949323452;
 	}
 	
-	// inches per tick = 0.00613592315 
+	// inches per tick = 0.00306796157 
 	public double encToInch(double enc)
 	{
-		return enc * 0.00613592315;
+		return enc * 0.00306796157;
 	}
 
 	public void gyroReset()
