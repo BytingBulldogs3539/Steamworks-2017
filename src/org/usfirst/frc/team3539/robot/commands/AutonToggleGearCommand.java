@@ -1,5 +1,7 @@
 package org.usfirst.frc.team3539.robot.commands;
 
+import org.usfirst.frc.team3539.robot.Robot;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -11,6 +13,7 @@ public class AutonToggleGearCommand extends Command {
     {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	requires(Robot.manipulator);
     }
 
     // Called just before this Command runs the first time
@@ -21,6 +24,7 @@ public class AutonToggleGearCommand extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() 
     {
+    	Robot.manipulator.GearHolders();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -38,5 +42,7 @@ public class AutonToggleGearCommand extends Command {
     // subsystems is scheduled to run
     protected void interrupted() 
     {
+    	end();
     }
+    	
 }
