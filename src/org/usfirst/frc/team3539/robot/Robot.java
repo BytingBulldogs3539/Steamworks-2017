@@ -1,5 +1,8 @@
 package org.usfirst.frc.team3539.robot;
 
+import org.usfirst.frc.team3539.robot.auton.ForwardGearPlaceGroup;
+import org.usfirst.frc.team3539.robot.auton.TurnLeftGearPlaceGroup;
+import org.usfirst.frc.team3539.robot.auton.TurnRightGearPlaceGroup;
 import org.usfirst.frc.team3539.robot.commands.AutoAim;
 import org.usfirst.frc.team3539.robot.commands.AutonDrive;
 import org.usfirst.frc.team3539.robot.commands.AutonTurn;
@@ -143,6 +146,9 @@ public class Robot extends IterativeRobot
 		autonChooser.addObject("Drive Forward", new AutonDrive(20000));
 		autonChooser.addObject("Auton Turn 180", new AutonTurn(180));
 		autonChooser.addObject("Auton Turn 90", new AutonTurn(90));
+		autonChooser.addObject("TurnRightGearPlace", new TurnRightGearPlaceGroup());
+		autonChooser.addObject("ForwardGearPlace", new ForwardGearPlaceGroup());
+		autonChooser.addObject("TurnLeftGearPlace", new TurnLeftGearPlaceGroup());
 
 		SmartDashboard.putData("Tele mode", teleopChooser);
 		teleopChooser.addDefault("Vision, Default", new VoidCommand()); //Switch with teleop commands
