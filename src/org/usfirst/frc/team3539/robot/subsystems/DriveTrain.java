@@ -134,6 +134,18 @@ public class DriveTrain extends BulldogSystem
 			manipulatorSol.set(DoubleSolenoid.Value.kReverse);
 		}
 	}
+	
+	// ticks per inch = 162.974661726
+	public double inchToEnc(double inch)
+	{
+		return inch * 162.974661726;
+	}
+	
+	// inches per tick = 0.00613592315 
+	public double encToInch(double enc)
+	{
+		return enc * 0.00613592315;
+	}
 
 	public void gyroReset()
 	{
