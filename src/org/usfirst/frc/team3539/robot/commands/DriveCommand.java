@@ -9,6 +9,7 @@ import org.usfirst.frc.team3539.robot.RobotMap;
  */
 public class DriveCommand extends BulldogCommand
 {
+	private boolean latch = false;
 	public DriveCommand()
 	{
 		super("DriveCommand");
@@ -23,10 +24,13 @@ public class DriveCommand extends BulldogCommand
 
 	protected void execute()
 	{
-		if(Robot.oi.isButtonPressed())
-		{
+		if(Robot.oi.onebuttona.get() && !latch){
+			latch = true;
 			Robot.driveTrain.changeGears();
+		}else{
+		latch = false;
 		}
+		
 		Robot.driveTrain.driveArcade(Robot.oi.controller1.getRawAxis(RobotMap.Y_AxisL),
 				Robot.oi.controller1.getRawAxis(RobotMap.X_AxisR));
 	}
