@@ -104,7 +104,7 @@ public class Robot extends IterativeRobot
 	{
 		Scheduler.getInstance().run();
 		Update();
-		Raspberry.Read();
+		Raspberry.Print();
 	}
 
 	// This function is called periodically during test mode

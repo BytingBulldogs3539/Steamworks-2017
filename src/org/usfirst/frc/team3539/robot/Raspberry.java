@@ -1,25 +1,32 @@
 package org.usfirst.frc.team3539.robot;
+
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
 
-
 public class Raspberry
-{	
+{
 	private static NetworkTable table;
-	public Raspberry ()
+
+	public Raspberry()
 	{
 		table = NetworkTable.getTable("SmartDashboard");
 		table.putNumber("Test", 0);
-
 	}
 
-	public static void Init ()
+	public static void Init()
 	{
 		table = NetworkTable.getTable("SmartDashboard");
 		table.putNumber("Test", 0);
-
 	}
-	public static void Read()
+
+	@SuppressWarnings("deprecation")
+	public static void Print()
 	{
-		System.out.println(table.getNumber("Test"));
+		System.out.println("Raspberry: " + table.getNumber("Test"));
+	}
+
+	@SuppressWarnings("deprecation")
+	public static double Read()
+	{
+		return table.getNumber("Test");
 	}
 }
