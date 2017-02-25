@@ -12,20 +12,20 @@ public class Raspberry
 		table.putNumber("Test", 0);
 	}
 
-	public static void Init()
+	public void Init()
 	{
 		table = NetworkTable.getTable("SmartDashboard");
 		table.putNumber("Test", 0);
 	}
 
 	@SuppressWarnings("deprecation")
-	public static void Print()
+	public void Print()
 	{
 		System.out.println("Raspberry: " + table.getNumber("Test"));
 	}
 
 	@SuppressWarnings("deprecation")
-	public static double Read()
+	public double Read()
 	{
 		return table.getNumber("Test");
 	}

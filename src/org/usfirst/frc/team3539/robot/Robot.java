@@ -39,6 +39,7 @@ public class Robot extends IterativeRobot
 	public static Compressor c;
 	public static OI oi;
 	public static UsbCamera camera;
+	public static Raspberry raspberry;
 
 	Command autonMode, teleopMode;
 	SendableChooser<Command> autonChooser, teleopChooser, selectCommands;
@@ -48,6 +49,8 @@ public class Robot extends IterativeRobot
 		c = new Compressor(RobotMap.compressor);
 
 		oi = new OI();
+
+		raspberry = new Raspberry();
 
 		SmartInit();
 
@@ -96,7 +99,7 @@ public class Robot extends IterativeRobot
 			autonMode.cancel();
 		driveTrain.gyroReset();
 		Scheduler.getInstance().add(new DriveCommand());
-		Raspberry.Init();
+		raspberry.Init();
 	}
 
 	// This function is called periodically during operator control
@@ -104,7 +107,7 @@ public class Robot extends IterativeRobot
 	{
 		Scheduler.getInstance().run();
 		Update();
-		Raspberry.Print();
+		raspberry.Print();
 	}
 
 	// This function is called periodically during test mode
