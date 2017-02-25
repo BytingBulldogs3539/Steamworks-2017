@@ -12,7 +12,7 @@ public class ForwardGearPlaceGroup extends CommandGroup
 {
 	public ForwardGearPlaceGroup()
 	{
-		addSequential(new AutonDrive(104));
+		addSequential(new AutonDrive(70));
 		addSequential(new AutonToggleGearCommand());
 	}
 }
