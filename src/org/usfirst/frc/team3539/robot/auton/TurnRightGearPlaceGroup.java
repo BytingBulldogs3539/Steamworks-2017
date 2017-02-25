@@ -14,9 +14,9 @@ public class TurnRightGearPlaceGroup extends CommandGroup
 
 	public TurnRightGearPlaceGroup()
 	{
-		addSequential(new AutonDrive(71));
+		addSequential(new AutonDrive(105));
 		addSequential(new AutonTurn(45));
-		addSequential(new AutonDrive(6));
+		addSequential(new AutonDrive(40));
 		addSequential(new AutonToggleGearCommand());
 	}
 }

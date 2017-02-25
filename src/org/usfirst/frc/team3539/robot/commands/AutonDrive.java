@@ -15,6 +15,7 @@ public class AutonDrive extends PIDCommand
 	public AutonDrive(double inches)
 	{
 		super("test", RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
+		inches = Robot.driveTrain.subtractRobotInches(inches);
 		myTicks = Robot.driveTrain.inchToEnc(inches);
 		requires(Robot.driveTrain);
 	}
