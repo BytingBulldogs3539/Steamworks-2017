@@ -1,5 +1,6 @@
 package org.usfirst.frc.team3539.robot;
 
+import org.usfirst.frc.team3539.robot.commands.AutoAim;
 import org.usfirst.frc.team3539.robot.commands.AutonDrive;
 import org.usfirst.frc.team3539.robot.commands.AutonTurn;
 import org.usfirst.frc.team3539.robot.commands.ClimbCommand;
@@ -91,11 +92,12 @@ public class Robot extends IterativeRobot
 
 	public void teleopInit()
 	{
+		SmartDashboard.putData(new AutoAim());
 		System.out.println("teleopInit");
 		if(autonMode != null)
 			autonMode.cancel();
 		driveTrain.gyroReset();
-		Scheduler.getInstance().add(new DriveCommand());
+		//Scheduler.getInstance().add(new DriveCommand());
 		Raspberry.Init();
 	}
 

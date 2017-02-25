@@ -75,7 +75,7 @@ public class DriveTrain extends BulldogSystem
 
 	public void turnLinear(double speed)
 	{
-		drive.arcadeDrive(0, speed);
+		drive.tankDrive(-speed, speed);
 	}
 
 	public double getBalancedEncoderPosition()

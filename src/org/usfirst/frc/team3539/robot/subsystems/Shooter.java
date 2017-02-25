@@ -30,8 +30,10 @@ public class Shooter extends BulldogSystem
 		shooterTwoMotor.changeControlMode(TalonControlMode.Follower);
 		shooterTwoMotor.set(shooterOneMotor.getDeviceID());
 
-		shooterOneMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
-		shooterOneMotor.reverseSensor(false);
+		shooterOneMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Absolute);
+		shooterOneMotor.configNominalOutputVoltage(0, 0);
+		shooterOneMotor.configPeakOutputVoltage(12.0, -12.0);
+		shooterOneMotor.reverseSensor(true);
 
 		shooterHoodMotor = new CANTalon(RobotMap.shooterServoTalon);
 
@@ -74,11 +76,12 @@ public class Shooter extends BulldogSystem
 	}
 	public void startShooter(double rpm)
 	{
-		shooterOneMotor.setF(0.1097/2);
-		shooterOneMotor.setP(.1);
+		shooterOneMotor.reverseSensor(true);
+		shooterOneMotor.setF(0);
+		shooterOneMotor.setP(.01);
 		shooterOneMotor.setI(0);
-		shooterOneMotor.setD(.01);
-		shooterOneMotor.set(rpm);
+		shooterOneMotor.setD(.001);
+		shooterOneMotor.set(200);
 	}
 	public void readyShooter(double rpm, double hoodAngle, double power) // rpm
 																			// caps
@@ -141,7 +144,7 @@ public class Shooter extends BulldogSystem
 		SmartDashboard.putBoolean("lightSensorTwo", lightSensorTwo.get());
 		SmartDashboard.putBoolean("lightSensorOne", lightSensorOne.get());
 
-		SmartDashboard.putDouble("Current Shooter RPM", getShooterRPM());
+		SmartDashboard.putDouble("Current Shooter RPM", shooterOneMotor.getSpeed());
 		SmartDashboard.putDouble("Shooter Hood Encoder", shooterHoodMotor.getPulseWidthPosition());
 
 		SmartDashboard.putDouble("Agitator Speed", RobotMap.agitatorSpeed);

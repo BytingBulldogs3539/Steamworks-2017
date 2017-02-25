@@ -22,14 +22,9 @@ public class AutonDrive extends PIDCommand
 	protected void initialize()
 	{
 		this.getPIDController().setPID(RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
-		//SmartDashboard.putData(this.getPIDController().getTable());
 		Robot.driveTrain.zeroEncoders();
 		this.setSetpoint(myTicks);
-
-		//possible methods
-
-		//this.getPIDController().updateTable();
-		//this.getPIDController().setOutputRange(-1, 1);
+		this.getPIDController().setAbsoluteTolerance(500);
 	}
 
 	protected void execute()
@@ -38,14 +33,7 @@ public class AutonDrive extends PIDCommand
 
 	protected boolean isFinished()
 	{
-		if(Math.abs(myTicks - Robot.driveTrain.getBalancedEncoderPosition()) < 50)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+		return this.getPIDController().onTarget();
 	}
 
 	protected void end()

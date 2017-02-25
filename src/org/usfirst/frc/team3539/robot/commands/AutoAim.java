@@ -1,5 +1,6 @@
 package org.usfirst.frc.team3539.robot.commands;
 
+import org.usfirst.frc.team3539.robot.Raspberry;
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
 
@@ -8,14 +9,11 @@ import edu.wpi.first.wpilibj.command.PIDCommand;
 /**
  *
  */
-public class AutonTurn extends PIDCommand
+public class AutoAim extends PIDCommand
 {
-	private double newAngle;
-
-	public AutonTurn(double angle)
+	public AutoAim()
 	{
-		super("test", RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
-		newAngle = angle;
+		super("AutoAim", RobotMap.turnPea, RobotMap.turnEye, RobotMap.turnDee);
 		requires(Robot.driveTrain);
 	}
 
@@ -23,16 +21,10 @@ public class AutonTurn extends PIDCommand
 	{
 		this.getPIDController().setPID(RobotMap.turnPea, RobotMap.turnEye, RobotMap.turnDee);
 
-		Robot.driveTrain.gyroReset();
-		Robot.driveTrain.zeroEncoders();
-
-		this.setSetpoint(newAngle);
-
-
-		System.out.println("Init Turn");
+		this.setSetpoint(0);
 		
 		this.getPIDController().setOutputRange(-.5, .5);
-		this.getPIDController().setAbsoluteTolerance(1);
+		this.getPIDController().setAbsoluteTolerance(5);
 	}
 
 	protected void execute()
@@ -41,12 +33,13 @@ public class AutonTurn extends PIDCommand
 
 	protected boolean isFinished()
 	{
-		return this.getPIDController().onTarget();
+		return false;
+		//return this.getPIDController().onTarget();
 	}
 
 	protected void end()
 	{
-		System.out.println("Ended Turn");
+
 		Robot.driveTrain.stopTrain();
 	}
 
@@ -58,14 +51,13 @@ public class AutonTurn extends PIDCommand
 	@Override
 	protected double returnPIDInput()
 	{
-		System.out.println("Gyro angle" + Robot.driveTrain.getGyroAngle());
-		return Robot.driveTrain.getGyroAngle();
+		System.out.println(Raspberry.Read());
+		return Raspberry.Read();
 	}
 
 	@Override
 	protected void usePIDOutput(double output)
 	{
-		System.out.println("output " + output);
 		Robot.driveTrain.turnLinear(output);
 	}
 }

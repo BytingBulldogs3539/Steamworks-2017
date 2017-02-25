@@ -18,8 +18,8 @@ public class Raspberry
 		table.putNumber("Test", 0);
 
 	}
-	public static void Read()
+	public static double Read()
 	{
-		System.out.println(table.getNumber("Test"));
+		return table.getNumber("Test");
 	}
 }
