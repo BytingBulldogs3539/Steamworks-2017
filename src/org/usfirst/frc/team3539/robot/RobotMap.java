@@ -93,8 +93,11 @@ public class RobotMap//test
 	//LIGHT
 	public static int ballCount;
 	
-	//Conversions
-	public static final double inchesPerTick = 0.00306796157;
-	public static final double ticksPerInch = 325.949323452;
+	//Conversions 0.00306796157
+	public static final double wheelDiameter = 4;
+	public static final double wheelRadius = wheelDiameter / 2;
+	public static final double wheelCircumference = 2 * Math.PI * wheelRadius;
+	public static final double inchesPerTick = wheelCircumference / 4096;
+	public static final double ticksPerInch = 4096 / wheelCircumference;
 	public static final double robotLength = 34;
 }
