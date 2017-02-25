@@ -1,12 +1,13 @@
 package org.usfirst.frc.team3539.robot;
 
 import org.usfirst.frc.team3539.robot.commands.ClimbCommand;
+import org.usfirst.frc.team3539.robot.commands.FireCommand;
 import org.usfirst.frc.team3539.robot.commands.GearCommand;
 import org.usfirst.frc.team3539.robot.commands.HoodCommand;
 import org.usfirst.frc.team3539.robot.commands.IntakeCommand;
-import org.usfirst.frc.team3539.robot.commands.ShooterCommand;
 import org.usfirst.frc.team3539.robot.commands.TransmissionCommand;
 import org.usfirst.frc.team3539.robot.commands.TriggerModifierCommand;
+import org.usfirst.frc.team3539.robot.commands.VoidCommand;
 import org.usfirst.frc.team3539.robot.utilities.TriggerButton;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -38,7 +39,7 @@ public class OI
 	public JoystickButton twobumperr = new JoystickButton(controller2, RobotMap.bumperr);
 
 	public TriggerButton intakeTrigger = new TriggerButton(2, controller2, new IntakeCommand());
-	public TriggerButton shooterTrigger = new TriggerButton(3, controller2, new ShooterCommand(2000, 10));//not real values
+	public TriggerButton shooterTrigger = new TriggerButton(3, controller2, new FireCommand());//not real values   // new ShooterCommand(2000, 10)
 	public TriggerButton invertTrigger = new TriggerButton(3, controller1);
 
 	public OI()

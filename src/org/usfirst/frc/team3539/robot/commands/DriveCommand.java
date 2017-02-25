@@ -18,6 +18,7 @@ public class DriveCommand extends BulldogCommand
 	protected void initialize()
 	{
 		System.out.println("DriveCommand was initialized");
+		Robot.driveTrain.talonControlVBus();
 	}
 
 	protected void execute()

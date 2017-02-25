@@ -28,23 +28,23 @@ public class Blue1 extends CommandGroup {
     	
     	if(action.toLowerCase().contains("cross")) // pseudo wrestling
     	{
-    		addSequential(new squidward());
+    		//addSequential(new squidward());
     	}
     	if(action.toLowerCase().contains("gear"))
     	{
-    		addSequential(new turnt);
-    		addSequential(new squidward);
-    		addSequential(new gearvomit);
+    		//addSequential(new turnt);
+    		//addSequential(new squidward);
+    		//addSequential(new gearvomit);a
     	}
     	if(action.toLowerCase().contains("shoot"))
     	{
-    		addSequential(new back);
-    		addSequential(new turnt);
-    		addSequential(new squidward);
-    		addSequential(new turnt);
-    		addSequential(new squidward);
-    		addSequential(new turnt);
-    		addSequential(new shooty);
+    		//addSequential(new back);
+    		//addSequential(new turnt);
+    		//addSequential(new squidward);
+    		//addSequential(new turnt);
+    		//addSequential(new squidward);
+    		//addSequential(new turnt);
+    		//addSequential(new shooty);
     	}
     	
     }

@@ -96,6 +96,7 @@ public class Robot extends IterativeRobot
 			autonMode.cancel();
 		driveTrain.gyroReset();
 		Scheduler.getInstance().add(new DriveCommand());
+		Raspberry.Init();
 	}
 
 	// This function is called periodically during operator control
@@ -103,7 +104,7 @@ public class Robot extends IterativeRobot
 	{
 		Scheduler.getInstance().run();
 		Update();
-		//Raspberry.Read();
+		Raspberry.Read();
 	}
 
 	// This function is called periodically during test mode

@@ -107,7 +107,6 @@ public class DriveTrain extends BulldogSystem
 		rfMotor.changeControlMode(TalonControlMode.PercentVbus);
 		lbMotor.changeControlMode(TalonControlMode.PercentVbus);
 		rbMotor.changeControlMode(TalonControlMode.PercentVbus);
-
 	}
 
 	public void driveArcade(double leftStick, double rightStick)

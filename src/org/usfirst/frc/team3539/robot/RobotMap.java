@@ -75,12 +75,11 @@ public class RobotMap//test
 	public static final int lockSolOff = 7;
 
 	//SHOOTER
-	public static final int shooterTwoMotorTalon = 1;
-	public static final int shooterOneMotorTalon = 2;
-	public static double shootSpeed = -.7;
+	public static final int shooterOneMotorTalon = 1;
+	public static final int shooterTwoMotorTalon = 2;
 	public static final double shooterSpeedModifier = 1.0;
 	public static final int shooterServoTalon = 9;
-	public static double shooterRpm = 0;
+	public static double shooterRpm = 1000;
 
 	//GEAR
 	public static final int hoodSolOn = 2;

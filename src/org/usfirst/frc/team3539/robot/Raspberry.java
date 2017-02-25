@@ -4,14 +4,22 @@ import edu.wpi.first.wpilibj.networktables.NetworkTable;
 
 public class Raspberry
 {	
-	static NetworkTable table;
+	private static NetworkTable table;
 	public Raspberry ()
 	{
+		table = NetworkTable.getTable("SmartDashboard");
+		table.putNumber("Test", 0);
 
 	}
-	public static  void Read()
+
+	public static void Init ()
 	{
-		table = NetworkTable.getTable("Test");
-		System.out.println(table.getNumber("Testing"));
+		table = NetworkTable.getTable("SmartDashboard");
+		table.putNumber("Test", 0);
+
+	}
+	public static void Read()
+	{
+		System.out.println(table.getNumber("Test"));
 	}
 }
