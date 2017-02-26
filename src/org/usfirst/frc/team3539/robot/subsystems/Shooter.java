@@ -148,6 +148,7 @@ public class Shooter extends BulldogSystem
 	@SuppressWarnings("deprecation")
 	public void Update()
 	{
+		SmartDashboard.putNumber("Shooter RPM", shooterOneMotor.getPulseWidthVelocity());
 		SmartDashboard.putNumber("Ball Count", RobotMap.ballCount);
 		SmartDashboard.putBoolean("lightSensorTwo", lightSensorTwo.get());
 		SmartDashboard.putBoolean("lightSensorOne", lightSensorOne.get());
@@ -172,6 +173,7 @@ public class Shooter extends BulldogSystem
 	@SuppressWarnings("deprecation")
 	public void SmartInit()
 	{
+		SmartDashboard.putNumber("Shooter RPM", shooterOneMotor.getPulseWidthVelocity());
 		SmartDashboard.putNumber("Ball Count", RobotMap.ballCount);
 		SmartDashboard.putBoolean("lightSensorTwo", lightSensorTwo.get());
 		SmartDashboard.putBoolean("lightSensorOne", lightSensorOne.get());

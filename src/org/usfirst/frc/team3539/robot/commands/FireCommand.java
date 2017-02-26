@@ -26,6 +26,15 @@ public class FireCommand extends Command
 	protected void execute()
 	{
 		Robot.shooter.startShooter(RobotMap.shooterRpm);
+		
+		if(RobotMap.triggerModified)
+		{
+			Robot.shooter.setAgitatorMotorPower(RobotMap.unjamAgitatorSpeed);
+		}
+		else if(Robot.shooter.getShooterRPM() >= RobotMap.shooterRpm)
+		{
+			Robot.shooter.setAgitatorMotorPower(RobotMap.agitatorSpeed);
+		}
 	}
 
 	protected boolean isFinished()
