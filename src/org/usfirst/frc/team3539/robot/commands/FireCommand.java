@@ -19,7 +19,8 @@ public class FireCommand extends Command
 	protected void initialize()
 	{
 		System.out.println("FireCommand init");
-		Robot.shooter.initShooter();
+		Robot.shooter.resetShooterPID();
+		Robot.shooter.setShooterPID();
 		Robot.shooter.startShooter(RobotMap.shooterRpm);
 	}
 
@@ -31,7 +32,7 @@ public class FireCommand extends Command
 		{
 			Robot.shooter.setAgitatorMotorPower(RobotMap.unjamAgitatorSpeed);
 		}
-		else if(Robot.shooter.getShooterRPM() >= RobotMap.shooterRpm)
+		else if(Robot.shooter.getShooterRPM() <= RobotMap.shooterRpm)
 		{
 			Robot.shooter.setAgitatorMotorPower(RobotMap.agitatorSpeed);
 		}
@@ -44,7 +45,8 @@ public class FireCommand extends Command
 
 	protected void end()
 	{
-		Robot.shooter.initShooter();
+		Robot.shooter.resetShooterPID();
+		Robot.shooter.setAgitatorMotorPower(0);
 		System.out.println("FireCommand ended");
 	}
 

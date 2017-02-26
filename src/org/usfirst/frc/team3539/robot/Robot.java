@@ -1,7 +1,5 @@
 package org.usfirst.frc.team3539.robot;
 
-import edu.wpi.cscore.UsbCamera;
-import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -33,7 +31,7 @@ public class Robot extends IterativeRobot
 
 	public static Compressor c;
 	public static OI oi;
-	public static UsbCamera camera;
+	//public static UsbCamera camera;
 	public static Raspberry raspberry;
 
 	Command autonMode, teleopMode;
@@ -49,8 +47,8 @@ public class Robot extends IterativeRobot
 
 		SmartInit();
 
-		camera = CameraServer.getInstance().startAutomaticCapture();
-		camera.setResolution(480, 360);
+		//camera = CameraServer.getInstance().startAutomaticCapture();
+		//camera.setResolution(480, 360);
 	}
 
 	/**
@@ -102,7 +100,6 @@ public class Robot extends IterativeRobot
 	{
 		Scheduler.getInstance().run();
 		Update();
-		raspberry.Print();
 	}
 
 	// This function is called periodically during test mode

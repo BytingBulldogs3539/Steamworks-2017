@@ -23,7 +23,7 @@ public class AutoAim extends PIDCommand
 
 		this.setSetpoint(0);
 		
-		this.getPIDController().setOutputRange(-.5, .5);
+		this.getPIDController().setOutputRange(-.75, .75);
 		this.getPIDController().setAbsoluteTolerance(5);
 	}
 
@@ -52,7 +52,6 @@ public class AutoAim extends PIDCommand
 	protected double returnPIDInput()
 	{
 		double read = Robot.raspberry.Read();
-		System.out.println(read);
 		return read;
 	}
 

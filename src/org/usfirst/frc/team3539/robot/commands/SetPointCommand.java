@@ -50,13 +50,13 @@ public class SetPointCommand extends PIDCommand
 	protected double returnPIDInput()
 	{
 		// TODO Auto-generated method stub
-		return Robot.shooter.GetPosition();
+		return Robot.shooter.getPosition();
 	}
 
 	@Override
 	protected void usePIDOutput(double output)
 	{
 		// TODO Auto-generated method stub
-		Robot.shooter.setHoodAngle(output/3);
+		Robot.shooter.settempHoodAngle(output);
 	}
 }

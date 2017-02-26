@@ -48,13 +48,19 @@ public class RobotMap//test
 	public static double driveEye = .0000000165;
 	public static double driveDee = .00000001;
 
-	public static double turnPea = .000054;
-	public static double turnEye = .0000000165;
+	public static double turnPea = .1;
+	public static double turnEye = 0;
 	public static double turnDee = .00000001;
 
-	public static double shootPea = .000054;
-	public static double shootEye = .0000000165;
-	public static double shootDee = .00000001;
+	public static double shootPea = 0;
+	public static double shootEye = 0;
+	public static double shootDee = 0;
+	public static double shootEff = .02635;
+	
+	public static double hoodPea = 0;
+	public static double hoodEye = 0;
+	public static double hoodDee = 0;
+	public static double hoodEff = 0;
 	
 	//AIR
 	public static final int compressor = 10;
@@ -77,9 +83,9 @@ public class RobotMap//test
 	//SHOOTER
 	public static final int shooterOneMotorTalon = 1;
 	public static final int shooterTwoMotorTalon = 2;
-	public static final double shooterSpeedModifier = 1.0;
 	public static final int shooterServoTalon = 9;
-	public static double shooterRpm = 1000;
+	public static double shooterRpm = -1000;
+	public static double hoodTarget = 0;
 
 	//GEAR
 	public static final int hoodSolOn = 2;
