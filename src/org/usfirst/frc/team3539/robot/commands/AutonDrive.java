@@ -25,11 +25,12 @@ public class AutonDrive extends PIDCommand
 		this.getPIDController().setPID(RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
 		Robot.driveTrain.zeroEncoders();
 		this.setSetpoint(myTicks);
-		this.getPIDController().setAbsoluteTolerance(500);
+		this.getPIDController().setAbsoluteTolerance(2000);
 	}
 
 	protected void execute()
 	{
+		System.out.println("Drive On Target: " + this.getPIDController().onTarget());
 	}
 
 	protected boolean isFinished()

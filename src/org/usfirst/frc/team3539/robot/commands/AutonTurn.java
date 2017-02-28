@@ -32,11 +32,12 @@ public class AutonTurn extends PIDCommand
 		System.out.println("Init Turn");
 		
 		this.getPIDController().setOutputRange(-.5, .5);
-		this.getPIDController().setAbsoluteTolerance(1);
+		this.getPIDController().setAbsoluteTolerance(5);
 	}
 
 	protected void execute()
 	{
+		System.out.println("Turn On Target: " + this.getPIDController().onTarget());
 	}
 
 	protected boolean isFinished()
