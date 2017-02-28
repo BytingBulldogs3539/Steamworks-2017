@@ -159,12 +159,6 @@ public class Shooter extends BulldogSystem
 		RobotMap.hoodEff = SmartDashboard.getDouble("hoodEff");
 		
 		RobotMap.hoodTarget = SmartDashboard.getDouble("hoodTarget");
-		
-<<<<<<< HEAD
-		
-		//setHoodAngle(RobotMap.hoodTarget);
-=======
->>>>>>> origin/master
 	}
 
 	@Override
