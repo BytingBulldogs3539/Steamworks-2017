@@ -11,8 +11,8 @@ import edu.wpi.first.wpilibj.command.PIDCommand;
  */
 public class SetPointCommand extends PIDCommand
 {
-	public int setpoint;
-	public SetPointCommand(int mysetpoint)
+	public double setpoint;
+	public SetPointCommand(double mysetpoint)
 	{
 		super("SetPointCommand",.0001,0,0);
 		requires(Robot.shooter);
@@ -22,14 +22,14 @@ public class SetPointCommand extends PIDCommand
 	protected void initialize()
 	{
 		this.setSetpoint(setpoint);
+		System.out.println("It Initialized");
 		
 		
 	}
 
 	protected void execute()
 	{
-	//	Robot.shooter.setHoodAngle(Robot.oi.controller2.getRawAxis(RobotMap.Y_AxisL));
-		
+		Robot.shooter.setHoodAngle(RobotMap.hoodTarget);
 	}
 
 	protected boolean isFinished()

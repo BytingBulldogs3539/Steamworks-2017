@@ -160,15 +160,18 @@ public class Shooter extends BulldogSystem
 		
 		RobotMap.hoodTarget = SmartDashboard.getDouble("hoodTarget");
 		
+<<<<<<< HEAD
 		
 		//setHoodAngle(RobotMap.hoodTarget);
+=======
+>>>>>>> origin/master
 	}
 
 	@Override
 	@SuppressWarnings("deprecation")
 	public void SmartInit()
 	{
-		SmartDashboard.putData(new SetPointCommand(1500));
+		SmartDashboard.putData(new SetPointCommand(RobotMap.hoodTarget));
 		SmartDashboard.putNumber("Shooter RPM", shooterOneMotor.getPulseWidthVelocity());
 		SmartDashboard.putNumber("Ball Count", RobotMap.ballCount);
 		SmartDashboard.putBoolean("lightSensorTwo", lightSensorTwo.get());
