@@ -45,6 +45,7 @@ public class AutonDrive extends PIDCommand
 
 	protected void interrupted()
 	{
+		System.out.println("Interrupted");
 		end();
 	}
 

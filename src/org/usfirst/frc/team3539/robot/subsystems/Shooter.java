@@ -145,8 +145,6 @@ public class Shooter extends BulldogSystem
 
 		SmartDashboard.putDouble("Current Shooter RPM", shooterOneMotor.getSpeed());
 		SmartDashboard.putDouble("Shooter Hood Encoder", getPosition());
-
-		SmartDashboard.putDouble("Agitator Speed", RobotMap.agitatorSpeed);
 		
 		RobotMap.agitatorSpeed = SmartDashboard.getDouble("Agitator Speed");
 		RobotMap.shooterRpm = SmartDashboard.getDouble("Target RPM for shooter");
@@ -162,8 +160,6 @@ public class Shooter extends BulldogSystem
 		
 		RobotMap.hoodTarget = SmartDashboard.getDouble("hoodTarget");
 		
-		System.out.println("shooter speed" + shooterOneMotor.getSpeed());
-		System.out.println("shooter speed" + shooterOneMotor.getPulseWidthVelocity());
 		
 		//setHoodAngle(RobotMap.hoodTarget);
 	}

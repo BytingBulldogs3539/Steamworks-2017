@@ -17,6 +17,7 @@ public class AutonTurn extends PIDCommand
 		super("test", RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
 		newAngle = angle;
 		requires(Robot.driveTrain);
+		System.out.println("CON");
 	}
 
 	protected void initialize()
@@ -29,15 +30,15 @@ public class AutonTurn extends PIDCommand
 		this.setSetpoint(newAngle);
 
 
-		System.out.println("Init Turn");
+		//System.out.println("Init Turn");
 		
-		this.getPIDController().setOutputRange(-.5, .5);
+		this.getPIDController().setOutputRange(-.6, .6); // original -.5. .5
 		this.getPIDController().setAbsoluteTolerance(5);
 	}
 
 	protected void execute()
 	{
-		System.out.println("Turn On Target: " + this.getPIDController().onTarget());
+		//System.out.println("Turn On Target: " + this.getPIDController().onTarget());
 	}
 
 	protected boolean isFinished()
@@ -47,7 +48,7 @@ public class AutonTurn extends PIDCommand
 
 	protected void end()
 	{
-		System.out.println("Ended Turn");
+		//System.out.println("Ended Turn");
 		Robot.driveTrain.stopTrain();
 	}
 
@@ -59,14 +60,14 @@ public class AutonTurn extends PIDCommand
 	@Override
 	protected double returnPIDInput()
 	{
-		System.out.println("Gyro angle" + Robot.driveTrain.getGyroAngle());
+		//System.out.println("Gyro angle" + Robot.driveTrain.getGyroAngle());
 		return Robot.driveTrain.getGyroAngle();
 	}
 
 	@Override
 	protected void usePIDOutput(double output)
 	{
-		System.out.println("output " + output);
+		//System.out.println("output " + output);
 		Robot.driveTrain.turnLinear(output);
 	}
 }
