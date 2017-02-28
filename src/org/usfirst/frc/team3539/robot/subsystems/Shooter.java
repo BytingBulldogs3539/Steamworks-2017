@@ -162,17 +162,13 @@ public class Shooter extends BulldogSystem
 		
 		RobotMap.hoodTarget = SmartDashboard.getDouble("hoodTarget");
 		
-		System.out.println("shooter speed" + shooterOneMotor.getSpeed());
-		System.out.println("shooter speed" + shooterOneMotor.getPulseWidthVelocity());
-		
-		//setHoodAngle(RobotMap.hoodTarget);
 	}
 
 	@Override
 	@SuppressWarnings("deprecation")
 	public void SmartInit()
 	{
-		SmartDashboard.putData(new SetPointCommand(1500));
+		SmartDashboard.putData(new SetPointCommand(RobotMap.hoodTarget));
 		SmartDashboard.putNumber("Shooter RPM", shooterOneMotor.getPulseWidthVelocity());
 		SmartDashboard.putNumber("Ball Count", RobotMap.ballCount);
 		SmartDashboard.putBoolean("lightSensorTwo", lightSensorTwo.get());
