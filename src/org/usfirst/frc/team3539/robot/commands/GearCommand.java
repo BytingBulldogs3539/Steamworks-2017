@@ -27,7 +27,7 @@ public class GearCommand extends BulldogCommand
 
 	protected boolean isFinished()
 	{
-		return !Robot.oi.twobuttona.get();
+		return true;
 	}
 
 	protected void end()
