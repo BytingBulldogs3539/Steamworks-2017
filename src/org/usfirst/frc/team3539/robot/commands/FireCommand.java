@@ -22,6 +22,8 @@ public class FireCommand extends Command
 		System.out.println("FireCommand init");
 		Robot.shooter.resetShooterPID();
 		Robot.shooter.setShooterPID();
+		Robot.shooter.resetAgitatorPID();
+		Robot.shooter.setAgitatorPID();
 		Robot.shooter.startShooter(RobotMap.shooterRpm);
 	}
 
@@ -31,11 +33,11 @@ public class FireCommand extends Command
 
 		if (RobotMap.triggerModified)
 		{
-			Robot.shooter.setAgitatorMotorPower(RobotMap.unjamAgitatorSpeed);
+			Robot.shooter.startAgitator(-RobotMap.agitatorRpm);
 		}
 		else if (Robot.shooter.getShooterRPM() <= RobotMap.shooterRpm)
 		{
-			Robot.shooter.setAgitatorMotorPower(RobotMap.agitatorSpeed);
+			Robot.shooter.startAgitator(RobotMap.agitatorRpm);
 		}
 
 		if (Robot.shooter.isBalling() && !ballControl)
@@ -58,7 +60,7 @@ public class FireCommand extends Command
 	{
 		ballControl = false;
 		Robot.shooter.resetShooterPID();
-		Robot.shooter.setAgitatorMotorPower(0);
+		Robot.shooter.resetAgitatorPID();
 		System.out.println("FireCommand ended");
 	}
 

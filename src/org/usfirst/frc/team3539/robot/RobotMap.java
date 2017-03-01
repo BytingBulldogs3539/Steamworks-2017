@@ -62,6 +62,11 @@ public class RobotMap//test
 	public static double hoodDee = 0;
 	public static double hoodEff = 0;
 	
+	public static double agitatorPea = 0;
+	public static double agitatorEye = 0;
+	public static double agitatorDee = 0;
+	public static double agitatorEff = 0;
+	
 	//AIR
 	public static final int compressor = 10;
 
@@ -69,6 +74,7 @@ public class RobotMap//test
 	public static final int agitatorTalon = 8;
 	public static double agitatorSpeed = -.8;
 	public static double unjamAgitatorSpeed = .8;
+	public static double agitatorRpm = 600;
 
 	//INTAKE
 	public static final int intakeMotorTalon = 5;
@@ -84,7 +90,7 @@ public class RobotMap//test
 	public static final int shooterOneMotorTalon = 1;
 	public static final int shooterTwoMotorTalon = 2;
 	public static final int shooterServoTalon = 9;
-	public static double shooterRpm = -1000;
+	public static double shooterRpm = -3500;
 	public static double hoodTarget = 0;
 
 	//GEAR

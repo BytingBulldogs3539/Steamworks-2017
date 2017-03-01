@@ -40,7 +40,9 @@ public class Shooter extends BulldogSystem
 		shooterHoodMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Absolute);
 
 		agitatorMotor = new CANTalon(RobotMap.agitatorTalon);
-
+		agitatorMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Absolute);
+		agitatorMotor.setSafetyEnabled(false);
+		
 		//shooterHoodMotor.setF(RobotMap.hoodEff);
 		//shooterHoodMotor.setP(RobotMap.hoodPea);
 		//shooterHoodMotor.setI(RobotMap.hoodEye);
@@ -53,6 +55,7 @@ public class Shooter extends BulldogSystem
 		 * shooterHoodMotor.enableReverseSoftLimit(false);
 		 */
 		shooterOneMotor.setEncPosition(0);
+		agitatorMotor.setEncPosition(0);
 	}
 
 	public void setMotorPower(double power)
@@ -88,6 +91,34 @@ public class Shooter extends BulldogSystem
 	public double getShooterRPM()
 	{
 		return shooterOneMotor.getSpeed();
+	}
+	
+	public void resetAgitatorPID()
+	{
+		agitatorMotor.changeControlMode(CANTalon.TalonControlMode.Speed);
+		agitatorMotor.setProfile(0);
+		agitatorMotor.setF(0);
+		agitatorMotor.setP(0);
+		agitatorMotor.setI(0);
+		agitatorMotor.setD(0);
+		agitatorMotor.set(0);
+		agitatorMotor.ClearIaccum();
+		agitatorMotor.enableControl();
+	}
+	
+	public void setAgitatorPID()
+	{
+		agitatorMotor.changeControlMode(CANTalon.TalonControlMode.Speed);
+		agitatorMotor.setF(RobotMap.agitatorEff);
+		agitatorMotor.setP(RobotMap.agitatorPea);
+		agitatorMotor.setI(RobotMap.agitatorEye);
+		agitatorMotor.setD(RobotMap.agitatorDee);
+		agitatorMotor.enableControl();
+	}
+	
+	public void startAgitator(double rpm)
+	{
+		agitatorMotor.set(rpm);
 	}
 
 	public void resetShooterPID()
