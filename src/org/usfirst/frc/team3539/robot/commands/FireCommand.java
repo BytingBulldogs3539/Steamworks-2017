@@ -14,11 +14,13 @@ public class FireCommand extends BulldogCommand
 
 	public FireCommand()
 	{
+		super("FireCommand");
 		requires(Robot.shooter);
 	}
 
 	protected void initialize()
 	{
+		super.initialize("FireCommand");
 		System.out.println("FireCommand init");
 		Robot.shooter.resetShooterPID();
 		Robot.shooter.setShooterPID();
@@ -58,6 +60,7 @@ public class FireCommand extends BulldogCommand
 
 	protected void end()
 	{
+		super.end("FireCommand");
 		ballControl = false;
 		Robot.shooter.resetShooterPID();
 		Robot.shooter.resetAgitatorPID();

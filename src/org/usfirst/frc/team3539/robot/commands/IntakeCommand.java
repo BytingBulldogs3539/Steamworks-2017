@@ -16,6 +16,7 @@ public class IntakeCommand extends BulldogCommand
 
 	protected void initialize()
 	{
+		super.initialize("IntakeCommand");
 		Robot.intake.lockOff();
 	}
 
@@ -39,6 +40,7 @@ public class IntakeCommand extends BulldogCommand
 
 	protected void end()
 	{
+		super.end("IntakeCommand");
 		Robot.intake.setMotorPower(0);
 	}
 

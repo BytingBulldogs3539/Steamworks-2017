@@ -12,12 +12,13 @@ public class GearCommand extends BulldogCommand
 
 	public GearCommand()
 	{
-		super("HoodCommand");
+		super("GearCommand");
 		requires(Robot.manipulator);
 	}
 
 	protected void initialize()
 	{
+		super.initialize("GearCommand");
 	}
 
 	protected void execute()
@@ -32,6 +33,7 @@ public class GearCommand extends BulldogCommand
 
 	protected void end()
 	{
+		super.end("GearCommand");
 		Robot.manipulator.holderClose();
 	}
 

@@ -16,6 +16,7 @@ public class TriggerModifierCommand extends BulldogCommand
 
 	protected void initialize()
 	{
+		super.initialize("TriggerModifierCommand");
 	}
 
 	protected void execute()
@@ -30,6 +31,7 @@ public class TriggerModifierCommand extends BulldogCommand
 
 	protected void end()
 	{
+		super.end("TriggerModifierCommand");
 		RobotMap.triggerModified = false;
 	}
 

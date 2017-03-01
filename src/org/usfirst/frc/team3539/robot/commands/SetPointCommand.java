@@ -23,8 +23,6 @@ public class SetPointCommand extends PIDCommand
 	{
 		this.setSetpoint(setpoint);
 		System.out.println("It Initialized");
-		
-		
 	}
 
 	protected void execute()
@@ -39,6 +37,7 @@ public class SetPointCommand extends PIDCommand
 
 	protected void end()
 	{
+		super.end();
 	}
 
 	protected void interrupted()

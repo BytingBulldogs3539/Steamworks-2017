@@ -16,6 +16,7 @@ public class HoodCommand extends BulldogCommand
 
 	protected void initialize()
 	{
+		super.initialize("HoodCommand");
 		Robot.manipulator.hoodOpen();
 	}
 
@@ -30,6 +31,7 @@ public class HoodCommand extends BulldogCommand
 
 	protected void end()
 	{
+		super.end("HoodCommand");
 		Robot.manipulator.hoodClose();
 	}
 

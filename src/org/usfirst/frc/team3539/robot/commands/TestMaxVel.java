@@ -12,11 +12,13 @@ public class TestMaxVel extends BulldogCommand {
     public TestMaxVel() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	super("TestMaxVel");
     	requires(Robot.shooter);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	super.initialize("TestMaxVel");
     	Robot.shooter.setMotorPower(-1);
     }
 
@@ -31,6 +33,7 @@ public class TestMaxVel extends BulldogCommand {
 
     // Called once after isFinished returns true
     protected void end() {
+    	super.end("TestMaxVel");
     }
 
     // Called when another command which requires one or more of the same
