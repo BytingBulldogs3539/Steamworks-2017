@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class FireCommand extends Command
+public class FireCommand extends BulldogCommand
 {
 	private boolean ballControl = false;
 

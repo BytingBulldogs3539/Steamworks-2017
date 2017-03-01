@@ -8,7 +8,7 @@
 ///**
 // * THIS IS A BACKUP. DO NOT USE
 // */
-//public class FireCommandBackup extends Command
+//public class FireCommandBackup extends BulldogCommmand
 //{
 //	private boolean ballControl = false;
 //

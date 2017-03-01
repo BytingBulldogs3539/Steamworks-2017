@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class TestMaxVel extends Command {
+public class TestMaxVel extends BulldogCommand {
 
     public TestMaxVel() {
         // Use requires() here to declare subsystem dependencies
