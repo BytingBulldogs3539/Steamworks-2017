@@ -15,9 +15,11 @@ public class AutonDrive extends PIDCommand
 	public AutonDrive(double inches)
 	{
 		super("test", RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
-		inches = Robot.driveTrain.subtractRobotInches(inches);
+//		inches = Robot.driveTrain.subtractRobotInches(inches);
 		myTicks = Robot.driveTrain.inchToEnc(inches);
 		requires(Robot.driveTrain);
+		Robot.driveTrain.zeroEncoders();
+		setSetpoint(myTicks);
 	}
 
 	protected void initialize()
@@ -30,7 +32,7 @@ public class AutonDrive extends PIDCommand
 
 	protected void execute()
 	{
-		System.out.println("Drive On Target: " + this.getPIDController().onTarget());
+//		System.out.println("Drive On Target: " + this.getPIDController().onTarget());
 	}
 
 	protected boolean isFinished()
@@ -45,7 +47,7 @@ public class AutonDrive extends PIDCommand
 
 	protected void interrupted()
 	{
-		System.out.println("Interrupted");
+		System.out.println("AutonDrive interrupted");
 		end();
 	}
 
