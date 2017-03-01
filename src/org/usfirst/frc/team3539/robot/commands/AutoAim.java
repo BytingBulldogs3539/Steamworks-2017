@@ -58,6 +58,6 @@ public class AutoAim extends PIDCommand
 	@Override
 	protected void usePIDOutput(double output)
 	{
-		Robot.driveTrain.turnLinear(output);
+		Robot.driveTrain.turnLinear(-output);
 	}
 }
