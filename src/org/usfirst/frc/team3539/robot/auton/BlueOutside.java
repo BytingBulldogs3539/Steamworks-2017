@@ -5,9 +5,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class Blue3 extends CommandGroup {
+public class BlueOutside extends CommandGroup {
 
-    public Blue3(int type)
+    public BlueOutside(int type)
     {
        addSequential(new TurnLeftGearPlaceGroup());
     }

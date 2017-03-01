@@ -5,10 +5,11 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class Red2 extends CommandGroup {
+public class RedMiddle extends CommandGroup {
 
-    public Red2(int type)
+    public RedMiddle(int type)
     {
     	addSequential(new ForwardGearPlaceGroup());
+    	addSequential(new ShootMiddleGroup());
     }
 }

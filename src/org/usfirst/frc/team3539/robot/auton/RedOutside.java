@@ -5,10 +5,11 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class Red3 extends CommandGroup {
+public class RedOutside extends CommandGroup {
 
-    public Red3(int type)
+    public RedOutside(int type)
     {
     	addSequential(new TurnRightGearPlaceGroup());
+    	addSequential(new ShootOutsideGroup());
     }
 }
