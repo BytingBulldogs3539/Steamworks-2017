@@ -18,6 +18,7 @@ public class DriveCommand extends BulldogCommand
 
 	protected void initialize()
 	{
+		super.initialize();
 		System.out.println("DriveCommand was initialized");
 		Robot.driveTrain.talonControlVBus();
 	}
@@ -44,6 +45,7 @@ public class DriveCommand extends BulldogCommand
 
 	protected void end()
 	{
+		super.end();
 		System.out.println("DriveCommand was ended");
 	}
 
