@@ -3,13 +3,13 @@ package org.usfirst.frc.team3539.robot.commands;
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
 
-
 /**
  *
  */
 public class DriveCommand extends BulldogCommand
 {
 	private boolean latch = false;
+
 	public DriveCommand()
 	{
 		super("DriveCommand");
@@ -24,14 +24,15 @@ public class DriveCommand extends BulldogCommand
 
 	protected void execute()
 	{
-		if(Robot.oi.onebuttona.get() && !latch ){//not sure if the true is needed but leave until tested 
+		if (Robot.oi.onebuttona.get() && !latch)
+		{
 			latch = true;
 			Robot.driveTrain.changeGears();
-		}else if(!Robot.oi.onebuttona.get()&& latch)
+		} else if (!Robot.oi.onebuttona.get() && latch)
 		{
-		latch = false;
+			latch = false;
 		}
-		
+
 		Robot.driveTrain.driveArcade(Robot.oi.controller1.getRawAxis(RobotMap.Y_AxisL),
 				Robot.oi.controller1.getRawAxis(RobotMap.X_AxisR));
 	}

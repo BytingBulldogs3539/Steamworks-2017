@@ -8,10 +8,13 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import org.usfirst.frc.team3539.robot.autongroups.*;
 import org.usfirst.frc.team3539.robot.commands.*;
 import org.usfirst.frc.team3539.robot.subsystems.*;
-import org.usfirst.frc.team3539.robot.utilities.*;
-import org.usfirst.frc.team3539.robot.auton.*;
+
+import autoncommands.AutoAim;
+import autoncommands.AutonDrive;
+import autoncommands.AutonTurn;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -97,7 +100,6 @@ public class Robot extends IterativeRobot
 		System.out.println("teleopInit");
 		if(autonMode != null)
 			autonMode.cancel();
-		driveTrain.gyroReset();
 		raspberry.Init();
 	}
 
@@ -137,16 +139,13 @@ public class Robot extends IterativeRobot
 		
 		SmartDashboard.putData("Auto mode", autonChooser);
 		autonChooser.addDefault("No Auton, Default", new VoidCommand());
-		autonChooser.addObject("Drive Forward", new AutonDrive(20000));
+		autonChooser.addObject("Drive Forward 200in", new AutonDrive(200));
 		autonChooser.addObject("Auton Turn 180", new AutonTurn(180));
 		autonChooser.addObject("Auton Turn 90", new AutonTurn(90));
-		autonChooser.addObject("TurnRightGearPlace", new TurnRightGearPlaceGroup());
-		autonChooser.addObject("ForwardGearPlace", new ForwardGearPlaceGroup());
-		autonChooser.addObject("TurnLeftGearPlace", new TurnLeftGearPlaceGroup());
-		autonChooser.addObject("Tunning Drive", new AutonDrive(400));
-		autonChooser.addObject("Auton Move 10,000 ticks", new AutonDriveTicks(10000));
-		autonChooser.addObject("Auton Move 30,000 ticks", new AutonDriveTicks(30000));
-		autonChooser.addObject("Auton Move 40,000 ticks", new AutonDriveTicks(40000));
+		autonChooser.addObject("GearRightGroup", new GearRightGroup());
+		autonChooser.addObject("GearForwardGroup", new GearForwardGroup());
+		autonChooser.addObject("GearLeftGroup", new GearLeftGroup());
+		autonChooser.addObject("ReverseTest", new ReverseTest());
 
 		SmartDashboard.putData("Tele mode", teleopChooser);
 		teleopChooser.addDefault("Vision, Default", new VoidCommand()); //Switch with teleop commands

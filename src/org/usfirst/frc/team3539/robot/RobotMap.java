@@ -52,9 +52,9 @@ public class RobotMap//test
 	public static double turnEye = 0;
 	public static double turnDee = .00000001;
 
-	public static double shootPea = .15;
+	public static double shootPea = .08;
 	public static double shootEye = 0;
-	public static double shootDee = 1.2;
+	public static double shootDee = 4.0;
 	public static double shootEff = .02635;
 	
 	public static double hoodPea = 0;
@@ -101,5 +101,4 @@ public class RobotMap//test
 	
 	//Conversions
 	public static final double wheelDiameter = 4;
-	public static final double robotLength = 34;
 }

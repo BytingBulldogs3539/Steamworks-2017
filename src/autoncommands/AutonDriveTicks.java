@@ -1,4 +1,4 @@
-package org.usfirst.frc.team3539.robot.commands;
+package autoncommands;
 
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
@@ -8,18 +8,15 @@ import edu.wpi.first.wpilibj.command.PIDCommand;
 /**
  *
  */
-public class AutonDrive extends PIDCommand
+public class AutonDriveTicks extends PIDCommand
 {
 	private double myTicks;
 
-	public AutonDrive(double inches)
+	public AutonDriveTicks(double ticks)
 	{
 		super("test", RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
-//		inches = Robot.driveTrain.subtractRobotInches(inches);
-		myTicks = Robot.driveTrain.inchToEnc(inches);
+		myTicks = ticks;
 		requires(Robot.driveTrain);
-		Robot.driveTrain.zeroEncoders();
-		setSetpoint(myTicks);
 	}
 
 	protected void initialize()
@@ -27,12 +24,11 @@ public class AutonDrive extends PIDCommand
 		this.getPIDController().setPID(RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
 		Robot.driveTrain.zeroEncoders();
 		this.setSetpoint(myTicks);
-		this.getPIDController().setAbsoluteTolerance(2000);
+		this.getPIDController().setAbsoluteTolerance(500);
 	}
 
 	protected void execute()
 	{
-//		System.out.println("Drive On Target: " + this.getPIDController().onTarget());
 	}
 
 	protected boolean isFinished()
@@ -47,7 +43,6 @@ public class AutonDrive extends PIDCommand
 
 	protected void interrupted()
 	{
-		System.out.println("AutonDrive interrupted");
 		end();
 	}
 

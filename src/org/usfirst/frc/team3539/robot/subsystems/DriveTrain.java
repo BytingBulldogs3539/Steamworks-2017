@@ -89,7 +89,6 @@ public class DriveTrain extends BulldogSystem
 		rfMotor.setEncPosition(0);
 		rbMotor.setEncPosition(0);
 		lbMotor.setEncPosition(0);
-
 	}
 
 	public void disablePIDControl()
@@ -98,7 +97,6 @@ public class DriveTrain extends BulldogSystem
 		rfMotor.disableControl();
 		lbMotor.disableControl();
 		rbMotor.disableControl();
-
 	}
 
 	public void talonControlVBus()
@@ -145,20 +143,10 @@ public class DriveTrain extends BulldogSystem
 		return enc * ((Math.PI * RobotMap.wheelDiameter) / 4096);
 	}
 	
-	public double subtractRobotInches(double distanceInch)
-	{
-		return distanceInch - RobotMap.robotLength;
-	}
-	
 	public void gyroReset()
 	{
 		gyro.reset();
 		System.out.println("Gyro Zeroed");
-	}
-
-	public double getGyroRelative()
-	{
-		return gyro.getAngle() % 360;
 	}
 
 	public double getGyroAngle()
@@ -182,8 +170,7 @@ public class DriveTrain extends BulldogSystem
 
 		SmartDashboard.putDouble("Gyro Velocity", gyro.getRate());
 
-		SmartDashboard.putDouble("Gyro Absolute Angle", getGyroAngle());
-		SmartDashboard.putDouble("Gryo Relative Angle", getGyroRelative());
+		SmartDashboard.putDouble("Gryo Angle", getGyroAngle());
 
 		SmartDashboard.putDouble("Left Encoder Value", lfMotor.getEncPosition());
 		SmartDashboard.putDouble("Right Encoder Value", rfMotor.getEncPosition());
@@ -213,8 +200,7 @@ public class DriveTrain extends BulldogSystem
 
 		SmartDashboard.putDouble("Gyro Velocity", 0);
 
-		SmartDashboard.putDouble("Gyro Absolute Angle", 0);
-		SmartDashboard.putDouble("Gryo Relative Angle", 0);
+		SmartDashboard.putDouble("Gryo Angle", 0);
 
 		SmartDashboard.putDouble("Left Encoder Value", 0);
 		SmartDashboard.putDouble("Right Encoder Value", 0);

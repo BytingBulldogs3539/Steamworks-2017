@@ -1,8 +1,7 @@
-package org.usfirst.frc.team3539.robot.auton;
+package org.usfirst.frc.team3539.robot.autongroups;
 
-import org.usfirst.frc.team3539.robot.commands.AutonDrive;
-import org.usfirst.frc.team3539.robot.commands.AutonTurn;
-
+import autoncommands.AutonDrive;
+import autoncommands.AutonTurn;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**

@@ -5,9 +5,7 @@ import org.usfirst.frc.team3539.robot.commands.FireCommand;
 import org.usfirst.frc.team3539.robot.commands.GearCommand;
 import org.usfirst.frc.team3539.robot.commands.HoodCommand;
 import org.usfirst.frc.team3539.robot.commands.IntakeCommand;
-import org.usfirst.frc.team3539.robot.commands.TransmissionCommand;
 import org.usfirst.frc.team3539.robot.commands.TriggerModifierCommand;
-import org.usfirst.frc.team3539.robot.commands.VoidCommand;
 import org.usfirst.frc.team3539.robot.utilities.TriggerButton;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -50,14 +48,13 @@ public class OI
 		// Done - works properly
 
 		// STICKONE
-		//onebuttona.whenPressed(new TransmissionCommand()); // Done
 
 		// STICKTWO
 		twobuttona.whenPressed(new GearCommand()); // Done
 		twobuttonb.whenPressed(new HoodCommand()); // Done
 
-		twobuttonx.whenPressed(new TriggerModifierCommand()); // Test
-		twobuttony.whenPressed(new ClimbCommand()); // Done
+		twobuttonx.whenPressed(new TriggerModifierCommand()); // Done
+		twobuttony.whenPressed(new ClimbCommand()); //Done
 
 		//twobumperr.whenPressed(new ShooterCommand(Velocity of shooter, hood angle));
 		//twobumperl.whenPressed(new ShooterCommand(Velocity of shooter, hood angle));
