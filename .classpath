@@ -11,6 +11,5 @@
 	<classpathentry exported="true" kind="var" path="opencv" sourcepath="opencv.sources"/>
 	<classpathentry exported="true" kind="var" path="cscore" sourcepath="cscore.sources"/>
 	<classpathentry kind="var" path="USERLIBS_DIR/CTRLib.jar" sourcepath="/CTRELIB"/>
-	<classpathentry kind="var" path="USERLIBS_DIR/CANJaguar.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

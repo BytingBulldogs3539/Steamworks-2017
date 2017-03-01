@@ -14,12 +14,9 @@ public class TurnRightGearPlaceGroup extends CommandGroup
 
 	public TurnRightGearPlaceGroup()
 	{
-		System.out.println("testing");
 		addSequential(new AutonDrive(105));
 		addSequential(new AutonTurn(45));
-		System.out.println(";oaskdfj");
 		addSequential(new AutonDrive(40));
-		System.out.println("AFTER12345");
 		addSequential(new AutonToggleGearCommand());
 	}
 }
