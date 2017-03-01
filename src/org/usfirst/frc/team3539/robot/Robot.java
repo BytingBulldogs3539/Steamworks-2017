@@ -35,7 +35,7 @@ public class Robot extends IterativeRobot
 	public static Raspberry raspberry;
 
 	Command autonMode, teleopMode;
-	SendableChooser<Command> autonChooser, teleopChooser, selectCommands, positionChooser, teamChooser, typeChooser;
+	SendableChooser<Command> autonChooser, teleopChooser;
 
 	public void robotInit()
 	{
@@ -134,25 +134,6 @@ public class Robot extends IterativeRobot
 
 		autonChooser = new SendableChooser<Command>();
 		teleopChooser = new SendableChooser<Command>();
-		teamChooser = new SendableChooser<Command>();
-		positionChooser = new SendableChooser<Command>();
-		typeChooser = new SendableChooser<Command>();
-
-		SmartDashboard.putData("Auton Team", teamChooser);
-		teamChooser.addDefault("No Team, Default", new VoidCommand());
-		teamChooser.addObject("Red Team", new SetTeamCommand(2));
-		teamChooser.addObject("Blue Team", new SetTeamCommand(1));
-		SmartDashboard.putData("Auton Position", positionChooser);
-		teamChooser.addDefault("No Position, Default", new VoidCommand());
-		teamChooser.addObject("Position 1", new SetPositionCommand(1));
-		teamChooser.addObject("Position 2", new SetPositionCommand(2));
-		teamChooser.addObject("Position 3", new SetPositionCommand(3));
-		SmartDashboard.putData("Auton Type", typeChooser);
-		teamChooser.addDefault("No Type, Default", new VoidCommand());
-		teamChooser.addDefault("No Position, Default", new VoidCommand());
-		teamChooser.addObject("Type 1", new SetTypeCommand(1));
-		teamChooser.addObject("Type 2", new SetTypeCommand(2));
-		teamChooser.addObject("Type 3", new SetTypeCommand(3));
 		
 		SmartDashboard.putData("Auto mode", autonChooser);
 		autonChooser.addDefault("No Auton, Default", new VoidCommand());
@@ -176,11 +157,6 @@ public class Robot extends IterativeRobot
 		SmartDashboard.putData(manipulator);
 		SmartDashboard.putData(driveTrain);
 		SmartDashboard.putData(new TestMaxVel());
-
-		selectCommands = new SendableChooser<Command>();
-		selectCommands.addObject("Climb", new ClimbCommand());
-
-		SmartDashboard.putData("Command Select", selectCommands);
 
 		SmartDashboard.putData(Scheduler.getInstance());
 	}
