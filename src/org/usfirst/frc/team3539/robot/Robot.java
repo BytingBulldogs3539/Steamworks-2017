@@ -72,8 +72,14 @@ public class Robot extends IterativeRobot
 		Update();
 
 		autonMode = (Command) autonChooser.getSelected();
+		
+		
 		if(autonMode != null)
+		{
+			System.out.println("Here");
+		
 			autonMode.start();
+		}
 		driveTrain.gyroReset();
 	}
 
@@ -158,8 +164,8 @@ public class Robot extends IterativeRobot
 		autonChooser.addObject("TurnLeftGearPlace", new TurnLeftGearPlaceGroup());
 		autonChooser.addObject("Tunning Drive", new AutonDrive(400));
 		autonChooser.addObject("Auton Move 10,000 ticks", new AutonDriveTicks(10000));
-		autonChooser.addObject("Auton Move 10,000 ticks", new AutonDriveTicks(30000));
-		autonChooser.addObject("Auton Move 10,000 ticks", new AutonDriveTicks(40000));
+		autonChooser.addObject("Auton Move 30,000 ticks", new AutonDriveTicks(30000));
+		autonChooser.addObject("Auton Move 40,000 ticks", new AutonDriveTicks(40000));
 
 		SmartDashboard.putData("Tele mode", teleopChooser);
 		teleopChooser.addDefault("Vision, Default", new VoidCommand()); //Switch with teleop commands

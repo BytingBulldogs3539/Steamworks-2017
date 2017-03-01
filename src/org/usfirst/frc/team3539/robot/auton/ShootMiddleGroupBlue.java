@@ -8,21 +8,14 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class ShootMiddleGroup extends CommandGroup {
+public class ShootMiddleGroupBlue extends CommandGroup {
 
-    public ShootMiddleGroup()
+    public ShootMiddleGroupBlue()
     {
-<<<<<<< HEAD
-        addSequential(new AutonDrive(-44));
-        addSequential(new AutonTurn(95)); // estimate, aim at tower
-        
-        // shoot
-=======
     	addSequential(new AutonDrive(70));
-    	addSequential(new AutonTurn(90));
+    	addSequential(new AutonTurn(-90));
     	addSequential(new AutonDrive(97));
-    	addSequential(new AutonTurn(45));
+    	addSequential(new AutonTurn(-45));
     	//(whatever tf it is to make it shoot)
->>>>>>> origin/master
     }
 }
