@@ -24,7 +24,7 @@ public class DriveCommand extends BulldogCommand
 
 	protected void execute()
 	{
-		if(Robot.oi.onebuttona.get() && !latch == true){
+		if(Robot.oi.onebuttona.get() && !latch == true){//not sure if the true is needed but leave until tested 
 			latch = true;
 			Robot.driveTrain.changeGears();
 		}else{
@@ -37,7 +37,7 @@ public class DriveCommand extends BulldogCommand
 
 	protected boolean isFinished()
 	{
-		return false;
+		return true;
 	}
 
 	protected void end()
