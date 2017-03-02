@@ -189,6 +189,14 @@ public class Shooter extends BulldogSystem
 		RobotMap.hoodEff = SmartDashboard.getDouble("hoodEff");
 		
 		RobotMap.hoodTarget = SmartDashboard.getDouble("hoodTarget");
+		
+		RobotMap.agitatorRpm = SmartDashboard.getDouble("agitatorTarget");
+		
+		RobotMap.agitatorPea = SmartDashboard.getDouble("agitatorPea");
+		RobotMap.agitatorEye = SmartDashboard.getDouble("agitatorEye");
+		RobotMap.agitatorDee = SmartDashboard.getDouble("agitatorDee");
+		RobotMap.agitatorEff = SmartDashboard.getDouble("agitatorEff");
+		
 	}
 
 	@Override
@@ -205,6 +213,12 @@ public class Shooter extends BulldogSystem
 
 		SmartDashboard.putDouble("Agitator Speed", RobotMap.agitatorSpeed);
 		SmartDashboard.putDouble("Target RPM for shooter", RobotMap.shooterRpm);
+		
+		
+		SmartDashboard.putDouble("Target RPM for agitator", RobotMap.agitatorRpm);
+		
+
+		
 
 		SmartDashboard.putDouble("shootPea", RobotMap.shootPea);
 		SmartDashboard.putDouble("shootEye", RobotMap.shootEye);
@@ -215,6 +229,12 @@ public class Shooter extends BulldogSystem
 		SmartDashboard.putDouble("hoodDee", RobotMap.hoodDee);
 		SmartDashboard.putDouble("hoodEff", RobotMap.hoodEff);
 		
+		SmartDashboard.putDouble("agitatorPea", RobotMap.agitatorPea);
+		SmartDashboard.putDouble("agitatorEff", RobotMap.agitatorEff);
+		SmartDashboard.putDouble("agitatorEye", RobotMap.agitatorEye);
+		SmartDashboard.putDouble("agitatorDee", RobotMap.agitatorDee);
+
+	
 		SmartDashboard.putDouble("hoodTarget", RobotMap.hoodTarget);
 	}
 
