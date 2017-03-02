@@ -86,6 +86,11 @@ public class BulldogLogger
      */
     public static BulldogLogger getInstance()
     {
+    	if ( _logger == null)
+    	{
+    		_logger = new BulldogLogger(true);
+    	}
+    	
         return(_logger);
     }
 
