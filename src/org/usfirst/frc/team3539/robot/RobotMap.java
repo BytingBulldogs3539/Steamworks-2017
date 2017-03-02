@@ -44,9 +44,9 @@ public class RobotMap//test
 	public static final int driveSolOff = 1;
 
 	//PID
-	public static double drivePea = .000054;
-	public static double driveEye = .0000000165;
-	public static double driveDee = .00000001;
+	public static double drivePea = 0.000955;
+	public static double driveEye = 0.0000000165;
+	public static double driveDee = 0.0000094;
 
 	public static double turnPea = .1;
 	public static double turnEye = 0;
@@ -105,6 +105,15 @@ public class RobotMap//test
 	//LIGHT
 	public static int ballCount;
 	
-	//Conversions
+	//CONVERSION
 	public static final double wheelDiameter = 4;
+	
+	//TEST
+	public static double drive1 = 0;
+	public static double drive2 = 0;
+	public static double drive3 = 0;
+	
+	public static double angle1 = 0;
+	public static double angle2 = 0;
+	public static double angle3 = 0;
 }

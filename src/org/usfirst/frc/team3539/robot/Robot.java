@@ -49,6 +49,7 @@ public class Robot extends IterativeRobot
 		raspberry = new Raspberry();
 
 		SmartInit();
+		Update();
 
 		//camera = CameraServer.getInstance().startAutomaticCapture();
 		//camera.setResolution(480, 360);

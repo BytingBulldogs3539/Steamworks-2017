@@ -6,27 +6,31 @@ public class Raspberry
 {
 	private static NetworkTable table;
 
+	private double offset = 0;
+	private double angle = 0;
+	private double distance = 0;
+	
 	public Raspberry()
 	{
-		table = NetworkTable.getTable("SmartDashboard");
-		table.putNumber("Test", 0);
+		table = NetworkTable.getTable("Vision");
+		table.putNumber("Offset", 0);
 	}
 
 	public void Init()
 	{
-		table = NetworkTable.getTable("SmartDashboard");
-		table.putNumber("Test", 0);
+		table = NetworkTable.getTable("Vision");
+		table.putNumber("Offset", 0);
 	}
 
 	@SuppressWarnings("deprecation")
 	public void Print()
 	{
-		System.out.println("Raspberry: " + table.getNumber("Test"));
+		System.out.println("Raspberry: " + this.Read());
 	}
 	
 	@SuppressWarnings("deprecation")
 	public double Read()
 	{
-		return table.getNumber("Test");
+		return table.getNumber("Offset");
 	}
 }

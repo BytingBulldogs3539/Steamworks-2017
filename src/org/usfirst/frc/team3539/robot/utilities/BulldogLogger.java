@@ -23,7 +23,8 @@ public class BulldogLogger
     private static int ERROR        = 3;
     
     private static String BASE_FILE = "robotLog.";
-    
+    private static String LOG_DIR   = "/home/lvuser/logs/";
+
     // Instance variables
     private int loggingLevel   = 0;
     private boolean shouldILog = true;
@@ -45,7 +46,7 @@ public class BulldogLogger
             // Create the log file
             String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date());
             
-            String fileName = BASE_FILE + timeStamp + ".log";
+            String fileName = LOG_DIR + BASE_FILE + timeStamp + ".log";
             
             logFile = new File(fileName);
             
@@ -74,7 +75,7 @@ public class BulldogLogger
      * @param loggingOn
      */
     public static void initialize(boolean loggingOn)
-    {
+     {
         // First time I call it - check to see if I should log or not
         _logger = new BulldogLogger(loggingOn);
     }
@@ -161,7 +162,7 @@ public class BulldogLogger
         
         // Write the logging information out to the log file
         // First - get the current timestamp
-        String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ssssss").format(new java.util.Date());
+        String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.sssssssss").format(new java.util.Date());
  
         String logMsg = new String();
         
