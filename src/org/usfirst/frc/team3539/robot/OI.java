@@ -8,6 +8,8 @@ import org.usfirst.frc.team3539.robot.commands.IntakeCommand;
 import org.usfirst.frc.team3539.robot.commands.TriggerModifierCommand;
 import org.usfirst.frc.team3539.robot.utilities.TriggerButton;
 
+import autoncommands.AutonTurn;
+import autoncommands.VisionTurn;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -52,7 +54,7 @@ public class OI
 		// STICKTWO
 		twobuttona.whenPressed(new GearCommand()); // Done
 		twobuttonb.whenPressed(new HoodCommand()); // Done
-
+		//twobuttonb.whenPressed(new VisionTurn(0)); // Done
 		twobuttonx.whenPressed(new TriggerModifierCommand()); // Done
 		twobuttony.whenPressed(new ClimbCommand()); //Done
 

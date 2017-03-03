@@ -97,7 +97,7 @@ public class Robot extends IterativeRobot
 
 	public void teleopInit()
 	{
-		SmartDashboard.putData(new AutoAim());
+		SmartDashboard.putData(new AutonTurn(0));
 		System.out.println("teleopInit");
 		if(autonMode != null)
 			autonMode.cancel();
@@ -157,6 +157,8 @@ public class Robot extends IterativeRobot
 		SmartDashboard.putData(manipulator);
 		SmartDashboard.putData(driveTrain);
 		SmartDashboard.putData(new TestMaxVel());
+		
+		SmartDashboard.putData(new AutonTurn(10));
 
 		SmartDashboard.putData(Scheduler.getInstance());
 	}

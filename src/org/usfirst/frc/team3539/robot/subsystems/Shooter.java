@@ -190,7 +190,7 @@ public class Shooter extends BulldogSystem
 		
 		RobotMap.hoodTarget = SmartDashboard.getDouble("hoodTarget");
 		
-		RobotMap.agitatorRpm = SmartDashboard.getDouble("agitatorTarget");
+		//RobotMap.agitatorRpm = SmartDashboard.getDouble("agitatorTarget");
 		
 		RobotMap.agitatorPea = SmartDashboard.getDouble("agitatorPea");
 		RobotMap.agitatorEye = SmartDashboard.getDouble("agitatorEye");
