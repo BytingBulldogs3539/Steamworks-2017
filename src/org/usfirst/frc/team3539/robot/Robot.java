@@ -135,6 +135,8 @@ public class Robot extends IterativeRobot
 		manipulator.SmartInit();
 		driveTrain.SmartInit();
 
+		SmartDashboard.putData(new AutonDrive(25));
+		
 		autonChooser = new SendableChooser<Command>();
 		teleopChooser = new SendableChooser<Command>();
 		
