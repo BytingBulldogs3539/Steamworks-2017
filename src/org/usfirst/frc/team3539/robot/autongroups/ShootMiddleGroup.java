@@ -12,13 +12,13 @@ public class ShootMiddleGroup extends CommandGroup {
     public ShootMiddleGroup()
     {
         addSequential(new AutonDrive(-44, .7));
-        addSequential(new AutonTurn(95)); // estimate, aim at tower
+        addSequential(new AutonTurn(95, .6)); // estimate, aim at tower
         
         // shoot
     	addSequential(new AutonDrive(70, .7));
-    	addSequential(new AutonTurn(90));
+    	addSequential(new AutonTurn(90, .6));
     	addSequential(new AutonDrive(97, .7));
-    	addSequential(new AutonTurn(45));
+    	addSequential(new AutonTurn(45, .6));
     	//(whatever tf it is to make it shoot)
     }
 }

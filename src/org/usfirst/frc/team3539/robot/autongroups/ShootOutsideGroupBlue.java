@@ -12,9 +12,9 @@ public class ShootOutsideGroupBlue extends CommandGroup {
     public ShootOutsideGroupBlue()
     {
     	addSequential(new AutonDrive(70, .7));
-    	addSequential(new AutonTurn(-90));
+    	addSequential(new AutonTurn(-90, .6));
     	addSequential(new AutonDrive(124, .7));
-    	addSequential(new AutonTurn(-45));
+    	addSequential(new AutonTurn(-45, .6));
     	//(whatever tf it is to make it shoot)
     }
 }

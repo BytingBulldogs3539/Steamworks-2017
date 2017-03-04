@@ -18,7 +18,7 @@ public class GearRightGroup extends CommandGroup
 	public GearRightGroup()
 	{
 		addSequential(new AutonDrive(70, .7));
-		addSequential(new AutonTurn(50));
+		addSequential(new AutonTurn(50, .6));
 		addSequential(new AutonDrive(30, .5));
 		addSequential(new AutonGearOpen());
 		addSequential(new AutonHoodOpen());

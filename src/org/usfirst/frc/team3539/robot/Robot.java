@@ -97,7 +97,6 @@ public class Robot extends IterativeRobot
 
 	public void teleopInit()
 	{
-		SmartDashboard.putData(new AutonTurn(0));
 		System.out.println("teleopInit");
 		if(autonMode != null)
 			autonMode.cancel();
@@ -140,13 +139,14 @@ public class Robot extends IterativeRobot
 		
 		SmartDashboard.putData("Auto mode", autonChooser);
 		autonChooser.addDefault("No Auton, Default", new VoidCommand());
-		autonChooser.addObject("Auton Turn 180", new AutonTurn(180));
-		autonChooser.addObject("Auton Turn 90", new AutonTurn(90));
+		autonChooser.addObject("Auton Turn 180", new AutonTurn(180, .6));
+		autonChooser.addObject("Auton Turn 90", new AutonTurn(90, .6));
 		autonChooser.addObject("GearRightGroup", new GearRightGroup());
 		autonChooser.addObject("GearForwardGroup", new GearForwardGroup());
 		autonChooser.addObject("GearLeftGroup", new GearLeftGroup());
 		autonChooser.addObject("ReverseTest", new ReverseTest());
 		autonChooser.addObject("FarGearLeft", new FarGearLeft());
+		autonChooser.addObject("HopperGearLeft", new HopperGearLeft());
 
 		SmartDashboard.putData("Tele mode", teleopChooser);
 		teleopChooser.addDefault("Vision, Default", new VoidCommand()); //Switch with teleop commands
@@ -157,8 +157,6 @@ public class Robot extends IterativeRobot
 		SmartDashboard.putData(manipulator);
 		SmartDashboard.putData(driveTrain);
 		SmartDashboard.putData(new TestMaxVel());
-		
-		SmartDashboard.putData(new AutonTurn(10));
 
 		SmartDashboard.putData(Scheduler.getInstance());
 	}
