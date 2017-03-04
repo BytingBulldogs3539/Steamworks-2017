@@ -12,9 +12,9 @@ public class ShootInsideGroup extends CommandGroup
 
     public ShootInsideGroup()
     {
-    	addSequential(new AutonDrive(70));
+    	addSequential(new AutonDrive(70, .7));
     	addSequential(new AutonTurn(90));
-    	addSequential(new AutonDrive(27));
+    	addSequential(new AutonDrive(27, .7));
     	addSequential(new AutonTurn(45));
     	//(whatever tf it is to make it shoot)
     	

@@ -19,11 +19,12 @@ public class GearForwardGroup extends CommandGroup
 {
 	public GearForwardGroup()
 	{
-		addSequential(new AutonDrive(60));
+		addSequential(new AutonDrive(50, 1));
+		addSequential(new AutonDrive(20, .4));
 		addSequential(new AutonGearOpen());
 		addSequential(new AutonHoodOpen());
-		addSequential(new AutoWait(.5));
-		addSequential(new AutonDrive(-20));
+		addSequential(new AutoWait(2));
+		addSequential(new AutonDrive(-20, 1));
 		addSequential(new AutonGearClose());
 		addSequential(new AutonHoodClose());
 	}

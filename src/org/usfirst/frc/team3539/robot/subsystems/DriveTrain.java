@@ -80,8 +80,7 @@ public class DriveTrain extends BulldogSystem
 
 	public double getBalancedEncoderPosition()
 	{
-		return lfMotor.getEncPosition();
-		//return ((Math.abs(lfMotor.getEncPosition()) - Math.abs(rfMotor.getEncPosition())) / 2);
+		return (lfMotor.getEncPosition() - rfMotor.getEncPosition()) / 2;
 	}
 
 	public void zeroEncoders()

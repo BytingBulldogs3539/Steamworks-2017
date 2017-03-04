@@ -16,18 +16,18 @@ public class ShootOutsideGroup extends CommandGroup {
 //		addSequential(new AutonTurn(45));
 //		addSequential(new AutonDrive(40));
 //		addSequential(new AutonToggleGearCommand());
-		addSequential(new AutonDrive(-40));
+		addSequential(new AutonDrive(-40, .7));
 		addSequential(new AutonTurn(-45));
-		addSequential(new AutonDrive(115));
+		addSequential(new AutonDrive(115, .7));
 		addSequential(new AutonTurn(45));
-		addSequential(new AutonDrive(100)); // estimate
+		addSequential(new AutonDrive(100, .7)); // estimate
 		addSequential(new AutonTurn(45));
-		addSequential(new AutonDrive(140));
+		addSequential(new AutonDrive(140, .7));
 		addSequential(new AutonTurn(80)); // also estimate, aim at tower
 		// shoot
-    	addSequential(new AutonDrive(70));
+    	addSequential(new AutonDrive(70, .7));
     	addSequential(new AutonTurn(90));
-    	addSequential(new AutonDrive(124));
+    	addSequential(new AutonDrive(124, .7));
     	addSequential(new AutonTurn(45));
     	//(whatever tf it is to make it shoot)
     }

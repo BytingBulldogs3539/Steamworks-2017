@@ -134,21 +134,19 @@ public class Robot extends IterativeRobot
 		shooter.SmartInit();
 		manipulator.SmartInit();
 		driveTrain.SmartInit();
-
-		SmartDashboard.putData(new AutonDrive(25));
 		
 		autonChooser = new SendableChooser<Command>();
 		teleopChooser = new SendableChooser<Command>();
 		
 		SmartDashboard.putData("Auto mode", autonChooser);
 		autonChooser.addDefault("No Auton, Default", new VoidCommand());
-		autonChooser.addObject("Drive Forward 200in", new AutonDrive(200));
 		autonChooser.addObject("Auton Turn 180", new AutonTurn(180));
 		autonChooser.addObject("Auton Turn 90", new AutonTurn(90));
 		autonChooser.addObject("GearRightGroup", new GearRightGroup());
 		autonChooser.addObject("GearForwardGroup", new GearForwardGroup());
 		autonChooser.addObject("GearLeftGroup", new GearLeftGroup());
 		autonChooser.addObject("ReverseTest", new ReverseTest());
+		autonChooser.addObject("FarGearLeft", new FarGearLeft());
 
 		SmartDashboard.putData("Tele mode", teleopChooser);
 		teleopChooser.addDefault("Vision, Default", new VoidCommand()); //Switch with teleop commands

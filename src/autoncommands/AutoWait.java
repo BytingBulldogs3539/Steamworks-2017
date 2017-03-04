@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class AutoWait extends Command
 {
-	private double seconds;
+	private double seconds = 0;
 	private int counter;
 
 	public AutoWait(double inputSeconds)
@@ -21,6 +21,7 @@ public class AutoWait extends Command
 
 	protected void initialize()
 	{
+		counter = 0;
 	}
 
 	protected void execute()
