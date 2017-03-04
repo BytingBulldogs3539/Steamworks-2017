@@ -62,9 +62,9 @@ public class RobotMap//test
 	public static double hoodDee = 0;
 	public static double hoodEff = 0;
 	
-	public static double agitatorPea = 0;
+	public static double agitatorPea = .08;
 	public static double agitatorEye = 0;
-	public static double agitatorDee = 0;
+	public static double agitatorDee = 4.0;
 	public static double agitatorEff = 0;
 	
 	//AIR
