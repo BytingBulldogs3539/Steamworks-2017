@@ -14,7 +14,7 @@ public class SetPointCommand extends PIDCommand
 	public double setpoint;
 	public SetPointCommand(double mysetpoint)
 	{
-		super("SetPointCommand",.0001,0,0);
+		super("SetPointCommand", RobotMap.hoodPea, RobotMap.hoodEye, RobotMap.hoodDee); // p, i, d
 		requires(Robot.shooter);
 		setpoint = mysetpoint;
 	}
