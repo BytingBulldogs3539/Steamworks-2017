@@ -34,16 +34,16 @@ public class DriveCommand extends BulldogCommand
 			latch = false;
 		}
 
-//		if (Robot.oi.invertTrigger.getValue())
-//		{
-			Robot.driveTrain.driveArcade(Robot.oi.controller1.getRawAxis(-RobotMap.Y_AxisL),
-					Robot.oi.controller1.getRawAxis(-RobotMap.X_AxisR));
-//		}
-//		else
-//		{
-//			Robot.driveTrain.driveArcade(Robot.oi.controller1.getRawAxis(RobotMap.Y_AxisL),
-//					Robot.oi.controller1.getRawAxis(RobotMap.X_AxisR));
-//		}
+		if (Robot.oi.invertTrigger.getValue())
+		{
+			Robot.driveTrain.driveArcade(Robot.oi.controller1.getRawAxis(RobotMap.Y_AxisL),
+					Robot.oi.controller1.getRawAxis(RobotMap.X_AxisR));
+		}
+		else
+		{
+			Robot.driveTrain.driveArcade(-1 * Robot.oi.controller1.getRawAxis(RobotMap.Y_AxisL),
+					Robot.oi.controller1.getRawAxis(RobotMap.X_AxisR));
+		}
 	}
 
 	protected boolean isFinished()

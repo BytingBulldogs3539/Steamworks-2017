@@ -109,14 +109,7 @@ public class DriveTrain extends BulldogSystem
 
 	public void driveArcade(double leftStick, double rightStick)
 	{
-		if(Robot.oi.invertTrigger.checkValue())
-		{
-			drive.arcadeDrive(-leftStick, rightStick);
-		}
-		else
-		{
-			drive.arcadeDrive(leftStick, rightStick);
-		}
+		drive.arcadeDrive(leftStick, rightStick);	
 	}
 
 	public void changeGears()
