@@ -2,6 +2,7 @@ package autoncommands;
 
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
+import org.usfirst.frc.team3539.robot.utilities.DpadButton;
 
 import edu.wpi.first.wpilibj.command.PIDCommand;
 
@@ -22,7 +23,7 @@ public class VisionTurn extends PIDCommand
 
 	protected void initialize()
 	{
-		this.getPIDController().setPID(RobotMap.turnPea, RobotMap.turnEye, RobotMap.turnDee);
+		this.getPIDController().setPID(RobotMap.vturnPea, RobotMap.vturnEye, RobotMap.vturnDee);
 
 		Robot.driveTrain.gyroReset();
 		Robot.driveTrain.zeroEncoders();
@@ -44,7 +45,7 @@ this.setSetpoint(Robot.raspberry.getAngle());
 
 	protected boolean isFinished()
 	{
-		return this.getPIDController().onTarget();
+		return !Robot.oi.visionButton.checkValue();
 	}
 
 	protected void end()

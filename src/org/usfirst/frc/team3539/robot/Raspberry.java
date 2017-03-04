@@ -41,7 +41,7 @@ public class Raspberry
 	@SuppressWarnings("deprecation")
 	public double getAngle()
 	{
-		System.out.println("Distance:"+table.getNumber("Distance"));
+		//System.out.println("Distance:"+table.getNumber("Distance"));
 		return table.getNumber("Angle");
 	}
 	

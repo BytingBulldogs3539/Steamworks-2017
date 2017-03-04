@@ -43,7 +43,7 @@ public class OI
 	public TriggerButton shooterTrigger = new TriggerButton(3, controller2, new FireCommand());//not real values   // new ShooterCommand(2000, 10)
 	public TriggerButton invertTrigger = new TriggerButton(3, controller1);
 	
-	public DpadButton visionButton = new DpadButton("up", new VisionTurn(0), controller2);
+	public DpadButton visionButton = new DpadButton("down", new VisionTurn(0), controller2);
 	
 
 	public OI()

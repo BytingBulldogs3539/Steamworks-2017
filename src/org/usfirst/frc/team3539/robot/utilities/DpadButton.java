@@ -34,10 +34,12 @@ public class DpadButton
 	}
 	public boolean checkValue()
 	{
+		angle = controller.getPOV();
 		if (angle == neededAngle && isPressed == false)
 		{
 			if (command != null)
 				Scheduler.getInstance().add(command);
+			System.out.println("TEST");
 			isPressed = true;
 			
 		}
