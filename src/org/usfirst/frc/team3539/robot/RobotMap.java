@@ -44,9 +44,9 @@ public class RobotMap//test
 	public static final int driveSolOff = 1;
 
 	//PID
-	public static double drivePea = 0.000045;
-	public static double driveEye = 0.000000015;
-	public static double driveDee = 0.000054;
+	public static double drivePea = 0.00045;
+	public static double driveEye = 0.00000015;
+	public static double driveDee = 0.00054;
 
 	public static double turnPea = .1;
 	public static double turnEye = 0;
@@ -62,10 +62,10 @@ public class RobotMap//test
 	public static double hoodDee = 0;
 	public static double hoodEff = 0;
 	
-	public static double agitatorPea = .08;
+	public static double agitatorPea = .115;
 	public static double agitatorEye = 0;
-	public static double agitatorDee = 4.0;
-	public static double agitatorEff = 0;
+	public static double agitatorDee = 1.5;
+	public static double agitatorEff = .146484375;
 	
 	//AIR
 	public static final int compressor = 10;
@@ -74,7 +74,7 @@ public class RobotMap//test
 	public static final int agitatorTalon = 8;
 	public static double agitatorSpeed = -.8;
 	public static double unjamAgitatorSpeed = .8;
-	public static double agitatorRpm = -3000;
+	public static double agitatorRpm = 300;
 
 	//INTAKE
 	public static final int intakeMotorTalon = 5;

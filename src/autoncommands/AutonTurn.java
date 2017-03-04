@@ -49,6 +49,7 @@ public class AutonTurn extends PIDCommand
 	protected void end()
 	{
 		//System.out.println("Ended Turn");
+		Robot.driveTrain.zeroEncoders();
 		Robot.driveTrain.stopTrain();
 	}
 

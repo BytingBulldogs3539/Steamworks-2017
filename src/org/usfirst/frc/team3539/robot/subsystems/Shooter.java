@@ -123,7 +123,7 @@ public class Shooter extends BulldogSystem
 	
 	public void startAgitator(double rpm)
 	{
-		agitatorMotor.set(rpm);
+		agitatorMotor.set(-rpm);
 	}
 
 	public void resetShooterPID()
@@ -177,8 +177,8 @@ public class Shooter extends BulldogSystem
 		SmartDashboard.putNumber("Ball Count", RobotMap.ballCount);
 		SmartDashboard.putBoolean("lightSensorTwo", lightSensorTwo.get());
 		SmartDashboard.putBoolean("lightSensorOne", lightSensorOne.get());
-		SmartDashboard.putDouble("Curent agitator rpm", agitatorMotor.getSpeed());
-		SmartDashboard.putDouble("Current Shooter RPM", getAgitatorRPM());
+		SmartDashboard.putDouble("Curent agitator rpm", getAgitatorRPM());
+		SmartDashboard.putDouble("Current Shooter RPM", getShooterRPM());
 		SmartDashboard.putDouble("Shooter Hood Encoder", getHoodPosition());
 		
 		RobotMap.agitatorSpeed = SmartDashboard.getDouble("Agitator Speed");
@@ -196,7 +196,7 @@ public class Shooter extends BulldogSystem
 		
 		RobotMap.hoodTarget = SmartDashboard.getDouble("hoodTarget");
 		
-		//RobotMap.agitatorRpm = SmartDashboard.getDouble("agitatorTarget");
+		RobotMap.agitatorRpm = SmartDashboard.getDouble("Target RPM for agitator");
 		
 		RobotMap.agitatorPea = SmartDashboard.getDouble("agitatorPea");
 		RobotMap.agitatorEye = SmartDashboard.getDouble("agitatorEye");
