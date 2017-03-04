@@ -93,6 +93,11 @@ public class Shooter extends BulldogSystem
 		return shooterOneMotor.getSpeed();
 	}
 	
+	public double getAgitatorRPM()
+	{
+		return agitatorMotor.getSpeed();
+	}
+	
 	public void resetAgitatorPID()
 	{
 		agitatorMotor.changeControlMode(CANTalon.TalonControlMode.Speed);
@@ -172,11 +177,12 @@ public class Shooter extends BulldogSystem
 		SmartDashboard.putNumber("Ball Count", RobotMap.ballCount);
 		SmartDashboard.putBoolean("lightSensorTwo", lightSensorTwo.get());
 		SmartDashboard.putBoolean("lightSensorOne", lightSensorOne.get());
-
-		SmartDashboard.putDouble("Current Shooter RPM", shooterOneMotor.getSpeed());
+		SmartDashboard.putDouble("Curent agitator rpm", agitatorMotor.getSpeed());
+		SmartDashboard.putDouble("Current Shooter RPM", getAgitatorRPM());
 		SmartDashboard.putDouble("Shooter Hood Encoder", getHoodPosition());
 		
 		RobotMap.agitatorSpeed = SmartDashboard.getDouble("Agitator Speed");
+		
 		RobotMap.shooterRpm = SmartDashboard.getDouble("Target RPM for shooter");
 
 		RobotMap.shootPea = SmartDashboard.getDouble("shootPea");

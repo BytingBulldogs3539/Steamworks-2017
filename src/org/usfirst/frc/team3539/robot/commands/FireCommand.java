@@ -31,9 +31,11 @@ public class FireCommand extends BulldogCommand
 
 	protected void execute()
 	{
+		
 		Robot.shooter.startShooter(RobotMap.shooterRpm);
+			
 
-		if (RobotMap.triggerModified)
+	if (RobotMap.triggerModified)
 		{
 			Robot.shooter.startAgitator(-RobotMap.agitatorRpm);
 		}

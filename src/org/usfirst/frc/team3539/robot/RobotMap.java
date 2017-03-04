@@ -74,7 +74,7 @@ public class RobotMap//test
 	public static final int agitatorTalon = 8;
 	public static double agitatorSpeed = -.8;
 	public static double unjamAgitatorSpeed = .8;
-	public static double agitatorRpm = 600;
+	public static double agitatorRpm = -3000;
 
 	//INTAKE
 	public static final int intakeMotorTalon = 5;

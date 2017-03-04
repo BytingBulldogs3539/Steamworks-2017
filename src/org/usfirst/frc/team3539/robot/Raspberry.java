@@ -29,6 +29,7 @@ public class Raspberry
 	public void Print()
 	{
 		System.out.println("Raspberry: " + this.Read());
+		
 	}
 
 	@SuppressWarnings("deprecation")
@@ -40,6 +41,7 @@ public class Raspberry
 	@SuppressWarnings("deprecation")
 	public double getAngle()
 	{
+		System.out.println("Distance:"+table.getNumber("Distance"));
 		return table.getNumber("Angle");
 	}
 	

@@ -53,8 +53,8 @@ public class OI
 
 		// STICKTWO
 		twobuttona.whenPressed(new GearCommand()); // Done
-		twobuttonb.whenPressed(new HoodCommand()); // Done
-		//twobuttonb.whenPressed(new VisionTurn(0)); // Done
+		//twobuttonb.whenPressed(new HoodCommand()); // Done
+		twobuttonb.whenPressed(new VisionTurn(0)); // Done
 		twobuttonx.whenPressed(new TriggerModifierCommand()); // Done
 		twobuttony.whenPressed(new ClimbCommand()); //Done
 
