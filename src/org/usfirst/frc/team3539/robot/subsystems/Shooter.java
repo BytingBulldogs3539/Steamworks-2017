@@ -66,6 +66,7 @@ public class Shooter extends BulldogSystem
 
 	public void settempHoodAngle(double encoderValue)
 	{
+		shooterHoodMotor.changeControlMode(CANTalon.TalonControlMode.Position);
 		shooterHoodMotor.set(encoderValue);
 	}
 	
