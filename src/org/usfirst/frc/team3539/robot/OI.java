@@ -7,6 +7,7 @@ import org.usfirst.frc.team3539.robot.commands.HoodCommand;
 import org.usfirst.frc.team3539.robot.commands.IntakeCommand;
 import org.usfirst.frc.team3539.robot.commands.TriggerModifierCommand;
 import org.usfirst.frc.team3539.robot.utilities.TriggerButton;
+import org.usfirst.frc.team3539.robot.utilities.DpadButton;
 
 import autoncommands.AutonTurn;
 import autoncommands.VisionTurn;
@@ -34,13 +35,16 @@ public class OI
 	public JoystickButton twobuttonb = new JoystickButton(controller2, RobotMap.buttonb);
 	public JoystickButton twotriggerl = new JoystickButton(controller2, RobotMap.LEFT_TRIGGER);
 	public JoystickButton twotriggerr = new JoystickButton(controller2, RobotMap.RIGHT_TRIGGER);
-
+	
 	public JoystickButton twobumperl = new JoystickButton(controller2, RobotMap.bumperl);
 	public JoystickButton twobumperr = new JoystickButton(controller2, RobotMap.bumperr);
 
 	public TriggerButton intakeTrigger = new TriggerButton(2, controller2, new IntakeCommand());
 	public TriggerButton shooterTrigger = new TriggerButton(3, controller2, new FireCommand());//not real values   // new ShooterCommand(2000, 10)
 	public TriggerButton invertTrigger = new TriggerButton(3, controller1);
+	
+	public DpadButton visionButton = new DpadButton("up", new VisionTurn(0), controller2);
+	
 
 	public OI()
 	{
@@ -66,6 +70,7 @@ public class OI
 	{
 		intakeTrigger.checkValue();
 		shooterTrigger.checkValue();
+		visionButton.checkValue();
 		SmartDashboard.putBoolean("triggerModified", RobotMap.triggerModified);
 	}
 
