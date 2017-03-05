@@ -5,6 +5,7 @@ import org.usfirst.frc.team3539.robot.commands.FireCommand;
 import org.usfirst.frc.team3539.robot.commands.GearCommand;
 import org.usfirst.frc.team3539.robot.commands.HoodCommand;
 import org.usfirst.frc.team3539.robot.commands.IntakeCommand;
+import org.usfirst.frc.team3539.robot.commands.SetPointCommand;
 import org.usfirst.frc.team3539.robot.commands.TriggerModifierCommand;
 import org.usfirst.frc.team3539.robot.utilities.TriggerButton;
 import org.usfirst.frc.team3539.robot.utilities.DpadButton;
@@ -54,6 +55,8 @@ public class OI
 		// Done - works properly
 
 		// STICKONE
+		
+		onebuttony.whenPressed(new SetPointCommand(RobotMap.hoodTarget));
 
 		// STICKTWO
 		twobuttona.whenPressed(new GearCommand()); // Done

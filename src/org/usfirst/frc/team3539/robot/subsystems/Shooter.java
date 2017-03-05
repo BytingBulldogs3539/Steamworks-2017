@@ -210,7 +210,7 @@ public class Shooter extends BulldogSystem
 	@SuppressWarnings("deprecation")
 	public void SmartInit()
 	{
-		SmartDashboard.putData(new SetPointCommand(RobotMap.hoodTarget));
+		SmartDashboard.putDouble("hoodTarget", RobotMap.hoodTarget);
 		SmartDashboard.putNumber("Ball Count", RobotMap.ballCount);
 		SmartDashboard.putBoolean("lightSensorTwo", lightSensorTwo.get());
 		SmartDashboard.putBoolean("lightSensorOne", lightSensorOne.get());
