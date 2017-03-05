@@ -23,6 +23,8 @@ public class SetPointCommand extends PIDCommand
 	{
 		this.setSetpoint(setpoint);
 		System.out.println("It Initialized");
+		this.getPIDController().setAbsoluteTolerance(20);
+
 	}
 
 	protected void execute()
@@ -32,7 +34,7 @@ public class SetPointCommand extends PIDCommand
 
 	protected boolean isFinished()
 	{
-		return false;
+		return this.getPIDController().onTarget();
 	}
 
 	protected void end()

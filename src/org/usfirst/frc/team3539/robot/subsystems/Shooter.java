@@ -74,7 +74,6 @@ public class Shooter extends BulldogSystem
 	{
 		shooterHoodMotor.changeControlMode(CANTalon.TalonControlMode.Position);
 		//shooterHoodMotor.reverseSensor(true);
-		shooterHoodMotor.setF(RobotMap.hoodEff);
 		shooterHoodMotor.setP(RobotMap.hoodPea);
 		shooterHoodMotor.setI(RobotMap.hoodEye);
 		shooterHoodMotor.setD(RobotMap.hoodDee);
@@ -193,7 +192,6 @@ public class Shooter extends BulldogSystem
 		RobotMap.hoodPea = SmartDashboard.getDouble("hoodPea");
 		RobotMap.hoodEye = SmartDashboard.getDouble("hoodEye");
 		RobotMap.hoodDee = SmartDashboard.getDouble("hoodDee");
-		RobotMap.hoodEff = SmartDashboard.getDouble("hoodEff");
 		
 		RobotMap.hoodTarget = SmartDashboard.getDouble("hoodTarget");
 		
@@ -234,7 +232,6 @@ public class Shooter extends BulldogSystem
 		SmartDashboard.putDouble("hoodPea", RobotMap.hoodPea);
 		SmartDashboard.putDouble("hoodEye", RobotMap.hoodEye);
 		SmartDashboard.putDouble("hoodDee", RobotMap.hoodDee);
-		SmartDashboard.putDouble("hoodEff", RobotMap.hoodEff);
 		
 		SmartDashboard.putDouble("agitatorPea", RobotMap.agitatorPea);
 		SmartDashboard.putDouble("agitatorEff", RobotMap.agitatorEff);
