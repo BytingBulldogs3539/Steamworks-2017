@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team3539.robot.autongroups.*;
 import org.usfirst.frc.team3539.robot.commands.*;
 import org.usfirst.frc.team3539.robot.subsystems.*;
+import org.usfirst.frc.team3539.robot.utilities.BulldogLogger;
 
 import autoncommands.AutoAim;
 import autoncommands.AutonDrive;
@@ -53,6 +54,8 @@ public class Robot extends IterativeRobot
 
 		//camera = CameraServer.getInstance().startAutomaticCapture();
 		//camera.setResolution(480, 360);
+		
+		BulldogLogger.getInstance().logInfo("Starting robotInit");
 	}
 
 	/**
@@ -62,6 +65,7 @@ public class Robot extends IterativeRobot
 	 **/
 	public void disabledInit()
 	{
+	    BulldogLogger.getInstance().finishLogging();
 
 	}
 
@@ -72,6 +76,7 @@ public class Robot extends IterativeRobot
 
 	public void autonomousInit()
 	{
+	    BulldogLogger.getInstance().logInfo("autonomousInit");
 		System.out.println("autonomousInit");
 		Update();
 

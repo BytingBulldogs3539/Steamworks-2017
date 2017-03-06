@@ -1,5 +1,6 @@
 package org.usfirst.frc.team3539.robot.subsystems;
 
+import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
 import org.usfirst.frc.team3539.robot.commands.SetPointCommand;
 
@@ -56,6 +57,7 @@ public class Shooter extends BulldogSystem
 		 */
 		shooterOneMotor.setEncPosition(0);
 		agitatorMotor.setEncPosition(0);
+		zeroHoodEncoders();
 	}
 
 	public void setMotorPower(double power)
@@ -81,6 +83,11 @@ public class Shooter extends BulldogSystem
 	
 		System.out.println("shooterHoodMotor set: " + encoderValue);
 		shooterHoodMotor.set(encoderValue);
+	}
+	
+	public void zeroHoodEncoders()
+	{
+	    shooterHoodMotor.setEncPosition(0);
 	}
 
 	public void setAgitatorMotorPower(double power)

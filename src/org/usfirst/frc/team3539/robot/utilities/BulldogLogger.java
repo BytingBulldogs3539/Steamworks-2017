@@ -115,10 +115,10 @@ public class BulldogLogger
      */
     public void logInfo(String msg)
     {
-        if ( loggingLevel >= BulldogLogger.INFO)
-        {
+        //if ( loggingLevel >= BulldogLogger.INFO)
+        //{
             log(BulldogLogger.INFO,msg);
-        }
+        //}
     }
     
     /**
@@ -128,10 +128,10 @@ public class BulldogLogger
      */
     public void logWarn(String msg)
     {
-        if ( loggingLevel >= BulldogLogger.WARN)
-        {
+        //if ( loggingLevel >= BulldogLogger.WARN)
+        //{
             log(BulldogLogger.WARN,msg);
-        }
+        //}
         
     }
     
@@ -142,10 +142,10 @@ public class BulldogLogger
      */
     public void logError(String msg)
     {
-        if ( loggingLevel >= BulldogLogger.ERROR )
-        {
+        //if ( loggingLevel >= BulldogLogger.ERROR )
+        //{
             log(BulldogLogger.ERROR,msg);
-        }
+        //}
     }
     
     /**
@@ -195,5 +195,11 @@ public class BulldogLogger
             // To do - Figure out something useful to do if an exception is thrown
             e.printStackTrace();
         }
+    }
+    
+    public void finishLogging()
+    {
+        this.outStream.flush();
+        this.outStream.close();
     }
 }

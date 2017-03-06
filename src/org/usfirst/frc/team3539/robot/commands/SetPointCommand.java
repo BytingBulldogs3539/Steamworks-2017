@@ -23,7 +23,8 @@ public class SetPointCommand extends PIDCommand
 	{
 		this.setSetpoint(setpoint);
 		System.out.println("It Initialized");
-		this.getPIDController().setAbsoluteTolerance(20);
+//	    Robot.driveTrain.zeroEncoders();
+		this.getPIDController().setAbsoluteTolerance(50);
 
 	}
 
