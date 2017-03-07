@@ -21,10 +21,22 @@ public class DpadButton
 		angle = controller.getPOV();
 	    neededAngle = 1;
 	
-	    if (direction.toLowerCase() == "up")         { neededAngle = 0;   }
-		else if (direction.toLowerCase() == "right") { neededAngle = 90;  }
-		else if (direction.toLowerCase() == "down")  { neededAngle = 180; }
-		else if (direction.toLowerCase() == "left")  { neededAngle = 270; }
+	    if (direction.toLowerCase() == "up")         
+	    { 
+	    	neededAngle = 0; 
+	    }
+		else if (direction.toLowerCase() == "right")
+		{ 
+			neededAngle = 90;
+		}
+		else if (direction.toLowerCase() == "down")  
+		{
+			neededAngle = 180; 
+		}
+		else if (direction.toLowerCase() == "left") 
+		{ 
+			neededAngle = 270;
+		}
 	}
 	public boolean getValue()
 	{
