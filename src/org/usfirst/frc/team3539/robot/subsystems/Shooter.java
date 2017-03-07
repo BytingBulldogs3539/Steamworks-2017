@@ -130,7 +130,8 @@ public class Shooter extends BulldogSystem
 	
 	public void startAgitator(double rpm)
 	{
-		agitatorMotor.set(-rpm);
+		agitatorMotor.set(rpm);
+		System.out.println(agitatorMotor.getPulseWidthVelocity());
 	}
 
 	public void resetShooterPID()

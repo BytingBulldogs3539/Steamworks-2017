@@ -187,7 +187,8 @@ public class DriveTrain extends BulldogSystem
 		RobotMap.turnDee = SmartDashboard.getDouble("RobotMap.turnDee");
 		
 		SmartDashboard.putDouble("Raspberry PI", Robot.raspberry.getAngle());
-		
+        SmartDashboard.putDouble("PI Distance", Robot.raspberry.getDistance());
+
 
 		RobotMap.drive1 = SmartDashboard.getDouble("drive1");
 		RobotMap.drive2 = SmartDashboard.getDouble("drive2");
@@ -228,7 +229,8 @@ public class DriveTrain extends BulldogSystem
 		SmartDashboard.putDouble("RobotMap.turnEye", RobotMap.turnEye);
 		SmartDashboard.putDouble("RobotMap.turnDee", RobotMap.turnDee);
 		
-		SmartDashboard.putDouble("Raspberry PI", Robot.raspberry.Read());
+		SmartDashboard.putDouble("Raspberry PI", Robot.raspberry.getAngle());
+        SmartDashboard.putDouble("PI Distance", Robot.raspberry.getDistance());
 		
 		SmartDashboard.putDouble("drive1", RobotMap.drive1);
 		SmartDashboard.putDouble("drive2", RobotMap.drive2);

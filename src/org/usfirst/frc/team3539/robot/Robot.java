@@ -157,6 +157,8 @@ public class Robot extends IterativeRobot
 		teleopChooser.addDefault("Vision, Default", new VoidCommand()); //Switch with teleop commands
 		teleopChooser.addObject("No Vision", new VoidCommand());
 		
+		SmartDashboard.putData(new AutoAim());
+		
 		SmartDashboard.putData(shooter);
 		SmartDashboard.putData(intake);
 		SmartDashboard.putData(manipulator);

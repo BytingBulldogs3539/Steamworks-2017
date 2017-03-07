@@ -37,11 +37,11 @@ public class FireCommand extends BulldogCommand
 
 	if (RobotMap.triggerModified)
 		{
-			Robot.shooter.startAgitator(-RobotMap.agitatorRpm);
+			Robot.shooter.startAgitator(RobotMap.agitatorRpm);
 		}
 		else if (Robot.shooter.getShooterRPM() <= RobotMap.shooterRpm)
 		{
-			Robot.shooter.startAgitator(RobotMap.agitatorRpm);
+			Robot.shooter.startAgitator(-RobotMap.agitatorRpm);
 		}
 
 		if (Robot.shooter.isBalling() && !ballControl)
