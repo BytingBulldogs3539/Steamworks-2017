@@ -56,7 +56,7 @@ public class OI
 
 		// STICKONE
 		
-		onebuttony.whenPressed(new SetPointCommand(RobotMap.hoodTarget));
+		//onebuttony.whenPressed(new SetPointCommand(RobotMap.hoodTarget));
 		
 		//onebuttonx.whenPressed(new VisionTurn(0));
 
