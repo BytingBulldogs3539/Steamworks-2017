@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class HoodSubsystem extends BulldogSystem
 {
-    private CANTalon shooterHoodMotor;
+    private CANTalon shooterHoodMotor ;
 
     DigitalInput lightSensorOne = new DigitalInput(1);
     DigitalInput lightSensorTwo = new DigitalInput(0);

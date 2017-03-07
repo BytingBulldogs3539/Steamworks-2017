@@ -97,8 +97,8 @@ public class RobotMap//test
 	public static final int shooterTwoMotorTalon = 2;
 	public static final int shooterServoTalon = 9;
 	public static double shooterRpm = -3500;
-	public static double hoodTarget = 0;
-
+	public static double hoodTarget = 500;
+	
 	//GEAR
 	public static final int hoodSolOn = 2;
 	public static final int hoodSolOff = 3;

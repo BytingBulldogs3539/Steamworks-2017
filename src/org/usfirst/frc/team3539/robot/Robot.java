@@ -28,6 +28,7 @@ import autoncommands.AutonTurn;
 public class Robot extends IterativeRobot
 {
 	//SUBSYSTEMS
+	public static final HoodSubsystem HoodSubsystem = new HoodSubsystem();
 	public static final DriveTrain driveTrain = new DriveTrain();
 	public static final Shooter shooter = new Shooter();
 	public static final Intake intake = new Intake();

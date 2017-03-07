@@ -1,5 +1,6 @@
 package org.usfirst.frc.team3539.robot;
 
+import org.usfirst.frc.team3539.robot.commands.ABShood;
 import org.usfirst.frc.team3539.robot.commands.ClimbCommand;
 import org.usfirst.frc.team3539.robot.commands.FireCommand;
 import org.usfirst.frc.team3539.robot.commands.GearCommand;
@@ -62,7 +63,7 @@ public class OI
 
 		// STICKTWO
 		twobuttona.whenPressed(new GearCommand()); // Done
-		twobuttonb.whenPressed(new HoodCommand()); // Done
+		twobuttonb.whenPressed(new ABShood()); // Done
 		//twobuttonb.whenPressed(new VisionTurn(0)); // Test
 		twobuttonx.whenPressed(new TriggerModifierCommand()); // Done
 		twobuttony.whenPressed(new ClimbCommand()); //Done
