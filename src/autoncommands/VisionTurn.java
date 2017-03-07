@@ -46,9 +46,9 @@ public class VisionTurn extends PIDCommand
 
     protected boolean isFinished()
     {
-        return this.getPIDController().onTarget() || !Robot.oi.onebuttonx.get();
+        //return this.getPIDController().onTarget() || !Robot.oi.onebuttonx.get();
         
-      //  return false; //DPAD !Robot.oi.visionButton.checkValue()
+        return !Robot.oi.visionButton.checkValue();
     }
 
     protected void end()

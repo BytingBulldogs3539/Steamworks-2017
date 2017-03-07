@@ -162,7 +162,7 @@ public class BulldogLogger
         
         // Write the logging information out to the log file
         // First - get the current timestamp
-        String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.sssssssss").format(new java.util.Date());
+        String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.sssSSS").format(new java.util.Date());
  
         String logMsg = new String();
         

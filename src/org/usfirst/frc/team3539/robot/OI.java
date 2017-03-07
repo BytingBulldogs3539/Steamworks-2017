@@ -58,7 +58,7 @@ public class OI
 		
 		onebuttony.whenPressed(new SetPointCommand(RobotMap.hoodTarget));
 		
-		onebuttonx.whenPressed(new VisionTurn(0));
+		//onebuttonx.whenPressed(new VisionTurn(0));
 
 		// STICKTWO
 		twobuttona.whenPressed(new GearCommand()); // Done
