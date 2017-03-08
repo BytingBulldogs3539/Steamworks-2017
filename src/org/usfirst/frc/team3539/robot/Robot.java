@@ -99,6 +99,7 @@ public class Robot extends IterativeRobot
 	{
 		Scheduler.getInstance().run();
 		Update();
+		c.stop(); //debug
 	}
 
 	public void teleopInit()
@@ -114,6 +115,7 @@ public class Robot extends IterativeRobot
 	{
 		Scheduler.getInstance().run();
 		Update();
+        c.stop(); //debug
 	}
 
 	// This function is called periodically during test mode
