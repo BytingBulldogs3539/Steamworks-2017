@@ -6,7 +6,6 @@ import org.usfirst.frc.team3539.robot.commands.FireCommand;
 import org.usfirst.frc.team3539.robot.commands.GearCommand;
 import org.usfirst.frc.team3539.robot.commands.HoodCommand;
 import org.usfirst.frc.team3539.robot.commands.IntakeCommand;
-import org.usfirst.frc.team3539.robot.commands.SetPointCommand;
 import org.usfirst.frc.team3539.robot.commands.TriggerModifierCommand;
 import org.usfirst.frc.team3539.robot.utilities.TriggerButton;
 import org.usfirst.frc.team3539.robot.utilities.DpadButton;
@@ -30,7 +29,10 @@ public class OI
 	public JoystickButton onebuttony = new JoystickButton(controller1, RobotMap.buttony);
 	public JoystickButton onebuttona = new JoystickButton(controller1, RobotMap.buttona);
 	public JoystickButton onebuttonb = new JoystickButton(controller1, RobotMap.buttonb);
-
+	
+	public JoystickButton twobuttonStart = new JoystickButton(controller2, RobotMap.buttonStart);
+	
+	
 	public JoystickButton twobuttonx = new JoystickButton(controller2, RobotMap.buttonx);
 	public JoystickButton twobuttony = new JoystickButton(controller2, RobotMap.buttony);
 	public JoystickButton twobuttona = new JoystickButton(controller2, RobotMap.buttona);
@@ -46,6 +48,7 @@ public class OI
 	public TriggerButton invertTrigger = new TriggerButton(3, controller1);
 	
 	public DpadButton visionButton = new DpadButton("down", new VisionTurn(0), controller2);
+	
 	
 
 	public OI()
@@ -63,10 +66,12 @@ public class OI
 
 		// STICKTWO
 		twobuttona.whenPressed(new GearCommand()); // Done
-		twobuttonb.whenPressed(new ABShood()); // Done
+		twobuttonb.whenPressed(new HoodCommand()); // Done
 		//twobuttonb.whenPressed(new VisionTurn(0)); // Test
 		twobuttonx.whenPressed(new TriggerModifierCommand()); // Done
 		twobuttony.whenPressed(new ClimbCommand()); //Done
+		twobuttonStart.whenPressed(new ABShood());
+		
 
 		//twobumperr.whenPressed(new ShooterCommand(Velocity of shooter, hood angle));
 		//twobumperl.whenPressed(new ShooterCommand(Velocity of shooter, hood angle));

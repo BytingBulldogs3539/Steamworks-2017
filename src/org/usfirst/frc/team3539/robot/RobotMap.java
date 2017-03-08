@@ -27,6 +27,7 @@ public class RobotMap//test
 	public static final int buttonb = 2;
 	public static final int buttonx = 3;
 	public static final int buttony = 4;
+	public static final int buttonStart = 8;
 
 	//BUMPER
 	public static final int bumperl = 5;

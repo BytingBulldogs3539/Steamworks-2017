@@ -2,7 +2,6 @@ package org.usfirst.frc.team3539.robot.subsystems;
 
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
-import org.usfirst.frc.team3539.robot.commands.SetPointCommand;
 
 import com.ctre.CANTalon;
 import com.ctre.CANTalon.TalonControlMode;
@@ -12,10 +11,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class HoodSubsystem extends BulldogSystem
 {
-    private CANTalon shooterHoodMotor ;
+    private CANTalon shooterHoodMotor;
 
-    DigitalInput lightSensorOne = new DigitalInput(1);
-    DigitalInput lightSensorTwo = new DigitalInput(0);
+   //DigitalInput lightSensorOne = new DigitalInput(1);
+   // DigitalInput lightSensorTwo = new DigitalInput(0);
     
     public HoodSubsystem()
     {

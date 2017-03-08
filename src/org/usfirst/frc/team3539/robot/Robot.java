@@ -130,6 +130,7 @@ public class Robot extends IterativeRobot
 		shooter.Update();
 		manipulator.Update();
 		driveTrain.Update();
+		HoodSubsystem.Update();
 	}
 
 	public void SmartInit()
@@ -153,6 +154,7 @@ public class Robot extends IterativeRobot
 		autonChooser.addObject("ReverseTest", new ReverseTest());
 		autonChooser.addObject("FarGearLeft", new FarGearLeft());
 		autonChooser.addObject("HopperGearLeft", new HopperGearLeft());
+		autonChooser.addObject("PlaceGearShootRight", new ShootInsideGroup());
 
 		SmartDashboard.putData("Tele mode", teleopChooser);
 		teleopChooser.addDefault("Vision, Default", new VoidCommand()); //Switch with teleop commands

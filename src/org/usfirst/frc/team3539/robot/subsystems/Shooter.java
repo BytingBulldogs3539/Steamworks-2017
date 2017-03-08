@@ -2,7 +2,7 @@ package org.usfirst.frc.team3539.robot.subsystems;
 
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
-import org.usfirst.frc.team3539.robot.commands.SetPointCommand;
+
 
 import com.ctre.CANTalon;
 import com.ctre.CANTalon.TalonControlMode;
@@ -14,7 +14,7 @@ public class Shooter extends BulldogSystem
 {
 	private CANTalon shooterOneMotor;
 	private CANTalon shooterTwoMotor;
-	private CANTalon shooterHoodMotor;
+	//private CANTalon shooterHoodMotor;
 	private CANTalon agitatorMotor;
 
 	DigitalInput lightSensorOne = new DigitalInput(1);
@@ -36,9 +36,9 @@ public class Shooter extends BulldogSystem
 		shooterOneMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Absolute);
 		shooterOneMotor.reverseSensor(true);
 
-		shooterHoodMotor = new CANTalon(RobotMap.shooterServoTalon);
-		shooterHoodMotor.setSafetyEnabled(false);
-		shooterHoodMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Absolute);
+//		shooterHoodMotor = new CANTalon(RobotMap.shooterServoTalon);
+//		shooterHoodMotor.setSafetyEnabled(false);
+//		shooterHoodMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Absolute);
 
 		agitatorMotor = new CANTalon(RobotMap.agitatorTalon);
 		agitatorMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Absolute);
@@ -68,26 +68,26 @@ public class Shooter extends BulldogSystem
 
 	public void settempHoodAngle(double encoderValue)
 	{
-		shooterHoodMotor.changeControlMode(CANTalon.TalonControlMode.Position);
-		shooterHoodMotor.set(encoderValue);
+//		shooterHoodMotor.changeControlMode(CANTalon.TalonControlMode.Position);
+//		shooterHoodMotor.set(encoderValue);
 	}
 	
 	public void setHoodAngle(double encoderValue)
 	{
-		shooterHoodMotor.changeControlMode(CANTalon.TalonControlMode.Position);
-		//shooterHoodMotor.reverseSensor(true);
-		shooterHoodMotor.setP(RobotMap.hoodPea);
-		shooterHoodMotor.setI(RobotMap.hoodEye);
-		shooterHoodMotor.setD(RobotMap.hoodDee);
-		//shooterHoodMotor.enableControl();
+//		shooterHoodMotor.changeControlMode(CANTalon.TalonControlMode.Position);
+//		//shooterHoodMotor.reverseSensor(true);
+//		shooterHoodMotor.setP(RobotMap.hoodPea);
+//		shooterHoodMotor.setI(RobotMap.hoodEye);
+//		shooterHoodMotor.setD(RobotMap.hoodDee);
+//		//shooterHoodMotor.enableControl();
 	
 		System.out.println("shooterHoodMotor set: " + encoderValue);
-		shooterHoodMotor.set(encoderValue);
+		//shooterHoodMotor.set(encoderValue);
 	}
 	
 	public void zeroHoodEncoders()
 	{
-	    shooterHoodMotor.setEncPosition(0);
+	   // shooterHoodMotor.setEncPosition(0);
 	}
 
 	public void setAgitatorMotorPower(double power)
@@ -175,7 +175,7 @@ public class Shooter extends BulldogSystem
 
 	public double getHoodPosition()
 	{
-		return shooterHoodMotor.getPulseWidthPosition();
+		return 0;//return shooterHoodMotor.getPulseWidthPosition();
 	}
 
 	@Override

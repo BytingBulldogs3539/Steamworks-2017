@@ -1,5 +1,6 @@
 package org.usfirst.frc.team3539.robot.commands;
 
+import org.omg.PortableInterceptor.ObjectIdHelper;
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.subsystems.*;
 import org.usfirst.frc.team3539.robot.RobotMap;
@@ -18,10 +19,9 @@ public class ABShood extends Command
 
 	public double setpoint;
 
-	public ABShood(/*double point*/)
+	public ABShood()
 	{
-	//	setpoint = point;
-
+	
 	}
 
 	protected void initialize()
@@ -31,8 +31,9 @@ public class ABShood extends Command
 
 	protected void execute()
 	{
-		if (Robot.HoodSubsystem.getHoodPosition() > (RobotMap.hoodTarget + 5)
-				|| Robot.HoodSubsystem.getHoodPosition() < (RobotMap.hoodTarget - 5))
+	    System.out.println(Robot.HoodSubsystem.getHoodPosition());
+		if (Robot.HoodSubsystem.getHoodPosition() > (RobotMap.hoodTarget + 7)
+				|| Robot.HoodSubsystem.getHoodPosition() < (RobotMap.hoodTarget - 7))
 		{
 
 			if (Robot.HoodSubsystem.getHoodPosition() < RobotMap.hoodTarget)
@@ -54,17 +55,19 @@ public class ABShood extends Command
 		}
 	}
 
-	protected boolean isFinished()
-	{if (Robot.HoodSubsystem.getHoodPosition() > (RobotMap.hoodTarget + 5)
-			|| Robot.HoodSubsystem.getHoodPosition() < (RobotMap.hoodTarget - 5))
-	{
-		return false;
+	protected boolean isFinished(){
+	return !Robot.oi.twobuttonStart.get();
+//	{if (Robot.HoodSubsystem.getHoodPosition() > (RobotMap.hoodTarget + 5)
+//			|| Robot.HoodSubsystem.getHoodPosition() < (RobotMap.hoodTarget - 5))
+//	{
+//		return false;
+//	}else
+//		return true;
+//	}
 	}
-		return true;
-	}
-
 	protected void end()
 	{
+	    Robot.HoodSubsystem.setMotorPower(0);
 		super.end();
 	}
 
