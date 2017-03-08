@@ -5,6 +5,8 @@ import org.usfirst.frc.team3539.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
+import org.usfirst.frc.team3539.robot.utilities.BulldogSleeper;
+
 /**
  *-3150 shooter rpm   250 Agitator Rpm 1600 Hood Encoder
  */
@@ -27,25 +29,12 @@ public class AutonShoot extends Command
     protected void execute()
     {
         Robot.shooter.startShooter(RobotMap.shooterRpm);
-        try
-        {
-            Thread.sleep(2000);
-        }
-        catch (InterruptedException e)
-        {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        
+        BulldogSleeper.sleep(2000);
+        
         Robot.shooter.startAgitator(-RobotMap.agitatorRpm);
-        try
-        {
-            Thread.sleep(8000);
-        }
-        catch (InterruptedException e)
-        {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+
+        BulldogSleeper.sleep(8000);
     }
 
     protected boolean isFinished()

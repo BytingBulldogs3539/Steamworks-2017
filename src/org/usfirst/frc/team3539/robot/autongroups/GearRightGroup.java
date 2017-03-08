@@ -1,6 +1,7 @@
 package org.usfirst.frc.team3539.robot.autongroups;
 
 import org.usfirst.frc.team3539.robot.utilities.BulldogLogger;
+import org.usfirst.frc.team3539.robot.utilities.BulldogSleeper;
 
 import autoncommands.AutoWait;
 import autoncommands.AutonDrive;
@@ -34,14 +35,15 @@ public class GearRightGroup extends CommandGroup
 		addSequential(new AutonDrive(30, .5));
 		BulldogLogger.getInstance().logInfo("    End 2nd Drive Forward");
 
+		// Wait a little bit before I open the hood
+		BulldogSleeper.sleep(250);
+		
 		// Don't care to log the GearOpen and HoodOpen
 		addSequential(new AutonGearOpen());
 		addSequential(new AutonHoodOpen());
 
-		BulldogLogger.getInstance().logInfo("  Start AutoWait");
-		addSequential(new AutoWait(1));
-		BulldogLogger.getInstance().logInfo("    End AutoWait");
-		
+		BulldogSleeper.sleep(1000);
+				
 		BulldogLogger.getInstance().logInfo("  Start 1st Drive backward");
 		addSequential(new AutonDrive(-20, .7));
 		BulldogLogger.getInstance().logInfo("    End 1st Drive backward");
