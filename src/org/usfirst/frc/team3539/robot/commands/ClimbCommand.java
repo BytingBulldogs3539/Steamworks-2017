@@ -13,7 +13,7 @@ public class ClimbCommand extends BulldogCommand
 
 	protected void initialize()
 	{
-		//Robot.c.stop();
+		Robot.c.stop();
 		super.initialize("ClimbCommand");
 		Robot.intake.lockOn();
 	}
@@ -30,7 +30,7 @@ public class ClimbCommand extends BulldogCommand
 
 	protected void end()
 	{
-	// Robot.c.start();
+	 Robot.c.start();
 		super.end("ClimbCommand");
 		Robot.intake.setMotorPower(0);
 	}

@@ -29,21 +29,22 @@ public class GearLeftGroup extends CommandGroup
 		BulldogLogger.getInstance().logInfo("    Ending 1st Drive forward");
 		
 		BulldogLogger.getInstance().logInfo("  Starting 1st turn");
-		addSequential(new AutonTurn(-50, .6));
+		addSequential(new AutonTurn(-60, .75));
 		BulldogLogger.getInstance().logInfo("    Ending 1st turn");
 		
 		BulldogLogger.getInstance().logInfo("  Starting 2nd Drive Forward");
-		addSequential(new AutonDrive(30, .5));
+		addSequential(new AutonDrive(30, .7));
 		BulldogLogger.getInstance().logInfo("    Ending 2nd Drive Forward");
 
 		// Don't care to log the GearOpen and HoodOpen
 		// Wait for a fraction of second before you open
-		BulldogSleeper.sleep(250);
+		
 		
 		addSequential(new AutonGearOpen());
 		addSequential(new AutonHoodOpen());
 
-		BulldogSleeper.sleep(1000);
+        addSequential(new AutoWait(2));
+
 		
 		BulldogLogger.getInstance().logInfo("  Starting 1st Drive backward");
 		addSequential(new AutonDrive(-30, .6));

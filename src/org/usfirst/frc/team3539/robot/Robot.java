@@ -115,7 +115,7 @@ public class Robot extends IterativeRobot
 	{
 		Scheduler.getInstance().run();
 		Update();
-        c.stop(); //debug
+        c.start(); //debug
 	}
 
 	// This function is called periodically during test mode
