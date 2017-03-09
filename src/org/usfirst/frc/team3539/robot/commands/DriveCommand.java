@@ -34,7 +34,7 @@ public class DriveCommand extends BulldogCommand
 			latch = false;
 		}
 
-		if (Robot.oi.invertTrigger.getValue())
+		if (Robot.oi.invertTrigger.get())
 		{
 			Robot.driveTrain.driveArcade(-1 * Robot.oi.controller1.getRawAxis(RobotMap.Y_AxisL),
 					Robot.oi.controller1.getRawAxis(RobotMap.X_AxisR));
