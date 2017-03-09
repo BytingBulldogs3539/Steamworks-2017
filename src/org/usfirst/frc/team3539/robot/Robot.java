@@ -8,9 +8,9 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc.team3539.autoncommands.AutoAim;
-import org.usfirst.frc.team3539.autoncommands.AutonDrive;
-import org.usfirst.frc.team3539.autoncommands.AutonTurn;
+import org.usfirst.frc.team3539.robot.autoncommands.AutoAim;
+import org.usfirst.frc.team3539.robot.autoncommands.AutonDrive;
+import org.usfirst.frc.team3539.robot.autoncommands.AutonTurn;
 import org.usfirst.frc.team3539.robot.autongroups.*;
 import org.usfirst.frc.team3539.robot.commands.*;
 import org.usfirst.frc.team3539.robot.subsystems.*;

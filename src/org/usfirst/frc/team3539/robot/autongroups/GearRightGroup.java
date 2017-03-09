@@ -1,12 +1,12 @@
 package org.usfirst.frc.team3539.robot.autongroups;
 
-import org.usfirst.frc.team3539.autoncommands.AutoWait;
-import org.usfirst.frc.team3539.autoncommands.AutonDrive;
-import org.usfirst.frc.team3539.autoncommands.AutonGearClose;
-import org.usfirst.frc.team3539.autoncommands.AutonGearOpen;
-import org.usfirst.frc.team3539.autoncommands.AutonHoodClose;
-import org.usfirst.frc.team3539.autoncommands.AutonHoodOpen;
-import org.usfirst.frc.team3539.autoncommands.AutonTurn;
+import org.usfirst.frc.team3539.robot.autoncommands.AutoWait;
+import org.usfirst.frc.team3539.robot.autoncommands.AutonDrive;
+import org.usfirst.frc.team3539.robot.autoncommands.AutonGearClose;
+import org.usfirst.frc.team3539.robot.autoncommands.AutonGearOpen;
+import org.usfirst.frc.team3539.robot.autoncommands.AutonHoodClose;
+import org.usfirst.frc.team3539.robot.autoncommands.AutonHoodOpen;
+import org.usfirst.frc.team3539.robot.autoncommands.AutonTurn;
 import org.usfirst.frc.team3539.robot.utilities.BulldogLogger;
 import org.usfirst.frc.team3539.robot.utilities.BulldogSleeper;
 

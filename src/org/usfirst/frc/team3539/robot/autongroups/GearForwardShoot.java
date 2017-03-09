@@ -1,6 +1,6 @@
 package org.usfirst.frc.team3539.robot.autongroups;
 
-import org.usfirst.frc.team3539.autoncommands.AutonShoot;
+import org.usfirst.frc.team3539.robot.autoncommands.AutonShoot;
 import org.usfirst.frc.team3539.robot.utilities.BulldogLogger;
 
 /**

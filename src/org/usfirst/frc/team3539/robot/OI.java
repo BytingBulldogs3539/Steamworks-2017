@@ -1,7 +1,7 @@
 package org.usfirst.frc.team3539.robot;
 
-import org.usfirst.frc.team3539.autoncommands.AutonTurn;
-import org.usfirst.frc.team3539.autoncommands.VisionTurn;
+import org.usfirst.frc.team3539.robot.autoncommands.AutonTurn;
+import org.usfirst.frc.team3539.robot.autoncommands.VisionTurn;
 import org.usfirst.frc.team3539.robot.commands.ABShood;
 import org.usfirst.frc.team3539.robot.commands.ClimbCommand;
 import org.usfirst.frc.team3539.robot.commands.FireCommand;
