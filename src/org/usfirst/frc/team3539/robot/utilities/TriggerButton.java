@@ -1,10 +1,11 @@
 package org.usfirst.frc.team3539.robot.utilities;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 
-public class TriggerButton
+public class TriggerButton extends Button
 {
 	private int triggerAxis;
 	private Joystick controller;
@@ -27,7 +28,8 @@ public class TriggerButton
 		this.command = command;
 	}
 
-	public boolean getValue()
+	@Override
+	public boolean get()
 	{
 		return checkValue();
 	}

@@ -55,7 +55,7 @@ public class FireCommand extends BulldogCommand
 
 	protected boolean isFinished()
 	{
-		return !Robot.oi.shooterTrigger.getValue();
+		return !Robot.oi.shooterTrigger.get();
 	}
 
 	protected void end()

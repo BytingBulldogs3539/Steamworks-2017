@@ -35,7 +35,7 @@ public class IntakeCommand extends BulldogCommand
 
 	protected boolean isFinished()
 	{
-		return !Robot.oi.intakeTrigger.getValue();
+		return !Robot.oi.intakeTrigger.get();
 	}
 
 	protected void end()
