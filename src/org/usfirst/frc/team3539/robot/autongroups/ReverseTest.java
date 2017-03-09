@@ -10,6 +10,6 @@ public class ReverseTest extends CommandGroup
 {
 	public ReverseTest()
 	{
-		addSequential(new AutonDrive(-100));
+		addSequential(new AutonDrive(-100, .7));
 	}
 }

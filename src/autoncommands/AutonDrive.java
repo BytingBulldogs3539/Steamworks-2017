@@ -11,14 +11,20 @@ import edu.wpi.first.wpilibj.command.PIDCommand;
 public class AutonDrive extends PIDCommand
 {
 	private double myTicks;
-
-	public AutonDrive(double inches)
+	
+	public AutonDrive(double inches, double speedlimit)
 	{
 		super("test", RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
-//		inches = Robot.driveTrain.subtractRobotInches(inches);
+		Robot.driveTrain.zeroEncoders();
 		myTicks = Robot.driveTrain.inchToEnc(inches);
 		requires(Robot.driveTrain);
-		Robot.driveTrain.zeroEncoders();
+		
+		if(speedlimit > 1 || speedlimit < 0)
+		{
+			speedlimit = 0;
+		}
+		
+		this.getPIDController().setOutputRange(-speedlimit, speedlimit);
 		setSetpoint(myTicks);
 	}
 
@@ -42,6 +48,7 @@ public class AutonDrive extends PIDCommand
 
 	protected void end()
 	{
+		Robot.driveTrain.zeroEncoders();
 		Robot.driveTrain.stopTrain();
 	}
 
@@ -60,13 +67,6 @@ public class AutonDrive extends PIDCommand
 	@Override
 	protected void usePIDOutput(double output)
 	{
-		double out = output;
-
-		if(output > 1)
-			out = 1;
-		if(output < -1)
-			out = -1;
-
-		Robot.driveTrain.driveLinear(out);
+		Robot.driveTrain.driveLinear(output);
 	}
 }

@@ -89,6 +89,11 @@ public class DriveTrain extends BulldogSystem
 		rfMotor.setEncPosition(0);
 		rbMotor.setEncPosition(0);
 		lbMotor.setEncPosition(0);
+		
+		lfMotor.setPosition(0);
+		rfMotor.setPosition(0);
+		rbMotor.setPosition(0);
+		lbMotor.setPosition(0);
 	}
 
 	public void disablePIDControl()
@@ -109,14 +114,7 @@ public class DriveTrain extends BulldogSystem
 
 	public void driveArcade(double leftStick, double rightStick)
 	{
-		if(Robot.oi.invertTrigger.checkValue())
-		{
-			drive.arcadeDrive(-leftStick, rightStick);
-		}
-		else
-		{
-			drive.arcadeDrive(leftStick, rightStick);
-		}
+		drive.arcadeDrive(leftStick, rightStick);	
 	}
 
 	public void changeGears()
@@ -188,8 +186,9 @@ public class DriveTrain extends BulldogSystem
 		RobotMap.turnEye = SmartDashboard.getDouble("RobotMap.turnEye");
 		RobotMap.turnDee = SmartDashboard.getDouble("RobotMap.turnDee");
 		
-		SmartDashboard.putDouble("Raspberry PI", Robot.raspberry.Read());
-		
+		SmartDashboard.putDouble("Raspberry PI", Robot.raspberry.getAngle());
+        SmartDashboard.putDouble("PI Distance", Robot.raspberry.getDistance());
+
 
 		RobotMap.drive1 = SmartDashboard.getDouble("drive1");
 		RobotMap.drive2 = SmartDashboard.getDouble("drive2");
@@ -230,7 +229,8 @@ public class DriveTrain extends BulldogSystem
 		SmartDashboard.putDouble("RobotMap.turnEye", RobotMap.turnEye);
 		SmartDashboard.putDouble("RobotMap.turnDee", RobotMap.turnDee);
 		
-		SmartDashboard.putDouble("Raspberry PI", Robot.raspberry.Read());
+		SmartDashboard.putDouble("Raspberry PI", Robot.raspberry.getAngle());
+        SmartDashboard.putDouble("PI Distance", Robot.raspberry.getDistance());
 		
 		SmartDashboard.putDouble("drive1", RobotMap.drive1);
 		SmartDashboard.putDouble("drive2", RobotMap.drive2);

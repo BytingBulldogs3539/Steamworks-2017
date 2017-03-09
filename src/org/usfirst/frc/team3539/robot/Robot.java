@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team3539.robot.autongroups.*;
 import org.usfirst.frc.team3539.robot.commands.*;
 import org.usfirst.frc.team3539.robot.subsystems.*;
+import org.usfirst.frc.team3539.robot.utilities.BulldogLogger;
 
 import autoncommands.AutoAim;
 import autoncommands.AutonDrive;
@@ -27,6 +28,7 @@ import autoncommands.AutonTurn;
 public class Robot extends IterativeRobot
 {
 	//SUBSYSTEMS
+	public static final HoodSubsystem HoodSubsystem = new HoodSubsystem();
 	public static final DriveTrain driveTrain = new DriveTrain();
 	public static final Shooter shooter = new Shooter();
 	public static final Intake intake = new Intake();
@@ -53,6 +55,8 @@ public class Robot extends IterativeRobot
 
 		//camera = CameraServer.getInstance().startAutomaticCapture();
 		//camera.setResolution(480, 360);
+		
+		BulldogLogger.getInstance().logInfo("Starting robotInit");
 	}
 
 	/**
@@ -62,6 +66,7 @@ public class Robot extends IterativeRobot
 	 **/
 	public void disabledInit()
 	{
+	    BulldogLogger.getInstance().finishLogging();
 
 	}
 
@@ -72,6 +77,7 @@ public class Robot extends IterativeRobot
 
 	public void autonomousInit()
 	{
+	    BulldogLogger.getInstance().logInfo("autonomousInit");
 		System.out.println("autonomousInit");
 		Update();
 
@@ -93,11 +99,11 @@ public class Robot extends IterativeRobot
 	{
 		Scheduler.getInstance().run();
 		Update();
+		c.stop(); //debug
 	}
 
 	public void teleopInit()
 	{
-		SmartDashboard.putData(new AutoAim());
 		System.out.println("teleopInit");
 		if(autonMode != null)
 			autonMode.cancel();
@@ -109,6 +115,7 @@ public class Robot extends IterativeRobot
 	{
 		Scheduler.getInstance().run();
 		Update();
+        c.stop(); //debug
 	}
 
 	// This function is called periodically during test mode
@@ -125,6 +132,7 @@ public class Robot extends IterativeRobot
 		shooter.Update();
 		manipulator.Update();
 		driveTrain.Update();
+		HoodSubsystem.Update();
 	}
 
 	public void SmartInit()
@@ -134,23 +142,27 @@ public class Robot extends IterativeRobot
 		shooter.SmartInit();
 		manipulator.SmartInit();
 		driveTrain.SmartInit();
-
+		
 		autonChooser = new SendableChooser<Command>();
 		teleopChooser = new SendableChooser<Command>();
 		
 		SmartDashboard.putData("Auto mode", autonChooser);
 		autonChooser.addDefault("No Auton, Default", new VoidCommand());
-		autonChooser.addObject("Drive Forward 200in", new AutonDrive(200));
-		autonChooser.addObject("Auton Turn 180", new AutonTurn(180));
-		autonChooser.addObject("Auton Turn 90", new AutonTurn(90));
+		autonChooser.addObject("Auton Turn 180", new AutonTurn(180, .6));
+		autonChooser.addObject("Auton Turn 90", new AutonTurn(90, .6));
 		autonChooser.addObject("GearRightGroup", new GearRightGroup());
 		autonChooser.addObject("GearForwardGroup", new GearForwardGroup());
 		autonChooser.addObject("GearLeftGroup", new GearLeftGroup());
 		autonChooser.addObject("ReverseTest", new ReverseTest());
+		autonChooser.addObject("FarGearLeft", new FarGearLeft());
+		autonChooser.addObject("HopperGearLeft", new HopperGearLeft());
+		autonChooser.addObject("PlaceGearShootRight", new ShootInsideGroup());
 
 		SmartDashboard.putData("Tele mode", teleopChooser);
 		teleopChooser.addDefault("Vision, Default", new VoidCommand()); //Switch with teleop commands
 		teleopChooser.addObject("No Vision", new VoidCommand());
+		
+		SmartDashboard.putData(new AutoAim());
 		
 		SmartDashboard.putData(shooter);
 		SmartDashboard.putData(intake);

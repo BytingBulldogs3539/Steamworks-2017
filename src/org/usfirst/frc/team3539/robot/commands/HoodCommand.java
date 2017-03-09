@@ -8,6 +8,8 @@ import org.usfirst.frc.team3539.robot.Robot;
 public class HoodCommand extends BulldogCommand
 {
 
+
+
 	public HoodCommand()
 	{
 		super("HoodCommand");

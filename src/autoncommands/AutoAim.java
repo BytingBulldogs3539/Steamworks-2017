@@ -50,7 +50,7 @@ public class AutoAim extends PIDCommand
 	@Override
 	protected double returnPIDInput()
 	{
-		double read = Robot.raspberry.Read();
+		double read = Robot.raspberry.getAngle();
 		return read;
 	}
 
