@@ -15,7 +15,7 @@ public class VisionTurn extends PIDCommand
 
     public VisionTurn(double angle)
     {
-        super("test", RobotMap.vturnPea, RobotMap.vturnEye, RobotMap.vturnDee);
+        super("test", RobotMap.turnPea, RobotMap.turnEye, RobotMap.turnDee);
         newAngle = angle;
         requires(Robot.driveTrain);
         System.out.println("CON");
@@ -23,7 +23,7 @@ public class VisionTurn extends PIDCommand
 
     protected void initialize()
     {
-        this.getPIDController().setPID(RobotMap.vturnPea, RobotMap.vturnEye, RobotMap.vturnDee);
+        this.getPIDController().setPID(RobotMap.turnPea, RobotMap.turnEye, RobotMap.turnDee);
 
         Robot.driveTrain.gyroReset();
         Robot.driveTrain.zeroEncoders();
