@@ -1,4 +1,4 @@
-package autoncommands;
+package org.usfirst.frc.team3539.autoncommands;
 
 import org.usfirst.frc.team3539.robot.Robot;
 
@@ -7,10 +7,10 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class AutonHoodOpen extends Command
+public class AutonHoodClose extends Command
 {
 
-	public AutonHoodOpen()
+	public AutonHoodClose()
 	{
 		requires(Robot.manipulator);
 	}
@@ -21,7 +21,7 @@ public class AutonHoodOpen extends Command
 
 	protected void execute()
 	{
-		Robot.manipulator.hoodOpen();
+		Robot.manipulator.hoodClose();
 	}
 
 	protected boolean isFinished()

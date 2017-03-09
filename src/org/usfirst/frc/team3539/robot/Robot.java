@@ -8,14 +8,13 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import org.usfirst.frc.team3539.autoncommands.AutoAim;
+import org.usfirst.frc.team3539.autoncommands.AutonDrive;
+import org.usfirst.frc.team3539.autoncommands.AutonTurn;
 import org.usfirst.frc.team3539.robot.autongroups.*;
 import org.usfirst.frc.team3539.robot.commands.*;
 import org.usfirst.frc.team3539.robot.subsystems.*;
 import org.usfirst.frc.team3539.robot.utilities.BulldogLogger;
-
-import autoncommands.AutoAim;
-import autoncommands.AutonDrive;
-import autoncommands.AutonTurn;
 
 /**
  * The VM is configured to automatically run this class, and to call the

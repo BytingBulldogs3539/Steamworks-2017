@@ -1,8 +1,7 @@
 package org.usfirst.frc.team3539.robot.autongroups;
 
+import org.usfirst.frc.team3539.autoncommands.AutonShoot;
 import org.usfirst.frc.team3539.robot.utilities.BulldogLogger;
-
-import autoncommands.AutonShoot;
 
 /**
  * Perform GearLeftGroup and then pull back and shoot

@@ -1,4 +1,4 @@
-package autoncommands;
+package org.usfirst.frc.team3539.autoncommands;
 
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
@@ -8,24 +8,15 @@ import edu.wpi.first.wpilibj.command.PIDCommand;
 /**
  *
  */
-public class AutonDrive extends PIDCommand
+public class AutonDriveTicks extends PIDCommand
 {
 	private double myTicks;
-	
-	public AutonDrive(double inches, double speedlimit)
+
+	public AutonDriveTicks(double ticks)
 	{
 		super("test", RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
-		Robot.driveTrain.zeroEncoders();
-		myTicks = Robot.driveTrain.inchToEnc(inches);
+		myTicks = ticks;
 		requires(Robot.driveTrain);
-		
-		if(speedlimit > 1 || speedlimit < 0)
-		{
-			speedlimit = 0;
-		}
-		
-		this.getPIDController().setOutputRange(-speedlimit, speedlimit);
-		setSetpoint(myTicks);
 	}
 
 	protected void initialize()
@@ -33,12 +24,11 @@ public class AutonDrive extends PIDCommand
 		this.getPIDController().setPID(RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
 		Robot.driveTrain.zeroEncoders();
 		this.setSetpoint(myTicks);
-		this.getPIDController().setAbsoluteTolerance(2000);
+		this.getPIDController().setAbsoluteTolerance(500);
 	}
 
 	protected void execute()
 	{
-//		System.out.println("Drive On Target: " + this.getPIDController().onTarget());
 	}
 
 	protected boolean isFinished()
@@ -48,13 +38,11 @@ public class AutonDrive extends PIDCommand
 
 	protected void end()
 	{
-		Robot.driveTrain.zeroEncoders();
 		Robot.driveTrain.stopTrain();
 	}
 
 	protected void interrupted()
 	{
-		System.out.println("AutonDrive interrupted");
 		end();
 	}
 
@@ -67,6 +55,13 @@ public class AutonDrive extends PIDCommand
 	@Override
 	protected void usePIDOutput(double output)
 	{
-		Robot.driveTrain.driveLinear(output);
+		double out = output;
+
+		if(output > 1)
+			out = 1;
+		if(output < -1)
+			out = -1;
+
+		Robot.driveTrain.driveLinear(out);
 	}
 }

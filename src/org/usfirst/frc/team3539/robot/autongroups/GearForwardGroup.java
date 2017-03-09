@@ -1,15 +1,15 @@
 package org.usfirst.frc.team3539.robot.autongroups;
 
 
+import org.usfirst.frc.team3539.autoncommands.AutoWait;
+import org.usfirst.frc.team3539.autoncommands.AutonDrive;
+import org.usfirst.frc.team3539.autoncommands.AutonGearClose;
+import org.usfirst.frc.team3539.autoncommands.AutonGearOpen;
+import org.usfirst.frc.team3539.autoncommands.AutonHoodClose;
+import org.usfirst.frc.team3539.autoncommands.AutonHoodOpen;
+import org.usfirst.frc.team3539.autoncommands.AutonTurn;
 import org.usfirst.frc.team3539.robot.RobotMap;
 
-import autoncommands.AutoWait;
-import autoncommands.AutonDrive;
-import autoncommands.AutonGearClose;
-import autoncommands.AutonGearOpen;
-import autoncommands.AutonHoodClose;
-import autoncommands.AutonHoodOpen;
-import autoncommands.AutonTurn;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import org.usfirst.frc.team3539.robot.utilities.*;
 
