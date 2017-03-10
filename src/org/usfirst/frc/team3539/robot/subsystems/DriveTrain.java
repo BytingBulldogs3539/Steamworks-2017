@@ -170,17 +170,9 @@ public class DriveTrain extends BulldogSystem
 
 		SmartDashboard.putDouble("Gryo Angle", getGyroAngle());
 
-		SmartDashboard.putDouble("Left Encoder Value", lfMotor.getEncPosition());
-		SmartDashboard.putDouble("Right Encoder Value", rfMotor.getEncPosition());
-
 		RobotMap.drivePea = SmartDashboard.getDouble("RobotMap.drivePea");
 		RobotMap.driveEye = SmartDashboard.getDouble("RobotMap.driveEye");
 		RobotMap.driveDee = SmartDashboard.getDouble("RobotMap.driveDee");
-
-		SmartDashboard.putDouble("Left Front Motor", lfMotor.getBusVoltage());
-		SmartDashboard.putDouble("Left Back Motor", lbMotor.getBusVoltage());
-		SmartDashboard.putDouble("Right Back Motor", rfMotor.getBusVoltage());
-		SmartDashboard.putDouble("Right Front Motor", rbMotor.getBusVoltage());
 
 		RobotMap.turnPea = SmartDashboard.getDouble("RobotMap.turnPea");
 		RobotMap.turnEye = SmartDashboard.getDouble("RobotMap.turnEye");
@@ -188,16 +180,6 @@ public class DriveTrain extends BulldogSystem
 		
 		SmartDashboard.putDouble("Raspberry PI", Robot.raspberry.getAngle());
         SmartDashboard.putDouble("PI Distance", Robot.raspberry.getDistance());
-
-
-		RobotMap.drive1 = SmartDashboard.getDouble("drive1");
-		RobotMap.drive2 = SmartDashboard.getDouble("drive2");
-		RobotMap.drive3 = SmartDashboard.getDouble("drive3");
-		
-		RobotMap.angle1 = SmartDashboard.getDouble("angle1");
-		RobotMap.angle2 = SmartDashboard.getDouble("angle2");
-		RobotMap.angle3 = SmartDashboard.getDouble("angle3");
-
 	}
 
 	@Override
@@ -210,20 +192,9 @@ public class DriveTrain extends BulldogSystem
 
 		SmartDashboard.putDouble("Gryo Angle", 0);
 
-		SmartDashboard.putDouble("Left Encoder Value", 0);
-		SmartDashboard.putDouble("Right Encoder Value", 0);
-
-		SmartDashboard.putDouble("Left Encoder Value", 0);
-		SmartDashboard.putDouble("Right Encoder Value", 0);
-
 		SmartDashboard.putDouble("RobotMap.drivePea", RobotMap.drivePea);
 		SmartDashboard.putDouble("RobotMap.driveEye", RobotMap.driveEye);
 		SmartDashboard.putDouble("RobotMap.driveDee", RobotMap.driveDee);
-
-		SmartDashboard.putDouble("Left Front Motor", 0);
-		SmartDashboard.putDouble("Left Back Motor", 0);
-		SmartDashboard.putDouble("Right Back Motor", 0);
-		SmartDashboard.putDouble("Right Front Motor", 0);
 
 		SmartDashboard.putDouble("RobotMap.turnPea", RobotMap.turnPea);
 		SmartDashboard.putDouble("RobotMap.turnEye", RobotMap.turnEye);
@@ -231,15 +202,6 @@ public class DriveTrain extends BulldogSystem
 		
 		SmartDashboard.putDouble("Raspberry PI", Robot.raspberry.getAngle());
         SmartDashboard.putDouble("PI Distance", Robot.raspberry.getDistance());
-		
-		SmartDashboard.putDouble("drive1", RobotMap.drive1);
-		SmartDashboard.putDouble("drive2", RobotMap.drive2);
-		SmartDashboard.putDouble("drive3", RobotMap.drive3);
-		
-		SmartDashboard.putDouble("angle1", RobotMap.angle1);
-		SmartDashboard.putDouble("angle2", RobotMap.angle2);
-		SmartDashboard.putDouble("angle3", RobotMap.angle3);
-
 	}
 	
 	public void defaultSetter()
