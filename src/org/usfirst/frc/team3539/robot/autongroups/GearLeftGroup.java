@@ -21,18 +21,18 @@ public class GearLeftGroup extends CommandGroup
 {
 	public GearLeftGroup()
 	{
-		addSequential(new AutonDrive(70, .7));
+		addSequential(new AutonDrive(70));
 		
-		addSequential(new AutonTurn(-60, .6));
+		addSequential(new AutonTurn(-60));
 		
-		addSequential(new AutonDrive(30, .3));
+		addSequential(new AutonDrive(30)); // speedcap prev = .3
 
 		addSequential(new AutonGearOpen());
 		addSequential(new AutonHoodOpen());
 
         addSequential(new AutoWait(2));
 
-		addSequential(new AutonDrive(-20, .6));
+		addSequential(new AutonDrive(-20));
 		
 		addSequential(new AutonGearClose());
 		addSequential(new AutonHoodClose());

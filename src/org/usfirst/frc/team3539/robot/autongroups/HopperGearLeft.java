@@ -26,15 +26,15 @@ public class HopperGearLeft extends CommandGroup
 		addSequential(new AutoWait(1));
 		BulldogLogger.getInstance().logInfo("    Ending AutoWait");
 		
-		addSequential(new AutonDrive(-40, .6));
+		addSequential(new AutonDrive(-40));
 		
 		
 		BulldogLogger.getInstance().logInfo("  Starting 1st turn");
-		addSequential(new AutonTurn(-40, .6));
+		addSequential(new AutonTurn(-40));
 		BulldogLogger.getInstance().logInfo("    Ending 1st turn");
 		
 		BulldogLogger.getInstance().logInfo("  Starting 1st Drive forward");
-		addSequential(new AutonDrive(-50, .7));
+		addSequential(new AutonDrive(-50));
 		BulldogLogger.getInstance().logInfo("    Ending 1st Drive forward");
 		
 		BulldogLogger.getInstance().logInfo("  Ending HopperGearLeft");

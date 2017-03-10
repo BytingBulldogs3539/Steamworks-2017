@@ -12,19 +12,14 @@ public class AutonDrive extends PIDCommand
 {
 	private double myTicks;
 	
-	public AutonDrive(double inches, double speedlimit)
+	public AutonDrive(double inches)
 	{
 		super("test", RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
 		Robot.driveTrain.zeroEncoders();
 		myTicks = Robot.driveTrain.inchToEnc(inches);
 		requires(Robot.driveTrain);
 		
-		if(speedlimit > 1 || speedlimit < 0)
-		{
-			speedlimit = 0;
-		}
-		
-		this.getPIDController().setOutputRange(-speedlimit, speedlimit);
+		this.getPIDController().setOutputRange(-.7, .7);
 		setSetpoint(myTicks);
 	}
 
