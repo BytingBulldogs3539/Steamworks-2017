@@ -31,27 +31,15 @@ public class FireCommand extends BulldogCommand
 
 	protected void execute()
 	{
-		
-		Robot.shooter.startShooter(RobotMap.shooterRpm);
-			
 
-	if (RobotMap.triggerModified)
+		Robot.shooter.startShooter(RobotMap.shooterRpm);
+
+		if (RobotMap.triggerModified)
 		{
 			Robot.shooter.startAgitator(RobotMap.agitatorRpm);
-		}
-		else if (Robot.shooter.getShooterRPM() <= RobotMap.shooterRpm)
+		} else if (Robot.shooter.getShooterRPM() <= RobotMap.shooterRpm)
 		{
 			Robot.shooter.startAgitator(-RobotMap.agitatorRpm);
-		}
-
-		if (Robot.shooter.isBalling() && !ballControl)
-		{
-			ballControl = true;
-			RobotMap.ballCount++;
-		}
-		else if (!Robot.shooter.isBalling() && ballControl)
-		{
-			ballControl = false;
 		}
 	}
 

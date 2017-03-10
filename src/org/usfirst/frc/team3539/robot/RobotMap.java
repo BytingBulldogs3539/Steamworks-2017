@@ -56,7 +56,7 @@ public class RobotMap//test
 	public static double shootPea = .08;
 	public static double shootEye = 0;
 	public static double shootDee = 4.0;
-	public static double shootEff = .02635;
+	public static double shootEff = .02307559; //.062635
 	
 	public static double hoodPea = 0;
 	public static double hoodEye = 0;
@@ -66,7 +66,7 @@ public class RobotMap//test
 	public static double agitatorPea = 0;
 	public static double agitatorEye = 0;
 	public static double agitatorDee = 0;
-	public static double agitatorEff = 0;
+	public static double agitatorEff = .014;
 	
 	//AIR
 	public static final int compressor = 10;
@@ -75,7 +75,7 @@ public class RobotMap//test
 	public static final int agitatorTalon = 8;
 	public static double agitatorSpeed = -.8;
 	public static double unjamAgitatorSpeed = .8;
-	public static double agitatorRpm = 2000; // was 600 (Did not work)
+	public static double agitatorRpm = 300; // was 600 (Did not work)
 
 	//INTAKE
 	public static final int intakeMotorTalon = 5;
