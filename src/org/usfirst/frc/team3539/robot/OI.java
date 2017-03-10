@@ -8,6 +8,7 @@ import org.usfirst.frc.team3539.robot.commands.FireCommand;
 import org.usfirst.frc.team3539.robot.commands.GearCommand;
 import org.usfirst.frc.team3539.robot.commands.HoodCommand;
 import org.usfirst.frc.team3539.robot.commands.IntakeCommand;
+import org.usfirst.frc.team3539.robot.commands.JoeyShoot;
 import org.usfirst.frc.team3539.robot.commands.TriggerModifierCommand;
 import org.usfirst.frc.team3539.robot.utilities.TriggerButton;
 import org.usfirst.frc.team3539.robot.utilities.DpadButton;
@@ -71,6 +72,7 @@ public class OI
 		twobuttonx.whenPressed(new TriggerModifierCommand()); // Done
 		twobuttony.whenPressed(new ClimbCommand()); //Done
 		twobuttonStart.whenPressed(new ABShood());
+		twobumperr.whenPressed(new JoeyShoot(false, twobumperr, RobotMap.hoodTarget, RobotMap.agitatorRpm, RobotMap.shooterRpm));
 		
 
 		//twobumperr.whenPressed(new ShooterCommand(Velocity of shooter, hood angle));

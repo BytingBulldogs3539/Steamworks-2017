@@ -22,11 +22,11 @@ public class FarGearLeft extends CommandGroup
 		BulldogLogger.getInstance().logInfo("    Ending GearLeftGroup");
 		
 		BulldogLogger.getInstance().logInfo("  Starting 1st turn");
-		addSequential(new AutonTurn(50, .7));
+		addSequential(new AutonTurn(50));
 		BulldogLogger.getInstance().logInfo("    Ending 1st turn");
 		
 		BulldogLogger.getInstance().logInfo("  Starting 1st Drive Forward");
-		addSequential(new AutonDrive(100, .8));
+		addSequential(new AutonDrive(100)); // orig. speedcap = .8
 		BulldogLogger.getInstance().logInfo("    Ending 1st Drive Forward");
 		
 		BulldogLogger.getInstance().logInfo("  Ending FarGearLeft");

@@ -18,19 +18,19 @@ public class ShootInsideGroupBlue extends CommandGroup
         BulldogLogger.getInstance().logInfo("Starting ShootInsideGroupBlue");
         
         BulldogLogger.getInstance().logInfo("  Starting 1st drive forward");
-    	addSequential(new AutonDrive(70, .7));
+    	addSequential(new AutonDrive(70));
     	BulldogLogger.getInstance().logInfo("    Ending 1st drive forward");
     	
     	BulldogLogger.getInstance().logInfo("  Starting 1st turn");
-    	addSequential(new AutonTurn(-90, .6));
+    	addSequential(new AutonTurn(-90));
     	BulldogLogger.getInstance().logInfo("    Ending 1st turn");
     	
     	BulldogLogger.getInstance().logInfo("  Starting 2nd drive forward");
-    	addSequential(new AutonDrive(27, .7));
+    	addSequential(new AutonDrive(27));
     	BulldogLogger.getInstance().logInfo("    Ending 2nd drive forward");
     	
     	BulldogLogger.getInstance().logInfo("  Starting 2nd turn");
-    	addSequential(new AutonTurn(-45, .6));
+    	addSequential(new AutonTurn(-45));
     	BulldogLogger.getInstance().logInfo("    Ending 2nd turn");
     	
     	BulldogLogger.getInstance().logInfo("  Ending ShootInsideGroupBlue");

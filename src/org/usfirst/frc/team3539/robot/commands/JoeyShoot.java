@@ -16,14 +16,26 @@ public class JoeyShoot extends Command {
 	Button button;
 	
 	
-    public JoeyShoot(boolean isTeleop, boolean vision, Button button, double hoodAngle, double agitatorRpm, double shooterRpm) 
+    public JoeyShoot(boolean vision, Button button, double hoodAngle, double agitatorRpm, double shooterRpm) 
     {
 		super("JoeyShoot");
 		requires(Robot.shooter);
     	
-		this.isTeleop = isTeleop;
+		this.isTeleop = true;
         this.vision = vision;
         this.button = button;
+        this.hoodAngle = hoodAngle;
+        this.agitatorRpm = agitatorRpm;
+        this.shooterRpm = shooterRpm;
+    }
+    
+    public JoeyShoot(boolean vision, double hoodAngle, double agitatorRpm, double shooterRpm) 
+    {
+		super("JoeyShoot");
+		requires(Robot.shooter);
+    	
+		this.isTeleop = false;
+        this.vision = vision;
         this.hoodAngle = hoodAngle;
         this.agitatorRpm = agitatorRpm;
         this.shooterRpm = shooterRpm;
@@ -37,7 +49,28 @@ public class JoeyShoot extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() 
     {
-    	Robot.shooter.setHoodAngle(hoodAngle);
+    	if (Robot.HoodSubsystem.getHoodPosition() > (hoodAngle + 7)
+				|| Robot.HoodSubsystem.getHoodPosition() < (hoodAngle - 7))
+		{
+
+			if (Robot.HoodSubsystem.getHoodPosition() < RobotMap.hoodTarget)
+			{
+				Robot.HoodSubsystem.setMotorPower(.1);
+			} else
+			{
+				if (Robot.HoodSubsystem.getHoodPosition() > RobotMap.hoodTarget)
+				{
+
+					Robot.HoodSubsystem.setMotorPower(-.1);
+				}
+
+				else
+				{
+					Robot.HoodSubsystem.setMotorPower(0);
+				}
+			}
+		}
+    	
     	Robot.shooter.startShooter(shooterRpm);
     	if (Robot.shooter.getShooterRPM() <= shooterRpm)
     	{

@@ -19,21 +19,21 @@ public class ShootInsideGroup extends CommandGroup
         BulldogLogger.getInstance().logInfo("Starting ShootInsideGroup auton");
         
         BulldogLogger.getInstance().logInfo("  Starting 1st Drive Forward");
-    	addSequential(new AutonDrive(70, .7));
+    	addSequential(new AutonDrive(70));
     	BulldogLogger.getInstance().logInfo("    Ending 1st Drive Forward");
     	
     	BulldogLogger.getInstance().logInfo("  Starting 1st turn");
-    	addSequential(new AutonTurn(-45, .6));
+    	addSequential(new AutonTurn(-45));
     	BulldogLogger.getInstance().logInfo("    Ending 1st turn");
     	
     	BulldogLogger.getInstance().logInfo("  Starting 2nd Drive Forward");
-    	addSequential(new AutonDrive(30, .7));
+    	addSequential(new AutonDrive(30));
     	BulldogLogger.getInstance().logInfo("    Ending 2nd Drive Forward");
     	
-    	addSequential(new AutonDrive(-30, .7));    	
+    	addSequential(new AutonDrive(-30));    	
     	
     	BulldogLogger.getInstance().logInfo("  Starting 2nd turn");
-    	//addSequential(new AutonTurn(45, .6));
+    	//addSequential(new AutonTurn(45));
     	
     	BulldogLogger.getInstance().logInfo("    Ending 2nd turn");
     	addSequential(new AutonShoot());

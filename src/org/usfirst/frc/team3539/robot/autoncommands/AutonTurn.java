@@ -13,11 +13,10 @@ public class AutonTurn extends PIDCommand
 	private double newAngle;
 	private double tolerance;
 
-	public AutonTurn(double angle, double tolerancerange)
+	public AutonTurn(double angle)
 	{
 		super("test", RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
 		newAngle = angle;
-		tolerance = tolerancerange;
 		requires(Robot.driveTrain);
 		System.out.println("CON");
 	}
@@ -36,7 +35,7 @@ public class AutonTurn extends PIDCommand
 			tolerance = 0;
 		}
 		
-		this.getPIDController().setOutputRange(-tolerance, tolerance); // newest .7 --- new .6 --- original -.5. .5
+		this.getPIDController().setOutputRange(-.6, .6); // newest .7 --- new .6 --- original -.5. .5
 		this.getPIDController().setAbsoluteTolerance(3);
 	}
 
