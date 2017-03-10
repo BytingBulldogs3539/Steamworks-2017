@@ -53,20 +53,20 @@ public class RobotMap//test
 	public static double turnEye = 0;
 	public static double turnDee = .00000001;
 
-	public static double shootPea = .08;
+	public static double shootPea = .26;
 	public static double shootEye = 0;
-	public static double shootDee = 4.0;
-	public static double shootEff = .02307559; //.062635
+	public static double shootDee = 18.0;
+	public static double shootEff = .021; //.062635
 	
 	public static double hoodPea = 0;
 	public static double hoodEye = 0;
 	public static double hoodDee = 0;
 	public static double hoodEff = 0;
 	
-	public static double agitatorPea = 0;
+	public static double agitatorPea = .002;
 	public static double agitatorEye = 0;
-	public static double agitatorDee = 0;
-	public static double agitatorEff = .014;
+	public static double agitatorDee = 5.0;
+	public static double agitatorEff = .35;
 	
 	//AIR
 	public static final int compressor = 10;
