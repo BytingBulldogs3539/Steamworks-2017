@@ -25,12 +25,8 @@ public class GearLeftGroup extends CommandGroup
 		
 		addSequential(new AutonTurn(-60));
 		
-<<<<<<< HEAD
-		addSequential(new AutonDrive(30, .5));
-=======
 		addSequential(new AutonDrive(30)); // speedcap prev = .3
->>>>>>> origin/master
-
+		
 		addSequential(new AutonGearOpen());
 		addSequential(new AutonHoodOpen());
 
