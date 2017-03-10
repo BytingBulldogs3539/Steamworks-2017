@@ -27,7 +27,7 @@ import org.usfirst.frc.team3539.robot.utilities.BulldogLogger;
 public class Robot extends IterativeRobot
 {
 	//SUBSYSTEMS
-	public static final HoodSubsystem HoodSubsystem = new HoodSubsystem();
+	public static final HoodSubsystem hoodSubsystem = new HoodSubsystem();
 	public static final DriveTrain driveTrain = new DriveTrain();
 	public static final Shooter shooter = new Shooter();
 	public static final Intake intake = new Intake();
@@ -131,7 +131,7 @@ public class Robot extends IterativeRobot
 		shooter.Update();
 		manipulator.Update();
 		driveTrain.Update();
-		HoodSubsystem.Update();
+		hoodSubsystem.Update();
 	}
 
 	public void SmartInit()

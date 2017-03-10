@@ -31,25 +31,25 @@ public class ABShood extends Command
 
 	protected void execute()
 	{
-	    System.out.println(Robot.HoodSubsystem.getHoodPosition());
-		if (Robot.HoodSubsystem.getHoodPosition() > (RobotMap.hoodTarget + 7)
-				|| Robot.HoodSubsystem.getHoodPosition() < (RobotMap.hoodTarget - 7))
+	    System.out.println(Robot.hoodSubsystem.getHoodPosition());
+		if (Robot.hoodSubsystem.getHoodPosition() > (RobotMap.hoodTarget + 7)
+				|| Robot.hoodSubsystem.getHoodPosition() < (RobotMap.hoodTarget - 7))
 		{
 
-			if (Robot.HoodSubsystem.getHoodPosition() < RobotMap.hoodTarget)
+			if (Robot.hoodSubsystem.getHoodPosition() < RobotMap.hoodTarget)
 			{
-				Robot.HoodSubsystem.setMotorPower(.1);
+				Robot.hoodSubsystem.setMotorPower(.1);
 			} else
 			{
-				if (Robot.HoodSubsystem.getHoodPosition() > RobotMap.hoodTarget)
+				if (Robot.hoodSubsystem.getHoodPosition() > RobotMap.hoodTarget)
 				{
 
-					Robot.HoodSubsystem.setMotorPower(-.1);
+					Robot.hoodSubsystem.setMotorPower(-.1);
 				}
 
 				else
 				{
-					Robot.HoodSubsystem.setMotorPower(0);
+					Robot.hoodSubsystem.setMotorPower(0);
 				}
 			}
 		}
@@ -57,8 +57,8 @@ public class ABShood extends Command
 
 	protected boolean isFinished(){
 	return !Robot.oi.twobuttonStart.get();
-//	{if (Robot.HoodSubsystem.getHoodPosition() > (RobotMap.hoodTarget + 5)
-//			|| Robot.HoodSubsystem.getHoodPosition() < (RobotMap.hoodTarget - 5))
+//	{if (Robot.hoodSubsystem.getHoodPosition() > (RobotMap.hoodTarget + 5)
+//			|| Robot.hoodSubsystem.getHoodPosition() < (RobotMap.hoodTarget - 5))
 //	{
 //		return false;
 //	}else
@@ -67,7 +67,7 @@ public class ABShood extends Command
 	}
 	protected void end()
 	{
-	    Robot.HoodSubsystem.setMotorPower(0);
+	    Robot.hoodSubsystem.setMotorPower(0);
 		super.end();
 	}
 
