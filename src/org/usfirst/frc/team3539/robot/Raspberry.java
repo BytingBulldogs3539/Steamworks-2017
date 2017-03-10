@@ -26,7 +26,6 @@ public class Raspberry
 		table.putNumber("Offset", 0);
 	}
 
-	@SuppressWarnings("deprecation")
 	public void Print()
 	{
 		System.out.println("Raspberry: " + this.Read());
