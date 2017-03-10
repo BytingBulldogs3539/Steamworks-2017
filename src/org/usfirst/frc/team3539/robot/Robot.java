@@ -156,6 +156,7 @@ public class Robot extends IterativeRobot
 		autonChooser.addObject("FarGearLeft", new FarGearLeft());
 		autonChooser.addObject("HopperGearLeft", new HopperGearLeft());
 		autonChooser.addObject("PlaceGearShootRight", new ShootInsideGroup());
+		autonChooser.addObject("GearLeftGroupVision", new GearLeftGroupVision());
 
 		SmartDashboard.putData("Tele mode", teleopChooser);
 		teleopChooser.addDefault("Vision, Default", new VoidCommand()); //Switch with teleop commands
