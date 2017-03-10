@@ -141,6 +141,7 @@ public class Robot extends IterativeRobot
 		shooter.SmartInit();
 		manipulator.SmartInit();
 		driveTrain.SmartInit();
+		hoodSubsystem.SmartInit();
 		
 		autonChooser = new SendableChooser<Command>();
 		teleopChooser = new SendableChooser<Command>();
@@ -169,6 +170,7 @@ public class Robot extends IterativeRobot
 		SmartDashboard.putData(manipulator);
 		SmartDashboard.putData(driveTrain);
 		SmartDashboard.putData(new TestMaxVel());
+		SmartDashboard.putData(new ZeroHoodCommand());
 
 		SmartDashboard.putData(Scheduler.getInstance());
 	}

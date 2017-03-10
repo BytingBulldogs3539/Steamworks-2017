@@ -57,7 +57,6 @@ public class Shooter extends BulldogSystem
 		 */
 		shooterOneMotor.setEncPosition(0);
 		agitatorMotor.setEncPosition(0);
-		zeroHoodEncoders();
 	}
 
 	public void setMotorPower(double power)
@@ -66,29 +65,6 @@ public class Shooter extends BulldogSystem
 		shooterOneMotor.set(power);
 	}
 
-	public void settempHoodAngle(double encoderValue)
-	{
-//		shooterHoodMotor.changeControlMode(CANTalon.TalonControlMode.Position);
-//		shooterHoodMotor.set(encoderValue);
-	}
-	
-	public void setHoodAngle(double encoderValue)
-	{
-//		shooterHoodMotor.changeControlMode(CANTalon.TalonControlMode.Position);
-//		//shooterHoodMotor.reverseSensor(true);
-//		shooterHoodMotor.setP(RobotMap.hoodPea);
-//		shooterHoodMotor.setI(RobotMap.hoodEye);
-//		shooterHoodMotor.setD(RobotMap.hoodDee);
-//		//shooterHoodMotor.enableControl();
-	
-		System.out.println("shooterHoodMotor set: " + encoderValue);
-		//shooterHoodMotor.set(encoderValue);
-	}
-	
-	public void zeroHoodEncoders()
-	{
-	   // shooterHoodMotor.setEncPosition(0);
-	}
 
 	public void setAgitatorMotorPower(double power)
 	{
@@ -163,16 +139,6 @@ public class Shooter extends BulldogSystem
 		shooterOneMotor.set(rpm);
 	}
 
-	public void ballPlusPlus()
-	{
-		RobotMap.ballCount++;
-	}
-	
-	public boolean isBalling()
-	{
-		return lightSensorOne.get();
-	}
-
 	public double getHoodPosition()
 	{
 		return 0;//return shooterHoodMotor.getPulseWidthPosition();
@@ -182,12 +148,8 @@ public class Shooter extends BulldogSystem
 	@SuppressWarnings("deprecation")
 	public void Update()
 	{
-		SmartDashboard.putNumber("Ball Count", RobotMap.ballCount);
-		SmartDashboard.putBoolean("lightSensorTwo", lightSensorTwo.get());
-		SmartDashboard.putBoolean("lightSensorOne", lightSensorOne.get());
 		SmartDashboard.putDouble("Curent agitator rpm", getAgitatorRPM());
 		SmartDashboard.putDouble("Current Shooter RPM", getShooterRPM());
-		SmartDashboard.putDouble("Shooter Hood Encoder", getHoodPosition());
 		
 		RobotMap.agitatorSpeed = SmartDashboard.getDouble("Agitator Speed");
 		
@@ -200,8 +162,6 @@ public class Shooter extends BulldogSystem
 		RobotMap.hoodPea = SmartDashboard.getDouble("hoodPea");
 		RobotMap.hoodEye = SmartDashboard.getDouble("hoodEye");
 		RobotMap.hoodDee = SmartDashboard.getDouble("hoodDee");
-		
-		RobotMap.hoodTarget = SmartDashboard.getDouble("hoodTarget");
 		
 		RobotMap.agitatorRpm = SmartDashboard.getDouble("Target RPM for agitator");
 		
@@ -216,13 +176,7 @@ public class Shooter extends BulldogSystem
 	@SuppressWarnings("deprecation")
 	public void SmartInit()
 	{
-		SmartDashboard.putDouble("hoodTarget", RobotMap.hoodTarget);
-		SmartDashboard.putNumber("Ball Count", RobotMap.ballCount);
-		SmartDashboard.putBoolean("lightSensorTwo", lightSensorTwo.get());
-		SmartDashboard.putBoolean("lightSensorOne", lightSensorOne.get());
-
 		SmartDashboard.putDouble("Current Shooter RPM", 0);
-		SmartDashboard.putDouble("Shooter Hood Encoder", 0);
 
 		SmartDashboard.putDouble("Agitator Speed", RobotMap.agitatorSpeed);
 		SmartDashboard.putDouble("Target RPM for shooter", RobotMap.shooterRpm);
@@ -231,23 +185,14 @@ public class Shooter extends BulldogSystem
 		SmartDashboard.putDouble("Target RPM for agitator", RobotMap.agitatorRpm);
 		
 
-		
-
 		SmartDashboard.putDouble("shootPea", RobotMap.shootPea);
 		SmartDashboard.putDouble("shootEye", RobotMap.shootEye);
 		SmartDashboard.putDouble("shootDee", RobotMap.shootDee);
-		
-		SmartDashboard.putDouble("hoodPea", RobotMap.hoodPea);
-		SmartDashboard.putDouble("hoodEye", RobotMap.hoodEye);
-		SmartDashboard.putDouble("hoodDee", RobotMap.hoodDee);
 		
 		SmartDashboard.putDouble("agitatorPea", RobotMap.agitatorPea);
 		SmartDashboard.putDouble("agitatorEff", RobotMap.agitatorEff);
 		SmartDashboard.putDouble("agitatorEye", RobotMap.agitatorEye);
 		SmartDashboard.putDouble("agitatorDee", RobotMap.agitatorDee);
-
-	
-		SmartDashboard.putDouble("hoodTarget", RobotMap.hoodTarget);
 	}
 
 	public void initDefaultCommand()

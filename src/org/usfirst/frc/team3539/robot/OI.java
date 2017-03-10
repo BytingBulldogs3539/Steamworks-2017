@@ -2,7 +2,6 @@ package org.usfirst.frc.team3539.robot;
 
 import org.usfirst.frc.team3539.robot.autoncommands.AutonTurn;
 import org.usfirst.frc.team3539.robot.autoncommands.VisionTurn;
-import org.usfirst.frc.team3539.robot.commands.ABShood;
 import org.usfirst.frc.team3539.robot.commands.ClimbCommand;
 import org.usfirst.frc.team3539.robot.commands.FireCommand;
 import org.usfirst.frc.team3539.robot.commands.GearCommand;
@@ -71,8 +70,11 @@ public class OI
 		//twobuttonb.whenPressed(new VisionTurn(0)); // Test
 		twobuttonx.whenPressed(new TriggerModifierCommand()); // Done
 		twobuttony.whenPressed(new ClimbCommand()); //Done
-		twobuttonStart.whenPressed(new ABShood());
+		//twobuttonStart.whenPressed(new ABShood());
+		
+		
 		twobumperr.whenPressed(new JoeyShoot(false, twobumperr, RobotMap.hoodTarget, RobotMap.agitatorRpm, RobotMap.shooterRpm));
+		twobumperl.whenPressed(new JoeyShoot(false, twobumperl, 0, 0, 0));
 		
 
 		//twobumperr.whenPressed(new ShooterCommand(Velocity of shooter, hood angle));

@@ -56,7 +56,7 @@ public class RobotMap//test
 	public static double shootPea = .26;
 	public static double shootEye = 0;
 	public static double shootDee = 18.0;
-	public static double shootEff = .021; //.062635
+	public static double shootEff = .022; //.062635
 	
 	public static double hoodPea = 0;
 	public static double hoodEye = 0;
@@ -92,7 +92,7 @@ public class RobotMap//test
 	public static final int shooterTwoMotorTalon = 2;
 	public static final int shooterServoTalon = 9;
 	public static double shooterRpm = -3500;
-	public static double hoodTarget = 0;
+	public static double hoodTarget = 300;
 
 	//GEAR
 	public static final int hoodSolOn = 2;

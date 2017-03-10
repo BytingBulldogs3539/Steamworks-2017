@@ -10,7 +10,6 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class FireCommand extends BulldogCommand
 {
-	private boolean ballControl = false;
 
 	public FireCommand()
 	{
@@ -26,7 +25,6 @@ public class FireCommand extends BulldogCommand
 		Robot.shooter.setShooterPID();
 		Robot.shooter.resetAgitatorPID();
 		Robot.shooter.setAgitatorPID();
-		Robot.shooter.startShooter(RobotMap.shooterRpm);
 	}
 
 	protected void execute()
@@ -37,7 +35,7 @@ public class FireCommand extends BulldogCommand
 		if (RobotMap.triggerModified)
 		{
 			Robot.shooter.startAgitator(RobotMap.agitatorRpm);
-		} else if (Robot.shooter.getShooterRPM() <= RobotMap.shooterRpm)
+		} else if (Robot.shooter.getShooterRPM() <= RobotMap.shooterRpm * .9)
 		{
 			Robot.shooter.startAgitator(-RobotMap.agitatorRpm);
 		}
@@ -51,7 +49,6 @@ public class FireCommand extends BulldogCommand
 	protected void end()
 	{
 		super.end("FireCommand");
-		ballControl = false;
 		Robot.shooter.resetShooterPID();
 		Robot.shooter.resetAgitatorPID();
 		System.out.println("FireCommand ended");
