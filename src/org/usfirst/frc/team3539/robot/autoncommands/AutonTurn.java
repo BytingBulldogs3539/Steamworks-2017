@@ -2,7 +2,7 @@ package org.usfirst.frc.team3539.robot.autoncommands;
 
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
-
+import org.usfirst.frc.team3539.robot.Raspberry;
 import edu.wpi.first.wpilibj.command.PIDCommand;
 
 /**
@@ -24,7 +24,6 @@ public class AutonTurn extends PIDCommand
 	protected void initialize()
 	{
 		this.getPIDController().setPID(RobotMap.turnPea, RobotMap.turnEye, RobotMap.turnDee);
-
 		Robot.driveTrain.gyroReset();
 		Robot.driveTrain.zeroEncoders();
 

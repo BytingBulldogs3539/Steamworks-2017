@@ -9,6 +9,7 @@ public class Raspberry
 	private double offset = 0;
 	private double angle = 0;
 	private double distance = 0;
+	public int camera = 0;
 	
 	public Raspberry()
 	{
@@ -49,5 +50,10 @@ public class Raspberry
 	public double Read()
 	{
 		return table.getNumber("Offset");
+	}
+	public void UpdateCamera(int cameranumber)
+	{
+	    cameranumber = camera;
+	    table.putNumber("camera",camera);
 	}
 }
