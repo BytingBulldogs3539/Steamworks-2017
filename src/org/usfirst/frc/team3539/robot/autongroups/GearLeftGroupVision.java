@@ -8,6 +8,7 @@ import org.usfirst.frc.team3539.robot.autoncommands.AutonGearOpen;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonHoodClose;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonHoodOpen;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonTurn;
+import org.usfirst.frc.team3539.robot.autoncommands.GearVisionTurn;
 import org.usfirst.frc.team3539.robot.utilities.BulldogLogger;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
@@ -24,6 +25,7 @@ public class GearLeftGroupVision extends CommandGroup
 		addSequential(new AutonDrive(70));
 		
 		addSequential(new AutonTurn(-60));
+		addSequential(new GearVisionTurn(0));
 		
 		addSequential(new AutonDrive(30)); // speedcap prev = .3
 		
