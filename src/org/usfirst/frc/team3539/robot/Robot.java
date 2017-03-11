@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team3539.robot.autoncommands.AutoAim;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonDrive;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonTurn;
+import org.usfirst.frc.team3539.robot.autoncommands.HopperRight;
 import org.usfirst.frc.team3539.robot.autongroups.*;
 import org.usfirst.frc.team3539.robot.commands.*;
 import org.usfirst.frc.team3539.robot.subsystems.*;
@@ -158,6 +159,7 @@ public class Robot extends IterativeRobot
 		autonChooser.addObject("HopperGearLeft", new HopperGearLeft());
 		autonChooser.addObject("PlaceGearShootRight", new ShootInsideGroup());
 		autonChooser.addObject("GearLeftGroupVision", new GearLeftGroupVision());
+		autonChooser.addObject("HopperRight", new HopperRight());
 
 		SmartDashboard.putData("Tele mode", teleopChooser);
 		teleopChooser.addDefault("Vision, Default", new VoidCommand()); //Switch with teleop commands
