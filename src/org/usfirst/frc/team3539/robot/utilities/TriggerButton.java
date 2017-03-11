@@ -33,6 +33,11 @@ public class TriggerButton extends Button
 	{
 		return checkValue();
 	}
+	
+	public void setCommand(Command command)
+	{
+		this.command = command;
+	}
 
 	public boolean checkValue()
 	{

@@ -25,13 +25,13 @@ public class JoeyShoot extends Command
 		this.isTeleop = true;
 		this.vision = vision;
 		this.button = button;
-		// this.hoodAngle = hoodAngle;
-		// this.agitatorRpm = agitatorRpm;
-		// this.shooterRpm = shooterRpm;
-
-		this.hoodAngle = RobotMap.hoodTarget; // for Tuning
-		this.agitatorRpm = RobotMap.agitatorRpm;
-		this.shooterRpm = RobotMap.shooterRpm;
+		this.hoodAngle = hoodAngle;
+		this.agitatorRpm = agitatorRpm;
+		this.shooterRpm = shooterRpm;
+//
+//		this.hoodAngle = RobotMap.hoodTarget; // for Tuning
+//		this.agitatorRpm = RobotMap.agitatorRpm;
+//		this.shooterRpm = RobotMap.shooterRpm;
 	}
 
 	public JoeyShoot(boolean vision, double hoodAngle, double agitatorRpm, double shooterRpm)
@@ -45,7 +45,6 @@ public class JoeyShoot extends Command
 		this.hoodAngle = hoodAngle;
 		this.agitatorRpm = agitatorRpm;
 		this.shooterRpm = shooterRpm;
-
 	}
 
 	// Called just before this Command runs the first time
@@ -56,10 +55,10 @@ public class JoeyShoot extends Command
 
 		Robot.shooter.setShooterPID();
 		Robot.shooter.setAgitatorPID();
-
-		this.hoodAngle = RobotMap.hoodTarget; // for Tuning
-		this.agitatorRpm = RobotMap.agitatorRpm;
-		this.shooterRpm = RobotMap.shooterRpm;
+//
+//		this.hoodAngle = RobotMap.hoodTarget; // for Tuning
+//		this.agitatorRpm = RobotMap.agitatorRpm;
+//		this.shooterRpm = RobotMap.shooterRpm;
 	}
 
 	// Called repeatedly when this Command is scheduled to run

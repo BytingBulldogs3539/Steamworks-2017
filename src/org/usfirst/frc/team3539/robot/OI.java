@@ -44,7 +44,7 @@ public class OI
 	public JoystickButton twobumperr = new JoystickButton(controller2, RobotMap.bumperr);
 
 	public TriggerButton intakeTrigger = new TriggerButton(2, controller2, new IntakeCommand());
-	public TriggerButton shooterTrigger = new TriggerButton(3, controller2, new FireCommand());//not real values   // new ShooterCommand(2000, 10)
+	public TriggerButton shooterTrigger;
 	public TriggerButton invertTrigger = new TriggerButton(3, controller1);
 	
 	public DpadButton visionButton = new DpadButton("down", new VisionTurn(0), controller2);
@@ -73,8 +73,11 @@ public class OI
 		//twobuttonStart.whenPressed(new ABShood());
 		
 		
-		twobumperr.whenPressed(new JoeyShoot(false, twobumperr, RobotMap.hoodTarget, RobotMap.agitatorRpm, RobotMap.shooterRpm));
-		twobumperl.whenPressed(new JoeyShoot(false, twobumperl, 0, 0, 0));
+		twobumperr.whenPressed(new JoeyShoot(false, twobumperr, 550, 250, -3350));
+		twobumperl.whenPressed(new JoeyShoot(false, twobumperl, 700, 250, -3625));
+		
+		shooterTrigger = new TriggerButton(3, controller2);
+		shooterTrigger.setCommand(new JoeyShoot(false, shooterTrigger, 350, 250, -3050));
 		
 
 		//twobumperr.whenPressed(new ShooterCommand(Velocity of shooter, hood angle));

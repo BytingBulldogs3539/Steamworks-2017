@@ -23,14 +23,15 @@ public class GearForwardGroup extends CommandGroup
 
 		addSequential(new AutonDrive(50)); // orig. speedcap = 1
 
-		addSequential(new AutonDriveGentle(20, .4)); // orig. speedcap = .4
+		addSequential(new AutonDriveGentle(15, .3)); // orig. speedcap = .4
 
+		addSequential(new AutoWait(1));
 		
 		addSequential(new AutonGearOpen());
 
 		addSequential(new AutoWait(1));
 		
-		addSequential(new AutonDriveGentle(-20, .5)); // orig. speedcap = 1
+		addSequential(new AutonDriveGentle(-15, .3)); // orig. speedcap = 1
 
 		addSequential(new AutonGearClose());
 	}
