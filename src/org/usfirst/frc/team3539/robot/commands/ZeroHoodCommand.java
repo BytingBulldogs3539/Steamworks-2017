@@ -3,7 +3,6 @@ package org.usfirst.frc.team3539.robot.commands;
 import org.usfirst.frc.team3539.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
-
 /**
  *
  */
@@ -22,12 +21,18 @@ public class ZeroHoodCommand extends Command
 
 	protected void execute()
 	{
-		Robot.hoodSubsystem.zeroHoodEncoders();
+		Robot.hoodSubsystem.setHoodpower(-.2);
 	}
 
 	protected boolean isFinished()
 	{
-		return true;
+		if (Robot.hoodSubsystem.shooterHoodMotor.getOutputCurrent() >= 10)
+		{
+			Robot.hoodSubsystem.setHoodpower(0);
+			Robot.hoodSubsystem.zeroHoodEncoders();
+			return true;
+		}
+		return false;
 	}
 
 	protected void end()

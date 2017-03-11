@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class HoodSubsystem extends PIDSubsystem
 {
-	private CANTalon shooterHoodMotor;
+	public CANTalon shooterHoodMotor;
 
 	// DigitalInput lightSensorOne = new DigitalInput(1);
 	// DigitalInput lightSensorTwo = new DigitalInput(0);
@@ -54,13 +54,18 @@ public class HoodSubsystem extends PIDSubsystem
 	{
 		return shooterHoodMotor.getEncPosition()*-1;
 	}
-
+	public void setHoodpower(double power)
+	{
+		shooterHoodMotor.changeControlMode(CANTalon.TalonControlMode.PercentVbus);
+		shooterHoodMotor.set(power);
+	}
 	@SuppressWarnings("deprecation")
 	public void Update()
 	{
 		SmartDashboard.putDouble("Shooter Hood Encoder", getHoodPosition());
 
 		RobotMap.hoodTarget = SmartDashboard.getDouble("hoodTarget");
+		SmartDashboard.putNumber("HoodCurrent", Robot.hoodSubsystem.shooterHoodMotor.getOutputCurrent());
 	}
 
 	@SuppressWarnings("deprecation")
@@ -73,6 +78,7 @@ public class HoodSubsystem extends PIDSubsystem
 		SmartDashboard.putDouble("HoodI", RobotMap.hoodEye);
 		SmartDashboard.putDouble("HoodD", RobotMap.hoodDee);
 	}
+	
 
 	public void initDefaultCommand()
 	{
