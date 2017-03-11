@@ -35,8 +35,6 @@ public class GearVisionTurn extends PIDCommand
             }
 
             this.setSetpoint(0);
-            // HACK
-            this.setSetpoint(Robot.raspberry.getAngle());
 
 
             this.getPIDController().setOutputRange(-.6, .6); // original -.5. .5
@@ -67,7 +65,7 @@ public class GearVisionTurn extends PIDCommand
         @Override
         protected double returnPIDInput()
         {
-            return Robot.driveTrain.getGyroAngle();
+            return Robot.raspberry.getAngle();
         }
 
         @Override

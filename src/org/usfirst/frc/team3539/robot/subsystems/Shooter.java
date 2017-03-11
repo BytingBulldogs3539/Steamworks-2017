@@ -36,6 +36,10 @@ public class Shooter extends BulldogSystem
 		shooterOneMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Absolute);
 		shooterOneMotor.reverseSensor(true);
 
+
+		shooterOneMotor.configNominalOutputVoltage(0.0f, -0.0f);
+		shooterOneMotor.configPeakOutputVoltage(12.0f, -12.0f);
+		
 //		shooterHoodMotor = new CANTalon(RobotMap.shooterServoTalon);
 //		shooterHoodMotor.setSafetyEnabled(false);
 //		shooterHoodMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Absolute);
@@ -43,6 +47,10 @@ public class Shooter extends BulldogSystem
 		agitatorMotor = new CANTalon(RobotMap.agitatorTalon);
 		agitatorMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Absolute);
 		agitatorMotor.setSafetyEnabled(false);
+		
+		agitatorMotor.configNominalOutputVoltage(0.0f, -0.0f);
+		agitatorMotor.configPeakOutputVoltage(12.0f, -12.0f);
+
 		
 		//shooterHoodMotor.setF(RobotMap.hoodEff);
 		//shooterHoodMotor.setP(RobotMap.hoodPea);
@@ -159,9 +167,9 @@ public class Shooter extends BulldogSystem
 		RobotMap.shootEye = SmartDashboard.getDouble("shootEye");
 		RobotMap.shootDee = SmartDashboard.getDouble("shootDee");
 		
-		RobotMap.hoodPea = SmartDashboard.getDouble("hoodPea");
-		RobotMap.hoodEye = SmartDashboard.getDouble("hoodEye");
-		RobotMap.hoodDee = SmartDashboard.getDouble("hoodDee");
+//		RobotMap.hoodPea = SmartDashboard.getDouble("hoodPea");
+//		RobotMap.hoodEye = SmartDashboard.getDouble("hoodEye");
+//		RobotMap.hoodDee = SmartDashboard.getDouble("hoodDee");
 		
 		RobotMap.agitatorRpm = SmartDashboard.getDouble("Target RPM for agitator");
 		
@@ -188,6 +196,11 @@ public class Shooter extends BulldogSystem
 		SmartDashboard.putDouble("shootPea", RobotMap.shootPea);
 		SmartDashboard.putDouble("shootEye", RobotMap.shootEye);
 		SmartDashboard.putDouble("shootDee", RobotMap.shootDee);
+		
+
+//		SmartDashboard.putDouble("hoodPea", RobotMap.hoodPea);
+//		SmartDashboard.putDouble("hoodEye", RobotMap.hoodEye);
+//		SmartDashboard.putDouble("hoodDee", RobotMap.hoodDee);
 		
 		SmartDashboard.putDouble("agitatorPea", RobotMap.agitatorPea);
 		SmartDashboard.putDouble("agitatorEff", RobotMap.agitatorEff);

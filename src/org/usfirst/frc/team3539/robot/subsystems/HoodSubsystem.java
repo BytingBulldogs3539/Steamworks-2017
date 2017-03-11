@@ -19,51 +19,30 @@ public class HoodSubsystem extends PIDSubsystem
 
 	public HoodSubsystem()
 	{
-		super("HoodSubsystem",0,0,0);
+		super("HoodSubsystem", 0, 0, 0);
 
 		shooterHoodMotor = new CANTalon(RobotMap.shooterServoTalon);
-		shooterHoodMotor.setSafetyEnabled(false);
 		shooterHoodMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
 		shooterHoodMotor.changeControlMode(CANTalon.TalonControlMode.PercentVbus);
-		
+		shooterHoodMotor.setSafetyEnabled(false);
+
 		this.setAbsoluteTolerance(20);
-		this.setOutputRange(-.3, .3);
-		
+		this.setOutputRange(-.25, .25);
+
 		zeroHoodEncoders();
-		setMotorPower(0);
 		this.setSetpoint(0);
+	}
+	
+	public void resetHoodPID()
+	{
+		this.getPIDController().disable();
 	}
 
 	public void setAngle(double angle)
 	{
-		System.out.println("setting " + angle);
-		this.getPIDController().setPID(SmartDashboard.getDouble("HoodP"), SmartDashboard.getDouble("HoodI"), SmartDashboard.getDouble("HoodD"));
+		this.getPIDController().setPID(SmartDashboard.getDouble("HoodP"), SmartDashboard.getDouble("HoodI"),SmartDashboard.getDouble("HoodD"));
 		this.getPIDController().enable();
 		this.setSetpoint(angle);
-	}
-	public void setMotorPower(double power)
-	{
-		shooterHoodMotor.changeControlMode(CANTalon.TalonControlMode.PercentVbus);
-		shooterHoodMotor.set(power);
-	}
-
-	@Deprecated
-	public void settempHoodAngle(double encoderValue)
-	{
-		shooterHoodMotor.changeControlMode(CANTalon.TalonControlMode.Position);
-		shooterHoodMotor.set(encoderValue);
-	}
-
-	@Deprecated
-	public void setHoodAngle(double encoderValue)
-	{
-		shooterHoodMotor.changeControlMode(CANTalon.TalonControlMode.Position);
-		shooterHoodMotor.setP(RobotMap.hoodPea);
-		shooterHoodMotor.setI(RobotMap.hoodEye);
-		shooterHoodMotor.setD(RobotMap.hoodDee);
-
-		System.out.println("shooterHoodMotor set: " + encoderValue);
-		shooterHoodMotor.set(encoderValue);
 	}
 
 	public void zeroHoodEncoders()
@@ -73,7 +52,7 @@ public class HoodSubsystem extends PIDSubsystem
 
 	public double getHoodPosition()
 	{
-		return shooterHoodMotor.getEncPosition() * -1;
+		return shooterHoodMotor.getEncPosition()*-1;
 	}
 
 	@SuppressWarnings("deprecation")
@@ -87,34 +66,35 @@ public class HoodSubsystem extends PIDSubsystem
 	@SuppressWarnings("deprecation")
 	public void SmartInit()
 	{
-		
+
 		SmartDashboard.putDouble("hoodTarget", RobotMap.hoodTarget);
 		SmartDashboard.putDouble("Shooter Hood Encoder", 0);
-		SmartDashboard.putDouble("HoodP", 0);
-		SmartDashboard.putDouble("HoodI", 0);
-		SmartDashboard.putDouble("HoodD", 0);	}
+		SmartDashboard.putDouble("HoodP", RobotMap.hoodPea);
+		SmartDashboard.putDouble("HoodI", RobotMap.hoodEye);
+		SmartDashboard.putDouble("HoodD", RobotMap.hoodDee);
+	}
 
 	public void initDefaultCommand()
 	{
 	}
 
-
 	@Override
 	protected double returnPIDInput()
 	{
-		// TODO Auto-generated method stub
 		return this.getHoodPosition();
 	}
-
 
 	@Override
 	protected void usePIDOutput(double output)
 	{
-		if(!this.onTarget())
+		if (!this.onTarget())
 		{
 			shooterHoodMotor.set(-output);
 		}
-		// TODO Auto-generated method stub
-		
+		else
+		{
+		//	this.getPIDController().disable();
+		}
+
 	}
 }

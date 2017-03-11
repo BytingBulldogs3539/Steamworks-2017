@@ -15,8 +15,6 @@ public class JoeyShoot extends Command
 	private double agitatorRpm;
 	private double shooterRpm;
 	private Button button;
-	private double currentHoodPos;
-	private int error = 0;
 
 	public JoeyShoot(boolean vision, Button button, double hoodAngle, double agitatorRpm, double shooterRpm)
 	{
@@ -62,40 +60,13 @@ public class JoeyShoot extends Command
 		this.hoodAngle = RobotMap.hoodTarget; // for Tuning
 		this.agitatorRpm = RobotMap.agitatorRpm;
 		this.shooterRpm = RobotMap.shooterRpm;
-		error = 0;
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute()
 	{
-		currentHoodPos = Robot.hoodSubsystem.getHoodPosition();
+		Robot.hoodSubsystem.setAngle(hoodAngle);
 		
-		if(error > 5)
-		{
-			Robot.hoodSubsystem.setMotorPower(0);
-		}
-		else if(currentHoodPos < hoodAngle + 4 && currentHoodPos > hoodAngle - 4)
-		{
-			error++;
-			Robot.hoodSubsystem.setMotorPower(0);
-		}
-		else if (currentHoodPos < hoodAngle && currentHoodPos > hoodAngle - 25)
-		{
-			Robot.hoodSubsystem.setMotorPower(.05);
-		}
-		else if (currentHoodPos > hoodAngle && currentHoodPos < hoodAngle + 25)
-		{
-			Robot.hoodSubsystem.setMotorPower(-.05);
-		}
-		else if (currentHoodPos > hoodAngle)
-		{
-			Robot.hoodSubsystem.setMotorPower(.15);
-		}
-		else if (currentHoodPos < hoodAngle)
-		{
-			Robot.hoodSubsystem.setMotorPower(-.15);
-		}
-
 		Robot.shooter.startShooter(shooterRpm);
 
 		if (RobotMap.triggerModified)
@@ -125,7 +96,7 @@ public class JoeyShoot extends Command
 	// Called once after isFinished returns true
 	protected void end()
 	{
-		Robot.hoodSubsystem.setMotorPower(0);
+		Robot.hoodSubsystem.resetHoodPID();
 		Robot.shooter.resetShooterPID();
 		Robot.shooter.resetAgitatorPID();
 	}

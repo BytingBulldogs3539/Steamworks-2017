@@ -58,10 +58,9 @@ public class RobotMap//test
 	public static double shootDee = 18.0;
 	public static double shootEff = .022; //.062635
 	
-	public static double hoodPea = 0;
+	public static double hoodPea = .001;
 	public static double hoodEye = 0;
-	public static double hoodDee = 0;
-	public static double hoodEff = 0;
+	public static double hoodDee = .001;
 	
 	public static double agitatorPea = .002;
 	public static double agitatorEye = 0;

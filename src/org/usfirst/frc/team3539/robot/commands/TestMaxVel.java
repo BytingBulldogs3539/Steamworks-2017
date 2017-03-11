@@ -39,7 +39,6 @@ public class TestMaxVel extends BulldogCommand
 	}
 
 	// Called once after isFinished returns true
-	protected void end()
 	{
 
 	}

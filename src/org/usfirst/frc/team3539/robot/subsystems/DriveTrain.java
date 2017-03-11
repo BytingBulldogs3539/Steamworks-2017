@@ -38,18 +38,43 @@ public class DriveTrain extends BulldogSystem
 		lbMotor = new CANTalon(RobotMap.lbMotorTalon);
 		rfMotor = new CANTalon(RobotMap.rfMotorTalon);
 		rbMotor = new CANTalon(RobotMap.rbMotorTalon);
+		
 
 		lfMotor.changeControlMode(TalonControlMode.PercentVbus);
 		rfMotor.changeControlMode(TalonControlMode.PercentVbus);
-		rbMotor.changeControlMode(TalonControlMode.PercentVbus);
-		lbMotor.changeControlMode(TalonControlMode.PercentVbus);
+	//	rbMotor.changeControlMode(TalonControlMode.PercentVbus);
+	//	lbMotor.changeControlMode(TalonControlMode.PercentVbus);
+		
+		rbMotor.changeControlMode(TalonControlMode.Follower);
+		lbMotor.changeControlMode(TalonControlMode.Follower);
+		
+		rbMotor.set(rfMotor.getDeviceID());
+		lbMotor.set(lfMotor.getDeviceID());
 
 		lfMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
 		rfMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
-		rbMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
-		lbMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
+	//	rbMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
+	//	lbMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
+		
+		lfMotor.configNominalOutputVoltage(0.0f, -0.0f);
+		lfMotor.configPeakOutputVoltage(12.0f, -12.0f);
 
-		drive = new RobotDrive(lfMotor, lbMotor, rfMotor, rbMotor);
+		rfMotor.configNominalOutputVoltage(0.0f, -0.0f);
+		rfMotor.configPeakOutputVoltage(12.0f, -12.0f);
+		
+		lfMotor.configMaxOutputVoltage(12);
+		rfMotor.configMaxOutputVoltage(12);
+		rfMotor.setCurrentLimit(35);
+		lfMotor.setCurrentLimit(35);
+		
+		lfMotor.EnableCurrentLimit(true);
+		rfMotor.EnableCurrentLimit(true);
+		
+		lfMotor.enableBrakeMode(true);
+		rfMotor.enableBrakeMode(true);
+		
+		drive = new RobotDrive(lfMotor, rfMotor);
+		//drive = new RobotDrive(lfMotor, lbMotor, rfMotor, rbMotor);
 		drive.setSafetyEnabled(false);
 
 		lfMotor.setSafetyEnabled(false);
@@ -85,31 +110,31 @@ public class DriveTrain extends BulldogSystem
 
 	public void zeroEncoders()
 	{
-		lfMotor.setEncPosition(0);
-		rfMotor.setEncPosition(0);
-		rbMotor.setEncPosition(0);
-		lbMotor.setEncPosition(0);
+		//lfMotor.setEncPosition(0);
+		//rfMotor.setEncPosition(0);
+		//rbMotor.setEncPosition(0);
+		//lbMotor.setEncPosition(0);
 		
 		lfMotor.setPosition(0);
 		rfMotor.setPosition(0);
-		rbMotor.setPosition(0);
-		lbMotor.setPosition(0);
+		//rbMotor.setPosition(0);
+		//lbMotor.setPosition(0);
 	}
 
 	public void disablePIDControl()
 	{
 		lfMotor.disableControl();
 		rfMotor.disableControl();
-		lbMotor.disableControl();
-		rbMotor.disableControl();
+		//lbMotor.disableControl();
+		//rbMotor.disableControl();
 	}
 
 	public void talonControlVBus()
 	{
 		lfMotor.changeControlMode(TalonControlMode.PercentVbus);
 		rfMotor.changeControlMode(TalonControlMode.PercentVbus);
-		lbMotor.changeControlMode(TalonControlMode.PercentVbus);
-		rbMotor.changeControlMode(TalonControlMode.PercentVbus);
+		//lbMotor.changeControlMode(TalonControlMode.PercentVbus);
+		//rbMotor.changeControlMode(TalonControlMode.PercentVbus);
 	}
 
 	public void driveArcade(double leftStick, double rightStick)
@@ -169,6 +194,11 @@ public class DriveTrain extends BulldogSystem
 		SmartDashboard.putDouble("Gyro Velocity", gyro.getRate());
 
 		SmartDashboard.putDouble("Gryo Angle", getGyroAngle());
+//		
+//		SmartDashboard.putDouble("--- Right Front", rfMotor.getOutputCurrent());
+//		SmartDashboard.putDouble("--- Left Front", lfMotor.getOutputCurrent());
+//		SmartDashboard.putDouble("--- Right Back", rbMotor.getOutputCurrent());
+//		SmartDashboard.putDouble("--- Left Back", lbMotor.getOutputCurrent());
 
 		RobotMap.drivePea = SmartDashboard.getDouble("RobotMap.drivePea");
 		RobotMap.driveEye = SmartDashboard.getDouble("RobotMap.driveEye");
@@ -191,6 +221,11 @@ public class DriveTrain extends BulldogSystem
 		SmartDashboard.putDouble("Gyro Velocity", 0);
 
 		SmartDashboard.putDouble("Gryo Angle", 0);
+//		
+//		SmartDashboard.putDouble("--- Right Front", rfMotor.getOutputCurrent());
+//		SmartDashboard.putDouble("--- Left Front", lfMotor.getOutputCurrent());
+//		SmartDashboard.putDouble("--- Right Back", rbMotor.getOutputCurrent());
+//		SmartDashboard.putDouble("--- Left Back", lbMotor.getOutputCurrent());
 
 		SmartDashboard.putDouble("RobotMap.drivePea", RobotMap.drivePea);
 		SmartDashboard.putDouble("RobotMap.driveEye", RobotMap.driveEye);

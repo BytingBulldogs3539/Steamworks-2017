@@ -17,13 +17,13 @@ public class Raspberry
 		table.putNumber("Angle", 0);
 		table.putNumber("Offset", 0);
 		table.putNumber("Distance", 0);
+		table.putNumber("camera", 1);
 
 	}
 
 	public void Init()
 	{
 		table = NetworkTable.getTable("Vision");
-		table.putNumber("Offset", 0);
 	}
 
 	public void Print()
@@ -52,7 +52,7 @@ public class Raspberry
 	}
 	public void UpdateCamera(int cameranumber)
 	{
-	    cameranumber = camera;
+	    camera = cameranumber;
 	    table.putNumber("camera",camera);
 	}
 }
