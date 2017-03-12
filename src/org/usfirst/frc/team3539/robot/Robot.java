@@ -34,10 +34,11 @@ public class Robot extends IterativeRobot
 	public static final Intake intake = new Intake();
 	public static final GearManipulator manipulator = new GearManipulator();
 
+	public static Raspberry raspberry;
+
 	public static Compressor c;
 	public static OI oi;
 	//public static UsbCamera camera;
-	public static Raspberry raspberry;
 
 	Command autonMode, teleopMode;
 	SendableChooser<Command> autonChooser, teleopChooser;
@@ -173,7 +174,9 @@ public class Robot extends IterativeRobot
 		SmartDashboard.putData(driveTrain);
 		SmartDashboard.putData(new TestMaxVel());
 		SmartDashboard.putData(new ZeroHoodCommand());
-
+		SmartDashboard.putData(new ShooterRight());
+		SmartDashboard.putData(new AutoAim());
+		
 		SmartDashboard.putData(Scheduler.getInstance());
 	}
 }

@@ -11,11 +11,10 @@ import edu.wpi.first.wpilibj.command.PIDCommand;
 public class AutonTurn extends PIDCommand
 {
 	private double newAngle;
-	private double tolerance;
 
 	public AutonTurn(double angle)
 	{
-		super("test", RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
+		super("test", RobotMap.turnPea, RobotMap.turnEye, RobotMap.turnDee);
 		newAngle = angle;
 		requires(Robot.driveTrain);
 		System.out.println("CON");
@@ -29,13 +28,9 @@ public class AutonTurn extends PIDCommand
 
 		this.setSetpoint(newAngle);
 		
-		if(tolerance > 1 || tolerance < 0)
-		{
-			tolerance = 0;
-		}
-		
-		this.getPIDController().setOutputRange(-.6, .6); // newest .7 --- new .6 --- original -.5. .5
-		this.getPIDController().setAbsoluteTolerance(3);
+		this.getPIDController().setOutputRange(-.8, .8); // newest .7 --- new .6 --- original -.5. .5
+		this.getPIDController().setAbsoluteTolerance(2);
+		this.getPIDController().setToleranceBuffer(20);
 	}
 
 	protected void execute()

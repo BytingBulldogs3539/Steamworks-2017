@@ -23,7 +23,7 @@ public class AutoAim extends PIDCommand
 		this.setSetpoint(0);
 		
 		this.getPIDController().setOutputRange(-.5, .5);
-		this.getPIDController().setAbsoluteTolerance(20);
+		this.getPIDController().setAbsoluteTolerance(.2);
 	}
 
 	protected void execute()

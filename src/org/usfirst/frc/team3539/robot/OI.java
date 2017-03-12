@@ -79,7 +79,7 @@ public class OI
 		shooterTrigger = new TriggerButton(3, controller2);
 		shooterTrigger.setCommand(new JoeyShoot(false, shooterTrigger, 350, 250, -3050));
 		
-		supermanButton = new DpadButton ("left", new JoeyShoot(true, supermanButton, Robot.raspberry.getneededHoodAngle(), 250 ,Robot.raspberry.getneededShooterRPM()), controller2);
+	//	supermanButton = new DpadButton ("left", new JoeyShoot(true, supermanButton, Robot.raspberry.getneededHoodAngle(), 250 ,Robot.raspberry.getneededShooterRPM()), controller2);
 		
 
 		//twobumperr.whenPressed(new ShooterCommand(Velocity of shooter, hood angle));
