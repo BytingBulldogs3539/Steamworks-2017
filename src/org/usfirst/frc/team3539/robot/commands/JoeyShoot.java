@@ -84,7 +84,7 @@ public class JoeyShoot extends Command
 	{
 		if (vision)
 		{
-			new VisionAlineCommand(0);
+			new VisionAlineCommand();
 		}
 		Robot.hoodSubsystem.setAngle(hoodAngle);
 		
