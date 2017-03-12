@@ -13,6 +13,7 @@ import org.usfirst.frc.team3539.robot.utilities.TriggerButton;
 import org.usfirst.frc.team3539.robot.utilities.DpadButton;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -48,7 +49,7 @@ public class OI
 	public TriggerButton invertTrigger = new TriggerButton(3, controller1);
 	
 	public DpadButton visionButton = new DpadButton("down", new VisionTurn(0), controller2);
-	
+	public DpadButton supermanButton;
 	
 
 	public OI()
@@ -75,9 +76,10 @@ public class OI
 		
 		twobumperr.whenPressed(new JoeyShoot(false, twobumperr, 550, 250, -3350));
 		twobumperl.whenPressed(new JoeyShoot(false, twobumperl, 700, 250, -3625));
-		
 		shooterTrigger = new TriggerButton(3, controller2);
 		shooterTrigger.setCommand(new JoeyShoot(false, shooterTrigger, 350, 250, -3050));
+		
+		supermanButton = new DpadButton ("left", new JoeyShoot(true, supermanButton, Robot.raspberry.getneededHoodAngle(), 250 ,Robot.raspberry.getneededShooterRPM()), controller2);
 		
 
 		//twobumperr.whenPressed(new ShooterCommand(Velocity of shooter, hood angle));

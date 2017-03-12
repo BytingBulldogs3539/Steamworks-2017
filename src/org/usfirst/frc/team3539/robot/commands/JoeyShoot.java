@@ -2,9 +2,11 @@ package org.usfirst.frc.team3539.robot.commands;
 
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
+import org.usfirst.frc.team3539.robot.autoncommands.VisionTurn;
 
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc.team3539.robot.utilities.DpadButton;
 
 public class JoeyShoot extends Command
 {
@@ -15,6 +17,7 @@ public class JoeyShoot extends Command
 	private double agitatorRpm;
 	private double shooterRpm;
 	private Button button;
+	private DpadButton DpadButton;
 
 	public JoeyShoot(boolean vision, Button button, double hoodAngle, double agitatorRpm, double shooterRpm)
 	{
@@ -28,10 +31,25 @@ public class JoeyShoot extends Command
 		this.hoodAngle = hoodAngle;
 		this.agitatorRpm = agitatorRpm;
 		this.shooterRpm = shooterRpm;
-//
+
+		
+		
 //		this.hoodAngle = RobotMap.hoodTarget; // for Tuning
 //		this.agitatorRpm = RobotMap.agitatorRpm;
 //		this.shooterRpm = RobotMap.shooterRpm;
+	}
+	public JoeyShoot(boolean vision, DpadButton DpadButton , double hoodAngle, double agitatorRpm, double shooterRpm)
+	{
+		super("JoeyShoot");
+		requires(Robot.shooter);
+		requires(Robot.hoodSubsystem);
+
+		this.isTeleop = true;
+		this.vision = vision;
+		this.DpadButton = DpadButton;
+		this.hoodAngle = hoodAngle;
+		this.agitatorRpm = agitatorRpm;
+		this.shooterRpm = shooterRpm;
 	}
 
 	public JoeyShoot(boolean vision, double hoodAngle, double agitatorRpm, double shooterRpm)
@@ -64,12 +82,15 @@ public class JoeyShoot extends Command
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute()
 	{
+		if (vision)
+		{
+			new VisionAlineCommand(0);
+		}
 		Robot.hoodSubsystem.setAngle(hoodAngle);
 		
 		Robot.shooter.startShooter(shooterRpm);
 
 		if (RobotMap.triggerModified)
-
 		{
 			Robot.shooter.startAgitator(agitatorRpm);
 		}
@@ -77,6 +98,7 @@ public class JoeyShoot extends Command
 		{
 			Robot.shooter.startAgitator(-agitatorRpm);
 		}
+		
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
@@ -84,7 +106,7 @@ public class JoeyShoot extends Command
 	{
 		if (isTeleop)
 		{
-			return !button.get();
+			return !button.get() || !DpadButton.checkValue();
 		}
 		else
 		{

@@ -50,6 +50,15 @@ public class Raspberry
 	{
 		return table.getNumber("Offset");
 	}
+	public double getneededHoodAngle()
+	{
+		return 5.4143*table.getNumber("Distance")-65.841;
+	}
+	public double getneededShooterRPM()
+	{
+		return 9.1812*table.getNumber("Distance")+2335;
+	}
+	
 	public void UpdateCamera(int cameranumber)
 	{
 	    camera = cameranumber;

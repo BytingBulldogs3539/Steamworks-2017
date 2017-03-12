@@ -1,4 +1,4 @@
-package org.usfirst.frc.team3539.robot.autoncommands;
+package org.usfirst.frc.team3539.robot.commands;
 
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
@@ -8,10 +8,10 @@ import edu.wpi.first.wpilibj.command.PIDCommand;
 /**
  *
  */
-public class VisionTurn extends PIDCommand
+public class VisionAlineCommand extends PIDCommand
 {
 
-    public VisionTurn(double angle)
+    public VisionAlineCommand(double angle)
     {
         super("test", RobotMap.turnPea, RobotMap.turnEye, RobotMap.turnDee);
         double newAngle = angle;
@@ -37,7 +37,14 @@ public class VisionTurn extends PIDCommand
 
     protected boolean isFinished()
     { 
-        return !Robot.oi.visionButton.checkValue();
+        if (Robot.raspberry.getAngle() <=.2 && Robot.raspberry.getAngle() >=-.2)
+        {
+        	return true;
+        }
+        else
+        {
+        	return false;
+        }
     }
 
     protected void end()
