@@ -2,14 +2,29 @@ package org.usfirst.frc.team3539.robot;
 
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
 
+
 public class Raspberry
 {
+	public enum camera
+	{
+		GEAR(0),
+		BOILER(1);
+		
+	   private int value;
+	   private camera(int value) {
+	      this.value = value;
+	   }
+	   public int getValue() {
+	      return value;
+	   }
+	};
+	
 	private static NetworkTable table;
 
 	private double offset = 0;
 	private double angle = 0;
 	private double distance = 0;
-	public int camera = 0;
+	private int camera = 0;
 	
 	public Raspberry()
 	{
@@ -61,7 +76,6 @@ public class Raspberry
 	
 	public void UpdateCamera(int cameranumber)
 	{
-	    camera = cameranumber;
-	    table.putNumber("camera",camera);
+	    table.putNumber("camera",cameranumber);
 	}
 }

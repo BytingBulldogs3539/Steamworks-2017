@@ -2,6 +2,7 @@ package org.usfirst.frc.team3539.robot.autoncommands;
 
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
+import org.usfirst.frc.team3539.robot.utilities.BulldogPIDOutput;
 
 import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.PIDOutput;
@@ -15,9 +16,8 @@ import edu.wpi.first.wpilibj.command.PIDCommand;
 public class AutonDriveWithVision extends PIDCommand
 {
 	private double myTicks;
-	
-		private PIDController AnglePID;
-		private double angleCorrection = 0;
+		private BulldogPIDOutput pidOutput = new BulldogPIDOutput();
+		private PIDController anglePID;
 	  
 		//private final PIDOutput angle_output = useAnglePIDOutput;
 	  /**
@@ -35,22 +35,7 @@ public class AutonDriveWithVision extends PIDCommand
 	      return returnAnglePIDInput();
 	    }
 	  };
-	    public final PIDOutput angle_output = new PIDOutput() {
-	        double output;
-	        
-	        public void DummyPIDOutput()
-	        {
-	            output = 0;
-	        }
 
-	        public void pidWrite(double output) {
-	            this.output = output;
-	        }
-
-	        public double getOutput() {
-	            return output;
-	        } 
-	    };
 	public AutonDriveWithVision(double inches)
 	{
 		super("test", RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
@@ -59,34 +44,40 @@ public class AutonDriveWithVision extends PIDCommand
 		requires(Robot.driveTrain);
 		
 		this.getPIDController().setOutputRange(-.7, .7);
-		PIDController anglePID = new PIDController(.001, 0, .001, angle_output_source, angle_output);
 		setSetpoint(myTicks);
 	}
 	public double returnAnglePIDInput()
 	{
 		return Robot.raspberry.getAngle();
 	}
-	
-	public void useAnglePIDOutput(double output)
-	{
-		angleCorrection = output;
-	}
-	
+
 	protected void initialize()
 	{
+		Robot.raspberry.UpdateCamera(0);
+		anglePID = new PIDController(RobotMap.turnPea, RobotMap.turnEye, RobotMap.turnDee, angle_output_source, pidOutput);
+		anglePID.setSetpoint(0);
+		pidOutput.Reset();
+		
 		this.getPIDController().setPID(RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
 		Robot.driveTrain.zeroEncoders();
 		this.setSetpoint(myTicks);
 		this.getPIDController().setAbsoluteTolerance(2000);
+		
+		anglePID.enable();
 	}
 
 	protected void execute()
 	{
-//		System.out.println("Drive On Target: " + this.getPIDController().onTarget());
+		
 	}
 
 	protected boolean isFinished()
 	{
+		if(anglePID.onTarget() || Robot.raspberry.getDistance() < 1)
+		{
+			anglePID.disable();
+			pidOutput.Reset();
+		}
 		return this.getPIDController().onTarget();
 	}
 
@@ -94,6 +85,8 @@ public class AutonDriveWithVision extends PIDCommand
 	{
 		Robot.driveTrain.zeroEncoders();
 		Robot.driveTrain.stopTrain();
+		anglePID.disable();
+		pidOutput.Reset();
 	}
 
 	protected void interrupted()
@@ -111,6 +104,6 @@ public class AutonDriveWithVision extends PIDCommand
 	@Override
 	protected void usePIDOutput(double output)
 	{
-		Robot.driveTrain.driveArcade(output, angleCorrection);
+		Robot.driveTrain.driveArcade(output, pidOutput.Get());
 	}
 }
