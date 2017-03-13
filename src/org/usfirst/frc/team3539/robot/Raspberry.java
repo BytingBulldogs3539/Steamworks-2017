@@ -32,7 +32,7 @@ public class Raspberry
 		table.putNumber("Angle", 0);
 		table.putNumber("Offset", 0);
 		table.putNumber("Distance", 0);
-		table.putNumber("camera", 1);
+		table.putNumber("camera", 0);
 
 	}
 

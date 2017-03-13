@@ -2,6 +2,7 @@ package org.usfirst.frc.team3539.robot.autongroups;
 
 import org.usfirst.frc.team3539.robot.autoncommands.AutoWait;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonDrive;
+import org.usfirst.frc.team3539.robot.autoncommands.AutonDriveWithVision;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonGearClose;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonGearOpen;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonHoodClose;
@@ -18,12 +19,11 @@ public class GearLeftGroupVision extends CommandGroup
 {
 	public GearLeftGroupVision()
 	{
-		addSequential(new AutonDrive(70));
+		addSequential(new AutonDrive(105));
 		
 		addSequential(new AutonTurn(-60));
-		addSequential(new GearVisionTurn(0));
 		
-		addSequential(new AutonDrive(30)); // speedcap prev = .3
+		addSequential(new AutonDriveWithVision(30)); // speedcap prev = .3
 		
 		addSequential(new AutonGearOpen());
 		addSequential(new AutonHoodOpen());
