@@ -1,11 +1,11 @@
 package org.usfirst.frc.team3539.robot.utilities;
 
-import org.usfirst.frc.team3539.robot.RobotMap;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 
-public class DpadButton
+public class DpadButton extends Button
 {
 	double angle;
 	double neededAngle;
@@ -38,7 +38,7 @@ public class DpadButton
 			neededAngle = 270;
 		}
 	}
-	public boolean getValue()
+	public boolean get()
 	{
 		return checkValue();
 	}

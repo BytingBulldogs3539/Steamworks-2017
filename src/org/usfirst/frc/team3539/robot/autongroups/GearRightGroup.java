@@ -7,8 +7,6 @@ import org.usfirst.frc.team3539.robot.autoncommands.AutonGearOpen;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonHoodClose;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonHoodOpen;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonTurn;
-import org.usfirst.frc.team3539.robot.utilities.BulldogLogger;
-import org.usfirst.frc.team3539.robot.utilities.BulldogSleeper;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 

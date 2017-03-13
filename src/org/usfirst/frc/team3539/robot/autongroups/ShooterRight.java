@@ -5,8 +5,6 @@ import org.usfirst.frc.team3539.robot.autoncommands.AutoWait;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonDrive;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonTurn;
 import org.usfirst.frc.team3539.robot.commands.JoeyShoot;
-import org.usfirst.frc.team3539.robot.commands.VisionAlineCommand;
-import org.usfirst.frc.team3539.robot.utilities.BulldogLogger;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -24,13 +22,12 @@ public class ShooterRight extends CommandGroup
 		addSequential(new AutonDrive(-45));
 
 		addSequential(new AutoWait(3));
-		//addSequential(new AutonTurn(90));
 		
 		addSequential(new AutonDrive(20));
 		addSequential(new AutonTurn(65));
-		//addSequential(new VisionAlineCommand());
-		addSequential(new JoeyShoot(false,Robot.raspberry.getneededHoodAngle(),150, Robot.raspberry.getneededShooterRPM()));
 		
-		//vision track
+		addSequential(new JoeyShoot(false,Robot.raspberry.getneededHoodAngle(),150, Robot.raspberry.getneededShooterRPM()));
+		//lets not do this ^
+		
 	}
 }

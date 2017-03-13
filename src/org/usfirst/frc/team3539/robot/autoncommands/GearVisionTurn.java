@@ -1,7 +1,6 @@
 package org.usfirst.frc.team3539.robot.autoncommands;
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
-import org.usfirst.frc.team3539.robot.utilities.DpadButton;
 
 import edu.wpi.first.wpilibj.command.PIDCommand;
 

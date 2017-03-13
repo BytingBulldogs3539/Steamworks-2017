@@ -2,7 +2,6 @@ package org.usfirst.frc.team3539.robot.autoncommands;
 
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
-import org.usfirst.frc.team3539.robot.Raspberry;
 import edu.wpi.first.wpilibj.command.PIDCommand;
 
 /**
@@ -10,23 +9,31 @@ import edu.wpi.first.wpilibj.command.PIDCommand;
  */
 public class AutonTurn extends PIDCommand
 {
-	private double newAngle;
+	private double angle;
+	private boolean isVision;
 
 	public AutonTurn(double angle)
 	{
 		super("test", RobotMap.turnPea, RobotMap.turnEye, RobotMap.turnDee);
-		newAngle = angle;
+		this.angle = angle;
+		this.isVision = false;
 		requires(Robot.driveTrain);
-		System.out.println("CON");
 	}
 
+	public AutonTurn()
+    {
+        super("test", RobotMap.turnPea, RobotMap.turnEye, RobotMap.turnDee);
+        requires(Robot.driveTrain);
+        this.isVision = true;
+    }
+	
 	protected void initialize()
 	{
 		this.getPIDController().setPID(RobotMap.turnPea, RobotMap.turnEye, RobotMap.turnDee);
 		Robot.driveTrain.gyroReset();
 		Robot.driveTrain.zeroEncoders();
 
-		this.setSetpoint(newAngle);
+		this.setSetpoint(angle);
 		
 		this.getPIDController().setOutputRange(-.8, .8); // newest .7 --- new .6 --- original -.5. .5
 		this.getPIDController().setAbsoluteTolerance(2);
@@ -35,7 +42,6 @@ public class AutonTurn extends PIDCommand
 
 	protected void execute()
 	{
-		//System.out.println("Turn On Target: " + this.getPIDController().onTarget());
 	}
 
 	protected boolean isFinished()
@@ -45,7 +51,6 @@ public class AutonTurn extends PIDCommand
 
 	protected void end()
 	{
-		//System.out.println("Ended Turn");
 		Robot.driveTrain.zeroEncoders();
 		Robot.driveTrain.stopTrain();
 	}
@@ -58,14 +63,26 @@ public class AutonTurn extends PIDCommand
 	@Override
 	protected double returnPIDInput()
 	{
-		//System.out.println("Gyro angle" + Robot.driveTrain.getGyroAngle());
-		return Robot.driveTrain.getGyroAngle();
+	    if(isVision)
+	    {
+	        return Robot.raspberry.getAngle();
+	    }
+	    else
+	    {
+	        return Robot.driveTrain.getGyroAngle();
+	    }
 	}
 
 	@Override
 	protected void usePIDOutput(double output)
 	{
-		//System.out.println("output " + output);
-		Robot.driveTrain.turnLinear(output);
+	    if(isVision)
+	    {
+	        Robot.driveTrain.turnLinear(-output);
+	    }
+	    else
+	    {
+	        Robot.driveTrain.turnLinear(output);
+	    }
 	}
 }

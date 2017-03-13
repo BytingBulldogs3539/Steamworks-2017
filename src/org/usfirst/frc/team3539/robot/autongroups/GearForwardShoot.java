@@ -1,7 +1,7 @@
 package org.usfirst.frc.team3539.robot.autongroups;
 
-import org.usfirst.frc.team3539.robot.autoncommands.AutonShoot;
-import org.usfirst.frc.team3539.robot.utilities.BulldogLogger;
+
+import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  * Perform GearForwardGroup and then shoot
@@ -9,22 +9,11 @@ import org.usfirst.frc.team3539.robot.utilities.BulldogLogger;
  * @author Cameron
  *
  */
-public class GearForwardShoot extends GearForwardGroup
+public class GearForwardShoot extends CommandGroup
 {
 	public GearForwardShoot()
 	{
-		super();
+		addSequential(new GearForwardGroup());
 		
-		BulldogLogger.getInstance().logInfo("Starting GearForwardShoot");
-		
-		BulldogLogger.getInstance().logInfo("  Pull back");
-		BulldogLogger.getInstance().logInfo("  Turn right");
-		BulldogLogger.getInstance().logInfo("  Drive forward");
-		
-		BulldogLogger.getInstance().logInfo("  Shoot");
-		addSequential(new AutonShoot());
-		BulldogLogger.getInstance().logInfo("  Done shooting");
-		
-		BulldogLogger.getInstance().logInfo("Finished GearForwardShoot");
 	}
 }
