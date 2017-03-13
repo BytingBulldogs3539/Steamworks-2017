@@ -16,7 +16,7 @@ public class AutonDrive extends PIDCommand
 	{
 		super("test", RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
 		Robot.driveTrain.zeroEncoders();
-		myTicks = Robot.driveTrain.inchToEnc(inches);
+		myTicks = Robot.driveTrain.inchToEnc2(inches);
 		requires(Robot.driveTrain);
 		
 		this.getPIDController().setOutputRange(-.7, .7);

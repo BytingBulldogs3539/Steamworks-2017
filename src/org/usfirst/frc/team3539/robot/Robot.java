@@ -8,11 +8,9 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc.team3539.robot.autoncommands.AutoAim;
-import org.usfirst.frc.team3539.robot.autoncommands.AutonDrive;
-import org.usfirst.frc.team3539.robot.autoncommands.AutonTurn;
-import org.usfirst.frc.team3539.robot.autoncommands.HopperRight;
+import org.usfirst.frc.team3539.robot.autoncommands.*;
 import org.usfirst.frc.team3539.robot.autongroups.*;
+import org.usfirst.frc.team3539.robot.calibration.*;
 import org.usfirst.frc.team3539.robot.commands.*;
 import org.usfirst.frc.team3539.robot.subsystems.*;
 import org.usfirst.frc.team3539.robot.utilities.BulldogLogger;
@@ -176,7 +174,9 @@ public class Robot extends IterativeRobot
 		SmartDashboard.putData(new ZeroHoodCommand());
 		SmartDashboard.putData(new ShooterRight());
 		SmartDashboard.putData(new AutoAim());
-		
+
+		SmartDashboard.putData(new DriveCalibrate());
+		SmartDashboard.putData(new TurnCalibrate());
 		SmartDashboard.putData(Scheduler.getInstance());
 	}
 }
