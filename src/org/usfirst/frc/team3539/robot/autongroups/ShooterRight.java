@@ -14,20 +14,20 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class ShooterRight extends CommandGroup
 {
 
-	public ShooterRight()
-	{
-	    // Log the various steps of this auto
-		addSequential(new AutonDrive(95));
-		addSequential(new AutonTurn(-90));
-		addSequential(new AutonDrive(-45));
+    public ShooterRight()
+    {
+        // Log the various steps of this auto
+        addSequential(new AutonDrive(95));
+        addSequential(new AutonTurn(-90));
+        addSequential(new AutonDrive(-45));
 
-		addSequential(new AutoWait(3));
-		
-		addSequential(new AutonDrive(20));
-		addSequential(new AutonTurn(65));
-		
-		addSequential(new JoeyShoot(false,Robot.raspberry.getneededHoodAngle(),150, Robot.raspberry.getneededShooterRPM()));
-		//lets not do this ^
-		
-	}
+        addSequential(new AutoWait(3));
+
+        addSequential(new AutonDrive(20));
+        addSequential(new AutonTurn(65));
+
+        addSequential(new JoeyShoot(false, Robot.raspberry.getneededHoodAngle(), 250.0,
+                Robot.raspberry.getneededShooterRPM(), 5.0));
+
+    }
 }

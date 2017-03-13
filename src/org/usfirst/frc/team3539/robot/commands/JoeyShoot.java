@@ -11,14 +11,14 @@ public class JoeyShoot extends Command
 {
     private boolean isTeleop;
     private boolean visionTurn;
-    private boolean visionDistance;
     private double hoodAngle;
     private double agitatorRpm;
     private double shooterRpm;
     private Button button;
     private int breakoutCounter;
+    private double shootTime;
 
-    //Teleop Button Shooting
+    // Teleop Button Shooting
     public JoeyShoot(boolean visionTurn, Button button, double hoodAngle, double agitatorRpm, double shooterRpm)
     {
         super("JoeyShoot");
@@ -36,22 +36,24 @@ public class JoeyShoot extends Command
         // this.agitatorRpm = RobotMap.agitatorRpm;
         // this.shooterRpm = RobotMap.shooterRpm;
     }
-    
-    //superman button
+
+    // superman button
     public JoeyShoot(Button superman)
     {
         super("JoeyShoot");
         requires(Robot.shooter);
         requires(Robot.hoodSubsystem);
 
+        this.hoodAngle = Robot.raspberry.getneededHoodAngle();
+        this.shooterRpm = Robot.raspberry.getneededShooterRPM();
+        this.agitatorRpm = 250;
         this.isTeleop = true;
         this.visionTurn = true;
-        this.visionDistance = true;
         this.button = superman;
     }
 
-    //Auton Distance + Turn vision shooting
-    public JoeyShoot()
+    // Auton Distance + Turn vision shooting
+    public JoeyShoot(double seconds)
     {
         super("JoeyShoot");
         requires(Robot.shooter);
@@ -59,11 +61,12 @@ public class JoeyShoot extends Command
 
         this.isTeleop = false;
         this.visionTurn = true;
-        this.visionDistance = true;
+        this.shootTime = seconds;
+
     }
 
-    //auton Shooting
-    public JoeyShoot(boolean visionTurn,  double hoodAngle, double agitatorRpm, double shooterRpm)
+    // auton Shooting
+    public JoeyShoot(boolean visionTurn, double hoodAngle, double agitatorRpm, double shooterRpm, double seconds)
     {
         super("JoeyShoot");
         requires(Robot.shooter);
@@ -71,9 +74,11 @@ public class JoeyShoot extends Command
 
         this.isTeleop = false;
         this.visionTurn = visionTurn;
+
         this.hoodAngle = hoodAngle;
         this.agitatorRpm = agitatorRpm;
         this.shooterRpm = shooterRpm;
+        this.shootTime = seconds;
     }
 
     protected void initialize()
@@ -96,26 +101,19 @@ public class JoeyShoot extends Command
             new AutonTurn();
         }
 
-        if (visionDistance)
+        Robot.hoodSubsystem.setAngle(hoodAngle);
+
+        Robot.shooter.startShooter(shooterRpm);
+
+        if (RobotMap.triggerModified)
         {
-            //AutonDistance();
+            Robot.shooter.startAgitator(agitatorRpm);
         }
-        else
+        else if (Robot.shooter.getShooterRPM() <= shooterRpm * .9)
         {
-            Robot.hoodSubsystem.setAngle(hoodAngle);
-
-            Robot.shooter.startShooter(shooterRpm);
-
-            if (RobotMap.triggerModified)
-            {
-                Robot.shooter.startAgitator(agitatorRpm);
-            }
-            else if (Robot.shooter.getShooterRPM() <= shooterRpm * .9)
-            {
-                Robot.shooter.startAgitator(-agitatorRpm);
-            }
+            Robot.shooter.startAgitator(-agitatorRpm);
         }
-
+        breakoutCounter ++;
     }
 
     protected boolean isFinished()
@@ -124,7 +122,7 @@ public class JoeyShoot extends Command
         {
             return !button.get();
         }
-        else if (breakoutCounter > 0)
+        else if (breakoutCounter * 20 > shootTime * 1000)
             return true;
         else
             return false;
