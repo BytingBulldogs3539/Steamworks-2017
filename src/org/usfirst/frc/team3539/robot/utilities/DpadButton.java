@@ -41,6 +41,7 @@ public class DpadButton extends Button
 	
 	public DpadButton(String direction, Joystick mycontroller)
     {
+	    command = null;
         isPressed = false;
         controller = mycontroller;
         angle = controller.getPOV();
@@ -82,7 +83,7 @@ public class DpadButton extends Button
 		{
 			if (command != null)
 				Scheduler.getInstance().add(command);
-			System.out.println("TEST");
+			System.out.println("TEST: " + angle);
 			isPressed = true;	
 		}
 		else

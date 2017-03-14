@@ -44,8 +44,8 @@ public class OI
 	public JoystickButton twotriggerl = new JoystickButton(controller2, RobotMap.LEFT_TRIGGER);
 	public JoystickButton twotriggerr = new JoystickButton(controller2, RobotMap.RIGHT_TRIGGER);
 	
-	public JoystickButton buttonLS = new JoystickButton (controller2, RobotMap.buttonLS);
-	public JoystickButton buttonRS = new JoystickButton (controller2, RobotMap.buttonRS);
+	public JoystickButton twobuttonLS = new JoystickButton (controller2, RobotMap.buttonLS);
+	public JoystickButton twobuttonRS = new JoystickButton (controller2, RobotMap.buttonRS);
 
 	
 	public JoystickButton twobumperl = new JoystickButton(controller2, RobotMap.bumperl);
@@ -68,10 +68,6 @@ public class OI
 		// Done - works properly
 
 		// STICKONE
-		
-		//onebuttony.whenPressed(new SetPointCommand(RobotMap.hoodTarget));
-		
-		//onebuttonx.whenPressed(new VisionTurn(0));
 
 		// STICKTWO
 		twobuttona.whenPressed(new GearCommand()); // Done
@@ -79,27 +75,20 @@ public class OI
 		twobuttonx.whenPressed(new TriggerModifierCommand()); // Done
 		twobuttony.whenPressed(new ClimbCommand()); //Done
 		
+		twobuttonLS.whenPressed(new HoodManual());
+		
 		
 		twobumperr.whenPressed(new JoeyShoot(false, twobumperr, 550, 250, -3350));
 		twobumperl.whenPressed(new JoeyShoot(false, twobumperl, 700, 250, -3625));
 		shooterTrigger = new TriggerButton(3, controller2);
 		shooterTrigger.setCommand(new JoeyShoot(false, shooterTrigger, 350, 250, -3050));
 		
-		supermanButton = new DpadButton ("left", controller2);
+		supermanButton = new DpadButton ("up", controller2);
 		supermanButton.setCommand(new JoeyShoot(supermanButton));
 		
-		zeroHoodButton = new DpadButton("right", controller2);
-		zeroHoodButton.setCommand(new ZeroHoodCommand());
+		zeroHoodButton = new DpadButton("right",new ZeroHoodCommand(), controller2);
 		
 		visionButton = new DpadButton("down", new AutoAim(), controller2);
-		
-
-		//twobumperr.whenPressed(new ShooterCommand(Velocity of shooter, hood angle));
-		//twobumperl.whenPressed(new ShooterCommand(Velocity of shooter, hood angle));
-		
-		//Start HoodManual
-		buttonLS.whenPressed(new HoodManual());
-		//buttonRS.cancelWhenPressed();
 		
 	}
 	
@@ -108,6 +97,9 @@ public class OI
 		intakeTrigger.checkValue();
 		shooterTrigger.checkValue();
 		visionButton.checkValue();
+		supermanButton.checkValue();
+		zeroHoodButton.checkValue();
+		
 		SmartDashboard.putBoolean("triggerModified", RobotMap.triggerModified);
 	}
 

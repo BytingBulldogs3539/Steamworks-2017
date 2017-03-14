@@ -45,6 +45,8 @@ public class JoeyShoot extends Command
         requires(Robot.shooter);
         requires(Robot.hoodSubsystem);
 
+        System.out.println("Supa man!");
+        
         this.hoodAngle = 0;
         this.shooterRpm = 0;
         this.agitatorRpm = 250;

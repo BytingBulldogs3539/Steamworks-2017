@@ -67,14 +67,14 @@ public class Raspberry
 	}
 	public double getneededHoodAngle()
 	{
-		return 5.4143*92-65.841;
-		//return 5.4143*table.getNumber("Distance")-65.841;
+		//return 5.4143*92-65.841;
+		return 5.4143*table.getNumber("Distance")-65.841;
 	}
 	public double getneededShooterRPM()
 	{
-		return -(9.1812*92+2335);
+		//return -(9.1812*92+2335);
 
-		//return 9.1812*table.getNumber("Distance")+2335;
+		return -(9.1812*table.getNumber("Distance")+2335);
 	}
 	
 	public void UpdateCamera(int cameranumber)
