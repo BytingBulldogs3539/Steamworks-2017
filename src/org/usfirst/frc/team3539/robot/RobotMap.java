@@ -116,5 +116,7 @@ public class RobotMap//test
 	public static double angle1 = 0;
 	public static double angle2 = 0;
 	public static double angle3 = 0;
+	
+	public static boolean onBlueSide;
 
 }

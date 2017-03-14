@@ -2,7 +2,7 @@ package org.usfirst.frc.team3539.robot.commands;
 
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
-import org.usfirst.frc.team3539.robot.autoncommands.AutonTurn;
+import org.usfirst.frc.team3539.robot.autoncommands.AutoAim;
 
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.command.Command;
@@ -88,6 +88,11 @@ public class JoeyShoot extends Command
 
         Robot.shooter.setShooterPID();
         Robot.shooter.setAgitatorPID();
+        
+        if (visionTurn)
+        {
+            new AutoAim();
+        }
 
         // this.hoodAngle = RobotMap.hoodTarget; // for Tuning
         // this.agitatorRpm = RobotMap.agitatorRpm;
@@ -96,11 +101,6 @@ public class JoeyShoot extends Command
 
     protected void execute()
     {
-        if (visionTurn)
-        {
-            new AutonTurn();
-        }
-
         Robot.hoodSubsystem.setAngle(hoodAngle);
 
         Robot.shooter.startShooter(shooterRpm);
@@ -113,6 +113,7 @@ public class JoeyShoot extends Command
         {
             Robot.shooter.startAgitator(-agitatorRpm);
         }
+        
         breakoutCounter ++;
     }
 

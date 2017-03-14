@@ -39,7 +39,7 @@ public class Robot extends IterativeRobot
 	//public static UsbCamera camera;
 
 	Command autonMode, teleopMode;
-	SendableChooser<Command> autonChooser, teleopChooser;
+	SendableChooser<Command> autonChooser, teleopChooser, allianceChooser;
 
 	public void robotInit()
 	{
@@ -145,6 +145,7 @@ public class Robot extends IterativeRobot
 		
 		autonChooser = new SendableChooser<Command>();
 		teleopChooser = new SendableChooser<Command>();
+		allianceChooser = new SendableChooser<Command>();
 		
 		SmartDashboard.putData("Auto mode", autonChooser);
 		autonChooser.addDefault("No Auton, Default", new VoidCommand());
@@ -159,6 +160,10 @@ public class Robot extends IterativeRobot
 		autonChooser.addObject("PlaceGearShootRight", new ShootInsideGroup());
 		autonChooser.addObject("GearLeftGroupVision", new GearLeftGroupVision());
 		autonChooser.addObject("HopperRight", new HopperRight());
+		
+		SmartDashboard.putData("Alliance", allianceChooser);
+		allianceChooser.addDefault("Red Team, Default", new AllianceSwitcherCommand(false));
+        allianceChooser.addObject("Blue Team", new AllianceSwitcherCommand(true));
 
 		SmartDashboard.putData("Tele mode", teleopChooser);
 		teleopChooser.addDefault("Vision, Default", new VoidCommand()); //Switch with teleop commands
