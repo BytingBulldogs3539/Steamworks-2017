@@ -3,47 +3,50 @@ package org.usfirst.frc.team3539.robot.commands;
 import org.usfirst.frc.team3539.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
+
 /**
  *
  */
 public class ZeroHoodCommand extends Command
 {
-	private int ticks = 0;
-	public ZeroHoodCommand()
-	{
-		requires(Robot.hoodSubsystem);
-	}
+    private int ticks;
 
-	protected void initialize()
-	{
-		System.out.println("Zeroed Hood");
-		ticks=0;
-	}
+    public ZeroHoodCommand()
+    {
+        requires(Robot.hoodSubsystem);
+        this.ticks = 0;
+    }
 
-	protected void execute()
-	{
-		Robot.hoodSubsystem.setHoodpower(.2);
-	}
+    protected void initialize()
+    {
+        System.out.println("Zeroed Hood");
+    }
 
-	protected boolean isFinished()
-	{
-		Robot.hoodSubsystem.zeroHoodEncoders();
+    protected void execute()
+    {
+        Robot.hoodSubsystem.setHoodpower(.2);
+        ticks++;
+    }
 
-		if (Robot.hoodSubsystem.shooterHoodMotor.getOutputCurrent() >= 10 || ticks > 1000)
-		{
-			Robot.hoodSubsystem.setHoodpower(0);
-			return true;
-		}
-		ticks++;
-		return false;
-	}
+    protected boolean isFinished()
+    {
+        System.out.println("shooterHoodMotorCurrent: " + Robot.hoodSubsystem.shooterHoodMotor.getOutputCurrent());
+        
+        if (Robot.hoodSubsystem.shooterHoodMotor.getOutputCurrent() >= 10 || ticks > 1000)
+        {
+            return true;
+        }
+        return false;
+    }
 
-	protected void end()
-	{
-	}
+    protected void end()
+    {
+        Robot.hoodSubsystem.setHoodpower(0);
+        Robot.hoodSubsystem.zeroHoodEncoders();
+    }
 
-	protected void interrupted()
-	{
-		end();
-	}
+    protected void interrupted()
+    {
+        end();
+    }
 }
