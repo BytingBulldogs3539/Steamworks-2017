@@ -68,10 +68,8 @@ public class OI
 		// STICKTWO
 		twobuttona.whenPressed(new GearCommand()); // Done
 		twobuttonb.whenPressed(new HoodCommand()); // Done
-		//twobuttonb.whenPressed(new VisionTurn(0)); // Test
 		twobuttonx.whenPressed(new TriggerModifierCommand()); // Done
 		twobuttony.whenPressed(new ClimbCommand()); //Done
-		//twobuttonStart.whenPressed(new ABShood());
 		
 		
 		twobumperr.whenPressed(new JoeyShoot(false, twobumperr, 550, 250, -3350));
@@ -79,7 +77,8 @@ public class OI
 		shooterTrigger = new TriggerButton(3, controller2);
 		shooterTrigger.setCommand(new JoeyShoot(false, shooterTrigger, 350, 250, -3050));
 		
-	//	supermanButton = new DpadButton ("left", new JoeyShoot(true, supermanButton, Robot.raspberry.getneededHoodAngle(), 250 ,Robot.raspberry.getneededShooterRPM()), controller2);
+		supermanButton = new DpadButton ("left", controller2);
+		supermanButton.setCommand(new JoeyShoot(supermanButton));
 		
 
 		//twobumperr.whenPressed(new ShooterCommand(Velocity of shooter, hood angle));

@@ -38,6 +38,37 @@ public class DpadButton extends Button
 			neededAngle = 270;
 		}
 	}
+	
+	public DpadButton(String direction, Joystick mycontroller)
+    {
+        isPressed = false;
+        controller = mycontroller;
+        angle = controller.getPOV();
+        neededAngle = 1;
+    
+        if (direction.toLowerCase() == "up")         
+        { 
+            neededAngle = 0; 
+        }
+        else if (direction.toLowerCase() == "right")
+        { 
+            neededAngle = 90;
+        }
+        else if (direction.toLowerCase() == "down")  
+        {
+            neededAngle = 180; 
+        }
+        else if (direction.toLowerCase() == "left") 
+        { 
+            neededAngle = 270;
+        }
+    }
+	
+	public void setCommand(Command command)
+	{
+	    this.command = command;
+	}
+	
 	public boolean get()
 	{
 		return checkValue();
