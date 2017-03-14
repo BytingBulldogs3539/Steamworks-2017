@@ -3,6 +3,7 @@ package org.usfirst.frc.team3539.robot.autongroups;
 import org.usfirst.frc.team3539.robot.RobotMap;
 import org.usfirst.frc.team3539.robot.autoncommands.AutoWait;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonDrive;
+import org.usfirst.frc.team3539.robot.autoncommands.AutonDriveGentle;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonGearClose;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonGearOpen;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonHoodClose;
@@ -19,21 +20,19 @@ public class GearLeftGroup extends CommandGroup
 {    
 	public GearLeftGroup()
 	{
-		addSequential(new AutonDrive(70));
+		addSequential(new AutonDrive(107));
 		
 		if(RobotMap.onBlueSide) addSequential(new AutonTurn(60));
 		else addSequential(new AutonTurn(-60)); // original
 		
-		addSequential(new AutonDrive(30)); // speedcap prev = .3
+		addSequential(new AutonDriveGentle(30, .5));
 		
 		addSequential(new AutonGearOpen());
-		addSequential(new AutonHoodOpen());
 
-        addSequential(new AutoWait(2));
+        addSequential(new AutoWait(1));
 
-		addSequential(new AutonDrive(-20));
+		addSequential(new AutonDrive(-30));
 		
 		addSequential(new AutonGearClose());
-		addSequential(new AutonHoodClose());
 	}
 }

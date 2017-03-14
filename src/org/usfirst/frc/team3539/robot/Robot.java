@@ -168,6 +168,10 @@ public class Robot extends IterativeRobot
 		SmartDashboard.putData("Tele mode", teleopChooser);
 		teleopChooser.addDefault("Vision, Default", new VoidCommand()); //Switch with teleop commands
 		teleopChooser.addObject("No Vision", new VoidCommand());
+	
+
+		SmartDashboard.putData(new AutonDriveWithVision(70));
+		
 		
 		SmartDashboard.putData(new AutoAim());
 		
