@@ -50,8 +50,8 @@ public class RobotMap//test
 	public static double driveDee = 0.0000094;
 
 	public static double turnPea = .1;
-	public static double turnEye = 0;
-	public static double turnDee = .00000001;
+	public static double turnEye = .00005; //5.0E-5
+	public static double turnDee = .2;
 
 	public static double shootPea = .26;
 	public static double shootEye = 0;

@@ -16,11 +16,11 @@ public class VisionTurn extends PIDCommand
         super("test", RobotMap.turnPea, RobotMap.turnEye, RobotMap.turnDee);
         double newAngle = angle;
         requires(Robot.driveTrain);
-        System.out.println("CON");
     }
 
     protected void initialize()
     {
+    	Robot.raspberry.UpdateCamera(1);
         this.getPIDController().setPID(RobotMap.turnPea, RobotMap.turnEye, RobotMap.turnDee);
 
         Robot.driveTrain.gyroReset();
@@ -29,10 +29,12 @@ public class VisionTurn extends PIDCommand
         this.setSetpoint(0);
         this.getPIDController().setOutputRange(-.6, .6); // original -.5. .5
         this.getPIDController().setAbsoluteTolerance(.2);
+        
     }
 
     protected void execute()
     {
+    	Robot.raspberry.UpdateCamera(1);
     }
 
     protected boolean isFinished()
@@ -53,6 +55,7 @@ public class VisionTurn extends PIDCommand
     @Override
     protected double returnPIDInput()
     {
+    	Robot.raspberry.UpdateCamera(1);
         return Robot.raspberry.getAngle();
     }
 
