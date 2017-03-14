@@ -47,6 +47,34 @@ public class RobotMap//test
 	public static final int driveSolOff = 1;
 
 	//PID
+	
+	/*
+	 * Practice bot PID 3/14/2017. 6:30pm
+	 * public static double drivePea = 0.000955;
+	   public static double driveEye = 0.0000000165;
+	   public static double driveDee = 0.0000094;
+
+	public static double turnPea = .1;
+	public static double turnEye = .00005; //5.0E-5
+	public static double turnDee = .2;
+
+	public static double shootPea = .26;
+	public static double shootEye = 0;
+	public static double shootDee = 18.0;
+	public static double shootEff = .022; //.062635
+	
+	public static double hoodPea = .001;
+	public static double hoodEye = 0;
+	public static double hoodDee = .001;
+	
+	public static double agitatorPea = .002;
+	public static double agitatorEye = 0;
+	public static double agitatorDee = 5.0;
+	public static double agitatorEff = .35;
+	 * 
+	 * 
+	 * 
+	 */
 	public static double drivePea = 0.000955;
 	public static double driveEye = 0.0000000165;
 	public static double driveDee = 0.0000094;

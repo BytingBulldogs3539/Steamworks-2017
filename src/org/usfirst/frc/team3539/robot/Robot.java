@@ -65,7 +65,7 @@ public class Robot extends IterativeRobot
 	 **/
 	public void disabledInit()
 	{
-	    BulldogLogger.getInstance().finishLogging();
+	  //  BulldogLogger.getInstance().finishLogging();
 
 	}
 
