@@ -46,13 +46,21 @@ public class HoodManual extends Command
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished()
 	{
+		if(Robot.hoodSubsystem.getHoodPosition() == 0)
+		{
+			
+			
+			
+			Robot.hoodSubsystem.setHoodpower(0);
+			return true;
+		}
 		return false;
 	}
 
 	// Called once after isFinished returns true
 	protected void end()
-	{
-
+	{Robot.hoodSubsystem.enable();
+Robot.hoodSubsystem.setHoodpower(0);
 	}
 
 	// Called when another command which requires one or more of the same

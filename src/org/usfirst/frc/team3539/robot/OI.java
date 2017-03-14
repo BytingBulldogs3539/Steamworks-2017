@@ -6,6 +6,7 @@ import org.usfirst.frc.team3539.robot.commands.ClimbCommand;
 import org.usfirst.frc.team3539.robot.commands.FireCommand;
 import org.usfirst.frc.team3539.robot.commands.GearCommand;
 import org.usfirst.frc.team3539.robot.commands.HoodCommand;
+import org.usfirst.frc.team3539.robot.commands.HoodManual;
 import org.usfirst.frc.team3539.robot.commands.IntakeCommand;
 import org.usfirst.frc.team3539.robot.commands.JoeyShoot;
 import org.usfirst.frc.team3539.robot.commands.TriggerModifierCommand;
@@ -40,6 +41,10 @@ public class OI
 	public JoystickButton twobuttonb = new JoystickButton(controller2, RobotMap.buttonb);
 	public JoystickButton twotriggerl = new JoystickButton(controller2, RobotMap.LEFT_TRIGGER);
 	public JoystickButton twotriggerr = new JoystickButton(controller2, RobotMap.RIGHT_TRIGGER);
+	
+	public JoystickButton buttonLS = new JoystickButton (controller2, RobotMap.buttonLS);
+	public JoystickButton buttonRS = new JoystickButton (controller2, RobotMap.buttonRS);
+
 	
 	public JoystickButton twobumperl = new JoystickButton(controller2, RobotMap.bumperl);
 	public JoystickButton twobumperr = new JoystickButton(controller2, RobotMap.bumperr);
@@ -83,6 +88,11 @@ public class OI
 
 		//twobumperr.whenPressed(new ShooterCommand(Velocity of shooter, hood angle));
 		//twobumperl.whenPressed(new ShooterCommand(Velocity of shooter, hood angle));
+		
+		//Start HoodManual
+		buttonLS.whenPressed(new HoodManual());
+		//buttonRS.cancelWhenPressed();
+		
 	}
 	
 	public void Update()
