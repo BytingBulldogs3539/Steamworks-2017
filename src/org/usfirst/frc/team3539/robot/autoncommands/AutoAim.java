@@ -24,6 +24,7 @@ public class AutoAim extends PIDCommand
 		
 		this.getPIDController().setOutputRange(-.5, .5);
 		this.getPIDController().setAbsoluteTolerance(.2);
+		Robot.raspberry.UpdateCamera(1);
 	}
 
 	protected void execute()

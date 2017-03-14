@@ -1,5 +1,6 @@
 package org.usfirst.frc.team3539.robot;
 
+import org.usfirst.frc.team3539.robot.autoncommands.AutoAim;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonTurn;
 import org.usfirst.frc.team3539.robot.autoncommands.VisionTurn;
 import org.usfirst.frc.team3539.robot.commands.ClimbCommand;
@@ -10,6 +11,7 @@ import org.usfirst.frc.team3539.robot.commands.HoodManual;
 import org.usfirst.frc.team3539.robot.commands.IntakeCommand;
 import org.usfirst.frc.team3539.robot.commands.JoeyShoot;
 import org.usfirst.frc.team3539.robot.commands.TriggerModifierCommand;
+import org.usfirst.frc.team3539.robot.commands.ZeroHoodCommand;
 import org.usfirst.frc.team3539.robot.utilities.TriggerButton;
 import org.usfirst.frc.team3539.robot.utilities.DpadButton;
 
@@ -53,8 +55,9 @@ public class OI
 	public TriggerButton shooterTrigger;
 	public TriggerButton invertTrigger = new TriggerButton(3, controller1);
 	
-	public DpadButton visionButton = new DpadButton("down", new VisionTurn(0), controller2);
+	public DpadButton visionButton;
 	public DpadButton supermanButton;
+	public DpadButton zeroHoodButton;
 	
 
 	public OI()
@@ -84,6 +87,11 @@ public class OI
 		
 		supermanButton = new DpadButton ("left", controller2);
 		supermanButton.setCommand(new JoeyShoot(supermanButton));
+		
+		zeroHoodButton = new DpadButton("right", controller2);
+		zeroHoodButton.setCommand(new ZeroHoodCommand());
+		
+		visionButton = new DpadButton("down", new AutoAim(), controller2);
 		
 
 		//twobumperr.whenPressed(new ShooterCommand(Velocity of shooter, hood angle));
