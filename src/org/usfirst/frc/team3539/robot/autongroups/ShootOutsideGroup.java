@@ -1,6 +1,7 @@
 package org.usfirst.frc.team3539.robot.autongroups;
 
 
+import org.usfirst.frc.team3539.robot.RobotMap;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonDrive;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonTurn;
 import org.usfirst.frc.team3539.robot.utilities.BulldogLogger;
@@ -37,7 +38,10 @@ public class ShootOutsideGroup extends CommandGroup {
         BulldogLogger.getInstance().logInfo("    Ending 1st drive backward");
         
         BulldogLogger.getInstance().logInfo("  Starting 2nd turn");
-		addSequential(new AutonTurn(-45 ));
+        
+		if(RobotMap.onBlueSide) addSequential(new AutonTurn(45 ));
+		else addSequential(new AutonTurn(-45 ));
+		
 		BulldogLogger.getInstance().logInfo("    Ending 2nd turn");
 		
 		BulldogLogger.getInstance().logInfo("  Starting 3rd drive forward");
@@ -45,7 +49,10 @@ public class ShootOutsideGroup extends CommandGroup {
 		BulldogLogger.getInstance().logInfo("    Ending 3rd drive forward");
 		
 		BulldogLogger.getInstance().logInfo("  Starting 3rd turn");
-		addSequential(new AutonTurn(45 ));
+		
+		if(RobotMap.onBlueSide) addSequential(new AutonTurn(-45 ));
+		else addSequential(new AutonTurn(45 ));
+		
 		BulldogLogger.getInstance().logInfo("    Ending 3rd turn");
 		
 		BulldogLogger.getInstance().logInfo("  Starting 4th drive forward");
@@ -53,7 +60,10 @@ public class ShootOutsideGroup extends CommandGroup {
 		BulldogLogger.getInstance().logInfo("    Ending 4th drive forward");
 		
 		BulldogLogger.getInstance().logInfo("  Starting 4th turn");
-		addSequential(new AutonTurn(45 ));
+		
+		if(RobotMap.onBlueSide) addSequential(new AutonTurn(-45 ));
+		else addSequential(new AutonTurn(45 ));
+		
 		BulldogLogger.getInstance().logInfo("    Ending 4th turn");
 		
 		BulldogLogger.getInstance().logInfo("  Starting 5th drive forward");
@@ -61,7 +71,10 @@ public class ShootOutsideGroup extends CommandGroup {
 		BulldogLogger.getInstance().logInfo("    Ending 5th drive forward");
 		
 		BulldogLogger.getInstance().logInfo("  Starting 5th turn");
-		addSequential(new AutonTurn(80 )); // also estimate, aim at tower
+		
+		if(RobotMap.onBlueSide) addSequential(new AutonTurn(-80 ));
+		else addSequential(new AutonTurn(80 )); // also estimate, aim at tower
+		
 		BulldogLogger.getInstance().logInfo("    Ending 5th turn");
 		
 		// shoot
@@ -70,7 +83,10 @@ public class ShootOutsideGroup extends CommandGroup {
 		BulldogLogger.getInstance().logInfo("    Ending 6th drive forward");
 		
 		BulldogLogger.getInstance().logInfo("  Starting 6th turn");
-    	addSequential(new AutonTurn(90 ));
+    	
+		if(RobotMap.onBlueSide) addSequential(new AutonTurn(-90 ));
+		else addSequential(new AutonTurn(90 ));
+    	
     	BulldogLogger.getInstance().logInfo("    Ending 6th turn");
     	
     	BulldogLogger.getInstance().logInfo("  Starting 7th drive forward");
@@ -78,7 +94,10 @@ public class ShootOutsideGroup extends CommandGroup {
     	BulldogLogger.getInstance().logInfo("    Ending 7th drive forward");
     	
     	BulldogLogger.getInstance().logInfo("  Starting 7th turn");
-    	addSequential(new AutonTurn(45 ));
+    	
+    	if(RobotMap.onBlueSide) addSequential(new AutonTurn(-45 ));
+    	else addSequential(new AutonTurn(45 ));
+    	
     	BulldogLogger.getInstance().logInfo("    Ending 7th turn");
     	
     	//(whatever tf it is to make it shoot)

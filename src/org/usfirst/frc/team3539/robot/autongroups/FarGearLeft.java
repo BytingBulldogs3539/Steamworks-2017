@@ -1,5 +1,6 @@
 package org.usfirst.frc.team3539.robot.autongroups;
 
+import org.usfirst.frc.team3539.robot.RobotMap;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonDrive;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonTurn;
 import org.usfirst.frc.team3539.robot.utilities.BulldogLogger;
@@ -22,7 +23,10 @@ public class FarGearLeft extends CommandGroup
 		BulldogLogger.getInstance().logInfo("    Ending GearLeftGroup");
 		
 		BulldogLogger.getInstance().logInfo("  Starting 1st turn");
-		addSequential(new AutonTurn(50));
+		
+		if(RobotMap.onBlueSide) addSequential(new AutonTurn(-50));
+		else addSequential(new AutonTurn(50));
+		
 		BulldogLogger.getInstance().logInfo("    Ending 1st turn");
 		
 		BulldogLogger.getInstance().logInfo("  Starting 1st Drive Forward");

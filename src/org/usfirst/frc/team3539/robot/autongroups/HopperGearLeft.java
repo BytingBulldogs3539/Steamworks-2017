@@ -1,5 +1,7 @@
 package org.usfirst.frc.team3539.robot.autongroups;
 
+import org.usfirst.frc.team3539.robot.Robot;
+import org.usfirst.frc.team3539.robot.RobotMap;
 import org.usfirst.frc.team3539.robot.autoncommands.AutoWait;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonDrive;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonTurn;
@@ -30,7 +32,11 @@ public class HopperGearLeft extends CommandGroup
 		
 		
 		BulldogLogger.getInstance().logInfo("  Starting 1st turn");
-		addSequential(new AutonTurn(-40));
+		if(RobotMap.onBlueSide)
+		    addSequential(new AutonTurn(-40));
+		else
+	        addSequential(new AutonTurn(40));
+		
 		BulldogLogger.getInstance().logInfo("    Ending 1st turn");
 		
 		BulldogLogger.getInstance().logInfo("  Starting 1st Drive forward");

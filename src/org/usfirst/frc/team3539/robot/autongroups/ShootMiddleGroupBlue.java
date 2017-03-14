@@ -1,5 +1,6 @@
 package org.usfirst.frc.team3539.robot.autongroups;
 
+import org.usfirst.frc.team3539.robot.RobotMap;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonDrive;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonTurn;
 import org.usfirst.frc.team3539.robot.utilities.BulldogLogger;
@@ -21,7 +22,10 @@ public class ShootMiddleGroupBlue extends CommandGroup {
     	BulldogLogger.getInstance().logInfo("    Ending 1st drive forward");
     	
     	BulldogLogger.getInstance().logInfo("  Starting 1st turn");
-    	addSequential(new AutonTurn(-90));
+    	
+    	if(RobotMap.onBlueSide) addSequential(new AutonTurn(90));
+    	else addSequential(new AutonTurn(-90));
+    	
     	BulldogLogger.getInstance().logInfo("    Ending 1st turn");
     	
     	BulldogLogger.getInstance().logInfo("  Starting 2nd drive forward");
@@ -29,7 +33,10 @@ public class ShootMiddleGroupBlue extends CommandGroup {
     	BulldogLogger.getInstance().logInfo("    Ending 2nd drive forward");
     	
     	BulldogLogger.getInstance().logInfo("  Starting 2nd turn");
-    	addSequential(new AutonTurn(-45));
+    	
+    	if(RobotMap.onBlueSide) addSequential(new AutonTurn(45));
+    	else addSequential(new AutonTurn(-45));
+    	
     	BulldogLogger.getInstance().logInfo("    Ending 2nd turn");
     	
     	//(whatever tf it is to make it shoot)
