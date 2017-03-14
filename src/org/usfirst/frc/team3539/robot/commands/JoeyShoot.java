@@ -131,7 +131,7 @@ public class JoeyShoot extends Command
 
     protected void end()
     {
-        Robot.hoodSubsystem.resetHoodPID();
+        Robot.hoodSubsystem.disableHoodPid();
         Robot.shooter.resetShooterPID();
         Robot.shooter.resetAgitatorPID();
     }

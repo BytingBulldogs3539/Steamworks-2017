@@ -33,7 +33,7 @@ public class HoodSubsystem extends PIDSubsystem
 		this.setSetpoint(0);
 	}
 	
-	public void resetHoodPID()
+	public void disableHoodPid()
 	{
 		this.getPIDController().disable();
 	}
