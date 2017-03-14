@@ -13,27 +13,45 @@ public class ShootOutsideGroupBlue extends CommandGroup {
 
     public ShootOutsideGroupBlue()
     {
-        // Log the various steps of this auton
-        BulldogLogger.getInstance().logInfo("Starting ShootOutsideGroupBlue auton");
+
+//    	addSequential(new AutonDrive(105));
         
-        BulldogLogger.getInstance().logInfo("  Starting 1st drive forward");
+//		addSequential(new AutonTurn(-45));
+
+//		addSequential(new AutonDrive(40));
+        
+        // Don't care to log the AutoToggleGearCommand
+//		addSequential(new AutonToggleGearCommand());
+		
+        addSequential(new AutonDrive(-40 ));
+        
+		addSequential(new AutonTurn(45 ));
+		
+		addSequential(new AutonDrive(115 ));
+		
+		addSequential(new AutonTurn(-45 ));
+		
+		addSequential(new AutonDrive(100 )); // estimate
+		
+		addSequential(new AutonTurn(-45 ));
+		
+		addSequential(new AutonDrive(140 ));
+		
+		addSequential(new AutonTurn(-80 )); // also estimate, aim at tower
+		
+		// shoot
+		addSequential(new AutonDrive(70 ));
+		
+    	addSequential(new AutonTurn(-90 ));
+    	
+    	addSequential(new AutonDrive(124 ));
+    	
+    	addSequential(new AutonTurn(-45 ));
+    	
+       /*// Log the various steps of this auton
     	addSequential(new AutonDrive(70));
-    	BulldogLogger.getInstance().logInfo("    Ending 1st drive forward");
-    	
-    	BulldogLogger.getInstance().logInfo("  Starting 1st turn");
     	addSequential(new AutonTurn(-90));
-    	BulldogLogger.getInstance().logInfo("    Ending 1st turn");
-    	
-    	BulldogLogger.getInstance().logInfo("  Starting 2nd drive forward");
     	addSequential(new AutonDrive(124));
-    	BulldogLogger.getInstance().logInfo("    Ending 2nd drive forward");
-    	
-    	BulldogLogger.getInstance().logInfo("  Starting 2nd turn");
-    	addSequential(new AutonTurn(-45));
-    	BulldogLogger.getInstance().logInfo("    Ending 2nd turn");
-    	
-    	//(whatever tf it is to make it shoot)
-    	
-    	BulldogLogger.getInstance().logInfo("  Ending ShootOutsideGroupBlue auton");
+    	addSequential(new AutonTurn(-45));*/
     }
 }
