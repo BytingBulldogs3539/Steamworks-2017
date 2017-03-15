@@ -154,12 +154,12 @@ public class Robot extends IterativeRobot
 		autonChooser.addObject("GearRightGroup", new GearRightGroup());
 		autonChooser.addObject("GearForwardGroup", new GearForwardGroup());
 		autonChooser.addObject("GearLeftGroup", new GearLeftGroup());
-		autonChooser.addObject("ReverseTest", new ReverseTest());
 		autonChooser.addObject("FarGearLeft", new FarGearLeft());
 		autonChooser.addObject("HopperGearLeft", new HopperGearLeft());
 		autonChooser.addObject("PlaceGearShootRight", new ShootInsideGroup());
 		autonChooser.addObject("GearLeftGroupVision", new GearLeftGroupVision());
 		autonChooser.addObject("HopperRight", new HopperRight());
+		autonChooser.addObject("NoneForward", new NoneForward());
 		
 		SmartDashboard.putData("Alliance", allianceChooser);
 		allianceChooser.addDefault("Red Team, Default", new AllianceSwitcherCommand(false));
