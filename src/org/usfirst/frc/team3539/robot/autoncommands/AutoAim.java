@@ -12,13 +12,13 @@ public class AutoAim extends PIDCommand
 {
 	public AutoAim()
 	{
-		super("AutoAim", RobotMap.turnPea, RobotMap.turnEye, RobotMap.turnDee);
+		super("AutoAim", RobotMap.vturnPea, RobotMap.vturnEye, RobotMap.vturnDee);
 		requires(Robot.driveTrain);
 	}
 
 	protected void initialize()
 	{
-		this.getPIDController().setPID(RobotMap.turnPea, RobotMap.turnEye, RobotMap.turnDee);
+		this.getPIDController().setPID(RobotMap.vturnPea, RobotMap.vturnEye, RobotMap.vturnDee);
 
 		this.setSetpoint(0);
 		

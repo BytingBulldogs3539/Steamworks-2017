@@ -82,6 +82,10 @@ public class RobotMap//test
 	public static double turnPea = .1;
 	public static double turnEye = .00005; //5.0E-5
 	public static double turnDee = .2;
+	
+	public static double vturnPea= .2;
+    public static double vturnEye = .03;
+    public static double vturnDee = .001;
 
 	public static double shootPea = .26;
 	public static double shootEye = 0;

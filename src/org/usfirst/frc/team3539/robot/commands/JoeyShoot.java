@@ -63,6 +63,9 @@ public class JoeyShoot extends Command
         requires(Robot.shooter);
         requires(Robot.hoodSubsystem);
 
+        this.hoodAngle = 0;
+        this.shooterRpm = 0;
+        this.agitatorRpm = 150;
         this.isTeleop = false;
         this.visionTurn = true;
         this.visionDistance = true;
@@ -88,6 +91,7 @@ public class JoeyShoot extends Command
 
     protected void initialize()
     {
+        Robot.raspberry.UpdateCamera(0);
         Robot.shooter.resetShooterPID();
         Robot.shooter.resetAgitatorPID();
 

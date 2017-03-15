@@ -36,7 +36,7 @@ public class AutonTurn extends PIDCommand
 		this.setSetpoint(angle);
 		
 		this.getPIDController().setOutputRange(-.8, .8); // newest .7 --- new .6 --- original -.5. .5
-		this.getPIDController().setAbsoluteTolerance(2);
+		this.getPIDController().setAbsoluteTolerance(3);
 		this.getPIDController().setToleranceBuffer(20);
 	}
 
