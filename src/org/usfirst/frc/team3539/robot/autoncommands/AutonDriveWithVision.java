@@ -107,6 +107,6 @@ public class AutonDriveWithVision extends PIDCommand
 	@Override
 	protected void usePIDOutput(double output)
 	{
-		Robot.driveTrain.driveArcade(output, -(pidOutput.Get()));
+		Robot.driveTrain.driveArcade(output, pidOutput.Get());
 	}
 }

@@ -18,7 +18,7 @@ public class GearVisionTurn extends PIDCommand
 
         protected void initialize()
         {
-            this.getPIDController().setPID(RobotMap.turnPea, RobotMap.turnEye, RobotMap.turnDee);
+            this.getPIDController().setPID(.2, .03, .001);
 
             Robot.driveTrain.gyroReset();
             Robot.driveTrain.zeroEncoders();
@@ -36,7 +36,7 @@ public class GearVisionTurn extends PIDCommand
             this.setSetpoint(0);
 
 
-            this.getPIDController().setOutputRange(-.6, .6); // original -.5. .5
+            this.getPIDController().setOutputRange(-1, 1); // original -.5. .5
             this.getPIDController().setAbsoluteTolerance(.2);
         }
 
