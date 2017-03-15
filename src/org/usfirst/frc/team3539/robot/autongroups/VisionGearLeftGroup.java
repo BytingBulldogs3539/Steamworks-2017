@@ -2,7 +2,6 @@ package org.usfirst.frc.team3539.robot.autongroups;
 
 import org.usfirst.frc.team3539.robot.autoncommands.AutoWait;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonDrive;
-import org.usfirst.frc.team3539.robot.autoncommands.AutonDriveWithVision;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonGearClose;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonGearOpen;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonHoodClose;
@@ -15,9 +14,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class GearLeftGroupVision extends CommandGroup
+public class VisionGearLeftGroup extends CommandGroup
 {
-	public GearLeftGroupVision()
+	public VisionGearLeftGroup()
 	{
 		addSequential(new AutonDriveWithVision(95, 1));
 		

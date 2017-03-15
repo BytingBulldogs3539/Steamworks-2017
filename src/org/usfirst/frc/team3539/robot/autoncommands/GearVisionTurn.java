@@ -6,14 +6,11 @@ import edu.wpi.first.wpilibj.command.PIDCommand;
 
 public class GearVisionTurn extends PIDCommand
 {
-        private double newAngle;
-
         public GearVisionTurn(double angle)
         {
             super("test", RobotMap.turnPea, RobotMap.turnEye, RobotMap.turnDee);
-            newAngle = angle;
+        
             requires(Robot.driveTrain);
-            System.out.println("CON");
         }
 
         protected void initialize()

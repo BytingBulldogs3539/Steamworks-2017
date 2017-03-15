@@ -38,8 +38,8 @@ public class Robot extends IterativeRobot
 	public static OI oi;
 	//public static UsbCamera camera;
 
-	Command autonMode, teleopMode;
-	SendableChooser<Command> autonChooser, teleopChooser, allianceChooser;
+	Command autonMode;
+	SendableChooser<Command> autonChooser, allianceChooser;
 
 	public void robotInit()
 	{
@@ -144,30 +144,25 @@ public class Robot extends IterativeRobot
 		hoodSubsystem.SmartInit();
 		
 		autonChooser = new SendableChooser<Command>();
-		teleopChooser = new SendableChooser<Command>();
 		allianceChooser = new SendableChooser<Command>();
 		
 		SmartDashboard.putData("Auto mode", autonChooser);
 		autonChooser.addDefault("No Auton, Default", new VoidCommand());
 		autonChooser.addObject("Auton Turn 180", new AutonTurn(180));
-		autonChooser.addObject("Auton Turn 90", new AutonTurn(90));
 		autonChooser.addObject("GearRightGroup", new GearRightGroup());
 		autonChooser.addObject("GearForwardGroup", new GearForwardGroup());
 		autonChooser.addObject("GearLeftGroup", new GearLeftGroup());
-		autonChooser.addObject("FarGearLeft", new FarGearLeft());
 		autonChooser.addObject("HopperGearLeft", new HopperGearLeft());
-		autonChooser.addObject("PlaceGearShootRight", new ShootInsideGroup());
-		autonChooser.addObject("GearLeftGroupVision", new GearLeftGroupVision());
+		autonChooser.addObject("ShootInsideGroup", new ShootInsideGroup());
+		autonChooser.addObject("ShootMiddleGroup", new ShootMiddleGroup());
+		autonChooser.addObject("ShootOutsideGroup", new ShootOutsideGroup());
+		autonChooser.addObject("VisionGearLeftGroup", new VisionGearLeftGroup());
 		autonChooser.addObject("HopperRight", new HopperRight());
 		autonChooser.addObject("NoneForward", new NoneForward());
 	
 		SmartDashboard.putData("Alliance", allianceChooser);
 		allianceChooser.addDefault("Red Team, Default", new AllianceSwitcherCommand(false));
         allianceChooser.addObject("Blue Team", new AllianceSwitcherCommand(true));
-
-		SmartDashboard.putData("Tele mode", teleopChooser);
-		teleopChooser.addDefault("Vision, Default", new VoidCommand()); //Switch with teleop commands
-		teleopChooser.addObject("No Vision", new VoidCommand());
 	
 
 		SmartDashboard.putData(new AutonDriveWithVision(70));
@@ -181,7 +176,6 @@ public class Robot extends IterativeRobot
 		SmartDashboard.putData(driveTrain);
 		SmartDashboard.putData(new TestMaxVel());
 		SmartDashboard.putData(new ZeroHoodCommand());
-		SmartDashboard.putData(new ShooterRight());
 		SmartDashboard.putData(new AutoAim());
 
 		SmartDashboard.putData(new DriveCalibrate());

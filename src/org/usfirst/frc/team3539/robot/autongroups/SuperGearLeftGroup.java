@@ -12,9 +12,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  * @author Cameron
  *
  */
-public class GearLeftShoot extends CommandGroup
+public class SuperGearLeftGroup extends CommandGroup
 {
-	public GearLeftShoot()
+	public SuperGearLeftGroup()
 	{
 	    addSequential(new GearLeftGroup());
 	    addSequential(new JoeyShoot(true, Robot.raspberry.getneededHoodAngle(), 250.0,

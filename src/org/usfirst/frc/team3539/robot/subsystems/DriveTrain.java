@@ -163,7 +163,7 @@ public class DriveTrain extends BulldogSystem
 	
 	public double inchToEnc2(double inch)
 	{
-		return inch * (4096 / (Math.PI * RobotMap.wheelDiameter) * .777);//practice = .69
+		return inch * (4096 / (Math.PI * RobotMap.wheelDiameter) * .69);//practice = .69 //comp .777
 	}	
 	
 	public double encToInch(double enc)

@@ -6,8 +6,6 @@ import org.usfirst.frc.team3539.robot.autoncommands.AutonDrive;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonDriveGentle;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonGearClose;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonGearOpen;
-import org.usfirst.frc.team3539.robot.autoncommands.AutonHoodClose;
-import org.usfirst.frc.team3539.robot.autoncommands.AutonHoodOpen;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonTurn;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
