@@ -26,6 +26,13 @@ public class ShootOutsideGroup extends CommandGroup
             addSequential(new AutonTurn(-120));
         }
         
-        addSequential(new JoeyShoot(7));
+        if(RobotMap.isVisionTracking)
+        {
+        	addSequential(new JoeyShoot(7));
+        }
+        else
+        {
+        	//Hard code
+        }
     }
 }

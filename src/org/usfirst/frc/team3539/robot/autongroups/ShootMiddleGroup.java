@@ -16,5 +16,13 @@ public class ShootMiddleGroup extends CommandGroup
     public ShootMiddleGroup()
     {
         
+    	if(RobotMap.isVisionTracking)
+    	{
+    		//Vision track
+    	}
+    	else
+    	{
+    		//Hard code
+    	}
     }
 }

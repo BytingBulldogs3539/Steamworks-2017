@@ -22,8 +22,15 @@ public class ShootInsideGroup extends CommandGroup
         else
             addSequential(new AutonTurn(-90));
 
-        addSequential(new JoeyShoot(false, Robot.raspberry.getneededHoodAngle(), 250.0,
+        if(RobotMap.isVisionTracking)
+        {
+        	addSequential(new JoeyShoot(false, Robot.raspberry.getneededHoodAngle(), 250.0,
                 Robot.raspberry.getneededShooterRPM(), 5.0));
+        }
+        else
+        {
+        	//Hard code
+        }
     	
     }
 }

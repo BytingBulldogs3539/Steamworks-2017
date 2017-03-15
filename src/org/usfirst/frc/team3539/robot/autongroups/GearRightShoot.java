@@ -1,5 +1,7 @@
 package org.usfirst.frc.team3539.robot.autongroups;
 
+import org.usfirst.frc.team3539.robot.RobotMap;
+
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
@@ -14,5 +16,13 @@ public class GearRightShoot extends CommandGroup
 	public GearRightShoot()
 	{
 	    addSequential(new GearRightGroup());
+	    if(RobotMap.isVisionTracking)
+	    {
+	    	//Vision track
+	    }
+	    else
+	    {
+	    	//Hard code
+	    }
 	}
 }
