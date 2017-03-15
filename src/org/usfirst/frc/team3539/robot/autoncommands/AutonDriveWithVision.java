@@ -32,7 +32,7 @@ public class AutonDriveWithVision extends PIDCommand
 	    }
 	
 	    public double pidGet() {
-	      return returnAnglePIDInput();
+	      return Robot.driveTrain.getGyroAngle();
 	    }
 	  };
 
@@ -57,7 +57,7 @@ public class AutonDriveWithVision extends PIDCommand
 		Robot.raspberry.UpdateCamera(0);
 		anglePID = new PIDController(RobotMap.turnPea, RobotMap.turnEye, RobotMap.turnDee, angle_output_source, pidOutput);
 		anglePID.setSetpoint(0);
-		anglePID.setAbsoluteTolerance(2000);
+		anglePID.setAbsoluteTolerance(.2);
 		pidOutput.Reset();
 		
 		this.getPIDController().setPID(RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
@@ -70,16 +70,11 @@ public class AutonDriveWithVision extends PIDCommand
 
 	protected void execute()
 	{
-		
+		anglePID.setSetpoint(0);
 	}
 
 	protected boolean isFinished()
 	{
-		if(anglePID.onTarget() || Robot.raspberry.getDistance() < 1)
-		{
-			anglePID.disable();
-			pidOutput.Reset();
-		}
 		return this.getPIDController().onTarget();
 	}
 

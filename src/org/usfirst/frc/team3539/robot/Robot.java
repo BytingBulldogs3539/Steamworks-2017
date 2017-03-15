@@ -160,7 +160,8 @@ public class Robot extends IterativeRobot
 		autonChooser.addObject("PlaceGearShootRight", new ShootInsideGroup());
 		autonChooser.addObject("GearLeftGroupVision", new GearLeftGroupVision());
 		autonChooser.addObject("HopperRight", new HopperRight());
-		
+		autonChooser.addObject("VanessaTest", new AutonDriveWithVision(100));
+	
 		SmartDashboard.putData("Alliance", allianceChooser);
 		allianceChooser.addDefault("Red Team, Default", new AllianceSwitcherCommand(false));
         allianceChooser.addObject("Blue Team", new AllianceSwitcherCommand(true));
