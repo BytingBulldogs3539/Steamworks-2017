@@ -22,7 +22,7 @@ public class RobotMap//test
 	public static final int RIGHT_TRIGGER = 3;
 	public static final int LEFT_TRIGGER = 2;
 
-	//BUTTON
+	//BUTTON/
 	public static final int buttona = 1;
 	public static final int buttonb = 2;
 	public static final int buttonx = 3;
