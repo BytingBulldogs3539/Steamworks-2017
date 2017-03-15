@@ -19,11 +19,11 @@ public class GearLeftGroupVision extends CommandGroup
 {
 	public GearLeftGroupVision()
 	{
-		addSequential(new AutonDrive(95));
+		addSequential(new AutonDriveWithVision(95, 1));
 		
 		addSequential(new AutonTurn(-60));
 		
-		addSequential(new GearVisionTurn(0)); // speedcap prev = .3
+		addSequential(new AutonDriveWithVision(30,2)); // speedcap prev = .3
 		addSequential(new AutonDrive(30));
 		
 		addSequential(new AutonGearOpen());
