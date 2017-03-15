@@ -34,7 +34,7 @@ public class AutoAim extends PIDCommand
 	protected boolean isFinished()
 	{
 		//return false;
-		return this.getPIDController().onTarget();
+		return (this.getPIDController().onTarget() || !Robot.oi.visionButton.get());
 	}
 
 	protected void end()

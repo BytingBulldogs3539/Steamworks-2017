@@ -68,7 +68,7 @@ public class Raspberry
 	public double getneededHoodAngle()
 	{
 		//return 5.4143*92-65.841;
-		return 5.4143*table.getNumber("Distance")-65.841;
+		return 5.4143*table.getNumber("Distance")-65;
 	}
 	public double getneededShooterRPM()
 	{
