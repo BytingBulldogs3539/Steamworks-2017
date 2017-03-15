@@ -2,7 +2,7 @@ package org.usfirst.frc.team3539.robot.autongroups;
 
 import org.usfirst.frc.team3539.robot.RobotMap;
 import org.usfirst.frc.team3539.robot.autoncommands.AutoWait;
-import org.usfirst.frc.team3539.robot.autoncommands.AutonDrive;
+import org.usfirst.frc.team3539.robot.autoncommands.AutonDriveOld;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonTurn;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
@@ -19,7 +19,7 @@ public class HopperGearLeft extends CommandGroup
                
 		addSequential(new AutoWait(1));
 		
-		addSequential(new AutonDrive(-40));
+		addSequential(new AutonDriveOld(-40));
 		
 		
 		if(RobotMap.onBlueSide)
@@ -27,7 +27,7 @@ public class HopperGearLeft extends CommandGroup
 		else
 	        addSequential(new AutonTurn(40));
 		
-		addSequential(new AutonDrive(-50));
+		addSequential(new AutonDriveOld(-50));
 
 	}
 }

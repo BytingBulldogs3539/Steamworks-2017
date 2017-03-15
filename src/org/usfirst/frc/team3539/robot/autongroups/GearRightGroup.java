@@ -2,7 +2,7 @@ package org.usfirst.frc.team3539.robot.autongroups;
 
 import org.usfirst.frc.team3539.robot.RobotMap;
 import org.usfirst.frc.team3539.robot.autoncommands.AutoWait;
-import org.usfirst.frc.team3539.robot.autoncommands.AutonDrive;
+import org.usfirst.frc.team3539.robot.autoncommands.AutonDriveOld;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonDriveGentle;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonGearClose;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonGearOpen;
@@ -17,7 +17,7 @@ public class GearRightGroup extends CommandGroup
 {    
 	public GearRightGroup()
 	{
-		addSequential(new AutonDrive(107));
+		addSequential(new AutonDriveOld(107));
 		
 		if(RobotMap.onBlueSide)
 		    addSequential(new AutonTurn(-60));
@@ -30,7 +30,7 @@ public class GearRightGroup extends CommandGroup
 
         addSequential(new AutoWait(1));
 
-		addSequential(new AutonDrive(-30));
+		addSequential(new AutonDriveOld(-30));
 		
 		addSequential(new AutonGearClose());
 	}
