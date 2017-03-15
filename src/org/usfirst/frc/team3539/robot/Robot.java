@@ -156,7 +156,7 @@ public class Robot extends IterativeRobot
 		autonChooser.addObject("ShootInsideGroup", new ShootInsideGroup());
 		autonChooser.addObject("ShootMiddleGroup", new ShootMiddleGroup());
 		autonChooser.addObject("ShootOutsideGroup", new ShootOutsideGroup());
-		autonChooser.addObject("VisionGearLeftGroup", new VisionGearLeftGroup());
+		//autonChooser.addObject("VisionGearLeftGroup", new VisionGearLeftGroup());
 		autonChooser.addObject("HopperRight", new HopperRight());
 		autonChooser.addObject("NoneForward", new NoneForward());
 	
@@ -165,7 +165,7 @@ public class Robot extends IterativeRobot
         allianceChooser.addObject("Blue Team", new AllianceSwitcherCommand(true));
 	
 
-		SmartDashboard.putData(new AutonDriveWithVision(70));
+		//SmartDashboard.putData(new AutonDriveWithVision(70));
 		
 		
 		SmartDashboard.putData(new AutoAim());

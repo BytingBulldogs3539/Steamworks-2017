@@ -19,7 +19,7 @@ public class HopperGearLeft extends CommandGroup
                
 		addSequential(new AutoWait(1));
 		
-		addSequential(new AutonDrive(-40));
+		addSequential(new AutonDrive(-40, 1));
 		
 		
 		if(RobotMap.onBlueSide)
@@ -27,7 +27,7 @@ public class HopperGearLeft extends CommandGroup
 		else
 	        addSequential(new AutonTurn(40));
 		
-		addSequential(new AutonDrive(-50));
+		addSequential(new AutonDrive(-50, 1));
 
 	}
 }

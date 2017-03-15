@@ -16,7 +16,7 @@ public class GearForwardGroup extends CommandGroup
 	public GearForwardGroup()
 	{
 
-		addSequential(new AutonDrive(68)); // 85
+		addSequential(new AutonDrive(68, 1)); // 85
 
 		addSequential(new AutonDriveGentle(20, .5));
 
@@ -24,7 +24,7 @@ public class GearForwardGroup extends CommandGroup
 
 		addSequential(new AutoWait(1));
 		
-		addSequential(new AutonDrive(-20));
+		addSequential(new AutonDrive(-20 ,1));
 
 		addSequential(new AutonGearClose());
 	}

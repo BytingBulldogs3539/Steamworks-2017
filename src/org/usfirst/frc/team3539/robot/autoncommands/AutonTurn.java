@@ -53,6 +53,7 @@ public class AutonTurn extends PIDCommand
 	{
 		Robot.driveTrain.zeroEncoders();
 		Robot.driveTrain.stopTrain();
+		Robot.driveTrain.gyroReset();
 	}
 
 	protected void interrupted()

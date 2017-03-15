@@ -19,6 +19,7 @@ public class AutonDrive extends PIDCommand
 	private BulldogPIDOutput pidOutput = new BulldogPIDOutput();
 	private PIDController anglePID;
 	private int isVision;
+	private boolean isBackwards;
 
 	// private final PIDOutput angle_output = useAnglePIDOutput;
 	/**
@@ -59,6 +60,7 @@ public class AutonDrive extends PIDCommand
 		this.getPIDController().setOutputRange(-.7, .7);
 		setSetpoint(myTicks);
 		this.getPIDController().setAbsoluteTolerance(2);
+		this.isBackwards = false;
 	}
 
 	public AutonDrive(double inches, int isVision)
@@ -73,6 +75,14 @@ public class AutonDrive extends PIDCommand
 		this.getPIDController().setOutputRange(-.7, .7);
 		setSetpoint(myTicks);
 		this.getPIDController().setAbsoluteTolerance(2);
+		if (inches <0)
+		{
+		    this.isBackwards = true;
+		}
+		else
+		{
+		    this.isBackwards = false;
+		}
 	}
 
 	public double returnAnglePIDInput()
@@ -131,6 +141,13 @@ public class AutonDrive extends PIDCommand
 	@Override
 	protected void usePIDOutput(double output)
 	{
-		Robot.driveTrain.driveArcade(output, pidOutput.Get());
+	    if(isBackwards)
+	    {
+	        Robot.driveTrain.driveArcade(output, -pidOutput.Get());
+	    }
+	    else
+	    {
+	        Robot.driveTrain.driveArcade(output, pidOutput.Get());
+	    }
 	}
 }

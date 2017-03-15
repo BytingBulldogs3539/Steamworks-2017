@@ -8,6 +8,6 @@ public class NoneForward extends CommandGroup
 {
 	public NoneForward()
 	{
-		addSequential(new AutonDrive(200));
+		addSequential(new AutonDrive(200, 1));
 	}
 }
