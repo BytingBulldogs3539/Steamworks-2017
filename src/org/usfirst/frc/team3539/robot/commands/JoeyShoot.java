@@ -62,6 +62,8 @@ public class JoeyShoot extends Command
         super("JoeyShoot");
         requires(Robot.shooter);
         requires(Robot.hoodSubsystem);
+        
+        System.out.println("Supa man!");
 
         this.hoodAngle = 0;
         this.shooterRpm = 0;
@@ -91,7 +93,7 @@ public class JoeyShoot extends Command
 
     protected void initialize()
     {
-        Robot.raspberry.UpdateCamera(0);
+        Robot.raspberry.UpdateCamera(1);
         Robot.shooter.resetShooterPID();
         Robot.shooter.resetAgitatorPID();
 

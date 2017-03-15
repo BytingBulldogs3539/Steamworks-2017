@@ -23,7 +23,7 @@ public class ShootOutsideGroup extends CommandGroup
         else
         {
             //addSequential(new GearRightGroup());
-            addSequential(new AutonTurn(-120));
+           // addSequential(new AutonTurn(-120));
         }
         
         addSequential(new JoeyShoot(7));
