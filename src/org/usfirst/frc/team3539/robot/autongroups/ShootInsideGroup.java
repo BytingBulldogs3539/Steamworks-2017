@@ -13,14 +13,14 @@ public class ShootInsideGroup extends CommandGroup
 
     public ShootInsideGroup()
     {
-        if (RobotMap.onBlueSide)
-        {
-            addSequential(new GearRightGroup());
-        }
-        else
-        {
+//        if (RobotMap.onBlueSide)
+//        {
+//            addSequential(new GearRightGroup());
+//        }
+//        else
+//        {
             addSequential(new GearLeftGroup());
-        }
+//        }
 
         if(RobotMap.isVisionTracking)
         {
