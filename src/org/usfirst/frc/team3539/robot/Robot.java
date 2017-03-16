@@ -39,7 +39,7 @@ public class Robot extends IterativeRobot
 	//public static UsbCamera camera;
 
 	Command autonMode;
-	SendableChooser<Command> autonChooser, allianceChooser;
+	SendableChooser<Command> autonChooser, allianceChooser, visionChooser;
 
 	public void robotInit()
 	{
@@ -145,6 +145,7 @@ public class Robot extends IterativeRobot
 		
 		autonChooser = new SendableChooser<Command>();
 		allianceChooser = new SendableChooser<Command>();
+		visionChooser = new SendableChooser<Command>();
 		
 		SmartDashboard.putData("Auto mode", autonChooser);
 		autonChooser.addDefault("No Auton, Default", new VoidCommand());
@@ -152,7 +153,7 @@ public class Robot extends IterativeRobot
 		autonChooser.addObject("GearRightGroup", new GearRightGroup());
 		autonChooser.addObject("GearForwardGroup", new GearForwardGroup());
 		autonChooser.addObject("GearLeftGroup", new GearLeftGroup());
-		autonChooser.addObject("HopperGearLeft", new HopperGearLeft());
+		autonChooser.addObject("HopperGearLeft", new HopperBoiler());
 		autonChooser.addObject("ShootInsideGroup", new ShootInsideGroup());
 		autonChooser.addObject("ShootMiddleGroup", new ShootMiddleGroup());
 		autonChooser.addObject("ShootOutsideGroup", new ShootOutsideGroup());
@@ -164,7 +165,12 @@ public class Robot extends IterativeRobot
 		allianceChooser.addDefault("Red Team, Default", new AllianceSwitcherCommand(false));
         allianceChooser.addObject("Blue Team", new AllianceSwitcherCommand(true));
 	
-
+        SmartDashboard.putData("Vison", visionChooser);
+        allianceChooser.addDefault("No Vision, Default", new VisionSwitcherCommand(false));
+        allianceChooser.addObject("Vision", new VisionSwitcherCommand(true));
+        
+        
+        
 		//SmartDashboard.putData(new AutonDriveWithVision(70));
 		
 		

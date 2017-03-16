@@ -30,7 +30,7 @@ public class GearLeftGroup extends CommandGroup
 
         addSequential(new AutoWait(1));
 
-        addSequential(new AutonDrive(-30));
+        addSequential(new AutonDrive(-30, 1));
 
         addSequential(new AutonGearClose());
     }
