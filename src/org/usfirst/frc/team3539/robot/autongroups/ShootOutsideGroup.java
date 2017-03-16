@@ -17,7 +17,8 @@ public class ShootOutsideGroup extends CommandGroup
 
         if (RobotMap.onBlueSide)
         {
-            addSequential(new GearLeftGroup());
+//            addSequential(new GearLeftGroup());
+            addSequential(new GearRightGroup());
             addSequential(new AutonTurn(120));
         }
         else
