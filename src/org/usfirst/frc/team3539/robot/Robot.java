@@ -98,7 +98,6 @@ public class Robot extends IterativeRobot
 	{
 		Scheduler.getInstance().run();
 		Update();
-		c.stop(); //debug
 	}
 
 	public void teleopInit()
@@ -114,7 +113,6 @@ public class Robot extends IterativeRobot
 	{
 		Scheduler.getInstance().run();
 		Update();
-        c.start(); //debug
 	}
 
 	// This function is called periodically during test mode
@@ -166,8 +164,8 @@ public class Robot extends IterativeRobot
         allianceChooser.addObject("Blue Team", new AllianceSwitcherCommand(true));
 	
         SmartDashboard.putData("Vison", visionChooser);
-        allianceChooser.addDefault("No Vision, Default", new VisionSwitcherCommand(false));
-        allianceChooser.addObject("Vision", new VisionSwitcherCommand(true));
+        visionChooser.addDefault("No Vision, Default", new VisionSwitcherCommand(false));
+        visionChooser.addObject("Vision", new VisionSwitcherCommand(true));
         
         
         

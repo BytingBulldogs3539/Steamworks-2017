@@ -163,7 +163,7 @@ public class DriveTrain extends BulldogSystem
 	
 	public double inchToEnc2(double inch)
 	{
-		return inch * (4096 / (Math.PI * RobotMap.wheelDiameter) * .69);//practice = .69 //comp .777
+		return inch * (4096 / (Math.PI * RobotMap.wheelDiameter) *.7346);//practice = .69 //comp .777
 	}	
 	
 	public double encToInch(double enc)
@@ -200,8 +200,8 @@ public class DriveTrain extends BulldogSystem
 
 		SmartDashboard.putDouble("Gryo Angle", getGyroAngle());
 //		
-	SmartDashboard.putDouble("--- Right Front", rfMotor.getEncPosition());
-	SmartDashboard.putDouble("--- Left Front", lfMotor.getEncPosition());
+	//SmartDashboard.putDouble("--- Right Front", rfMotor.getEncPosition());
+	//SmartDashboard.putDouble("--- Left Front", lfMotor.getEncPosition());
 //		SmartDashboard.putDouble("--- Right Back", rbMotor.getOutputCurrent());
 //		SmartDashboard.putDouble("--- Left Back", lbMotor.getOutputCurrent());
 
@@ -227,8 +227,8 @@ public class DriveTrain extends BulldogSystem
 
 		SmartDashboard.putDouble("Gryo Angle", 0);
 //		
-	SmartDashboard.putDouble("--- Right Front", rfMotor.getOutputCurrent());
-		SmartDashboard.putDouble("--- Left Front", lfMotor.getOutputCurrent());
+	//SmartDashboard.putDouble("--- Right Front", rfMotor.getOutputCurrent());
+		//SmartDashboard.putDouble("--- Left Front", lfMotor.getOutputCurrent());
 //		SmartDashboard.putDouble("--- Right Back", rbMotor.getOutputCurrent());
 //		SmartDashboard.putDouble("--- Left Back", lbMotor.getOutputCurrent());
 

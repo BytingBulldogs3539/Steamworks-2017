@@ -38,13 +38,13 @@ public class AutonDrive extends PIDCommand
 
 		public double pidGet()
 		{
-			if(isVision == 2)
+			if (isVision == 2)
 				return Robot.raspberry.getAngle();
 			else if (isVision == 1)
 				return Robot.driveTrain.getGyroAngle();
 			else
 				return 0;
-			
+
 		}
 	};
 
@@ -63,7 +63,8 @@ public class AutonDrive extends PIDCommand
 		this.isBackwards = false;
 	}
 
-	public AutonDrive(double inches, int isVision)
+	public AutonDrive(double inches, int isVision) // isVision 0 = nothing. 1 =
+													// gyro. 2 = vision
 	{
 		super("test", RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
 		Robot.driveTrain.zeroEncoders();
@@ -75,13 +76,13 @@ public class AutonDrive extends PIDCommand
 		this.getPIDController().setOutputRange(-.7, .7);
 		setSetpoint(myTicks);
 		this.getPIDController().setAbsoluteTolerance(2);
-		if (inches <0)
+		if (inches < 0)
 		{
-		    this.isBackwards = true;
+			this.isBackwards = true;
 		}
 		else
 		{
-		    this.isBackwards = false;
+			this.isBackwards = false;
 		}
 	}
 
@@ -100,6 +101,7 @@ public class AutonDrive extends PIDCommand
 		pidOutput.Reset();
 
 		this.getPIDController().setPID(RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
+		Robot.driveTrain.gyroReset();
 		Robot.driveTrain.zeroEncoders();
 		this.setSetpoint(myTicks);
 		this.getPIDController().setAbsoluteTolerance(2000);
@@ -141,13 +143,6 @@ public class AutonDrive extends PIDCommand
 	@Override
 	protected void usePIDOutput(double output)
 	{
-	    if(isBackwards)
-	    {
-	        Robot.driveTrain.driveArcade(output, -pidOutput.Get());
-	    }
-	    else
-	    {
-	        Robot.driveTrain.driveArcade(output, pidOutput.Get());
-	    }
+		Robot.driveTrain.driveArcade(output, pidOutput.Get());
 	}
 }

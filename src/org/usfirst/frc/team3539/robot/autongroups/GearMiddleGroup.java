@@ -15,16 +15,15 @@ public class GearMiddleGroup extends CommandGroup
 {
 	public GearMiddleGroup()
 	{
+		addSequential(new AutonDrive(90, 1));
 
-		addSequential(new AutonDrive(68, 1)); // 85
-
-		addSequential(new AutonDriveGentle(20, .5));
+		addSequential(new AutoWait(1));
 
 		addSequential(new AutonGearOpen());
 
 		addSequential(new AutoWait(1));
-		
-		addSequential(new AutonDrive(-20 ,1));
+
+		addSequential(new AutonDrive(-20, 1));
 
 		addSequential(new AutonGearClose());
 	}

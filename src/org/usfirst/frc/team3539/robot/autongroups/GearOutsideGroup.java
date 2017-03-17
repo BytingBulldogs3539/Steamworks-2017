@@ -24,14 +24,16 @@ public class GearOutsideGroup extends CommandGroup
 		else
 		    addSequential(new AutonTurn(60));
 
-        addSequential(new AutonDriveGentle(30, .5));
-		
-		addSequential(new AutonGearOpen());
+        addSequential(new AutonDrive(30, 1));
+
+        addSequential(new AutoWait(1));
+        
+        addSequential(new AutonGearOpen());
 
         addSequential(new AutoWait(1));
 
-		addSequential(new AutonDrive(-30, 1));
-		
-		addSequential(new AutonGearClose());
+       // addSequential(new AutonDrive(-30, 1));
+
+        addSequential(new AutonGearClose());
 	}
 }

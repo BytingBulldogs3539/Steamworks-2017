@@ -24,13 +24,15 @@ public class GearInsideGroup extends CommandGroup
         else
             addSequential(new AutonTurn(-60)); // original
 
-        addSequential(new AutonDriveGentle(30, .5));
+        addSequential(new AutonDrive(30, 1));
 
+        addSequential(new AutoWait(1));
+        
         addSequential(new AutonGearOpen());
 
         addSequential(new AutoWait(1));
 
-        addSequential(new AutonDrive(-30, 1));
+       // addSequential(new AutonDrive(-30, 1));
 
         addSequential(new AutonGearClose());
     }
