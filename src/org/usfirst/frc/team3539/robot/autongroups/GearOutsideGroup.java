@@ -3,7 +3,6 @@ package org.usfirst.frc.team3539.robot.autongroups;
 import org.usfirst.frc.team3539.robot.RobotMap;
 import org.usfirst.frc.team3539.robot.autoncommands.AutoWait;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonDrive;
-import org.usfirst.frc.team3539.robot.autoncommands.AutonDriveGentle;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonGearClose;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonGearOpen;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonTurn;

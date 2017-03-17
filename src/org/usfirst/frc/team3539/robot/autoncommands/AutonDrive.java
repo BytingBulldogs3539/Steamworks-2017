@@ -5,7 +5,6 @@ import org.usfirst.frc.team3539.robot.RobotMap;
 import org.usfirst.frc.team3539.robot.utilities.BulldogPIDOutput;
 
 import edu.wpi.first.wpilibj.PIDController;
-import edu.wpi.first.wpilibj.PIDOutput;
 import edu.wpi.first.wpilibj.PIDSource;
 import edu.wpi.first.wpilibj.PIDSourceType;
 import edu.wpi.first.wpilibj.command.PIDCommand;
@@ -19,7 +18,6 @@ public class AutonDrive extends PIDCommand
 	private BulldogPIDOutput pidOutput = new BulldogPIDOutput();
 	private PIDController anglePID;
 	private int isVision;
-	private boolean isBackwards;
 
 	// private final PIDOutput angle_output = useAnglePIDOutput;
 	/**
@@ -60,7 +58,6 @@ public class AutonDrive extends PIDCommand
 		this.getPIDController().setOutputRange(-.7, .7);
 		setSetpoint(myTicks);
 		this.getPIDController().setAbsoluteTolerance(2);
-		this.isBackwards = false;
 	}
 
 	public AutonDrive(double inches, int isVision) // isVision 0 = nothing. 1 =
@@ -76,14 +73,6 @@ public class AutonDrive extends PIDCommand
 		this.getPIDController().setOutputRange(-.7, .7);
 		setSetpoint(myTicks);
 		this.getPIDController().setAbsoluteTolerance(2);
-		if (inches < 0)
-		{
-			this.isBackwards = true;
-		}
-		else
-		{
-			this.isBackwards = false;
-		}
 	}
 
 	public double returnAnglePIDInput()
