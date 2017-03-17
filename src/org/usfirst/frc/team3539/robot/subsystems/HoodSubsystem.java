@@ -47,11 +47,13 @@ public class HoodSubsystem extends PIDSubsystem
 
 	public void zeroHoodEncoders()
 	{
+		shooterHoodMotor.setPosition(0);
 		shooterHoodMotor.setEncPosition(0);
 	}
 
 	public double getHoodPosition()
 	{
+		//return shooterHoodMotor.getPosition();
 		return shooterHoodMotor.getEncPosition()*-1;
 	}
 	public void setHoodpower(double power)
