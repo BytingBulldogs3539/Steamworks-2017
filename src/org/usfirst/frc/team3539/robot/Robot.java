@@ -38,7 +38,7 @@ public class Robot extends IterativeRobot
 	public static OI oi;
 	//public static UsbCamera camera;
 
-	Command autonMode;
+	Command autonMode, allianceMode, visionMode;
 	SendableChooser<Command> autonChooser, allianceChooser, visionChooser;
 
 	public void robotInit()
@@ -81,7 +81,18 @@ public class Robot extends IterativeRobot
 		Update();
 
 		autonMode = (Command) autonChooser.getSelected();
+		allianceMode = (Command) allianceChooser.getSelected();
+		visionMode = (Command) visionChooser.getSelected();
 		
+		if(allianceMode != null)
+		{
+			allianceMode.start();
+		}
+		
+		if(visionMode != null)
+		{
+			visionMode.start();
+		}
 		
 		if(autonMode != null)
 		{
@@ -89,6 +100,7 @@ public class Robot extends IterativeRobot
 		
 			autonMode.start();
 		}
+		
 		driveTrain.gyroReset();
 	}
 
@@ -103,8 +115,16 @@ public class Robot extends IterativeRobot
 	public void teleopInit()
 	{
 		System.out.println("teleopInit");
+		
 		if(autonMode != null)
 			autonMode.cancel();
+		
+		if(allianceMode != null)
+			allianceMode.cancel();
+		
+		if(visionMode != null)
+			visionMode.cancel();
+		
 		raspberry.Init();
 	}
 
