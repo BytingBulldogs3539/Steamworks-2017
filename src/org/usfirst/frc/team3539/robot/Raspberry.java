@@ -57,7 +57,7 @@ public class Raspberry
 	public double getAngle()
 	{
 		//System.out.println("Distance:"+table.getNumber("Distance"));
-		return table.getNumber("Angle");
+		return table.getNumber("Angle")-4.5;
 	}
 	
 	@SuppressWarnings("deprecation")
@@ -74,7 +74,7 @@ public class Raspberry
 	{
 		//return -(9.1812*92+2335);
 
-		return -(9.1812*table.getNumber("Distance")+2335);
+		return -((9.1812+.4)*table.getNumber("Distance")+2335+120);
 	}
 	
 	public void UpdateCamera(int cameranumber)
