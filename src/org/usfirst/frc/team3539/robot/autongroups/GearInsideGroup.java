@@ -13,25 +13,25 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class GearRightGroup extends CommandGroup
-{    
-	public GearRightGroup()
-	{
-		addSequential(new AutonDrive(107, 1));
-		
-		if(RobotMap.onBlueSide)
-		    addSequential(new AutonTurn(-60));
-		else
-		    addSequential(new AutonTurn(60));
+public class GearInsideGroup extends CommandGroup
+{
+    public GearInsideGroup()
+    {
+        addSequential(new AutonDrive(107, 1)); //comp: 88
+
+        if (RobotMap.onBlueSide)
+            addSequential(new AutonTurn(60));
+        else
+            addSequential(new AutonTurn(-60)); // original
 
         addSequential(new AutonDriveGentle(30, .5));
-		
-		addSequential(new AutonGearOpen());
+
+        addSequential(new AutonGearOpen());
 
         addSequential(new AutoWait(1));
 
-		addSequential(new AutonDrive(-30, 1));
-		
-		addSequential(new AutonGearClose());
-	}
+        addSequential(new AutonDrive(-30, 1));
+
+        addSequential(new AutonGearClose());
+    }
 }

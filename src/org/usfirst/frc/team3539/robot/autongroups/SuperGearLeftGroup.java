@@ -17,7 +17,7 @@ public class SuperGearLeftGroup extends CommandGroup
 {
 	public SuperGearLeftGroup()
 	{
-	    addSequential(new GearLeftGroup());
+	    addSequential(new GearInsideGroup());
 	    if(RobotMap.isVisionTracking)
 	    {
 	    	addSequential(new JoeyShoot(true, Robot.raspberry.getneededHoodAngle(), 250.0,

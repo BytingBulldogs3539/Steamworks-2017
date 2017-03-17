@@ -14,7 +14,7 @@ public class ShootMiddleGroup extends CommandGroup
 
     public ShootMiddleGroup()
     {
-        addSequential(new GearForwardGroup());
+        addSequential(new GearMiddleGroup());
 
         if (RobotMap.onBlueSide)
         {

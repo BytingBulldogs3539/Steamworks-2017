@@ -150,10 +150,10 @@ public class Robot extends IterativeRobot
 		SmartDashboard.putData("Auto mode", autonChooser);
 		autonChooser.addDefault("No Auton, Default", new VoidCommand());
 		autonChooser.addObject("Auton Turn 180", new AutonTurn(180));
-		autonChooser.addObject("GearRightGroup", new GearRightGroup());
-		autonChooser.addObject("GearForwardGroup", new GearForwardGroup());
-		autonChooser.addObject("GearLeftGroup", new GearLeftGroup());
-		autonChooser.addObject("HopperGearLeft", new HopperBoiler());
+		autonChooser.addObject("GearOutsideGroup", new GearOutsideGroup());
+		autonChooser.addObject("GearMiddleGroup", new GearMiddleGroup());
+		autonChooser.addObject("GearInsideGroup", new GearInsideGroup());
+		autonChooser.addObject("HopperBoiler", new HopperBoiler());
 		autonChooser.addObject("ShootInsideGroup", new ShootInsideGroup());
 		autonChooser.addObject("ShootMiddleGroup", new ShootMiddleGroup());
 		autonChooser.addObject("ShootOutsideGroup", new ShootOutsideGroup());
