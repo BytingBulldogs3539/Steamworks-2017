@@ -24,6 +24,12 @@ public class Intake extends BulldogSystem
 		lock = new DoubleSolenoid(RobotMap.pcm, RobotMap.lockSolOn, RobotMap.lockSolOff);
 		this.lockOff();
 		lockStatus = false;
+		
+		intakeMotor.configNominalOutputVoltage(0.0f, -0.0f);
+		intakeMotor.configPeakOutputVoltage(12.0f, -12.0f);
+		
+		intakeMotor.configMaxOutputVoltage(12);
+		intakeMotor.setCurrentLimit(37);
 	}
 
 	public void setMotorPower(double power)
@@ -63,6 +69,8 @@ public class Intake extends BulldogSystem
 		
 		RobotMap.intakeSpeed = SmartDashboard.getNumber("Intake Speed");
 		RobotMap.unjamIntakeSpeed = SmartDashboard.getNumber("Intake Unjam Speed");
+		
+		SmartDashboard.putNumber("Intake Voltzish", intakeMotor.getOutputCurrent());
 	}
 
 	@Override
@@ -70,6 +78,7 @@ public class Intake extends BulldogSystem
 	{
 		SmartDashboard.putNumber("Intake Speed", RobotMap.intakeSpeed);
 		SmartDashboard.putNumber("Intake Unjam Speed", RobotMap.unjamIntakeSpeed);
+		SmartDashboard.putNumber("Intake Voltzish", 0);
 	}
 
 	public void initDefaultCommand()

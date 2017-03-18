@@ -6,6 +6,7 @@ import org.usfirst.frc.team3539.robot.autoncommands.AutoAim;
 
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.Scheduler;
 
 public class JoeyShoot extends Command
 {
@@ -102,7 +103,7 @@ public class JoeyShoot extends Command
         
         if (visionTurn)
         {
-            new AutoAim();
+        	Scheduler.getInstance().add(new AutoAim());
         }
         
         if(visionDistance)
@@ -120,6 +121,12 @@ public class JoeyShoot extends Command
     {
         Robot.hoodSubsystem.setAngle(hoodAngle);
 
+        if(visionDistance)
+        {
+            this.hoodAngle = Robot.raspberry.getneededHoodAngle();
+            this.shooterRpm = Robot.raspberry.getneededShooterRPM();
+        }
+        
         Robot.shooter.startShooter(shooterRpm);
 
         if (RobotMap.triggerModified)

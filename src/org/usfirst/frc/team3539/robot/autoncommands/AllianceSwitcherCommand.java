@@ -10,9 +10,11 @@ import edu.wpi.first.wpilibj.command.Command;
 public class AllianceSwitcherCommand extends Command {
 
     private boolean onBlue;
+    
     public AllianceSwitcherCommand(boolean onBlue)
     {
         this.onBlue = onBlue;
+        RobotMap.onBlueSide = onBlue;
     }
 
     // Called just before this Command runs the first time
@@ -22,7 +24,9 @@ public class AllianceSwitcherCommand extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute()
     {
+    	System.out.println("onBlue: " + RobotMap.onBlueSide);
         RobotMap.onBlueSide = onBlue;
+        System.out.println("onBlue: " + RobotMap.onBlueSide);
     }
 
     // Make this return true when this Command no longer needs to run execute()
