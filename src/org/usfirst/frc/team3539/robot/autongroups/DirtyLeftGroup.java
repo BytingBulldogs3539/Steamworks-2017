@@ -16,11 +16,11 @@ public class DirtyLeftGroup extends CommandGroup
 {
 	public DirtyLeftGroup()
 	{
-		addSequential(new AutonDrive(107, 1));
+		addSequential(new AutonDrive(107));
 
 		addSequential(new AutonTurn(-60));
 
-		addSequential(new AutonDrive(30, 1));
+		addSequential(new AutonDrive(30));
 
 		addSequential(new AutoWait(1));
 
@@ -28,7 +28,7 @@ public class DirtyLeftGroup extends CommandGroup
 
 		addSequential(new AutoWait(1));
 
-		// addSequential(new AutonDrive(-30, 1));
+		// addSequential(new AutonDrive(-30));
 
 		addSequential(new AutonGearClose());
 	}

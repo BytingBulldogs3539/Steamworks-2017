@@ -198,6 +198,8 @@ public class Robot extends IterativeRobot
 		autonChooser.addObject("DirtyDanTheMiddleManRed", new DirtyDanTheMiddleManRed());
 		autonChooser.addObject("DirtyDanTheMiddleManBlue", new DirtyDanTheMiddleManBlue());
 		autonChooser.addObject("test Vision Peg", new AutonDrive(90,2));
+		autonChooser.addObject("HopperBlue", new HopperBlue());
+		autonChooser.addObject("HopperRed", new HopperRed());
 		// autonChooser.addObject("VisionGearLeftGroup", new
 		// VisionGearLeftGroup());
 		autonChooser.addObject("HopperRed", new HopperRed());

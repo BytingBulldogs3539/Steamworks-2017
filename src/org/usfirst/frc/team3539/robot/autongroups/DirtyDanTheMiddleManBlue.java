@@ -18,7 +18,7 @@ public class DirtyDanTheMiddleManBlue extends CommandGroup
 	{
 		addSequential(new GearMiddleGroup());
 
-		addSequential(new AutonDrive(-40, 1));
+		addSequential(new AutonDrive(-40));
 
 		addSequential(new AutonTurn(75));
 		

@@ -103,7 +103,7 @@ public class JoeyShoot extends Command
         
         if (visionTurn)
         {
-        	Scheduler.getInstance().add(new AutoAim());
+        	//Scheduler.getInstance().add(new AutoAim());
         }
         
         if(visionDistance)

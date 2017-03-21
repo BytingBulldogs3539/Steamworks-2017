@@ -1,5 +1,6 @@
 package org.usfirst.frc.team3539.robot.autongroups;
 
+import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
 import org.usfirst.frc.team3539.robot.autoncommands.AutoWait;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonDrive;
@@ -12,14 +13,16 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class DirtyRightGroup extends CommandGroup
+public class LeftGroupVision extends CommandGroup
 {
-	public DirtyRightGroup()
+	public LeftGroupVision()
 	{
-		addSequential(new AutonDrive(107)); // comp: 88
+		addSequential(new AutonDrive(107));
 
-		addSequential(new AutonTurn(60));
+		addSequential(new AutonTurn(-60));
 
+		addSequential(new AutonTurn(Robot.raspberry.getAngle(), 2));
+		
 		addSequential(new AutonDrive(30));
 
 		addSequential(new AutoWait(1));
@@ -28,7 +31,7 @@ public class DirtyRightGroup extends CommandGroup
 
 		addSequential(new AutoWait(1));
 
-		// addSequential(new AutonDrive(-30));
+		addSequential(new AutonDrive(-30));
 
 		addSequential(new AutonGearClose());
 	}

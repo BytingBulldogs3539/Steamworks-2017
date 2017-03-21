@@ -16,14 +16,14 @@ public class GearOutsideGroup extends CommandGroup
 {    
 	public GearOutsideGroup()
 	{
-		addSequential(new AutonDrive(107, 1));
+		addSequential(new AutonDrive(107));
 		
 		if(RobotMap.onBlueSide)
 		    addSequential(new AutonTurn(-60));
 		else
 		    addSequential(new AutonTurn(60));
 
-        addSequential(new AutonDrive(30, 1));
+        addSequential(new AutonDrive(30));
 
         addSequential(new AutoWait(1));
         
@@ -31,7 +31,7 @@ public class GearOutsideGroup extends CommandGroup
 
         addSequential(new AutoWait(1));
 
-       // addSequential(new AutonDrive(-30, 1));
+       // addSequential(new AutonDrive(-30));
 
         addSequential(new AutonGearClose());
 	}

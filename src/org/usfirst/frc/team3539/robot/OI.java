@@ -1,3 +1,4 @@
+
 package org.usfirst.frc.team3539.robot;
 
 import org.usfirst.frc.team3539.robot.autoncommands.AutoAim;
@@ -58,6 +59,7 @@ public class OI
 	public DpadButton visionButton;
 	public DpadButton supermanButton;
 	public DpadButton zeroHoodButton;
+	public DpadButton VisionCalabrate;
 	
 
 	public OI()
@@ -89,6 +91,7 @@ public class OI
 		zeroHoodButton = new DpadButton("right",new ZeroHoodCommand(), controller2);
 		
 		visionButton = new DpadButton("down", new AutoAim(), controller2);
+		VisionCalabrate = new DpadButton("left", new JoeyShoot(false, VisionCalabrate, RobotMap.hoodTarget, 150, RobotMap.shooterRpm), controller2);
 		
 	}
 	

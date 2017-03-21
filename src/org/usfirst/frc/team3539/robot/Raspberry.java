@@ -72,7 +72,7 @@ public class Raspberry
 	{
 		double distance = table.getNumber("Distance");
 
-		// return 5.4143*92-65.841;
+		//return 5.4143*92-65.841;
 		if (distance < 160)
 		{
 			return 5.4143 * distance - 65;
@@ -86,7 +86,8 @@ public class Raspberry
 	public double getneededShooterRPM()
 	{
 		double distance = table.getNumber("Distance");
-		// return -(9.1812*92+2335);
+		
+		//return -(9.1812*92+2335);
 		
 		if (distance < 160)
 		{
