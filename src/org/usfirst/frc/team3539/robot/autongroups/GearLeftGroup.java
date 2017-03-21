@@ -12,13 +12,13 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class DirtyRightGroup extends CommandGroup
+public class GearLeftGroup extends CommandGroup
 {
-	public DirtyRightGroup()
+	public GearLeftGroup()
 	{
-		addSequential(new AutonDrive(107)); // comp: 88
+		addSequential(new AutonDrive(107));
 
-		addSequential(new AutonTurn(60));
+		addSequential(new AutonTurn(-60));
 
 		addSequential(new AutonDrive(30));
 
