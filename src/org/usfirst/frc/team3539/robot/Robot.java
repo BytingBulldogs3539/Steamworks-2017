@@ -37,8 +37,8 @@ public class Robot extends IterativeRobot
 	public static OI oi;
 	// public static UsbCamera camera;
 
-	Command autonMode, allianceMode, visionMode;
-	SendableChooser<Command> autonChooser, allianceChooser, visionChooser;
+	Command autonMode;
+	SendableChooser<Command> autonChooser;
 
 	public void robotInit()
 	{
@@ -80,8 +80,8 @@ public class Robot extends IterativeRobot
 		System.out.println("autonomousInit");
 		Update();
 
-		allianceMode = (Command) allianceChooser.getSelected();
-		visionMode = (Command) visionChooser.getSelected();
+		raspberry.UpdateCamera(0);
+
 		autonMode = (Command) autonChooser.getSelected();
 
 		if (autonMode != null)
@@ -105,15 +105,6 @@ public class Robot extends IterativeRobot
 	public void teleopInit()
 	{
 		System.out.println("teleopInit");
-
-		if (autonMode != null)
-			autonMode.cancel();
-
-		if (allianceMode != null)
-			allianceMode.cancel();
-
-		if (visionMode != null)
-			visionMode.cancel();
 
 		Robot.manipulator.holderClose();
 
@@ -154,56 +145,36 @@ public class Robot extends IterativeRobot
 		hoodSubsystem.SmartInit();
 
 		autonChooser = new SendableChooser<Command>();
-		allianceChooser = new SendableChooser<Command>();
-		visionChooser = new SendableChooser<Command>();
-
-		SmartDashboard.putData("Alliance", allianceChooser);
-		allianceChooser.addDefault("Red Team, Default", new AllianceSwitcherCommand(false));
-		allianceChooser.addObject("Blue Team", new AllianceSwitcherCommand(true));
-
-		SmartDashboard.putData("Vison", visionChooser);
-		visionChooser.addDefault("No Vision, Default", new VisionSwitcherCommand(false));
-		visionChooser.addObject("Vision", new VisionSwitcherCommand(true));
-
-		SmartDashboard.putData("Alliance", allianceChooser);
-		allianceChooser.addDefault("Red Team, Default", new AllianceSwitcherCommand(false));
-		allianceChooser.addObject("Blue Team", new AllianceSwitcherCommand(true));
-
-		if (allianceMode != null)
-		{
-			System.out.println("Alliance Mode Ran");
-
-			allianceMode.start();
-		}
-
-		if (visionMode != null)
-		{
-			System.out.println("Vision Mode Ran");
-
-			visionMode.start();
-		}
 
 		SmartDashboard.putData("Auto mode", autonChooser);
 		autonChooser.addDefault("No Auton, Default", new VoidCommand());
 		autonChooser.addObject("Auton Turn 180", new AutonTurn(180));
-		autonChooser.addObject("GearOutsideGroup", new GearOutsideGroup());
+
+		// Calibrate\/
+		autonChooser.addObject("Drive Calibrate", new DriveCalibrate());
+		autonChooser.addObject("Turn Calibrate", new TurnCalibrate());
+
+		// Gear\/
 		autonChooser.addObject("GearMiddleGroup", new GearMiddleGroup());
-		autonChooser.addObject("GearInsideGroup", new GearInsideGroup());
-		autonChooser.addObject("HopperBoiler", new HopperBoiler());
-		autonChooser.addObject("ShootInsideGroup", new ShootInsideGroup());
-		autonChooser.addObject("ShootMiddleGroup", new ShootMiddleGroup());
-		autonChooser.addObject("ShootOutsideGroup", new ShootOutsideGroup());
-		autonChooser.addObject("DirtyLeftGroup", new GearLeftGroup());
-		autonChooser.addObject("DirtyRightGroup", new GearRightGroup());
-		autonChooser.addObject("DirtyDanTheMiddleManRed", new DirtyDanTheMiddleManRed());
-		autonChooser.addObject("DirtyDanTheMiddleManBlue", new DirtyDanTheMiddleManBlue());
-		autonChooser.addObject("test Vision Peg", new AutonDrive(90,2));
-		autonChooser.addObject("HopperBlue", new HopperBlue());
-		autonChooser.addObject("HopperRed", new HopperRed());
+		autonChooser.addObject("GearLeftGroup", new GearLeftGroup());
+		autonChooser.addObject("GearRightGroup", new GearRightGroup());
+
+		// Red\/
+
+		autonChooser.addObject("RedMiddleGroup", new RedShootMiddle());
+		autonChooser.addObject("RedHopper", new RedHopper());
+		autonChooser.addObject("RedShootOutside", new RedShootOutside());
+		autonChooser.addObject("RedShootInside", new RedShootInside());
+
+		// Blue\/
+
+		autonChooser.addObject("BlueShootMiddle", new BlueShootMiddle());
+		autonChooser.addObject("BlueHopper", new BlueHopper());
+		autonChooser.addObject("BlueShootOutside", new BlueShootOutside());
+		autonChooser.addObject("BlueShootInside", new BlueShootInside());
+
 		// autonChooser.addObject("VisionGearLeftGroup", new
 		// VisionGearLeftGroup());
-		autonChooser.addObject("HopperRed", new HopperRed());
-		autonChooser.addObject("HopperBlue", new HopperBlue());
 		autonChooser.addObject("NoneForward", new NoneForward());
 
 		SmartDashboard.putData(new AutoAim());

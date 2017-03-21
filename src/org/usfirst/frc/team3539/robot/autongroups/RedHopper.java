@@ -12,10 +12,10 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class HopperRed extends CommandGroup
+public class RedHopper extends CommandGroup
 {
 
-	public HopperRed()
+	public RedHopper()
 	{
 		addSequential(new AutonDrive(80, 1));
 		addSequential(new AutonTurn(-91));

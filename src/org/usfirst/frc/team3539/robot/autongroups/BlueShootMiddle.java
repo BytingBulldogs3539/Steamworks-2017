@@ -1,6 +1,5 @@
 package org.usfirst.frc.team3539.robot.autongroups;
 
-import org.usfirst.frc.team3539.robot.RobotMap;
 import org.usfirst.frc.team3539.robot.autoncommands.AutoAim;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonDrive;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonTurn;
@@ -11,16 +10,16 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class DirtyDanTheMiddleManBlue extends CommandGroup
+public class BlueShootMiddle extends CommandGroup
 {
 
-	public DirtyDanTheMiddleManBlue()
+	public BlueShootMiddle()
 	{
 		addSequential(new GearMiddleGroup());
 
-		addSequential(new AutonDrive(-40));
+		addSequential(new AutonDrive(-40,3));
 
-		addSequential(new AutonTurn(75));
+		addSequential(new AutonTurn(75,2));
 		
 		addSequential(new AutoAim());
 
