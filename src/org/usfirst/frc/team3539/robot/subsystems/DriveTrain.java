@@ -38,43 +38,42 @@ public class DriveTrain extends BulldogSystem
 		lbMotor = new CANTalon(RobotMap.lbMotorTalon);
 		rfMotor = new CANTalon(RobotMap.rfMotorTalon);
 		rbMotor = new CANTalon(RobotMap.rbMotorTalon);
-		
 
 		lfMotor.changeControlMode(TalonControlMode.PercentVbus);
 		rfMotor.changeControlMode(TalonControlMode.PercentVbus);
-	//	rbMotor.changeControlMode(TalonControlMode.PercentVbus);
-	//	lbMotor.changeControlMode(TalonControlMode.PercentVbus);
-		
+		// rbMotor.changeControlMode(TalonControlMode.PercentVbus);
+		// lbMotor.changeControlMode(TalonControlMode.PercentVbus);
+
 		rbMotor.changeControlMode(TalonControlMode.Follower);
 		lbMotor.changeControlMode(TalonControlMode.Follower);
-		
+
 		rbMotor.set(rfMotor.getDeviceID());
 		lbMotor.set(lfMotor.getDeviceID());
 
 		lfMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
 		rfMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
-	//	rbMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
-	//	lbMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
-		
+		// rbMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
+		// lbMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
+
 		lfMotor.configNominalOutputVoltage(0.0f, -0.0f);
 		lfMotor.configPeakOutputVoltage(12.0f, -12.0f);
 
 		rfMotor.configNominalOutputVoltage(0.0f, -0.0f);
 		rfMotor.configPeakOutputVoltage(12.0f, -12.0f);
-		
+
 		lfMotor.configMaxOutputVoltage(12);
 		rfMotor.configMaxOutputVoltage(12);
 		rfMotor.setCurrentLimit(35);
 		lfMotor.setCurrentLimit(35);
-		
+
 		lfMotor.EnableCurrentLimit(true);
 		rfMotor.EnableCurrentLimit(true);
-		
+
 		lfMotor.enableBrakeMode(true);
 		rfMotor.enableBrakeMode(true);
-		
+
 		drive = new RobotDrive(lfMotor, rfMotor);
-		//drive = new RobotDrive(lfMotor, lbMotor, rfMotor, rbMotor);
+		// drive = new RobotDrive(lfMotor, lbMotor, rfMotor, rbMotor);
 		drive.setSafetyEnabled(false);
 
 		lfMotor.setSafetyEnabled(false);
@@ -110,67 +109,72 @@ public class DriveTrain extends BulldogSystem
 
 	public void zeroEncoders()
 	{
-		//lfMotor.setEncPosition(0);
-		//rfMotor.setEncPosition(0);
-		//rbMotor.setEncPosition(0);
-		//lbMotor.setEncPosition(0);
-		
+		// lfMotor.setEncPosition(0);
+		// rfMotor.setEncPosition(0);
+		// rbMotor.setEncPosition(0);
+		// lbMotor.setEncPosition(0);
+
 		lfMotor.setPosition(0);
 		rfMotor.setPosition(0);
-		//rbMotor.setPosition(0);
-		//lbMotor.setPosition(0);
+		// rbMotor.setPosition(0);
+		// lbMotor.setPosition(0);
 	}
 
 	public void disablePIDControl()
 	{
 		lfMotor.disableControl();
 		rfMotor.disableControl();
-		//lbMotor.disableControl();
-		//rbMotor.disableControl();
+		// lbMotor.disableControl();
+		// rbMotor.disableControl();
 	}
 
 	public void talonControlVBus()
 	{
 		lfMotor.changeControlMode(TalonControlMode.PercentVbus);
 		rfMotor.changeControlMode(TalonControlMode.PercentVbus);
-		//lbMotor.changeControlMode(TalonControlMode.PercentVbus);
-		//rbMotor.changeControlMode(TalonControlMode.PercentVbus);
+		// lbMotor.changeControlMode(TalonControlMode.PercentVbus);
+		// rbMotor.changeControlMode(TalonControlMode.PercentVbus);
 	}
 
 	public void driveArcade(double leftStick, double rightStick)
 	{
-		drive.arcadeDrive(leftStick, rightStick);	
+		drive.arcadeDrive(leftStick, rightStick);
 	}
 
 	public void changeGears()
 	{
 		manipulatorStatus = !manipulatorStatus;
 
-		if(manipulatorStatus == true)
+		if (manipulatorStatus == true)
 		{
 			manipulatorSol.set(DoubleSolenoid.Value.kForward);
 		}
-		if(manipulatorStatus == false)
+		if (manipulatorStatus == false)
 		{
 			manipulatorSol.set(DoubleSolenoid.Value.kReverse);
 		}
 	}
-	
+
+	@Deprecated
 	public double inchToEnc(double inch)
 	{
 		return inch * (4096 / (Math.PI * RobotMap.wheelDiameter));
 	}
-	
+
 	public double inchToEnc2(double inch)
 	{
-		return inch * (4096 / (Math.PI * RobotMap.wheelDiameter) *.7346);//practice = .69 //comp .777
-	}	
-	
+		double output = inch * (4096 / (Math.PI * RobotMap.wheelDiameter) * RobotMap.driveMultiplier);
+		
+		System.out.println("Target Encoders for Drive: " + output);
+				
+		return output;
+	}
+
 	public double encToInch(double enc)
 	{
-		return enc * ((Math.PI * RobotMap.wheelDiameter) / 4096 );
+		return enc * ((Math.PI * RobotMap.wheelDiameter) / 4096);
 	}
-	
+
 	public void gyroReset()
 	{
 		gyro.reset();
@@ -187,7 +191,7 @@ public class DriveTrain extends BulldogSystem
 	public void Update()
 	{
 
-		if(manipulatorStatus == true)
+		if (manipulatorStatus == true)
 		{
 			SmartDashboard.putString("Drive Gear", "High");
 		}
@@ -199,11 +203,14 @@ public class DriveTrain extends BulldogSystem
 		SmartDashboard.putDouble("Gyro Velocity", gyro.getRate());
 
 		SmartDashboard.putDouble("Gryo Angle", getGyroAngle());
-//		
-	//SmartDashboard.putDouble("--- Right Front", rfMotor.getEncPosition());
-	//SmartDashboard.putDouble("--- Left Front", lfMotor.getEncPosition());
-//		SmartDashboard.putDouble("--- Right Back", rbMotor.getOutputCurrent());
-//		SmartDashboard.putDouble("--- Left Back", lbMotor.getOutputCurrent());
+		
+		 SmartDashboard.putDouble("--- Right Front", // from here
+		 rfMotor.getEncPosition());
+		 SmartDashboard.putDouble("--- Left Front", lfMotor.getEncPosition());
+		 SmartDashboard.putDouble("--- Right Back",
+		 rbMotor.getOutputCurrent());
+		 SmartDashboard.putDouble("--- Left Back",
+		 lbMotor.getOutputCurrent()); //to here
 
 		RobotMap.drivePea = SmartDashboard.getDouble("RobotMap.drivePea");
 		RobotMap.driveEye = SmartDashboard.getDouble("RobotMap.driveEye");
@@ -212,9 +219,9 @@ public class DriveTrain extends BulldogSystem
 		RobotMap.turnPea = SmartDashboard.getDouble("RobotMap.turnPea");
 		RobotMap.turnEye = SmartDashboard.getDouble("RobotMap.turnEye");
 		RobotMap.turnDee = SmartDashboard.getDouble("RobotMap.turnDee");
-		
+
 		SmartDashboard.putDouble("Raspberry PI", Robot.raspberry.getAngle());
-        SmartDashboard.putDouble("PI Distance", Robot.raspberry.getDistance());
+		SmartDashboard.putDouble("PI Distance", Robot.raspberry.getDistance());
 	}
 
 	@Override
@@ -226,11 +233,15 @@ public class DriveTrain extends BulldogSystem
 		SmartDashboard.putDouble("Gyro Velocity", 0);
 
 		SmartDashboard.putDouble("Gryo Angle", 0);
-//		
-	//SmartDashboard.putDouble("--- Right Front", rfMotor.getOutputCurrent());
-		//SmartDashboard.putDouble("--- Left Front", lfMotor.getOutputCurrent());
-//		SmartDashboard.putDouble("--- Right Back", rbMotor.getOutputCurrent());
-//		SmartDashboard.putDouble("--- Left Back", lbMotor.getOutputCurrent());
+		//
+		// SmartDashboard.putDouble("--- Right Front",
+		// rfMotor.getOutputCurrent());
+		// SmartDashboard.putDouble("--- Left Front",
+		// lfMotor.getOutputCurrent());
+		// SmartDashboard.putDouble("--- Right Back",
+		// rbMotor.getOutputCurrent());
+		// SmartDashboard.putDouble("--- Left Back",
+		// lbMotor.getOutputCurrent());
 
 		SmartDashboard.putDouble("RobotMap.drivePea", RobotMap.drivePea);
 		SmartDashboard.putDouble("RobotMap.driveEye", RobotMap.driveEye);
@@ -239,14 +250,14 @@ public class DriveTrain extends BulldogSystem
 		SmartDashboard.putDouble("RobotMap.turnPea", RobotMap.turnPea);
 		SmartDashboard.putDouble("RobotMap.turnEye", RobotMap.turnEye);
 		SmartDashboard.putDouble("RobotMap.turnDee", RobotMap.turnDee);
-		
+
 		SmartDashboard.putDouble("Raspberry PI", Robot.raspberry.getAngle());
-        SmartDashboard.putDouble("PI Distance", Robot.raspberry.getDistance());
+		SmartDashboard.putDouble("PI Distance", Robot.raspberry.getDistance());
 	}
-	
+
 	public void defaultSetter()
 	{
-		
+
 	}
 
 	public void initDefaultCommand()

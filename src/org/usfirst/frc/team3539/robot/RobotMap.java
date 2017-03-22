@@ -51,9 +51,15 @@ public class RobotMap// test
 	/*
 	 * Practice bot PID 3/14/2017. 6:30pm
 	 */
-	public static double drivePea = 0.000955;
-	public static double driveEye = 0.0000000165;
-	public static double driveDee = 0.0000094;
+	public static double driveMultiplier = 1;  //.89
+	
+	public static double drivePea = .000052;
+ 	public static double driveEye = 0;
+ 	public static double driveDee = .00000001;
+	
+	//0.000955; // 0.000955
+//0.000000355; // 0.0000000165
+//0.000455; // 0.0000094
 
 	public static double turnPea = .1;
 	public static double turnEye = .00005; // 5.0E-5
@@ -78,7 +84,12 @@ public class RobotMap// test
 	public static double agitatorEff = .35;
 
 	/*
-	 * COMP BOT PID 3/21/2017 6:40PM public static double drivePea = 0.000955;
+	 * COMP BOT PID 3/21/2017 6:40PM 
+	 * 
+	 * 
+	public static double driveMultiplier = .7346;
+	 * 
+	 * public static double drivePea = 0.000955;
 	 * public static double driveEye = 0.0000000165; public static double
 	 * driveDee = 0.0000094;
 	 * 

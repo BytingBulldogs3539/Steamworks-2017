@@ -105,6 +105,8 @@ public class Robot extends IterativeRobot
 	public void teleopInit()
 	{
 		System.out.println("teleopInit");
+		
+		Scheduler.getInstance().removeAll();
 
 		Robot.manipulator.holderClose();
 
@@ -161,7 +163,7 @@ public class Robot extends IterativeRobot
 
 		// Red\/
 
-		autonChooser.addObject("RedMiddleGroup", new RedShootMiddle());
+		autonChooser.addObject("RedShootMiddle", new RedShootMiddle());
 		autonChooser.addObject("RedHopper", new RedHopper());
 		autonChooser.addObject("RedShootOutside", new RedShootOutside());
 		autonChooser.addObject("RedShootInside", new RedShootInside());
@@ -173,8 +175,10 @@ public class Robot extends IterativeRobot
 		autonChooser.addObject("BlueShootOutside", new BlueShootOutside());
 		autonChooser.addObject("BlueShootInside", new BlueShootInside());
 
-		// autonChooser.addObject("VisionGearLeftGroup", new
-		// VisionGearLeftGroup());
+		//test
+		//autonChooser.addObject("VisionGearMiddle", new VisionGearMiddle());
+		
+		
 		autonChooser.addObject("NoneForward", new NoneForward());
 
 		SmartDashboard.putData(new AutoAim());
