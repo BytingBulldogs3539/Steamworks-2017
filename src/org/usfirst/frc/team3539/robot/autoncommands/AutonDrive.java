@@ -63,12 +63,11 @@ public class AutonDrive extends PIDCommand
 
 	public double returnAnglePIDInput()
 	{
-		return Robot.raspberry.getAngle();
+		return Robot.raspberry.getTurnAngle();
 	}
 
 	protected void initialize()
 	{
-		Robot.raspberry.UpdateCamera(0);
 		anglePID = new PIDController(RobotMap.turnPea, RobotMap.turnEye, RobotMap.turnDee, angle_output_source,
 				pidOutput);
 		anglePID.setSetpoint(0);
@@ -98,7 +97,6 @@ public class AutonDrive extends PIDCommand
 	{
 		Robot.driveTrain.zeroEncoders();
 		Robot.driveTrain.stopTrain();
-		Robot.raspberry.UpdateCamera(0);
 		anglePID.disable();
 		pidOutput.Reset();
 	}

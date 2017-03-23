@@ -2,6 +2,8 @@ package org.usfirst.frc.team3539.robot.autoncommands;
 
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
+
+import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.command.PIDCommand;
 
 /**
@@ -10,23 +12,42 @@ import edu.wpi.first.wpilibj.command.PIDCommand;
 public class AutonTurn extends PIDCommand
 {
 	private double angle;
+	private boolean isGearVision;
+	private Button button;
 
 	public AutonTurn(double angle)
 	{
-		super("test", RobotMap.turnPea, RobotMap.turnEye, RobotMap.turnDee);
-		this.angle = angle;
-		requires(Robot.driveTrain);
-		
-		this.setTimeout(5);
+		super("AutonTurn", RobotMap.turnPea, RobotMap.turnEye, RobotMap.turnDee);
+		Init(angle, 5, false, null);
 	}
-	
+
 	public AutonTurn(double angle, double seconds)
 	{
-		super("test", RobotMap.turnPea, RobotMap.turnEye, RobotMap.turnDee);
+		super("AutonTurn", RobotMap.turnPea, RobotMap.turnEye, RobotMap.turnDee);
+		Init(angle, seconds, false, null);
+	}
+
+	public AutonTurn(double angle, double seconds, boolean isGearVision)
+	{
+		super("AutonTurn", RobotMap.turnPea, RobotMap.turnEye, RobotMap.turnDee);
+		Init(angle, seconds, isGearVision, null);
+	}
+
+	public AutonTurn(boolean isGearVision, Button button)
+	{
+		super("AutonTurn", RobotMap.turnPea, RobotMap.turnEye, RobotMap.turnDee);
+		Init(0, -1, isGearVision, button);
+	}
+
+	private void Init(double angle, double seconds, boolean isGearVision, Button button)
+	{
 		this.angle = angle;
 		requires(Robot.driveTrain);
-		
-		this.setTimeout(seconds);
+		this.isGearVision = isGearVision;
+		this.button = button;
+
+		if (seconds > 0)
+			this.setTimeout(seconds);
 	}
 
 	protected void initialize()
@@ -34,12 +55,16 @@ public class AutonTurn extends PIDCommand
 		this.getPIDController().setPID(RobotMap.turnPea, RobotMap.turnEye, RobotMap.turnDee);
 		Robot.driveTrain.gyroReset();
 
-		this.setSetpoint(angle);
+		if (angle == 0)
+			this.setSetpoint(Robot.raspberry.getTurnAngle());
+		else
+			this.setSetpoint(angle);
 
-		this.getPIDController().setOutputRange(-.8, .8); // newest .7 --- new .6
+		this.getPIDController().setOutputRange(-.85, .85); // newest .7 --- new
+															// .6
 															// --- original -.5.
 															// .5
-		this.getPIDController().setAbsoluteTolerance(3);
+		this.getPIDController().setAbsoluteTolerance(1);
 		this.getPIDController().setToleranceBuffer(10);
 	}
 
@@ -49,7 +74,7 @@ public class AutonTurn extends PIDCommand
 
 	protected boolean isFinished()
 	{
-		return (this.getPIDController().onTarget() || this.isTimedOut());
+		return this.getPIDController().onTarget() || this.isTimedOut() || !this.button.get();
 	}
 
 	protected void end()

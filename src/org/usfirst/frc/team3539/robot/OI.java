@@ -1,9 +1,7 @@
 
 package org.usfirst.frc.team3539.robot;
 
-import org.usfirst.frc.team3539.robot.autoncommands.AutoAim;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonTurn;
-import org.usfirst.frc.team3539.robot.autoncommands.VisionTurn;
 import org.usfirst.frc.team3539.robot.commands.ClimbCommand;
 import org.usfirst.frc.team3539.robot.commands.FireCommand;
 import org.usfirst.frc.team3539.robot.commands.GearCommand;
@@ -59,7 +57,7 @@ public class OI
 	public DpadButton visionButton;
 	public DpadButton supermanButton;
 	public DpadButton zeroHoodButton;
-	public DpadButton VisionCalabrate;
+	public DpadButton visionGearButton;
 	
 
 	public OI()
@@ -90,8 +88,11 @@ public class OI
 		
 		zeroHoodButton = new DpadButton("right",new ZeroHoodCommand(), controller2);
 		
-		visionButton = new DpadButton("down", new AutoAim(), controller2);
-		VisionCalabrate = new DpadButton("left", new JoeyShoot(false, VisionCalabrate, RobotMap.hoodTarget, 150, RobotMap.shooterRpm), controller2);
+		visionButton = new DpadButton("down", controller2); //add constructor for button
+		visionButton.setCommand(new AutonTurn(true, visionButton));
+		
+		visionGearButton = new DpadButton("left", new AutonTurn(0,1), controller2);
+	//	VisionCalabrate = new DpadButton("left", new JoeyShoot(false, VisionCalabrate, RobotMap.hoodTarget, 150, RobotMap.shooterRpm), controller2);
 		
 	}
 	
@@ -102,6 +103,7 @@ public class OI
 		visionButton.checkValue();
 		supermanButton.checkValue();
 		zeroHoodButton.checkValue();
+		visionGearButton.checkValue();
 		
 		SmartDashboard.putBoolean("triggerModified", RobotMap.triggerModified);
 	}

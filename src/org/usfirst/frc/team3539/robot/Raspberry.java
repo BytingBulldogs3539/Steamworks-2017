@@ -1,52 +1,40 @@
 package org.usfirst.frc.team3539.robot;
 
+import org.usfirst.frc.team3539.robot.subsystems.BulldogSystem;
+
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-public class Raspberry
+public class Raspberry extends BulldogSystem
 {
-	public enum camera
-	{
-		GEAR(0), BOILER(1);
-
-		private int value;
-
-		private camera(int value)
-		{
-			this.value = value;
-		}
-
-		public int getValue()
-		{
-			return value;
-		}
-	};
-
 	private static NetworkTable table;
 
-	private double offset = 0;
-	private double angle = 0;
-	private double distance = 0;
-	private int camera = 0;
+	private double offset;
+	private double angle;
+	private double distance;
+	private int camera;
 
 	public Raspberry()
 	{
-		table = NetworkTable.getTable("Vision");
-		table.putNumber("Angle", 0);
-		table.putNumber("Offset", 0);
-		table.putNumber("Distance", 0);
-		table.putNumber("camera", 0);
+		super("Raspberry");
 
+		offset = 0;
+		angle = 0;
+		distance = 0;
+		camera = RobotMap.gearCamera;
+
+		table = NetworkTable.getTable("Vision");
+		table.putNumber("Angle", angle);
+		table.putNumber("Offset", offset);
+		table.putNumber("Distance", distance);
+		table.putNumber("camera", camera);
+		
+		table = NetworkTable.getTable("Vision");
 	}
 
-	public void Init()
+	public void getCameronTable()
 	{
 		table = NetworkTable.getTable("Vision");
-	}
-
-	public void Print()
-	{
-		System.out.println("Raspberry: " + this.Read());
-
 	}
 
 	@SuppressWarnings("deprecation")
@@ -56,23 +44,17 @@ public class Raspberry
 	}
 
 	@SuppressWarnings("deprecation")
-	public double getAngle()
+	public double getTurnAngle()
 	{
 		// System.out.println("Distance:"+table.getNumber("Distance"));
-		return table.getNumber("Angle") - 4.5;
+		return table.getNumber("Angle"); //comp: - 4.5
 	}
 
-	@SuppressWarnings("deprecation")
-	public double Read()
-	{
-		return table.getNumber("Offset");
-	}
-
-	public double getneededHoodAngle()
+	public double getHoodAngle()
 	{
 		double distance = table.getNumber("Distance");
 
-		//return 5.4143*92-65.841;
+		// return 5.4143*92-65.841;
 		if (distance < 160)
 		{
 			return 5.4143 * distance - 65;
@@ -83,12 +65,12 @@ public class Raspberry
 		}
 	}
 
-	public double getneededShooterRPM()
+	public double getShooterRPM()
 	{
 		double distance = table.getNumber("Distance");
-		
-		//return -(9.1812*92+2335);
-		
+
+		// return -(9.1812*92+2335);
+
 		if (distance < 160)
 		{
 			return -((9.1812 + .4) * distance + 2335 + 120);
@@ -97,11 +79,32 @@ public class Raspberry
 		{
 			return -((9.1812 + .4) * 150 + 2335 + 120);
 		}
-		
+
 	}
 
-	public void UpdateCamera(int cameranumber)
+	public void setCamera(int cameranumber)
 	{
 		table.putNumber("camera", cameranumber);
+	}
+
+	@Override
+	public void initDefaultCommand()
+	{
+	}
+
+	@SuppressWarnings("deprecation")
+	@Override
+	public void Update()
+	{
+		SmartDashboard.putDouble("Raspberry PI", Robot.raspberry.getTurnAngle());
+		SmartDashboard.putDouble("PI Distance", Robot.raspberry.getDistance());
+	}
+
+	@SuppressWarnings("deprecation")
+	@Override
+	public void SmartInit()
+	{
+		SmartDashboard.putDouble("Raspberry PI", Robot.raspberry.getTurnAngle());
+		SmartDashboard.putDouble("PI Distance", Robot.raspberry.getDistance());
 	}
 }

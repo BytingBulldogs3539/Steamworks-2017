@@ -16,18 +16,12 @@ public class VisionGearMiddle extends CommandGroup
 {
 	public VisionGearMiddle()
 	{
-		addSequential(new AutonDrive(40, 2));
-
-		addSequential(new AutoWait(1));
+		addSequential(new AutonDrive(50, 2));
 		
-		addSequential(new AutonTurn(Robot.raspberry.getAngle(), 1));
+		addSequential(new AutonTurn(0, 1));
 		
-		addSequential(new AutoWait(1));
+		addSequential(new AutonDrive(24, 3));
 		
-		addSequential(new AutonDrive(48, 3));
-		
-		addSequential(new AutoWait(1));
-
 		addSequential(new AutonGearOpen());
 
 		addSequential(new AutoWait(1));

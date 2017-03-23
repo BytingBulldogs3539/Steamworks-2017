@@ -7,32 +7,19 @@ import org.usfirst.frc.team3539.robot.autoncommands.AutonDrive;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonGearClose;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonGearOpen;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonTurn;
+import org.usfirst.frc.team3539.robot.autoncommands.SetGearCamera;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  *
  */
-public class LeftGroupVision extends CommandGroup
+public class VisionTest extends CommandGroup
 {
-	public LeftGroupVision()
+	public VisionTest()
 	{
-		addSequential(new AutonDrive(107));
+		addSequential(new SetGearCamera());
+		addSequential(new AutonTurn(0, 1));//Robot.raspberry.getAngle()*-1
 
-		addSequential(new AutonTurn(-60));
-
-		addSequential(new AutonTurn(Robot.raspberry.getTurnAngle(), 2));
-		
-		addSequential(new AutonDrive(30));
-
-		addSequential(new AutoWait(1));
-
-		addSequential(new AutonGearOpen());
-
-		addSequential(new AutoWait(1));
-
-		addSequential(new AutonDrive(-30));
-
-		addSequential(new AutonGearClose());
 	}
 }

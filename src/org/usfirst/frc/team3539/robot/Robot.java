@@ -30,7 +30,6 @@ public class Robot extends IterativeRobot
 	public static final Shooter shooter = new Shooter();
 	public static final Intake intake = new Intake();
 	public static final GearManipulator manipulator = new GearManipulator();
-
 	public static Raspberry raspberry;
 
 	public static Compressor c;
@@ -45,7 +44,7 @@ public class Robot extends IterativeRobot
 		c = new Compressor(RobotMap.compressor);
 
 		oi = new OI();
-
+		
 		raspberry = new Raspberry();
 
 		SmartInit();
@@ -80,7 +79,7 @@ public class Robot extends IterativeRobot
 		System.out.println("autonomousInit");
 		Update();
 
-		raspberry.UpdateCamera(0);
+		raspberry.setCamera(RobotMap.gearCamera);
 
 		autonMode = (Command) autonChooser.getSelected();
 
@@ -105,12 +104,10 @@ public class Robot extends IterativeRobot
 	public void teleopInit()
 	{
 		System.out.println("teleopInit");
-		
+
 		Scheduler.getInstance().removeAll();
 
 		Robot.manipulator.holderClose();
-
-		raspberry.Init();
 	}
 
 	// This function is called periodically during operator control
@@ -135,6 +132,7 @@ public class Robot extends IterativeRobot
 		manipulator.Update();
 		driveTrain.Update();
 		hoodSubsystem.Update();
+		raspberry.Update();
 	}
 
 	public void SmartInit()
@@ -145,6 +143,11 @@ public class Robot extends IterativeRobot
 		manipulator.SmartInit();
 		driveTrain.SmartInit();
 		hoodSubsystem.SmartInit();
+		raspberry.SmartInit();
+
+		SmartDashboard.putData(new VisionGearMiddle());
+		SmartDashboard.putData(new VisionTest());
+		SmartDashboard.putData(new TurnCalibrate());
 
 		autonChooser = new SendableChooser<Command>();
 
@@ -175,13 +178,10 @@ public class Robot extends IterativeRobot
 		autonChooser.addObject("BlueShootOutside", new BlueShootOutside());
 		autonChooser.addObject("BlueShootInside", new BlueShootInside());
 
-		//test
-		//autonChooser.addObject("VisionGearMiddle", new VisionGearMiddle());
-		
-		
-		autonChooser.addObject("NoneForward", new NoneForward());
+		// test
+		autonChooser.addObject("VisionGearMiddle", new VisionGearMiddle());
 
-		SmartDashboard.putData(new AutoAim());
+		autonChooser.addObject("NoneForward", new NoneForward());
 
 		SmartDashboard.putData(shooter);
 		SmartDashboard.putData(intake);
@@ -189,7 +189,6 @@ public class Robot extends IterativeRobot
 		SmartDashboard.putData(driveTrain);
 		SmartDashboard.putData(new TestMaxVel());
 		SmartDashboard.putData(new ZeroHoodCommand());
-		SmartDashboard.putData(new AutoAim());
 
 		SmartDashboard.putData(new DriveCalibrate());
 		SmartDashboard.putData(new TurnCalibrate());

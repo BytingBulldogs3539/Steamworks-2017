@@ -2,7 +2,6 @@ package org.usfirst.frc.team3539.robot.commands;
 
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
-import org.usfirst.frc.team3539.robot.autoncommands.AutoAim;
 
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.command.Command;
@@ -94,7 +93,7 @@ public class JoeyShoot extends Command
 
     protected void initialize()
     {
-        Robot.raspberry.UpdateCamera(1);
+        Robot.raspberry.setCamera(RobotMap.shooterCamera);
         Robot.shooter.resetShooterPID();
         Robot.shooter.resetAgitatorPID();
 
@@ -108,8 +107,8 @@ public class JoeyShoot extends Command
         
         if(visionDistance)
         {
-            this.hoodAngle = Robot.raspberry.getneededHoodAngle();
-            this.shooterRpm = Robot.raspberry.getneededShooterRPM();
+            this.hoodAngle = Robot.raspberry.getHoodAngle();
+            this.shooterRpm = Robot.raspberry.getShooterRPM();
         }
 
         // this.hoodAngle = RobotMap.hoodTarget; // for Tuning
@@ -123,8 +122,8 @@ public class JoeyShoot extends Command
 
         if(visionDistance)
         {
-            this.hoodAngle = Robot.raspberry.getneededHoodAngle();
-            this.shooterRpm = Robot.raspberry.getneededShooterRPM();
+            this.hoodAngle = Robot.raspberry.getHoodAngle();
+            this.shooterRpm = Robot.raspberry.getShooterRPM();
         }
         
         Robot.shooter.startShooter(shooterRpm);

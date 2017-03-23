@@ -152,15 +152,7 @@ public class RobotMap// test
 	// CONVERSION
 	public static final double wheelDiameter = 4;
 
-	// TEST
-	public static double drive1 = 0;
-	public static double drive2 = 0;
-	public static double drive3 = 0;
-
-	public static double angle1 = 0;
-	public static double angle2 = 0;
-	public static double angle3 = 0;
-
-	public static boolean onBlueSide;
-	public static boolean isVisionTracking;
+	// CAMERA
+	public static final int gearCamera = 0;
+	public static final int shooterCamera = 1;
 }
