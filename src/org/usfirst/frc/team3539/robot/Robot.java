@@ -103,7 +103,7 @@ public class Robot extends IterativeRobot
 	public void teleopInit()
 	{
 		System.out.println("teleopInit");
-
+		Scheduler.getInstance().add(new SetShootCamera());
 		Robot.manipulator.holderClose();
 	}
 

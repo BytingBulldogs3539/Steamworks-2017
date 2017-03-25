@@ -36,7 +36,7 @@ public class AutonTurn extends PIDCommand
 	public AutonTurn(boolean isGearVision, Button button)
 	{
 		super("AutonTurn", RobotMap.turnPea, RobotMap.turnEye, RobotMap.turnDee);
-		Init(0, -1, isGearVision, button);
+		Init(0, 3, isGearVision, button);
 	}
 
 	private void Init(double angle, double seconds, boolean isGearVision, Button button)
@@ -64,7 +64,7 @@ public class AutonTurn extends PIDCommand
 															// .6
 															// --- original -.5.
 															// .5
-		this.getPIDController().setAbsoluteTolerance(2);
+		this.getPIDController().setAbsoluteTolerance(1);
 		this.getPIDController().setToleranceBuffer(10);
 	}
 
@@ -74,7 +74,20 @@ public class AutonTurn extends PIDCommand
 
 	protected boolean isFinished()
 	{
-		return this.getPIDController().onTarget() || this.isTimedOut();// || !this.button.get();
+		boolean buttonpressed = true;
+		if (this.button != null)
+		{
+			buttonpressed = this.button.get();
+		}
+			
+		if (this.getPIDController().onTarget() || this.isTimedOut()|| !buttonpressed)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 	protected void end()

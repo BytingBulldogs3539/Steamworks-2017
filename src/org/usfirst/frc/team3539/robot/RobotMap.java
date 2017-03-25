@@ -155,4 +155,12 @@ public class RobotMap// test
 	// CAMERA
 	public static final int gearCamera = 0;
 	public static final int shooterCamera = 1;
+	public static double Distance1 = 90;
+	public static double Distance2 = 204;
+	public static double RPM1 = 2860;
+	public static double RPM2 = 4300;
+	public static double Hood1 = 467;
+	public static double Hood2 = 993;
+	
+	
 }

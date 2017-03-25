@@ -49,7 +49,7 @@ public class JoeyShoot extends Command
 
 		this.hoodAngle = 0;
 		this.shooterRpm = 0;
-		this.agitatorRpm = 250;
+		this.agitatorRpm = 235;
 		this.visionDistance = true;
 		this.isTeleop = true;
 		this.visionTurn = true;
@@ -115,18 +115,18 @@ public class JoeyShoot extends Command
 
 		//this.hoodAngle = RobotMap.hoodTarget; // for Tuning
 		// this.agitatorRpm = RobotMap.agitatorRpm; // for Tuning
-		this.shooterRpm = RobotMap.shooterRpm; // for Tuning
+		//this.shooterRpm = RobotMap.shooterRpm; // for Tuning
 	}
 
 	protected void execute()
 	{
 		Robot.hoodSubsystem.setAngle(hoodAngle);
 
-		if (visionDistance)
-		{
-			this.hoodAngle = Robot.raspberry.getHoodAngle();
-			this.shooterRpm = Robot.raspberry.getShooterRPM();
-		}
+		//if (visionDistance)
+		//{
+		//	this.hoodAngle = Robot.raspberry.getHoodAngle();
+		//	this.shooterRpm = Robot.raspberry.getShooterRPM();
+		//}
 
 		Robot.shooter.startShooter(shooterRpm);
 

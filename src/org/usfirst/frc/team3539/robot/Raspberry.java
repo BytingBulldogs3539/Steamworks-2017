@@ -47,23 +47,28 @@ public class Raspberry extends BulldogSystem
 	public double getTurnAngle()
 	{
 		// System.out.println("Distance:"+table.getNumber("Distance"));
-		return (table.getNumber("Angle")); //comp: - 4.5
+		return (table.getNumber("Angle")+3); //comp: - 4.5
 	}
 
 	public double getHoodAngle()
 	{
+		double slope = (RobotMap.Hood2- RobotMap.Hood1) / (RobotMap.Distance2-RobotMap.Distance1);
+		double intercept = RobotMap.Hood1- (slope * RobotMap.Distance1);
 		double distance = table.getNumber("Distance");
 
-			return 5.4143 * distance - 135;
+			return ((slope * distance) + intercept);// old value 5.4143 * distance - 20;
 	}
 
 	public double getShooterRPM()
 	{
+	//	double distance = table.getNumber("Distance");
+		double slope = (RobotMap.RPM2-RobotMap.RPM1) / (RobotMap.Distance2-RobotMap.Distance1);
+		double intercept = RobotMap.RPM1- (slope * RobotMap.Distance1);
 		double distance = table.getNumber("Distance");
 
 		// return -(9.1812*92+2335);
 
-			return -((12.009) * distance + 1763);
+			return -((slope * distance) + intercept); //-((12.009) * distance + 1763);
 
 	}
 
@@ -83,6 +88,20 @@ public class Raspberry extends BulldogSystem
 	{
 		SmartDashboard.putDouble("Raspberry PI", Robot.raspberry.getTurnAngle());
 		SmartDashboard.putDouble("PI Distance", Robot.raspberry.getDistance());
+		
+
+		
+		
+		RobotMap.Distance1 = SmartDashboard.getDouble("Distance1");
+		RobotMap.Distance2 = SmartDashboard.getDouble("Distance2");
+		RobotMap.RPM1 = SmartDashboard.getDouble("RPM1");
+		RobotMap.RPM2 = SmartDashboard.getDouble("RPM2");
+		RobotMap.Hood1 = SmartDashboard.getDouble("Hood1");
+		RobotMap.Hood2 = SmartDashboard.getDouble("Hood2");
+		
+		
+		
+		
 	}
 
 	@SuppressWarnings("deprecation")
@@ -91,5 +110,12 @@ public class Raspberry extends BulldogSystem
 	{
 		SmartDashboard.putDouble("Raspberry PI", Robot.raspberry.getTurnAngle());
 		SmartDashboard.putDouble("PI Distance", Robot.raspberry.getDistance());
+		
+		SmartDashboard.putDouble("Distance1", RobotMap.Distance1);
+		SmartDashboard.putDouble("Distance2", RobotMap.Distance2);
+		SmartDashboard.putDouble("RPM1", RobotMap.RPM1);
+		SmartDashboard.putDouble("RPM2", RobotMap.RPM2);
+		SmartDashboard.putDouble("Hood1", RobotMap.Hood1);
+		SmartDashboard.putDouble("Hood2", RobotMap.Hood2);
 	}
 }
