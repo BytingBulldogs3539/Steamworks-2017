@@ -45,7 +45,7 @@ public class AutonDrive extends PIDCommand
 		myTicks = Robot.driveTrain.inchToEnc2(inches);
 		requires(Robot.driveTrain);
 
-		this.getPIDController().setOutputRange(-.7, .7);
+		this.getPIDController().setOutputRange(-.85, .85);
 		
 		this.setTimeout(7);
 	}
@@ -71,7 +71,7 @@ public class AutonDrive extends PIDCommand
 		anglePID = new PIDController(RobotMap.turnPea, RobotMap.turnEye, RobotMap.turnDee, angle_output_source,
 				pidOutput);
 		anglePID.setSetpoint(0);
-		this.getPIDController().setAbsoluteTolerance(2);
+		this.getPIDController().setAbsoluteTolerance(2000);
 		this.getPIDController().setToleranceBuffer(10);
 		pidOutput.Reset();
 

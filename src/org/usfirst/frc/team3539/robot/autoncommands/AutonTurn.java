@@ -64,7 +64,7 @@ public class AutonTurn extends PIDCommand
 															// .6
 															// --- original -.5.
 															// .5
-		this.getPIDController().setAbsoluteTolerance(1);
+		this.getPIDController().setAbsoluteTolerance(2);
 		this.getPIDController().setToleranceBuffer(10);
 	}
 
@@ -74,7 +74,7 @@ public class AutonTurn extends PIDCommand
 
 	protected boolean isFinished()
 	{
-		return this.getPIDController().onTarget() || this.isTimedOut() || !this.button.get();
+		return this.getPIDController().onTarget() || this.isTimedOut();// || !this.button.get();
 	}
 
 	protected void end()

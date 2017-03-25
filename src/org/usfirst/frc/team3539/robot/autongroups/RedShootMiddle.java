@@ -15,7 +15,7 @@ public class RedShootMiddle extends CommandGroup
 	{
 		addSequential(new GearMiddleGroup());
 
-		addSequential(new AutonTurn(100));
+		addSequential(new AutonTurn(-80));
 		
 		addSequential(new JoeyShoot(7));
 	}

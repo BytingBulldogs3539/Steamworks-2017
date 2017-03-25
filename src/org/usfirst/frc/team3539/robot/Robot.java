@@ -94,7 +94,6 @@ public class Robot extends IterativeRobot
 	}
 
 	// This function is called periodically during autonomous
-
 	public void autonomousPeriodic()
 	{
 		Scheduler.getInstance().run();
@@ -104,8 +103,6 @@ public class Robot extends IterativeRobot
 	public void teleopInit()
 	{
 		System.out.println("teleopInit");
-
-		Scheduler.getInstance().removeAll();
 
 		Robot.manipulator.holderClose();
 	}
@@ -151,7 +148,7 @@ public class Robot extends IterativeRobot
 
 		autonChooser = new SendableChooser<Command>();
 
-		SmartDashboard.putData("Auto mode", autonChooser);
+		SmartDashboard.putData("Auton mode", autonChooser);
 		autonChooser.addDefault("No Auton, Default", new VoidCommand());
 		autonChooser.addObject("Auton Turn 180", new AutonTurn(180));
 
@@ -180,7 +177,7 @@ public class Robot extends IterativeRobot
 
 		// test
 		autonChooser.addObject("VisionGearMiddle", new VisionGearMiddle());
-
+		autonChooser.addObject("VisionTuning", new JoeyShoot(7));
 		autonChooser.addObject("NoneForward", new NoneForward());
 
 		SmartDashboard.putData(shooter);

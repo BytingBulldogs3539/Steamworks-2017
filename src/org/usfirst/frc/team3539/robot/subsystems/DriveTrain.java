@@ -204,13 +204,13 @@ public class DriveTrain extends BulldogSystem
 
 		SmartDashboard.putDouble("Gryo Angle", getGyroAngle());
 		
-//		 SmartDashboard.putDouble("--- Right Front", // from here
-//		 rfMotor.getEncPosition());
-//		 SmartDashboard.putDouble("--- Left Front", lfMotor.getEncPosition());
-//		 SmartDashboard.putDouble("--- Right Back",
-//		 rbMotor.getOutputCurrent());
-//		 SmartDashboard.putDouble("--- Left Back",
-//		 lbMotor.getOutputCurrent()); //to here
+		 SmartDashboard.putDouble("--- Right Front", // from here
+		 rfMotor.getEncPosition());
+		 SmartDashboard.putDouble("--- Left Front", lfMotor.getEncPosition());
+		 SmartDashboard.putDouble("--- Right Back",
+		 rbMotor.getOutputCurrent());
+		 SmartDashboard.putDouble("--- Left Back",
+		 lbMotor.getOutputCurrent()); //to here
 
 		RobotMap.drivePea = SmartDashboard.getDouble("RobotMap.drivePea");
 		RobotMap.driveEye = SmartDashboard.getDouble("RobotMap.driveEye");
@@ -230,15 +230,15 @@ public class DriveTrain extends BulldogSystem
 		SmartDashboard.putDouble("Gyro Velocity", 0);
 
 		SmartDashboard.putDouble("Gryo Angle", 0);
-		//
-		// SmartDashboard.putDouble("--- Right Front",
-		// rfMotor.getOutputCurrent());
-		// SmartDashboard.putDouble("--- Left Front",
-		// lfMotor.getOutputCurrent());
-		// SmartDashboard.putDouble("--- Right Back",
-		// rbMotor.getOutputCurrent());
-		// SmartDashboard.putDouble("--- Left Back",
-		// lbMotor.getOutputCurrent());
+		
+		 SmartDashboard.putDouble("--- Right Front",
+		 rfMotor.getOutputCurrent());
+		 SmartDashboard.putDouble("--- Left Front",
+		 lfMotor.getOutputCurrent());
+		 SmartDashboard.putDouble("--- Right Back",
+		 rbMotor.getOutputCurrent());
+		 SmartDashboard.putDouble("--- Left Back",
+		 lbMotor.getOutputCurrent());
 
 		SmartDashboard.putDouble("RobotMap.drivePea", RobotMap.drivePea);
 		SmartDashboard.putDouble("RobotMap.driveEye", RobotMap.driveEye);

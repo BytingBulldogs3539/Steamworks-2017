@@ -47,22 +47,14 @@ public class Raspberry extends BulldogSystem
 	public double getTurnAngle()
 	{
 		// System.out.println("Distance:"+table.getNumber("Distance"));
-		return table.getNumber("Angle"); //comp: - 4.5
+		return (table.getNumber("Angle")); //comp: - 4.5
 	}
 
 	public double getHoodAngle()
 	{
 		double distance = table.getNumber("Distance");
 
-		// return 5.4143*92-65.841;
-		if (distance < 160)
-		{
-			return 5.4143 * distance - 65;
-		}
-		else
-		{
-			return 5.4143 * 150 - 65;
-		}
+			return 5.4143 * distance - 135;
 	}
 
 	public double getShooterRPM()
@@ -71,14 +63,7 @@ public class Raspberry extends BulldogSystem
 
 		// return -(9.1812*92+2335);
 
-		if (distance < 160)
-		{
-			return -((9.1812 + .4) * distance + 2335 + 120);
-		}
-		else
-		{
-			return -((9.1812 + .4) * 150 + 2335 + 120);
-		}
+			return -((12.009) * distance + 1763);
 
 	}
 

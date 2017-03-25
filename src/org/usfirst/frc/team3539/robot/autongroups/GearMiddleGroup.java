@@ -14,7 +14,7 @@ public class GearMiddleGroup extends CommandGroup
 {
 	public GearMiddleGroup()
 	{
-		addSequential(new AutonDrive(88, 5));
+		addSequential(new AutonDrive(87, 5));
 
 		addSequential(new AutoWait(1));
 

@@ -118,6 +118,14 @@ public class Shooter extends BulldogSystem
 		System.out.println(agitatorMotor.getPulseWidthVelocity());
 	}
 
+	public void disableAgitatorPID()
+	{
+		this.agitatorMotor.disable();
+	}
+	public void disableShooterPID()
+	{
+		shooterOneMotor.disable();
+	}
 	public void resetShooterPID()
 	{
 		shooterOneMotor.changeControlMode(CANTalon.TalonControlMode.Speed);
@@ -166,6 +174,7 @@ public class Shooter extends BulldogSystem
 		RobotMap.shootPea = SmartDashboard.getDouble("shootPea");
 		RobotMap.shootEye = SmartDashboard.getDouble("shootEye");
 		RobotMap.shootDee = SmartDashboard.getDouble("shootDee");
+		RobotMap.shootEff = SmartDashboard.getDouble("shootEff");
 		
 //		RobotMap.hoodPea = SmartDashboard.getDouble("hoodPea");
 //		RobotMap.hoodEye = SmartDashboard.getDouble("hoodEye");
@@ -177,7 +186,6 @@ public class Shooter extends BulldogSystem
 		RobotMap.agitatorEye = SmartDashboard.getDouble("agitatorEye");
 		RobotMap.agitatorDee = SmartDashboard.getDouble("agitatorDee");
 		RobotMap.agitatorEff = SmartDashboard.getDouble("agitatorEff");
-		
 	}
 
 	@Override
@@ -196,6 +204,7 @@ public class Shooter extends BulldogSystem
 		SmartDashboard.putDouble("shootPea", RobotMap.shootPea);
 		SmartDashboard.putDouble("shootEye", RobotMap.shootEye);
 		SmartDashboard.putDouble("shootDee", RobotMap.shootDee);
+		SmartDashboard.putDouble("shootEff", RobotMap.shootEff);
 		
 
 //		SmartDashboard.putDouble("hoodPea", RobotMap.hoodPea);
