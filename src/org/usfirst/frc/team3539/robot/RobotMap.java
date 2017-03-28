@@ -8,7 +8,6 @@ package org.usfirst.frc.team3539.robot;
  */
 public class RobotMap
 {
-	public static double deadband = .45;
 	// CONTROLLER PORT
 	public static final int controllerOnePort = 1;
 	public static final int controllerTwoPort = 0;
@@ -87,7 +86,7 @@ public class RobotMap
 
 	//////////////////////// PRACTICE BOT/////////////////////
 
-	
+	/*
 	// PRACTICE CAMERA
 	public static final int gearCamera = 0;
 	public static final int shooterCamera = 1;
@@ -135,18 +134,19 @@ public class RobotMap
 	public static double middleShootTurn = 60;
 	public static double insideShootTurn = 0;
 	public static double visionWait = .5;
-public static double hopperTurn = 91;
-
-public static double hopperShootTurn = 45;
-public static double farHopperDistance = whiteLineDistance + 57;
-}
+	public static double hopperTurn = 91;
+	public static double hopperShootTurn = 45;
+	public static double farHopperDistance = whiteLineDistance + 57;
+	public static double deadband = .45;
+	
+*/
 	
 	
 
 	//////////////////////// COMP BOT/////////////////////
 
 	
-	/*
+	
 	//COMP CAMERA
 	public static final int gearCamera = 0;
 	public static final int shooterCamera = 1;
@@ -160,11 +160,12 @@ public static double farHopperDistance = whiteLineDistance + 57;
 
 	//COMP PID
 	
-	public static double driveMultiplier = .8780;
-
-	public static double drivePea = .0001;
-	public static double driveEye = 0;
-	public static double driveDee = .0001;
+	
+	//public static double driveMultiplier = .8780;
+	public static double driveMultiplier = 1; // .665
+	public static double drivePea = .000035;//00053;// .0005;
+	public static double driveEye = 0;//.0000000005;// 0;	
+	public static double driveDee = .00005;// .000009;
 
 	public static double turnPea = .1;
 	public static double turnEye = .00005;// 5.0E-5 
@@ -200,6 +201,6 @@ public static double farHopperDistance = whiteLineDistance + 57;
 	
 	public static double hopperShootTurn = 45;
 	public static double farHopperDistance = whiteLineDistance + 57;
-	
+	public static double deadband = .45;
 }
-	*/
+	
