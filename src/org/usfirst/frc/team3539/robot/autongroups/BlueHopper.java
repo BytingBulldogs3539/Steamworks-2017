@@ -4,6 +4,7 @@ import org.usfirst.frc.team3539.robot.autoncommands.AutoWait;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonDrive;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonDriveOld;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonTurn;
+import org.usfirst.frc.team3539.robot.autoncommands.HoodReset;
 import org.usfirst.frc.team3539.robot.commands.JoeyShoot;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
@@ -16,6 +17,7 @@ public class BlueHopper extends CommandGroup
 
 	public BlueHopper()
 	{
+		addParallel(new HoodReset(3));
 		addSequential(new AutonDrive(80, 5));
 		addSequential(new AutonTurn(91, 2));
 		addSequential(new AutonDrive(-40, 3));

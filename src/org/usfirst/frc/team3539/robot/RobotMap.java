@@ -153,7 +153,7 @@ public class RobotMap
 	public static double Distance1 = 104;
 	public static double Distance2 = 204;
 	public static double RPM1 = 3250;
-	public static double RPM2 = 4100;
+	public static double RPM2 = 4050;
 	public static double Hood1 = 640;
 	public static double Hood2 = 1100;
 	public static double shooterCameraOffset = -2.5;
@@ -199,8 +199,8 @@ public class RobotMap
 	public static double visionWait = .5;
 	public static double hopperTurn = 91;
 	
-	public static double hopperShootTurn = 45;
-	public static double farHopperDistance = whiteLineDistance + 57;
+	public static double hopperShootTurn = 60;
+	public static double farHopperDistance = whiteLineDistance + 50;
 	public static double deadband = .45;
 }
 	

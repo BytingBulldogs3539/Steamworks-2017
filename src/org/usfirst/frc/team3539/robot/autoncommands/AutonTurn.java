@@ -60,13 +60,13 @@ public class AutonTurn extends PIDCommand
 		else
 			this.setSetpoint(angle);
 		
-		if(angle > 95)
-			this.getPIDController().setOutputRange(-.85, .85);
+		if(Math.abs(angle) > 0 )
+			this.getPIDController().setOutputRange(-.80, .8);
 		else
 			this.getPIDController().setOutputRange(-1, 1);
 			
 		this.getPIDController().setAbsoluteTolerance(1);
-		this.getPIDController().setToleranceBuffer(10);
+		this.getPIDController().setToleranceBuffer(15);
 	}
 
 	protected void execute()

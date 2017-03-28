@@ -82,10 +82,10 @@ public class Robot extends IterativeRobot
 		raspberry.setCamera(RobotMap.gearCamera);
 
 		autonMode = (Command) autonChooser.getSelected();
-
 		if (autonMode != null)
 		{
 			System.out.println("Here");
+			
 
 			autonMode.start();
 		}

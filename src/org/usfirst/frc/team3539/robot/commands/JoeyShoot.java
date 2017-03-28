@@ -74,6 +74,24 @@ public class JoeyShoot extends Command
 		this.shootTime = seconds;
 
 	}
+	
+	public JoeyShoot(double seconds, double agitatorSpeed)
+	{
+		super("JoeyShoot");
+		requires(Robot.shooter);
+		requires(Robot.hoodSubsystem);
+
+		System.out.println("Supa man!");
+
+		this.hoodAngle = 0;
+		this.shooterRpm = 0;
+		this.agitatorRpm = agitatorSpeed;
+		this.isTeleop = false;
+		this.visionTurn = true;
+		this.visionDistance = true;
+		this.shootTime = seconds;
+
+	}
 
 	// auton Shooting
 	public JoeyShoot(boolean visionTurn, double hoodAngle, double agitatorRpm, double shooterRpm, double seconds)

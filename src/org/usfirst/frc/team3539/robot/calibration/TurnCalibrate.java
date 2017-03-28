@@ -16,16 +16,16 @@ public class TurnCalibrate extends CommandGroup
 
 	public TurnCalibrate()
 	{
-		addSequential(new AutonTurn(180));
-		addSequential(new AutoWait(1));
-		
-		addSequential(new AutonTurn(-180));
-		addSequential(new AutoWait(1));
-
 		addSequential(new AutonTurn(90));
 		addSequential(new AutoWait(1));
 		
 		addSequential(new AutonTurn(-90));
+		addSequential(new AutoWait(1));
+
+		addSequential(new AutonTurn(60));
+		addSequential(new AutoWait(1));
+		
+		addSequential(new AutonTurn(-60));
 		addSequential(new AutoWait(1));
 		
 		addSequential(new AutonTurn(25));
