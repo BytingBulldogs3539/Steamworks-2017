@@ -16,11 +16,10 @@ public class GearRightGroup extends CommandGroup
 {
 	public GearRightGroup()
 	{
-		addSequential(new AutonDrive(87, 5));
+		addSequential(new AutonDrive(RobotMap.whiteLineDistance, 5));
 
-		addSequential(new AutonTurn(60));
+		addSequential(new AutonTurn(RobotMap.sidePegTurn));
 
-		addSequential(new AutonDrive(45));
 
 		addSequential(new AutoWait(1));
 
@@ -28,7 +27,7 @@ public class GearRightGroup extends CommandGroup
 
 		addSequential(new AutoWait(1));
 
-		addSequential(new AutonDrive(-45));
+		addSequential(new AutonDrive(-RobotMap.sidePegDistance));
 
 		addSequential(new AutonGearClose());
 	}

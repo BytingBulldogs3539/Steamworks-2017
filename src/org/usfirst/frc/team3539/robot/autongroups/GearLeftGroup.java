@@ -1,5 +1,6 @@
 package org.usfirst.frc.team3539.robot.autongroups;
 
+import org.usfirst.frc.team3539.robot.RobotMap;
 import org.usfirst.frc.team3539.robot.autoncommands.AutoWait;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonDrive;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonGearClose;
@@ -15,11 +16,11 @@ public class GearLeftGroup extends CommandGroup
 {
 	public GearLeftGroup()
 	{
-		addSequential(new AutonDrive(107));
+		addSequential(new AutonDrive(RobotMap.whiteLineDistance, 5));
 
-		addSequential(new AutonTurn(-60));
+		addSequential(new AutonTurn(-RobotMap.sidePegTurn));
 
-		addSequential(new AutonDrive(30));
+		addSequential(new AutonDrive(RobotMap.sidePegDistance));
 
 		addSequential(new AutoWait(1));
 
@@ -27,7 +28,7 @@ public class GearLeftGroup extends CommandGroup
 
 		addSequential(new AutoWait(1));
 
-		addSequential(new AutonDrive(-30));
+		addSequential(new AutonDrive(-RobotMap.sidePegDistance));
 
 		addSequential(new AutonGearClose());
 	}

@@ -59,11 +59,12 @@ public class AutonTurn extends PIDCommand
 			this.setSetpoint(Robot.raspberry.getTurnAngle());
 		else
 			this.setSetpoint(angle);
-
-		this.getPIDController().setOutputRange(-.85, .85); // newest .7 --- new
-															// .6
-															// --- original -.5.
-															// .5
+		
+		if(angle > 95)
+			this.getPIDController().setOutputRange(-.85, .85);
+		else
+			this.getPIDController().setOutputRange(-1, 1);
+			
 		this.getPIDController().setAbsoluteTolerance(1);
 		this.getPIDController().setToleranceBuffer(10);
 	}
@@ -111,6 +112,13 @@ public class AutonTurn extends PIDCommand
 	@Override
 	protected void usePIDOutput(double output)
 	{
+		if (output > 0)
+			output = (1-RobotMap.deadband) * output + RobotMap.deadband;
+
+		if (output < 0)
+			output = (1-RobotMap.deadband) * output - RobotMap.deadband;
+
 		Robot.driveTrain.turnLinear(output);
+		
 	}
 }

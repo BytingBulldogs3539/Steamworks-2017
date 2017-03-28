@@ -100,6 +100,8 @@ public class DriveTrain extends BulldogSystem
 	public void turnLinear(double speed)
 	{
 		drive.tankDrive(-speed, speed);
+	
+				
 	}
 
 	public double getBalancedEncoderPosition()
@@ -139,6 +141,7 @@ public class DriveTrain extends BulldogSystem
 	public void driveArcade(double leftStick, double rightStick)
 	{
 		drive.arcadeDrive(leftStick, rightStick);
+		System.out.println(rightStick);
 	}
 
 	public void changeGears()
@@ -219,6 +222,10 @@ public class DriveTrain extends BulldogSystem
 		RobotMap.turnPea = SmartDashboard.getDouble("RobotMap.turnPea");
 		RobotMap.turnEye = SmartDashboard.getDouble("RobotMap.turnEye");
 		RobotMap.turnDee = SmartDashboard.getDouble("RobotMap.turnDee");
+
+		RobotMap.deadband = SmartDashboard.getDouble("Drive Deadband");
+
+		
 	}
 
 	@Override
@@ -247,6 +254,7 @@ public class DriveTrain extends BulldogSystem
 		SmartDashboard.putDouble("RobotMap.turnPea", RobotMap.turnPea);
 		SmartDashboard.putDouble("RobotMap.turnEye", RobotMap.turnEye);
 		SmartDashboard.putDouble("RobotMap.turnDee", RobotMap.turnDee);
+		SmartDashboard.putDouble("Drive Deadband", RobotMap.deadband);
 	}
 
 	public void defaultSetter()

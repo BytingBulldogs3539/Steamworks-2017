@@ -27,7 +27,7 @@ public class HoodSubsystem extends PIDSubsystem
 		shooterHoodMotor.setSafetyEnabled(false);
 
 		this.setAbsoluteTolerance(20);
-		this.setOutputRange(-.25, .25);
+		this.setOutputRange(-.35, .35);
 
 		zeroHoodEncoders();
 		this.setSetpoint(0);

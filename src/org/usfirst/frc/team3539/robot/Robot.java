@@ -141,7 +141,7 @@ public class Robot extends IterativeRobot
 		driveTrain.SmartInit();
 		hoodSubsystem.SmartInit();
 		raspberry.SmartInit();
-
+		
 		SmartDashboard.putData(new VisionGearMiddle());
 		SmartDashboard.putData(new VisionTest());
 		SmartDashboard.putData(new TurnCalibrate());

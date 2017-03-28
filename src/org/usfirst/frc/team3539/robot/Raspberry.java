@@ -47,7 +47,7 @@ public class Raspberry extends BulldogSystem
 	public double getTurnAngle()
 	{
 		// System.out.println("Distance:"+table.getNumber("Distance"));
-		return (table.getNumber("Angle")+3); //comp: - 4.5
+		return (table.getNumber("Angle") + RobotMap.shooterCameraOffset);
 	}
 
 	public double getHoodAngle()
