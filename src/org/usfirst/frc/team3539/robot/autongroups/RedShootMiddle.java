@@ -25,7 +25,7 @@ public class RedShootMiddle extends CommandGroup
 
 		addSequential(new AutoWait(RobotMap.visionWait));
 
-		addSequential(new AutonTurn(0, 1));
+		addSequential(new AutonTurn(0, 2));
 		
 		addSequential(new JoeyShoot(7));
 	}

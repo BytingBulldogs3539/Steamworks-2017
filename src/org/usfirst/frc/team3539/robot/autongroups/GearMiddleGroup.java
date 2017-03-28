@@ -15,13 +15,13 @@ public class GearMiddleGroup extends CommandGroup
 {
 	public GearMiddleGroup()
 	{
-		addSequential(new AutonDrive(RobotMap.whiteLineDistance, 5));
+		addSequential(new AutonDrive(RobotMap.whiteLineDistance, 3));
 
-		addSequential(new AutoWait(1));
+//		addSequential(new AutoWait(.5));
 
 		addSequential(new AutonGearOpen());
 
-		addSequential(new AutoWait(1));
+	//	addSequential(new AutoWait(.5));
 
 		addSequential(new AutonDrive(-40, 3));
 

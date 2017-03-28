@@ -190,11 +190,11 @@ public class RobotMap
 	public static double agitatorEff = .35;
 	
 	//COMP AUTON
-	public static double whiteLineDistance = 73;
+	public static double whiteLineDistance = 76;
 	public static double sidePegTurn = 60;
-	public static double sidePegDistance = 45;
+	public static double sidePegDistance = 45+3;
 	public static double outsideShootTurn = 130;
-	public static double middleShootTurn = 60;
+	public static double middleShootTurn = 90;
 	public static double insideShootTurn = 0;
 	public static double visionWait = .5;
 	public static double hopperTurn = 91;

@@ -22,6 +22,8 @@ public class RedShootInside extends CommandGroup
 
 		addSequential(new AutoWait(RobotMap.visionWait));
 
+		addSequential(new AutonTurn(15,1));
+		
 		addSequential(new AutonTurn(0, 1));
 		
 		addSequential(new AutoWait(.5));

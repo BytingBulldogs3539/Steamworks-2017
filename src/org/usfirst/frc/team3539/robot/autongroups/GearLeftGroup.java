@@ -16,7 +16,7 @@ public class GearLeftGroup extends CommandGroup
 {
 	public GearLeftGroup()
 	{
-		addSequential(new AutonDrive(RobotMap.whiteLineDistance, 5));
+		addSequential(new AutonDrive(RobotMap.whiteLineDistance, 3));
 
 		addSequential(new AutonTurn(-RobotMap.sidePegTurn));
 
