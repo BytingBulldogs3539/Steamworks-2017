@@ -10,8 +10,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class ZeroHoodCommand extends Command
 {
-   // private int ticks;
-
     public ZeroHoodCommand()
     {
         requires(Robot.hoodSubsystem);
