@@ -17,15 +17,14 @@ public class DriveCalibrate extends CommandGroup
 
 	public DriveCalibrate()
 	{
-		addSequential(new AutonDrive(40));
-		addSequential(new AutoWait(2));
+		addSequential(new AutonDrive(90));
+		addSequential(new AutoWait(1));
 		
-		addSequential(new AutonDrive(-40));
-		addSequential(new AutoWait(2));
-//		
-//		addSequential(new AutonDrive(25));
-//		addSequential(new AutoWait(2));
-//		
-//		addSequential(new AutonDrive(-25));
+		addSequential(new AutonDrive(-90));
+		addSequential(new AutoWait(1));
+		
+		addSequential(new AutonDrive(45));
+		addSequential(new AutoWait(1));
+		addSequential(new AutonDrive(-45));
 	}
 }

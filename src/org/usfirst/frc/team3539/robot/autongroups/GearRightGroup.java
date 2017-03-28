@@ -20,6 +20,7 @@ public class GearRightGroup extends CommandGroup
 
 		addSequential(new AutonTurn(RobotMap.sidePegTurn));
 
+		addSequential(new AutonDrive(RobotMap.sidePegDistance+4));
 
 		addSequential(new AutoWait(1));
 

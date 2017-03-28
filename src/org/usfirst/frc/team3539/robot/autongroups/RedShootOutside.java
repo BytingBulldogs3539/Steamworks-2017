@@ -1,6 +1,7 @@
 package org.usfirst.frc.team3539.robot.autongroups;
 
 import org.usfirst.frc.team3539.robot.RobotMap;
+import org.usfirst.frc.team3539.robot.autoncommands.AutoWait;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonTurn;
 import org.usfirst.frc.team3539.robot.autoncommands.SetShootCamera;
 import org.usfirst.frc.team3539.robot.commands.JoeyShoot;
@@ -18,11 +19,15 @@ public class RedShootOutside extends CommandGroup
 		addSequential(new GearRightGroup());
 
 		addSequential(new SetShootCamera());
-	
-		addSequential(new AutonTurn(-130, 4));
 
-		addSequential(new AutonTurn(0,1));
+		addSequential(new AutonTurn(-RobotMap.outsideShootTurn, 4));
 
+		addSequential(new AutoWait(RobotMap.visionWait));
+
+		addSequential(new AutonTurn(0, 1));
+
+		addSequential(new AutoWait(.5));
+		
 		addSequential(new JoeyShoot(7));
 	}
 }

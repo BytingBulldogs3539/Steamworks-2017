@@ -45,7 +45,7 @@ public class AutonDrive extends PIDCommand
 		myTicks = Robot.driveTrain.inchToEnc2(inches);
 		requires(Robot.driveTrain);
 
-		this.getPIDController().setOutputRange(-.85, .85);
+		//this.getPIDController().setOutputRange(-.85, .85);//
 		
 		this.setTimeout(7);
 	}
@@ -56,7 +56,7 @@ public class AutonDrive extends PIDCommand
 		myTicks = Robot.driveTrain.inchToEnc2(inches);
 		requires(Robot.driveTrain);
 
-		this.getPIDController().setOutputRange(-.7, .7);
+		//this.getPIDController().setOutputRange(-.85, .85);
 		
 		this.setTimeout(seconds);
 	}
@@ -72,7 +72,7 @@ public class AutonDrive extends PIDCommand
 				pidOutput);
 		anglePID.setSetpoint(0);
 		this.getPIDController().setAbsoluteTolerance(2000);
-		this.getPIDController().setToleranceBuffer(10);
+		this.getPIDController().setToleranceBuffer(20);
 		pidOutput.Reset();
 
 		this.getPIDController().setPID(RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
@@ -116,6 +116,12 @@ public class AutonDrive extends PIDCommand
 	@Override
 	protected void usePIDOutput(double output)
 	{
+		if (output > 0)
+			output = (1-RobotMap.deadband) * output + RobotMap.deadband;
+
+		if (output < 0)
+			output = (1-RobotMap.deadband) * output - RobotMap.deadband;
+		
 		Robot.driveTrain.driveArcade(output, pidOutput.Get());
 	}
 }
