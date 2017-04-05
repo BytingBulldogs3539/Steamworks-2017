@@ -9,12 +9,13 @@ public class BulldogPIDOutput implements PIDOutput
 	public void pidWrite(double output)
 	{
 		pidValue = output;
-		
 	}
+	
 	public void Reset()
 	{
 		pidValue = 0;
 	}
+	
 	public double Get()
 	{
 		return pidValue;

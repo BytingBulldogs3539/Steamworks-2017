@@ -86,7 +86,7 @@ public class RobotMap
 
 	//////////////////////// PRACTICE BOT/////////////////////
 
-	/*
+	
 	// PRACTICE CAMERA
 	public static final int gearCamera = 0;
 	public static final int shooterCamera = 1;
@@ -139,23 +139,22 @@ public class RobotMap
 	public static double farHopperDistance = whiteLineDistance + 57;
 	public static double deadband = .45;
 	
-*/
 	
 	
 
 	//////////////////////// COMP BOT/////////////////////
 
 	
-	
+	/*
 	//COMP CAMERA
 	public static final int gearCamera = 0;
 	public static final int shooterCamera = 1;
 	public static double Distance1 = 104;
 	public static double Distance2 = 204;
-	public static double RPM1 = 3250;
+	public static double RPM1 = 3300;
 	public static double RPM2 = 4050;
-	public static double Hood1 = 640;
-	public static double Hood2 = 1100;
+	public static double Hood1 = 680;//640
+	public static double Hood2 = 1140;//1100
 	public static double shooterCameraOffset = -2.5;
 
 	//COMP PID
@@ -192,7 +191,7 @@ public class RobotMap
 	//COMP AUTON
 	public static double whiteLineDistance = 76;
 	public static double sidePegTurn = 60;
-	public static double sidePegDistance = 45+3;
+	public static double sidePegDistance = 45+3+3;
 	public static double outsideShootTurn = 130;
 	public static double middleShootTurn = 90;
 	public static double insideShootTurn = 0;
@@ -200,7 +199,8 @@ public class RobotMap
 	public static double hopperTurn = 91;
 	
 	public static double hopperShootTurn = 60;
-	public static double farHopperDistance = whiteLineDistance + 50;
+	public static double farHopperDistance = 76 + 48;
 	public static double deadband = .45;
+	*/
 }
 	

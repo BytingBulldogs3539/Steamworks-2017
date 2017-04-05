@@ -8,6 +8,8 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import org.usfirst.frc.team3539.robot.CurvedAutons.LeftCurvePeg;
+import org.usfirst.frc.team3539.robot.CurvedAutons.RightCurvePeg;
 import org.usfirst.frc.team3539.robot.autoncommands.*;
 import org.usfirst.frc.team3539.robot.autongroups.*;
 import org.usfirst.frc.team3539.robot.calibration.*;
@@ -79,7 +81,7 @@ public class Robot extends IterativeRobot
 		System.out.println("autonomousInit");
 		Update();
 
-		raspberry.setCamera(RobotMap.gearCamera);
+		raspberry.setCamera(RobotMap.shooterCamera);
 
 		autonMode = (Command) autonChooser.getSelected();
 		if (autonMode != null)
@@ -103,7 +105,7 @@ public class Robot extends IterativeRobot
 	public void teleopInit()
 	{
 		System.out.println("teleopInit");
-		Scheduler.getInstance().add(new SetShootCamera());
+		raspberry.setCamera(RobotMap.gearCamera);
 		Robot.manipulator.holderClose();
 	}
 
@@ -141,6 +143,9 @@ public class Robot extends IterativeRobot
 		driveTrain.SmartInit();
 		hoodSubsystem.SmartInit();
 		raspberry.SmartInit();
+		
+		SmartDashboard.putData(new LeftCurvePeg());
+		SmartDashboard.putData(new RightCurvePeg());
 		
 		SmartDashboard.putData(new VisionGearMiddle());
 		SmartDashboard.putData(new VisionTest());
