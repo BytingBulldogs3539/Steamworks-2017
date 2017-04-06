@@ -11,34 +11,35 @@ import edu.wpi.first.wpilibj.command.PIDCommand;
 /**
  *
  */
-public class SuperDriveAuton extends PIDCommand {
+public class SuperDriveAuton2 extends PIDCommand {
 	private double myTicks;
 
 	private double turnSpeed = 0;
 	private double turnAngle = 0;
 	private Boolean useVision = false;
-	private double driveLimits = .85;
+	private Boolean latchOnVision = false;
+	
 	private double defaultTime = 7;
 
 	private PIDController anglePID;
 	private BulldogPIDOutput anglePID_output = new BulldogPIDOutput();
 	private BulldogPIDFeedback anglePID_feedback = new BulldogPIDFeedback();
 
-	public SuperDriveAuton(double inches) {
+	public SuperDriveAuton2(double inches) {
 		super("SuperDrive", RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
 		this.AutonInit(inches, 0, 0, false, defaultTime);
 	}
-	public SuperDriveAuton(double inches, double seconds) {
+	public SuperDriveAuton2(double inches, double seconds) {
 		super("SuperDrive", RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
 		this.AutonInit(inches, 0, 0, false, seconds);
 	}
 
-	public SuperDriveAuton(double inches, double turnSpeed, double turnAngle, Boolean useVision) {
+	public SuperDriveAuton2(double inches, double turnSpeed, double turnAngle, Boolean useVision) {
 		super("SuperDrive", RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
 		this.AutonInit(inches, turnSpeed, turnAngle, useVision, defaultTime);
 	}
 
-	public SuperDriveAuton(double inches, double turnSpeed, double turnAngle, Boolean useVision, double seconds) {
+	public SuperDriveAuton2(double inches, double turnSpeed, double turnAngle, Boolean useVision, double seconds) {
 		super("SuperDrive", RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
 		this.AutonInit(inches, turnSpeed, turnAngle, useVision, seconds);
 	}
@@ -53,66 +54,64 @@ public class SuperDriveAuton extends PIDCommand {
 		
 		this.setTimeout(seconds);
 
-		// 
+		// this.getPIDController().setOutputRange(-.85, .85);
 	}
 
 	protected void initialize() {
 		
-		Robot.raspberry.setCamera(RobotMap.gearCamera);
+		latchOnVision = false;
+		Robot.driveTrain.gyroReset();
 		
-		Robot.driveTrain.zeroEncoders();
-		Robot.driveTrain.gyroReset();	
-		
-		//Angle PID Settings
 		anglePID = new PIDController(RobotMap.turnPea, RobotMap.turnEye, RobotMap.turnDee, anglePID_feedback, anglePID_output);
-		anglePID.setAbsoluteTolerance(2);
-		anglePID.setToleranceBuffer(10);
 		
-		anglePID_feedback.setVisionFeedback(false);
-		anglePID_output.pidWrite(turnSpeed);
 
-		//Drive PID Settings
+		anglePID.setAbsoluteTolerance(2);
+		anglePID.setToleranceBuffer(5);
+		anglePID.setOutputRange(-1, 1);
+		anglePID_feedback.setVisionFeedback(false);
+		if(useVision)
+		{
+			anglePID.setSetpoint(0);
+		}
+		else
+		{
+			anglePID.setSetpoint(turnAngle);			
+		}
+		
+		anglePID_output.Reset();
+
 		this.getPIDController().setPID(RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
-		this.getPIDController().setOutputRange(-driveLimits, driveLimits);
 		this.getPIDController().setAbsoluteTolerance(2000);
 		this.getPIDController().setToleranceBuffer(20);
-		this.setSetpoint(myTicks);
 
+		Robot.driveTrain.zeroEncoders();
+		Robot.driveTrain.gyroReset();
+
+		this.setSetpoint(myTicks);
 	}
 
 	protected void execute() {
-		
-		if (!useVision && anglePID.isEnabled() && anglePID.onTarget())
-		{
-			System.out.println("Disable Vision");
-			// vision is done tracking
-			Robot.driveTrain.gyroReset();
-			anglePID_feedback.setVisionFeedback(false);
-			anglePID.setSetpoint(0);
-			anglePID.reset();
-			anglePID_output.Reset();
-			useVision = true;
-		}
-		
-		if (!anglePID.isEnabled() && Math.abs(Robot.driveTrain.getGyroAngle()) > this.turnAngle *.9)
-		{
-			System.out.println("Reached Angle");
-			Robot.driveTrain.gyroReset();
-			anglePID_feedback.setVisionFeedback(false);
-			
-			if(Robot.raspberry.getTurnAngle() == 0 || !useVision)
-			{
-				anglePID.setSetpoint(0);
-			} 
-			else
-			{
-				anglePID.setSetpoint(Robot.raspberry.getTurnAngle());
-				useVision = false;
+		// Steer by Sight?
+		if (turnSpeed != 0) {
+			if ( Robot.driveTrain.getGyroAngle() < -55) {
+				//Robot.driveTrain.gyroReset();
+				//anglePID.setSetpoint(Robot.raspberry.getTurnAngle());
+				//anglePID.enable();
+				turnSpeed=0;
+				anglePID_output.pidWrite(0);
+				latchOnVision = true;
+				System.out.println("angle pid enabled");
+			} else {
+				anglePID_output.pidWrite(this.turnSpeed);
 			}
-			
-			anglePID.reset();
-			anglePID.enable();
+
 		}
+		if (anglePID.isEnabled() && (anglePID.onTarget())) {
+			anglePID.disable();
+			anglePID_output.pidWrite(0);
+			System.out.println("angle pid disablwe");
+		}
+
 	}
 
 	protected boolean isFinished() {

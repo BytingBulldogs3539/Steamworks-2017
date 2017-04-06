@@ -96,7 +96,8 @@ public class RobotMap
 	public static double RPM2 = 4300;
 	public static double Hood1 = 467;
 	public static double Hood2 = 993;
-	public static double shooterCameraOffset = 0;
+	public static double shooterCameraOffset = 3;
+	public static double gearCameraOffset = 0;
 	
 	// PRACTICE PID
 	public static double driveMultiplier = 1; // .665
@@ -131,7 +132,7 @@ public class RobotMap
 	public static double sidePegTurn = 60;
 	public static double sidePegDistance = 45;
 	public static double outsideShootTurn = 130;
-	public static double middleShootTurn = 60;
+	public static double middleShootTurn = 80;
 	public static double insideShootTurn = 0;
 	public static double visionWait = .5;
 	public static double hopperTurn = 91;

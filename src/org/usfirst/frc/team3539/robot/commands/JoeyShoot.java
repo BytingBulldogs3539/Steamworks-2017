@@ -50,7 +50,7 @@ public class JoeyShoot extends Command
 
 		this.hoodAngle = 0;
 		this.shooterRpm = 0;
-		this.agitatorRpm = 200;
+		this.agitatorRpm = 400;
 		this.visionDistance = true;
 		this.isTeleop = true;
 		this.visionTurn = true;
@@ -68,7 +68,7 @@ public class JoeyShoot extends Command
 
 		this.hoodAngle = 0;
 		this.shooterRpm = 0;
-		this.agitatorRpm = 200;
+		this.agitatorRpm = 400;
 		this.isTeleop = false;
 		this.visionTurn = true;
 		this.visionDistance = true;

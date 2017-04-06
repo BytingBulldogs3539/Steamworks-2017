@@ -18,6 +18,8 @@ public class AutonDrive extends PIDCommand
 	private BulldogPIDOutput pidOutput = new BulldogPIDOutput();
 	private PIDController anglePID;
 
+	private Boolean useVision = false;
+	
 	// private final PIDOutput angle_output = useAnglePIDOutput;
 	/**
 	 * A source which calls {@link PIDCommand#returnPIDInput()}.
@@ -44,18 +46,29 @@ public class AutonDrive extends PIDCommand
 		super("test", RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
 		myTicks = Robot.driveTrain.inchToEnc2(inches);
 		requires(Robot.driveTrain);
-
+		this.useVision = false;
 		//this.getPIDController().setOutputRange(-.85, .85);//
 		
 		this.setTimeout(7);
 	}
 
+	public AutonDrive(double inches, Boolean useVision)
+	{
+		super("test", RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
+		myTicks = Robot.driveTrain.inchToEnc2(inches);
+		requires(Robot.driveTrain);
+		this.useVision = useVision;
+		//this.getPIDController().setOutputRange(-.85, .85);//
+		
+		this.setTimeout(7);
+	}
+	
 	public AutonDrive(double inches, double seconds)
 	{
 		super("test", RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
 		myTicks = Robot.driveTrain.inchToEnc2(inches);
 		requires(Robot.driveTrain);
-
+		this.useVision = false;
 		//this.getPIDController().setOutputRange(-.85, .85);
 		
 		this.setTimeout(seconds);
@@ -70,7 +83,14 @@ public class AutonDrive extends PIDCommand
 	{
 		anglePID = new PIDController(RobotMap.turnPea, RobotMap.turnEye, RobotMap.turnDee, angle_output_source,
 				pidOutput);
-		anglePID.setSetpoint(0);
+		if(useVision)
+			anglePID.setSetpoint(Robot.raspberry.getTurnAngle());
+		else
+			anglePID.setSetpoint(0);
+
+		anglePID.setAbsoluteTolerance(2);
+		anglePID.setToleranceBuffer(10);
+		
 		this.getPIDController().setAbsoluteTolerance(2000);
 		this.getPIDController().setToleranceBuffer(20);
 		pidOutput.Reset();
@@ -85,7 +105,9 @@ public class AutonDrive extends PIDCommand
 
 	protected void execute()
 	{
-		anglePID.setSetpoint(0);
+		//anglePID.setSetpoint(0);
+		//if(anglePID.onTarget())
+		//	anglePID.disable();
 	}
 
 	protected boolean isFinished()
@@ -96,7 +118,7 @@ public class AutonDrive extends PIDCommand
 	protected void end()
 	{
 		Robot.driveTrain.zeroEncoders();
-		Robot.driveTrain.stopTrain();
+		//Robot.driveTrain.stopTrain();
 		anglePID.disable();
 		pidOutput.Reset();
 	}

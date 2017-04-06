@@ -141,7 +141,7 @@ public class DriveTrain extends BulldogSystem
 	public void driveArcade(double leftStick, double rightStick)
 	{
 		drive.arcadeDrive(leftStick, rightStick);
-		System.out.println(rightStick);
+		//System.out.println(rightStick);
 	}
 
 	public void changeGears()

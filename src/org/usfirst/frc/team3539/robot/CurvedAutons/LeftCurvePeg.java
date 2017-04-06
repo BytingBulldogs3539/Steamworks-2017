@@ -2,6 +2,7 @@ package org.usfirst.frc.team3539.robot.CurvedAutons;
 
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
+import org.usfirst.frc.team3539.robot.autoncommands.AutonDrive;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonGearClose;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonGearOpen;
 import org.usfirst.frc.team3539.robot.autoncommands.HoodReset;
@@ -18,7 +19,8 @@ public class LeftCurvePeg extends CommandGroup {
     	double curve = -.65;
     	addParallel(new HoodReset(3));
     	
-    	addSequential(new SuperDriveAuton(115, curve, 0, true, 6));
+    	addSequential(new AutonDrive(30));
+    	addSequential(new SuperDriveAuton(85, curve, 55, true, 6));
     	Robot.raspberry.setCamera(RobotMap.shooterCamera);
     	
     	addSequential(new AutonGearOpen());

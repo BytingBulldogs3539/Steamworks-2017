@@ -1,5 +1,6 @@
 package org.usfirst.frc.team3539.robot.autongroups;
 
+import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
 import org.usfirst.frc.team3539.robot.autoncommands.AutoWait;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonDrive;
@@ -16,17 +17,21 @@ public class GearMiddleGroup extends CommandGroup
 {
 	public GearMiddleGroup()
 	{	
+		Robot.raspberry.setCamera(RobotMap.gearCamera);
+		
 		addParallel(new HoodReset(3));
 		
-		addSequential(new AutonDrive(RobotMap.whiteLineDistance, 3));
+		addSequential(new AutonDrive(RobotMap.whiteLineDistance, true));
 
 //		addSequential(new AutoWait(.5));
 
 		addSequential(new AutonGearOpen());
 
 	//	addSequential(new AutoWait(.5));
+		
+		Robot.raspberry.setCamera(RobotMap.shooterCamera);
 
-		addSequential(new AutonDrive(-40, 3));
+		addSequential(new AutonDrive(-20, 3));
 
 		addSequential(new AutonGearClose());
 	}

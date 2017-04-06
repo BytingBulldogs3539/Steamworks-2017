@@ -61,7 +61,7 @@ public class AutonTurn extends PIDCommand
 			this.setSetpoint(angle);
 		
 		if(Math.abs(angle) > 0 )
-			this.getPIDController().setOutputRange(-.80, .8);
+			this.getPIDController().setOutputRange(-1, 1);
 		else
 			this.getPIDController().setOutputRange(-1, 1);
 			
