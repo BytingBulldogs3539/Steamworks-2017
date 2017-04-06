@@ -92,9 +92,9 @@ public class RobotMap
 	public static final int shooterCamera = 1;
 	public static double Distance1 = 90;
 	public static double Distance2 = 204;
-	public static double RPM1 = 2890;
-	public static double RPM2 = 4300;
-	public static double Hood1 = 467;
+	public static double RPM1 = 2950;
+	public static double RPM2 = 4100;
+	public static double Hood1 = 470;
 	public static double Hood2 = 993;
 	public static double shooterCameraOffset = 3;
 	public static double gearCameraOffset = 0;
@@ -106,8 +106,8 @@ public class RobotMap
 	public static double driveDee = .00005;// .000009;
 
 	public static double turnPea = .1;
-	public static double turnEye = .00005; // 5.0E-5
-	public static double turnDee = .2;
+	public static double turnEye = .0; // 5.0E-5
+	public static double turnDee = .01;
 
 	public static double vturnPea = .2;
 	public static double vturnEye = .03;
