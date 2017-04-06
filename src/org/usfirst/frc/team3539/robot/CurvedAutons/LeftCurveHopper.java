@@ -25,3 +25,20 @@ public class LeftCurveHopper extends CommandGroup {
 		addSequential(new JoeyShoot(12));
     }
 }
+
+
+
+//
+//public class LeftCurveHopper extends CommandGroup {
+//
+//    public LeftCurveHopper() {
+//    	addParallel(new HoodReset(3));
+//     	Robot.raspberry.setCamera(RobotMap.shooterCamera);   
+//     	
+//    	addSequential(new SuperDriveAuton(80, -.3, 0, false, 3));
+//
+//    	addSequential(new SuperDriveAuton(20, -.3, 0, true, 2));
+//
+//		addSequential(new JoeyShoot(12));
+//    }
+//}

@@ -26,7 +26,7 @@ public class BlueShootOutside extends CommandGroup
 
 		addSequential(new AutonTurn(0, 1));
 		
-		addSequential(new AutoWait(.5));
+		//addSequential(new AutoWait(.5));
 
 		addSequential(new JoeyShoot(7));
 	}
