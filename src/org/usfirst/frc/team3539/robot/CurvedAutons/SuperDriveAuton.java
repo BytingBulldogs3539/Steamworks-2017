@@ -19,6 +19,7 @@ public class SuperDriveAuton extends PIDCommand {
 	private Boolean useVision = false;
 	private double driveLimits = .85;
 	private double defaultTime = 7;
+	private double DriveDistance = Robot.driveTrain.inchToEnc2(70);
 
 	private PIDController anglePID;
 	private BulldogPIDOutput anglePID_output = new BulldogPIDOutput();
@@ -69,7 +70,8 @@ public class SuperDriveAuton extends PIDCommand {
 		anglePID.setToleranceBuffer(10);
 		
 		anglePID_feedback.setVisionFeedback(false);
-		anglePID_output.pidWrite(turnSpeed);
+		anglePID_output.pidWrite(0);
+		
 
 		//Drive PID Settings
 		this.getPIDController().setPID(RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
@@ -92,6 +94,12 @@ public class SuperDriveAuton extends PIDCommand {
 			anglePID.reset();
 			anglePID_output.Reset();
 			useVision = true;
+		
+		}
+		if (DriveDistance < Robot.driveTrain.getBalancedEncoderPosition())
+		{
+			anglePID_output.pidWrite(turnSpeed);
+			
 		}
 		
 		if (!anglePID.isEnabled() && Math.abs(Robot.driveTrain.getGyroAngle()) > this.turnAngle *.9)

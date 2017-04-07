@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import org.usfirst.frc.team3539.robot.CurvedAutons.LeftCurveHopper;
 import org.usfirst.frc.team3539.robot.CurvedAutons.LeftCurvePeg;
 import org.usfirst.frc.team3539.robot.CurvedAutons.RightCurvePeg;
 import org.usfirst.frc.team3539.robot.autoncommands.*;
@@ -146,6 +147,7 @@ public class Robot extends IterativeRobot
 		
 		SmartDashboard.putData(new LeftCurvePeg());
 		SmartDashboard.putData(new RightCurvePeg());
+		SmartDashboard.putData(new LeftCurveHopper());
 		
 		SmartDashboard.putData(new VisionGearMiddle());
 		SmartDashboard.putData(new VisionTest());

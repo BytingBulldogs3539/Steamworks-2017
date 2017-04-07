@@ -8,6 +8,7 @@ import org.usfirst.frc.team3539.robot.autoncommands.AutonGearClose;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonGearOpen;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonTurn;
 import org.usfirst.frc.team3539.robot.autoncommands.HoodReset;
+import org.usfirst.frc.team3539.robot.autoncommands.SetGearCamera;
 import org.usfirst.frc.team3539.robot.autoncommands.SetShootCamera;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
@@ -20,7 +21,7 @@ public class GearLeftGroup extends CommandGroup
 {
 	public GearLeftGroup()
 	{
-		Robot.raspberry.setCamera(RobotMap.gearCamera);
+		addParallel(new SetGearCamera());
 		
 		addParallel(new HoodReset(3));
 		
@@ -30,7 +31,7 @@ public class GearLeftGroup extends CommandGroup
 		
 		addSequential(new AutoWait(.2));
 		
-		addSequential(new AutonDrive(RobotMap.sidePegDistance,true));
+		addSequential(new AutonDrive(RobotMap.sidePegDistance+8,true));
 
 		//addSequential(new AutoWait(1));
 		
