@@ -7,6 +7,7 @@ import org.usfirst.frc.team3539.robot.autoncommands.AutonDrive;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonGearClose;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonGearOpen;
 import org.usfirst.frc.team3539.robot.autoncommands.HoodReset;
+import org.usfirst.frc.team3539.robot.autoncommands.SetGearCamera;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -17,7 +18,8 @@ public class GearMiddleGroup extends CommandGroup
 {
 	public GearMiddleGroup()
 	{	
-		Robot.raspberry.setCamera(RobotMap.gearCamera);
+		addParallel(new SetGearCamera());
+	
 		
 		addParallel(new HoodReset(3));
 		
