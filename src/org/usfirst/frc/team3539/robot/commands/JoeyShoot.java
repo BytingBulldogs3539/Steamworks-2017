@@ -9,7 +9,6 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 
 public class JoeyShoot extends Command
 {
-	
 	private boolean isTeleop;
 	private boolean visionTurn;
 	private boolean visionDistance;
@@ -20,9 +19,6 @@ public class JoeyShoot extends Command
 	private int breakoutCounter;
 	private double shootTime;
 	private boolean agitatorSpecial = false;
-	private boolean Pulse = false;
-	private int PulseCounter;
-	private int PulsesCounter;
 
 	// Teleop Button Shooting
 	public JoeyShoot(boolean visionTurn, Button button, double hoodAngle, double agitatorRpm, double shooterRpm)
@@ -37,7 +33,6 @@ public class JoeyShoot extends Command
 		this.hoodAngle = hoodAngle;
 		this.agitatorRpm = agitatorRpm;
 		this.shooterRpm = shooterRpm;
-		
 
 		// this.hoodAngle = RobotMap.hoodTarget; // for Tuning
 		// this.agitatorRpm = RobotMap.agitatorRpm;
@@ -98,23 +93,6 @@ public class JoeyShoot extends Command
 		this.shootTime = seconds;
 		agitatorSpecial = true;
 	}
-	public JoeyShoot(double seconds, boolean Pulse)
-	{
-		super("JoeyShoot");
-		requires(Robot.shooter);
-		requires(Robot.hoodSubsystem);
-
-		System.out.println("Supa man!");
-
-		this.hoodAngle = 0;
-		this.shooterRpm = 0;
-		this.agitatorRpm = 400;
-		this.isTeleop = false;
-		this.visionTurn = true;
-		this.visionDistance = true;
-		this.shootTime = seconds;
-		
-	}
 
 	// auton Shooting
 	public JoeyShoot(boolean visionTurn, double hoodAngle, double agitatorRpm, double shooterRpm, double seconds)
@@ -132,8 +110,6 @@ public class JoeyShoot extends Command
 		this.shootTime = seconds;
 	}
 
-	
-
 	protected void initialize()
 	{
 		Robot.raspberry.setCamera(RobotMap.shooterCamera);
@@ -144,8 +120,6 @@ public class JoeyShoot extends Command
 		Robot.shooter.setAgitatorPID();
 		
 		breakoutCounter = 0;
-		PulseCounter = 0;
-		PulsesCounter = 0;
 
 		
 		if (visionTurn)
@@ -180,37 +154,16 @@ public class JoeyShoot extends Command
 
 		Robot.shooter.startShooter(shooterRpm);
 
-		if (Pulse && PulseCounter > 150)  //&& Robotmap.triggerModified not sure if also needed)
-		{
-					Robot.shooter.startAgitator(-agitatorRpm);
-					PulsesCounter++;
-					if (PulsesCounter >25)// .5 seconds  to change time agitator reverses convert desired seconds into milliseconds and divide by 20 ;
-					{
-						PulseCounter = 0;
-						PulsesCounter=0;
-					}
-		}
-		else if (RobotMap.triggerModified)
+		if (RobotMap.triggerModified)
 		{
 			Robot.shooter.startAgitator(agitatorRpm);
-			
 		}
 		else if (Robot.shooter.getShooterRPM() <= shooterRpm * .9)
 		{
 			Robot.shooter.startAgitator(-agitatorRpm);
 		}
 
-		
-		if (PulseCounter > 150)
-{
-			Robot.shooter.startAgitator(-agitatorRpm);
-
-}
 		breakoutCounter++;
-		if(Pulse == true){
-			PulseCounter++;
-		}
-		
 	}
 
 	protected boolean isFinished()

@@ -16,10 +16,10 @@ public class RightCurveHopper extends CommandGroup {
     	addParallel(new HoodReset(3));
      	Robot.raspberry.setCamera(RobotMap.shooterCamera);   
      	
-    	addSequential(new SuperDriveAuton(80, .3, 90, false, 3));
+    	addSequential(new SuperDriveAuton(80, .3, 0, false, 3));
 
-    	addSequential(new SuperDriveAuton(-20, -.3, -90, true, 2));
+    	addSequential(new SuperDriveAuton(-20, -.3, 0, true, 2));
 
-		addSequential(new JoeyShoot(12,true));//true for pulse
+		addSequential(new JoeyShoot(12));
     }
 }
