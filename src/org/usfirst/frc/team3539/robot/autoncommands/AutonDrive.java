@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.PIDSource;
 import edu.wpi.first.wpilibj.PIDSourceType;
 import edu.wpi.first.wpilibj.command.PIDCommand;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -84,7 +85,10 @@ public class AutonDrive extends PIDCommand
 		anglePID = new PIDController(RobotMap.turnPea, RobotMap.turnEye, RobotMap.turnDee, angle_output_source,
 				pidOutput);
 		if(useVision)
+		{
 			anglePID.setSetpoint(Robot.raspberry.getTurnAngle());
+			System.out.println(Robot.raspberry.getTurnAngle());
+		}
 		else
 			anglePID.setSetpoint(0);
 
@@ -98,7 +102,18 @@ public class AutonDrive extends PIDCommand
 		this.getPIDController().setPID(RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
 		Robot.driveTrain.gyroReset();
 		Robot.driveTrain.zeroEncoders();
-		this.setSetpoint(myTicks);
+		
+		if(useVision && Robot.raspberry.getDistance() > 25 && Robot.raspberry.getDistance() < 120)
+		{
+			this.setSetpoint(Robot.driveTrain.inchToEnc2((Robot.raspberry.getDistance()*SmartDashboard.getDouble("GearDistanceFudge"))));
+			System.out.println("Using Camera Distance :" + Robot.raspberry.getDistance() );
+		}
+		else
+		{
+			this.setSetpoint(myTicks);
+		}
+		
+		
 
 		anglePID.enable();
 	}

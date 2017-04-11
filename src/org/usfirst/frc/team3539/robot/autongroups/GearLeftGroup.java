@@ -29,20 +29,20 @@ public class GearLeftGroup extends CommandGroup
 
 		addSequential(new AutonTurn(-RobotMap.sidePegTurn));
 		
-		addSequential(new AutoWait(.2));
+		addSequential(new AutoWait(.4));
 		
 		addSequential(new AutonDrive(RobotMap.sidePegDistance+8,true));
 
 		//addSequential(new AutoWait(1));
 		
-		addSequential(new SetShootCamera());
-
+		addParallel(new SetShootCamera());
+		
 		addSequential(new AutonGearOpen());
 
 		//addSequential(new AutoWait(1));
 
-		addSequential(new AutonDrive(-20));
+		//addSequential(new AutonDrive(-20));
 
-		addSequential(new AutonGearClose());
+		//addSequential(new AutonGearClose());
 	}
 }

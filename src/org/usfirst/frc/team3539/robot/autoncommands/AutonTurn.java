@@ -81,7 +81,7 @@ public class AutonTurn extends PIDCommand
 			buttonpressed = this.button.get();
 		}
 			
-		if (this.getPIDController().onTarget() || this.isTimedOut()|| !buttonpressed)
+		if (this.getPIDController().onTarget() || this.isTimedOut() || !buttonpressed)
 		{
 			return true;
 		}

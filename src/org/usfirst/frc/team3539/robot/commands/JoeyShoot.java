@@ -19,6 +19,7 @@ public class JoeyShoot extends Command
 	private int breakoutCounter;
 	private double shootTime;
 	private boolean agitatorSpecial = false;
+	private boolean isIntaking = false;
 
 	// Teleop Button Shooting
 	public JoeyShoot(boolean visionTurn, Button button, double hoodAngle, double agitatorRpm, double shooterRpm)
@@ -46,8 +47,6 @@ public class JoeyShoot extends Command
 		requires(Robot.shooter);
 		requires(Robot.hoodSubsystem);
 
-		System.out.println("Supa man!");
-
 		this.hoodAngle = 0;
 		this.shooterRpm = 0;
 		this.agitatorRpm = 400;
@@ -63,8 +62,7 @@ public class JoeyShoot extends Command
 		super("JoeyShoot");
 		requires(Robot.shooter);
 		requires(Robot.hoodSubsystem);
-
-		System.out.println("Supa man!");
+		requires(Robot.intake);
 
 		this.hoodAngle = 0;
 		this.shooterRpm = 0;
@@ -73,7 +71,7 @@ public class JoeyShoot extends Command
 		this.visionTurn = true;
 		this.visionDistance = true;
 		this.shootTime = seconds;
-
+		this.isIntaking = true;
 	}
 	
 	public JoeyShoot(double seconds, double agitatorSpeed)
@@ -82,7 +80,6 @@ public class JoeyShoot extends Command
 		requires(Robot.shooter);
 		requires(Robot.hoodSubsystem);
 
-		System.out.println("Supa man!");
 
 		this.hoodAngle = 0;
 		this.shooterRpm = 0;
@@ -161,6 +158,7 @@ public class JoeyShoot extends Command
 		else if (Robot.shooter.getShooterRPM() <= shooterRpm * .9)
 		{
 			Robot.shooter.startAgitator(-agitatorRpm);
+			Robot.intake.setMotorPower(1); //test
 		}
 
 		breakoutCounter++;
@@ -183,12 +181,13 @@ public class JoeyShoot extends Command
 		Robot.hoodSubsystem.disableHoodPid();
 		Robot.shooter.resetShooterPID();
 		Robot.shooter.resetAgitatorPID();
+		Robot.intake.setMotorPower(0); //will break code so watch out
 	}
 
 	protected void interrupted()
 	{
 		Robot.shooter.disableShooterPID();
 		Robot.shooter.disableAgitatorPID();
-
+		end();
 	}
 }

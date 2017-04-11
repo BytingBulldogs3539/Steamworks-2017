@@ -20,6 +20,7 @@ public class SuperDriveAuton extends PIDCommand {
 	private double driveLimits = .85;
 	private double defaultTime = 7;
 	private double DriveDistance = Robot.driveTrain.inchToEnc2(70);
+	private boolean turnComplete = true;
 
 	private PIDController anglePID;
 	private BulldogPIDOutput anglePID_output = new BulldogPIDOutput();
@@ -44,6 +45,12 @@ public class SuperDriveAuton extends PIDCommand {
 		this.AutonInit(inches, turnSpeed, turnAngle, useVision, seconds);
 	}
 
+	public SuperDriveAuton(double inches, double turnSpeed, double turnAngle, Boolean useVision, double seconds, double strDriveDistance) {
+		super("SuperDrive", RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
+		this.DriveDistance = Robot.driveTrain.inchToEnc2(strDriveDistance);
+		this.AutonInit(inches, turnSpeed, turnAngle, useVision, seconds);
+	}
+	
 	private void AutonInit(double inches, double turnSpeed, double turnAngle, Boolean useVision, double seconds) {
 		requires(Robot.driveTrain);
 		
@@ -59,7 +66,9 @@ public class SuperDriveAuton extends PIDCommand {
 
 	protected void initialize() {
 		
-		Robot.raspberry.setCamera(RobotMap.gearCamera);
+	//	Robot.raspberry.setCamera(RobotMap.gearCamera);
+		
+		turnComplete = false;
 		
 		Robot.driveTrain.zeroEncoders();
 		Robot.driveTrain.gyroReset();	
@@ -102,8 +111,10 @@ public class SuperDriveAuton extends PIDCommand {
 			
 		}
 		
-		if (!anglePID.isEnabled() && Math.abs(Robot.driveTrain.getGyroAngle()) > this.turnAngle *.9)
+		if (!anglePID.isEnabled() && Math.abs(Robot.driveTrain.getGyroAngle()) > this.turnAngle *.98)
 		{
+			turnComplete = true;
+			
 			System.out.println("Reached Angle");
 			Robot.driveTrain.gyroReset();
 			anglePID_feedback.setVisionFeedback(false);
@@ -124,7 +135,7 @@ public class SuperDriveAuton extends PIDCommand {
 	}
 
 	protected boolean isFinished() {
-		return (this.getPIDController().onTarget() || this.isTimedOut());
+		return (this.getPIDController().onTarget() || this.isTimedOut() || turnComplete);
 	}
 
 	protected void end() {

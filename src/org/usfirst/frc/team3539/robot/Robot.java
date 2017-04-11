@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team3539.robot.CurvedAutons.LeftCurveHopper;
 import org.usfirst.frc.team3539.robot.CurvedAutons.LeftCurvePeg;
+import org.usfirst.frc.team3539.robot.CurvedAutons.RightCurveHopper;
 import org.usfirst.frc.team3539.robot.CurvedAutons.RightCurvePeg;
 import org.usfirst.frc.team3539.robot.autoncommands.*;
 import org.usfirst.frc.team3539.robot.autongroups.*;
@@ -49,7 +50,9 @@ public class Robot extends IterativeRobot
 		oi = new OI();
 		
 		raspberry = new Raspberry();
-
+		
+		raspberry.setCamera(RobotMap.gearCamera);
+		
 		SmartInit();
 		Update();
 
@@ -106,7 +109,7 @@ public class Robot extends IterativeRobot
 	public void teleopInit()
 	{
 		System.out.println("teleopInit");
-		raspberry.setCamera(RobotMap.gearCamera);
+		raspberry.setCamera(RobotMap.shooterCamera);
 		Robot.manipulator.holderClose();
 	}
 
@@ -145,6 +148,9 @@ public class Robot extends IterativeRobot
 		hoodSubsystem.SmartInit();
 		raspberry.SmartInit();
 		
+		SmartDashboard.putDouble("GearDistanceFudge", .85);
+		
+		
 		SmartDashboard.putData(new LeftCurvePeg());
 		SmartDashboard.putData(new RightCurvePeg());
 		SmartDashboard.putData(new LeftCurveHopper());
@@ -164,14 +170,14 @@ public class Robot extends IterativeRobot
 		autonChooser.addObject("Turn Calibrate", new TurnCalibrate());
 
 		// Gear\/
-		autonChooser.addObject("GearMiddleGroup", new GearMiddleGroup());
-		autonChooser.addObject("GearLeftGroup", new GearLeftGroup());
-		autonChooser.addObject("GearRightGroup", new GearRightGroup());
+		//autonChooser.addObject("GearMiddleGroup", new GearMiddleGroup());
+		//autonChooser.addObject("GearLeftGroup", new GearLeftGroup());
+		//autonChooser.addObject("GearRightGroup", new GearRightGroup());
 
 		// Red\/
 
 		autonChooser.addObject("RedShootMiddle", new RedShootMiddle());
-		autonChooser.addObject("RedHopper", new RedHopper());
+		autonChooser.addObject("RedHopper", new LeftCurveHopper());
 		autonChooser.addObject("RedShootOutside", new RedShootOutside());
 		autonChooser.addObject("RedShootInside", new RedShootInside());
 

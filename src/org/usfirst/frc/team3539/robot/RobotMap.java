@@ -92,8 +92,8 @@ public class RobotMap
 	public static final int shooterCamera = 1;
 	public static double Distance1 = 90;
 	public static double Distance2 = 204;
-	public static double RPM1 = 2715;
-	public static double RPM2 = 4100;
+	public static double RPM1 = 2755;
+	public static double RPM2 = 4140;
 	public static double Hood1 = 470;
 	public static double Hood2 = 993;
 	public static double shooterCameraOffset = 3;

@@ -22,25 +22,27 @@ public class GearRightGroup extends CommandGroup
 	{	
 		addParallel(new SetGearCamera());
 		
-		
 		addParallel(new HoodReset(3));
 		
 		addSequential(new AutonDrive(RobotMap.whiteLineDistance, 3));
 
 		addSequential(new AutonTurn(RobotMap.sidePegTurn));
+		
+		addSequential(new AutoWait(.4));
 
 		addSequential(new AutonDrive(RobotMap.sidePegDistance, true));
 
 		//addSequential(new AutoWait(1));
+		addParallel(new SetShootCamera());
 
 		addSequential(new AutonGearOpen());
 
-		//addSequential(new AutoWait(1));
+		//addSequential(new AutoWait(.25));
 		
-		addSequential(new SetShootCamera());
+	//	addSequential(new SetShootCamera());
 
-		addSequential(new AutonDrive(-10));
+		//addSequential(new AutonDrive(-20));
 
-		addSequential(new AutonGearClose());
+		//addSequential(new AutonGearClose());
 	}
 }

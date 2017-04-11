@@ -63,8 +63,8 @@ public class DriveTrain extends BulldogSystem
 
 		lfMotor.configMaxOutputVoltage(12);
 		rfMotor.configMaxOutputVoltage(12);
-		rfMotor.setCurrentLimit(35);
-		lfMotor.setCurrentLimit(35);
+		rfMotor.setCurrentLimit(40);
+		lfMotor.setCurrentLimit(40);
 
 		lfMotor.EnableCurrentLimit(true);
 		rfMotor.EnableCurrentLimit(true);

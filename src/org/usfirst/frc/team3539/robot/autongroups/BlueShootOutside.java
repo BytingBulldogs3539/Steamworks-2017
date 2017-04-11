@@ -1,8 +1,10 @@
 package org.usfirst.frc.team3539.robot.autongroups;
 
 import org.usfirst.frc.team3539.robot.RobotMap;
+import org.usfirst.frc.team3539.robot.CurvedAutons.SuperDriveAuton;
 import org.usfirst.frc.team3539.robot.autoncommands.AutoWait;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonDrive;
+import org.usfirst.frc.team3539.robot.autoncommands.AutonGearClose;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonTurn;
 import org.usfirst.frc.team3539.robot.autoncommands.SetShootCamera;
 import org.usfirst.frc.team3539.robot.commands.JoeyShoot;
@@ -19,11 +21,17 @@ public class BlueShootOutside extends CommandGroup
 	{
 		addSequential(new GearLeftGroup());
 		
-		addSequential(new AutonDrive(-30,1));
-
 		addSequential(new SetShootCamera());
+		
+		addSequential(new SuperDriveAuton(-80, .77, 130, false, 3,-100));
+		
+		addSequential(new AutonGearClose());
 
-		addSequential(new AutonTurn(RobotMap.outsideShootTurn-20, 4));
+		//addSequential(new AutonDrive(-30,1));
+
+		//addSequential(new SetShootCamera());
+
+		//addSequential(new AutonTurn(RobotMap.outsideShootTurn-20, 4));
 
 		addSequential(new AutoWait(RobotMap.visionWait));
 
