@@ -18,8 +18,8 @@ public class JoeyShoot extends Command
 	private Button button;
 	private int breakoutCounter;
 	private double shootTime;
-	private boolean agitatorSpecial = false;
 	private boolean isIntaking = false;
+	private boolean agitatorSpecial = false;
 
 	// Teleop Button Shooting
 	public JoeyShoot(boolean visionTurn, Button button, double hoodAngle, double agitatorRpm, double shooterRpm)
@@ -27,6 +27,7 @@ public class JoeyShoot extends Command
 		super("JoeyShoot");
 		requires(Robot.shooter);
 		requires(Robot.hoodSubsystem);
+		requires(Robot.intake);
 
 		this.isTeleop = true;
 		this.visionTurn = visionTurn;
@@ -34,7 +35,8 @@ public class JoeyShoot extends Command
 		this.hoodAngle = hoodAngle;
 		this.agitatorRpm = agitatorRpm;
 		this.shooterRpm = shooterRpm;
-
+		this.isIntaking = false;
+		this.agitatorSpecial = false;
 		// this.hoodAngle = RobotMap.hoodTarget; // for Tuning
 		// this.agitatorRpm = RobotMap.agitatorRpm;
 		// this.shooterRpm = RobotMap.shooterRpm;
@@ -46,6 +48,7 @@ public class JoeyShoot extends Command
 		super("JoeyShoot");
 		requires(Robot.shooter);
 		requires(Robot.hoodSubsystem);
+		requires(Robot.intake);
 
 		this.hoodAngle = 0;
 		this.shooterRpm = 0;
@@ -54,6 +57,8 @@ public class JoeyShoot extends Command
 		this.isTeleop = true;
 		this.visionTurn = true;
 		this.button = superman;
+		this.isIntaking = false;
+		this.agitatorSpecial = false;
 	}
 
 	// Auton Distance + Turn vision shooting
@@ -72,14 +77,15 @@ public class JoeyShoot extends Command
 		this.visionDistance = true;
 		this.shootTime = seconds;
 		this.isIntaking = true;
+		this.agitatorSpecial = true;
 	}
-	
+
 	public JoeyShoot(double seconds, double agitatorSpeed)
 	{
 		super("JoeyShoot");
 		requires(Robot.shooter);
 		requires(Robot.hoodSubsystem);
-
+		requires(Robot.intake);
 
 		this.hoodAngle = 0;
 		this.shooterRpm = 0;
@@ -88,7 +94,7 @@ public class JoeyShoot extends Command
 		this.visionTurn = true;
 		this.visionDistance = true;
 		this.shootTime = seconds;
-		agitatorSpecial = true;
+		this.isIntaking = false;
 	}
 
 	// auton Shooting
@@ -97,6 +103,7 @@ public class JoeyShoot extends Command
 		super("JoeyShoot");
 		requires(Robot.shooter);
 		requires(Robot.hoodSubsystem);
+		requires(Robot.intake);
 
 		this.isTeleop = false;
 		this.visionTurn = visionTurn;
@@ -105,6 +112,7 @@ public class JoeyShoot extends Command
 		this.agitatorRpm = agitatorRpm;
 		this.shooterRpm = shooterRpm;
 		this.shootTime = seconds;
+		this.isIntaking = false;
 	}
 
 	protected void initialize()
@@ -115,10 +123,9 @@ public class JoeyShoot extends Command
 
 		Robot.shooter.setShooterPID();
 		Robot.shooter.setAgitatorPID();
-		
+
 		breakoutCounter = 0;
 
-		
 		if (visionTurn)
 		{
 			// Scheduler.getInstance().add(new AutoAim());
@@ -127,22 +134,21 @@ public class JoeyShoot extends Command
 		if (visionDistance)
 		{
 			this.hoodAngle = Robot.raspberry.getHoodAngle();
-			
-			
-			if(agitatorSpecial)
+
+			if (agitatorSpecial)
 			{
-				this.shooterRpm = Robot.raspberry.getShooterRPM() - 40;
+				this.shooterRpm = Robot.raspberry.getShooterRPM() - 50;
 			}
 			else
 			{
 				this.shooterRpm = Robot.raspberry.getShooterRPM();
 			}
-			
+
 		}
 
-		//this.hoodAngle = RobotMap.hoodTarget; // for Tuning
+		// this.hoodAngle = RobotMap.hoodTarget; // for Tuning
 		// this.agitatorRpm = RobotMap.agitatorRpm; // for Tuning
-		//this.shooterRpm = RobotMap.shooterRpm; // for Tuning
+		// this.shooterRpm = RobotMap.shooterRpm; // for Tuning
 	}
 
 	protected void execute()
@@ -158,7 +164,7 @@ public class JoeyShoot extends Command
 		else if (Robot.shooter.getShooterRPM() <= shooterRpm * .9)
 		{
 			Robot.shooter.startAgitator(-agitatorRpm);
-			Robot.intake.setMotorPower(1); //test
+			Robot.intake.setMotorPower(1); // test
 		}
 
 		breakoutCounter++;
@@ -181,7 +187,7 @@ public class JoeyShoot extends Command
 		Robot.hoodSubsystem.disableHoodPid();
 		Robot.shooter.resetShooterPID();
 		Robot.shooter.resetAgitatorPID();
-		Robot.intake.setMotorPower(0); //will break code so watch out
+		Robot.intake.setMotorPower(0); // will break code so watch out
 	}
 
 	protected void interrupted()

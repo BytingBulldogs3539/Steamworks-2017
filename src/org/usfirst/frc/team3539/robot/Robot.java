@@ -8,12 +8,12 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc.team3539.robot.CurvedAutons.LeftCurveHopper;
-import org.usfirst.frc.team3539.robot.CurvedAutons.LeftCurvePeg;
-import org.usfirst.frc.team3539.robot.CurvedAutons.RightCurveHopper;
-import org.usfirst.frc.team3539.robot.CurvedAutons.RightCurvePeg;
 import org.usfirst.frc.team3539.robot.autoncommands.*;
 import org.usfirst.frc.team3539.robot.autongroups.*;
+import org.usfirst.frc.team3539.robot.autonscurves.BlueCurveHopper;
+import org.usfirst.frc.team3539.robot.autonscurves.LeftCurvePeg;
+import org.usfirst.frc.team3539.robot.autonscurves.RedCurveHopper;
+import org.usfirst.frc.team3539.robot.autonscurves.RightCurvePeg;
 import org.usfirst.frc.team3539.robot.calibration.*;
 import org.usfirst.frc.team3539.robot.commands.*;
 import org.usfirst.frc.team3539.robot.subsystems.*;
@@ -148,12 +148,12 @@ public class Robot extends IterativeRobot
 		hoodSubsystem.SmartInit();
 		raspberry.SmartInit();
 		
-		SmartDashboard.putDouble("GearDistanceFudge", .85);
+		SmartDashboard.putDouble("GearDistanceFudge", .95);
 		
 		
 		SmartDashboard.putData(new LeftCurvePeg());
 		SmartDashboard.putData(new RightCurvePeg());
-		SmartDashboard.putData(new LeftCurveHopper());
+		SmartDashboard.putData(new RedCurveHopper());
 		
 		SmartDashboard.putData(new VisionGearMiddle());
 		SmartDashboard.putData(new VisionTest());
@@ -177,7 +177,7 @@ public class Robot extends IterativeRobot
 		// Red\/
 
 		autonChooser.addObject("RedShootMiddle", new RedShootMiddle());
-		autonChooser.addObject("RedHopper", new LeftCurveHopper());
+		autonChooser.addObject("RedHopper", new RedCurveHopper());
 		autonChooser.addObject("RedShootOutside", new RedShootOutside());
 		autonChooser.addObject("RedShootInside", new RedShootInside());
 

@@ -1,4 +1,4 @@
-package org.usfirst.frc.team3539.robot.CurvedAutons;
+package org.usfirst.frc.team3539.robot.autonscurves;
 
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
@@ -15,18 +15,18 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class LeftCurveHopper extends CommandGroup {
+public class RedCurveHopper extends CommandGroup {
 
-    public LeftCurveHopper() {
+    public RedCurveHopper() {
     	addParallel(new HoodReset(3));
     	
      	addParallel(new SetShootCamera());
      	
     	//addSequential(new SuperDriveAuton(145, -.6, 15, false, 3, 85));
 
-    	addSequential(new SuperDriveAuton(135, .7, 14, false, 3, 0));
+    	addSequential(new SuperDriveAuton(135, .7, 12, false, 3, 0));
 
-    	addSequential(new SuperDriveAuton(110, -.6, 30, false,3, 67));
+    	addSequential(new SuperDriveAuton(110, -.6, 30, false,3, 68)); // 67 b4 test
 
     	addSequential(new AutonTurn(-15,.5));
     

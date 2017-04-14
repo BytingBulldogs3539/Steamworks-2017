@@ -29,7 +29,9 @@ public class Intake extends BulldogSystem
 		intakeMotor.configPeakOutputVoltage(12.0f, -12.0f);
 		
 		intakeMotor.configMaxOutputVoltage(12);
-		intakeMotor.setCurrentLimit(55);
+		intakeMotor.setCurrentLimit(60);
+
+		intakeMotor.EnableCurrentLimit(true);
 	}
 
 	public void setMotorPower(double power)
