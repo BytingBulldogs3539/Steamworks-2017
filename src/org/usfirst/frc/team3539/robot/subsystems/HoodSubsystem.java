@@ -53,6 +53,7 @@ public class HoodSubsystem extends PIDSubsystem
 
 	public double getHoodPosition()
 	{
+		
 		//return shooterHoodMotor.getPosition();
 		return shooterHoodMotor.getEncPosition()*-1;
 	}
