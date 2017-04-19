@@ -87,15 +87,24 @@ public class RobotMap
 	//////////////////////// PRACTICE BOT/////////////////////
 
 	
-	/*// PRACTICE CAMERA
+	// PRACTICE CAMERA
 	public static final int gearCamera = 0;
 	public static final int shooterCamera = 1;
-	public static double Distance1 = 90;
+	
+//	public static double Distance1 = 90;
+//	public static double Distance2 = 204;
+//	public static double RPM1 = 2755;
+//	public static double RPM2 = 4140;
+//	public static double Hood1 = 470;
+//	public static double Hood2 = 993;
+	
+	public static double Distance1 = 104;
 	public static double Distance2 = 204;
-	public static double RPM1 = 2755;
-	public static double RPM2 = 4140;
-	public static double Hood1 = 470;
-	public static double Hood2 = 993;
+	public static double RPM1 = 3100;
+	public static double RPM2 = 3925;
+	public static double Hood1 = 680;//640
+	public static double Hood2 = 1140;//1100
+	
 	public static double shooterCameraOffset = 3;
 	public static double gearCameraOffset = 0;
 	
@@ -116,7 +125,7 @@ public class RobotMap
 	public static double shootPea = .26;
 	public static double shootEye = 0;
 	public static double shootDee = 18.0;
-	public static double shootEff = .023; // .062635
+	public static double shootEff = .022; // .062635
 
 	public static double hoodPea = .001;
 	public static double hoodEye = 0;
@@ -139,13 +148,13 @@ public class RobotMap
 	public static double hopperShootTurn = 45;
 	public static double farHopperDistance = whiteLineDistance + 57;
 	public static double deadband = .45;
-	*/
+	
 	
 	
 
 	//////////////////////// COMP BOT/////////////////////
 
-	
+	/*
 	
 	//COMP CAMERA
 	public static final int gearCamera = 0;
@@ -203,6 +212,6 @@ public class RobotMap
 	public static double farHopperDistance = 76 + 48;
 	public static double deadband = .45;
 	public static double gearCameraOffset = 0;
-	
+	*/
 }
 	

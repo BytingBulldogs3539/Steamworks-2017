@@ -175,7 +175,7 @@ public class DriveTrain extends BulldogSystem
 
 	public double encToInch(double enc)
 	{
-		return enc * ((Math.PI * RobotMap.wheelDiameter) / 4096);
+		return enc * ((Math.PI * RobotMap.wheelDiameter) / (4096 * RobotMap.driveMultiplier));
 	}
 
 	public void gyroReset()

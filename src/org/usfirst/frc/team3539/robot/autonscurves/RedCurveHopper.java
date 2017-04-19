@@ -22,13 +22,13 @@ public class RedCurveHopper extends CommandGroup {
     	
      	addParallel(new SetShootCamera());
      	
-    	//addSequential(new SuperDriveAuton(145, -.6, 15, false, 3, 85));
+    	addSequential(new SuperDriveAuton(145, -.6, 15, false, 3, 85));
 
-    	addSequential(new SuperDriveAuton(135, .7, 9, false, 3, 0));
-
-    	addSequential(new SuperDriveAuton(110, -.6, 30, false,3, 60)); // 67 b4 test
-
-    	addSequential(new AutonTurn(-15,.5));
+//    	addSequential(new SuperDriveAuton(135, .7, 9, false, 3, 0));
+//
+//    	addSequential(new SuperDriveAuton(110, -.6, 30, false,3, 60)); // 67 b4 test
+//
+//    	addSequential(new AutonTurn(-15,.5));
     
     	addSequential(new AutonTurn(0,2));
     	

@@ -92,7 +92,9 @@ public class Robot extends IterativeRobot
 		{
 			System.out.println("Here");
 			
-
+			shooter.disableShooterPID();
+			shooter.disableAgitatorPID();
+			
 			autonMode.start();
 		}
 
@@ -150,7 +152,6 @@ public class Robot extends IterativeRobot
 		
 		SmartDashboard.putDouble("GearDistanceFudge", .95);
 		
-		
 		SmartDashboard.putData(new LeftCurvePeg());
 		SmartDashboard.putData(new RightCurvePeg());
 		SmartDashboard.putData(new RedCurveHopper());
@@ -177,7 +178,7 @@ public class Robot extends IterativeRobot
 		// Red\/
 
 		autonChooser.addObject("RedShootMiddle", new RedShootMiddle());
-		autonChooser.addObject("RedHopper", new RedCurveHopper());
+		autonChooser.addObject("RedHopper", new RedHopper());
 		autonChooser.addObject("RedShootOutside", new RedShootOutside());
 		autonChooser.addObject("RedShootInside", new RedShootInside());
 

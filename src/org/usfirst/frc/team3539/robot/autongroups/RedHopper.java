@@ -15,23 +15,22 @@ public class RedHopper extends CommandGroup
 	public RedHopper()
 	{
 		addParallel(new HoodReset(3));
-		
-		addSequential(new SetShootCamera());
-		
-		addSequential(new AutonDrive(RobotMap.farHopperDistance, 5));
-		
-		addSequential(new AutonTurn(-RobotMap.hopperTurn));
-		
-		addSequential(new AutonDrive(-65, 2.5));
-		
-		addSequential(new AutonDrive(30, 1));
-		
-		addSequential(new AutonTurn(RobotMap.hopperShootTurn, 1));
 
-		addSequential(new AutoWait(RobotMap.visionWait));
+		addParallel(new SetShootCamera());
 
-		addSequential(new AutonTurn(0, 1));
-		
-		addSequential(new JoeyShoot(10, 300));
+		addSequential(new AutonDrive(123, 2.5)); // initial; (118, 2.5) before, looks like 120/123 works better
+
+		//addParallel(new SpinUp (1.5, 1000));//ready fly wheel
+
+		// addSequential(new AutonTurn(-35, .7));//hit hopper (.7 seconds)
+		addSequential(new AlphaTurn(-1, 1.2));
+
+		//addSequential(new AutoWait(1));// wait for fill
+
+		addSequential(new AutonTurn(0, 1.5));// vision track turn
+
+		addSequential(new AutoWait(.5));// wait to pull good distance averages
+
+		addSequential(new JoeyShoot(10, 400));// shoot
 	}
 }

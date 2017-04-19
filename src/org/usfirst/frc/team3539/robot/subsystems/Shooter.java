@@ -3,7 +3,6 @@ package org.usfirst.frc.team3539.robot.subsystems;
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
 
-
 import com.ctre.CANTalon;
 import com.ctre.CANTalon.TalonControlMode;
 
@@ -14,19 +13,16 @@ public class Shooter extends BulldogSystem
 {
 	private CANTalon shooterOneMotor;
 	private CANTalon shooterTwoMotor;
-	//private CANTalon shooterHoodMotor;
+	// private CANTalon shooterHoodMotor;
 	private CANTalon agitatorMotor;
 
-	DigitalInput lightSensorOne = new DigitalInput(1);
-	DigitalInput lightSensorTwo = new DigitalInput(0);
-	
 	public Shooter()
 	{
 		super("Shooter");
 
 		shooterOneMotor = new CANTalon(RobotMap.shooterOneMotorTalon);
 		shooterTwoMotor = new CANTalon(RobotMap.shooterTwoMotorTalon);
-		
+
 		shooterOneMotor.setSafetyEnabled(false);
 		shooterTwoMotor.setSafetyEnabled(false);
 
@@ -36,24 +32,33 @@ public class Shooter extends BulldogSystem
 		shooterOneMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Absolute);
 		shooterOneMotor.reverseSensor(true);
 
-
-		shooterOneMotor.configNominalOutputVoltage(0.0f, -0.0f);
-		shooterOneMotor.configPeakOutputVoltage(12.0f, -12.0f);
-		
-
-
 		agitatorMotor = new CANTalon(RobotMap.agitatorTalon);
 		agitatorMotor.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Absolute);
 		agitatorMotor.setSafetyEnabled(false);
-		
+
 		agitatorMotor.configNominalOutputVoltage(0.0f, -0.0f);
 		agitatorMotor.configPeakOutputVoltage(12.0f, -12.0f);
 
-
-		
-	
 		shooterOneMotor.setEncPosition(0);
 		agitatorMotor.setEncPosition(0);
+
+		shooterOneMotor.configNominalOutputVoltage(0.0f, -0.0f);
+		shooterOneMotor.configPeakOutputVoltage(12.0f, -12.0f);
+
+		shooterOneMotor.configMaxOutputVoltage(12);
+		shooterOneMotor.setCurrentLimit(20);
+
+		shooterOneMotor.EnableCurrentLimit(false);
+	}
+
+	public void enableCurrentLimit()
+	{
+		shooterOneMotor.EnableCurrentLimit(true);
+	}
+
+	public void disableCurrentLimit()
+	{
+		shooterOneMotor.EnableCurrentLimit(false);
 	}
 
 	public void setMotorPower(double power)
@@ -61,7 +66,6 @@ public class Shooter extends BulldogSystem
 		shooterOneMotor.changeControlMode(CANTalon.TalonControlMode.PercentVbus);
 		shooterOneMotor.set(power);
 	}
-
 
 	public void setAgitatorMotorPower(double power)
 	{
@@ -72,12 +76,12 @@ public class Shooter extends BulldogSystem
 	{
 		return shooterOneMotor.getSpeed();
 	}
-	
+
 	public double getAgitatorRPM()
 	{
 		return agitatorMotor.getSpeed();
 	}
-	
+
 	public void resetAgitatorPID()
 	{
 		agitatorMotor.changeControlMode(CANTalon.TalonControlMode.Speed);
@@ -90,7 +94,7 @@ public class Shooter extends BulldogSystem
 		agitatorMotor.ClearIaccum();
 		agitatorMotor.enableControl();
 	}
-	
+
 	public void setAgitatorPID()
 	{
 		agitatorMotor.changeControlMode(CANTalon.TalonControlMode.Speed);
@@ -100,7 +104,7 @@ public class Shooter extends BulldogSystem
 		agitatorMotor.setD(RobotMap.agitatorDee);
 		agitatorMotor.enableControl();
 	}
-	
+
 	public void startAgitator(double rpm)
 	{
 		agitatorMotor.set(rpm);
@@ -110,10 +114,12 @@ public class Shooter extends BulldogSystem
 	{
 		this.agitatorMotor.disable();
 	}
+
 	public void disableShooterPID()
 	{
 		shooterOneMotor.disable();
 	}
+
 	public void resetShooterPID()
 	{
 		shooterOneMotor.changeControlMode(CANTalon.TalonControlMode.Speed);
@@ -126,7 +132,7 @@ public class Shooter extends BulldogSystem
 		shooterOneMotor.ClearIaccum();
 		shooterOneMotor.enableControl();
 	}
-	
+
 	public void setShooterPID()
 	{
 		shooterOneMotor.changeControlMode(CANTalon.TalonControlMode.Speed);
@@ -137,7 +143,7 @@ public class Shooter extends BulldogSystem
 		shooterOneMotor.setD(RobotMap.shootDee);
 		shooterOneMotor.enableControl();
 	}
-	
+
 	public void startShooter(double rpm)
 	{
 		shooterOneMotor.set(rpm);
@@ -145,7 +151,7 @@ public class Shooter extends BulldogSystem
 
 	public double getHoodPosition()
 	{
-		return 0;//return shooterHoodMotor.getPulseWidthPosition();
+		return 0;// return shooterHoodMotor.getPulseWidthPosition();
 	}
 
 	@Override
@@ -154,20 +160,18 @@ public class Shooter extends BulldogSystem
 	{
 		SmartDashboard.putDouble("Curent agitator rpm", getAgitatorRPM());
 		SmartDashboard.putDouble("Current Shooter RPM", getShooterRPM());
-		
+
 		RobotMap.agitatorSpeed = SmartDashboard.getDouble("Agitator Speed");
-		
+
 		RobotMap.shooterRpm = SmartDashboard.getDouble("Target RPM for shooter");
 
 		RobotMap.shootPea = SmartDashboard.getDouble("shootPea");
 		RobotMap.shootEye = SmartDashboard.getDouble("shootEye");
 		RobotMap.shootDee = SmartDashboard.getDouble("shootDee");
 		RobotMap.shootEff = SmartDashboard.getDouble("shootEff");
-		
 
-		
 		RobotMap.agitatorRpm = SmartDashboard.getDouble("Target RPM for agitator");
-		
+
 		RobotMap.agitatorPea = SmartDashboard.getDouble("agitatorPea");
 		RobotMap.agitatorEye = SmartDashboard.getDouble("agitatorEye");
 		RobotMap.agitatorDee = SmartDashboard.getDouble("agitatorDee");
@@ -182,17 +186,13 @@ public class Shooter extends BulldogSystem
 
 		SmartDashboard.putDouble("Agitator Speed", RobotMap.agitatorSpeed);
 		SmartDashboard.putDouble("Target RPM for shooter", RobotMap.shooterRpm);
-		
-		
+
 		SmartDashboard.putDouble("Target RPM for agitator", RobotMap.agitatorRpm);
-		
 
 		SmartDashboard.putDouble("shootPea", RobotMap.shootPea);
 		SmartDashboard.putDouble("shootEye", RobotMap.shootEye);
 		SmartDashboard.putDouble("shootDee", RobotMap.shootDee);
 		SmartDashboard.putDouble("shootEff", RobotMap.shootEff);
-		
-
 
 		SmartDashboard.putDouble("agitatorPea", RobotMap.agitatorPea);
 		SmartDashboard.putDouble("agitatorEff", RobotMap.agitatorEff);

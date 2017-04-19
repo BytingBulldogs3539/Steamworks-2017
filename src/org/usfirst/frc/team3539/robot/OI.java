@@ -2,6 +2,7 @@
 package org.usfirst.frc.team3539.robot;
 
 import org.usfirst.frc.team3539.robot.autoncommands.AutonTurn;
+import org.usfirst.frc.team3539.robot.autoncommands.SpinUp;
 import org.usfirst.frc.team3539.robot.commands.ClimbCommand;
 import org.usfirst.frc.team3539.robot.commands.FireCommand;
 import org.usfirst.frc.team3539.robot.commands.GearCommand;
@@ -68,6 +69,7 @@ public class OI
 		// Done - works properly
 
 		// STICKONE
+		onebuttony.whenPressed(new SpinUp(5, 3000));
 
 		// STICKTWO
 		twobuttona.whenPressed(new GearCommand()); // Done
