@@ -148,7 +148,11 @@ public class RobotMap
 	public static double hopperShootTurn = 45;
 	public static double farHopperDistance = whiteLineDistance + 57;
 	public static double deadband = .45;
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> origin/master
 	
 	
 
@@ -212,6 +216,10 @@ public class RobotMap
 	public static double farHopperDistance = 76 + 48;
 	public static double deadband = .45;
 	public static double gearCameraOffset = 0;
+<<<<<<< HEAD
+=======
+	
+>>>>>>> origin/master
 	*/
 }
 	
