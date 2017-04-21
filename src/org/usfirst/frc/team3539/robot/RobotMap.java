@@ -87,7 +87,7 @@ public class RobotMap
 	//////////////////////// PRACTICE BOT/////////////////////
 
 	
-	/*// PRACTICE CAMERA
+	// PRACTICE CAMERA
 	public static final int gearCamera = 0;
 	public static final int shooterCamera = 1;
 	public static double Distance1 = 90;
@@ -139,13 +139,13 @@ public class RobotMap
 	public static double hopperShootTurn = 45;
 	public static double farHopperDistance = whiteLineDistance + 57;
 	public static double deadband = .45;
-	*/
+
 	
 	
 
 	//////////////////////// COMP BOT/////////////////////
 
-	
+	/*
 	
 	//COMP CAMERA
 	public static final int gearCamera = 0;
@@ -204,5 +204,6 @@ public class RobotMap
 	public static double deadband = .45;
 	public static double gearCameraOffset = 0;
 	
+	*/
 }
 	

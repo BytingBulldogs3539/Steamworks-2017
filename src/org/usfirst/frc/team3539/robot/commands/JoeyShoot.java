@@ -164,7 +164,12 @@ public class JoeyShoot extends Command
 		else if (Robot.shooter.getShooterRPM() <= shooterRpm * .9)
 		{
 			Robot.shooter.startAgitator(-agitatorRpm);
-			Robot.intake.setMotorPower(1); // test
+			if (isIntaking)
+			{
+				Robot.intake.setMotorPower(1); // test
+				
+			}
+			
 		}
 
 		breakoutCounter++;
