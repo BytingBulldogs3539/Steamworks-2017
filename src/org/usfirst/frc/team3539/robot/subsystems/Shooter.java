@@ -46,7 +46,7 @@ public class Shooter extends BulldogSystem
 		shooterOneMotor.configPeakOutputVoltage(12.0f, -12.0f);
 
 		shooterOneMotor.configMaxOutputVoltage(12);
-		shooterOneMotor.setCurrentLimit(20);
+		shooterOneMotor.setCurrentLimit(80);
 
 		shooterOneMotor.EnableCurrentLimit(false);
 	}

@@ -77,6 +77,7 @@ public class Robot extends IterativeRobot
 	public void disabledPeriodic()
 	{
 		Scheduler.getInstance().run();
+		Update();
 	}
 
 	public void autonomousInit()
@@ -85,13 +86,14 @@ public class Robot extends IterativeRobot
 		System.out.println("autonomousInit");
 		Update();
 
+		Robot.driveTrain.zeroEncoders();
+		Robot.driveTrain.gyroReset();
+		
 		raspberry.setCamera(RobotMap.gearCamera);
 
 		autonMode = (Command) autonChooser.getSelected();
 		if (autonMode != null)
-		{
-			System.out.println("Here");
-			
+		{			
 			shooter.disableShooterPID();
 			shooter.disableAgitatorPID();
 			
@@ -160,6 +162,9 @@ public class Robot extends IterativeRobot
 		SmartDashboard.putData(new VisionTest());
 		SmartDashboard.putData(new TurnCalibrate());
 
+		SmartDashboard.putData(new AutonSlamFest());
+		SmartDashboard.putData(new OperationThunderDogBlue());
+		
 		autonChooser = new SendableChooser<Command>();
 
 		SmartDashboard.putData("Auton mode", autonChooser);

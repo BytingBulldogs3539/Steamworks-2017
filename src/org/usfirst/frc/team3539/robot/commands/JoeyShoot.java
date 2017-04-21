@@ -118,7 +118,7 @@ public class JoeyShoot extends Command
 	protected void initialize()
 	{
 		Robot.raspberry.setCamera(RobotMap.shooterCamera);
-		//Robot.shooter.resetShooterPID();
+		// Robot.shooter.resetShooterPID();
 		Robot.shooter.resetAgitatorPID();
 
 		Robot.shooter.setShooterPID();
@@ -126,16 +126,16 @@ public class JoeyShoot extends Command
 
 		breakoutCounter = 0;
 
-		if (visionTurn)
+		if(visionTurn)
 		{
 			// Scheduler.getInstance().add(new AutoAim());
 		}
 
-		if (visionDistance)
+		if(visionDistance)
 		{
 			this.hoodAngle = Robot.raspberry.getHoodAngle();
 
-			if (agitatorSpecial)
+			if(agitatorSpecial)
 			{
 				this.shooterRpm = Robot.raspberry.getShooterRPM() - 50;
 			}
@@ -143,6 +143,9 @@ public class JoeyShoot extends Command
 			{
 				this.shooterRpm = Robot.raspberry.getShooterRPM();
 			}
+			
+			if(isIntaking)
+				Robot.intake.setMotorPower(1);
 
 		}
 
@@ -157,14 +160,13 @@ public class JoeyShoot extends Command
 
 		Robot.shooter.startShooter(shooterRpm);
 
-		if (RobotMap.triggerModified)
+		if(RobotMap.triggerModified)
 		{
 			Robot.shooter.startAgitator(agitatorRpm);
 		}
-		else if (Robot.shooter.getShooterRPM() <= shooterRpm * .9)
+		else if(Robot.shooter.getShooterRPM() <= shooterRpm * .9)
 		{
 			Robot.shooter.startAgitator(-agitatorRpm);
-			Robot.intake.setMotorPower(1); // test
 		}
 
 		breakoutCounter++;
@@ -172,11 +174,11 @@ public class JoeyShoot extends Command
 
 	protected boolean isFinished()
 	{
-		if (isTeleop)
+		if(isTeleop)
 		{
 			return !button.get();
 		}
-		else if (breakoutCounter * 20 > shootTime * 1000)
+		else if(breakoutCounter * 20 > shootTime * 1000)
 			return true;
 		else
 			return false;
@@ -187,7 +189,8 @@ public class JoeyShoot extends Command
 		Robot.hoodSubsystem.disableHoodPid();
 		Robot.shooter.resetShooterPID();
 		Robot.shooter.resetAgitatorPID();
-		Robot.intake.setMotorPower(0); // will break code so watch out
+		if(isIntaking)
+			Robot.intake.setMotorPower(0);
 	}
 
 	protected void interrupted()

@@ -83,7 +83,6 @@ public class DpadButton extends Button
 		{
 			if (command != null)
 				Scheduler.getInstance().add(command);
-			System.out.println("TEST: " + angle);
 			isPressed = true;	
 		}
 		else

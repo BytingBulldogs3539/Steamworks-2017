@@ -92,8 +92,8 @@ public class AutonDrive extends PIDCommand
 		else
 			anglePID.setSetpoint(0);
 
-		anglePID.setAbsoluteTolerance(2);
-		anglePID.setToleranceBuffer(10);
+		anglePID.setAbsoluteTolerance(1);
+		anglePID.setToleranceBuffer(15);
 		
 		this.getPIDController().setAbsoluteTolerance(2000);
 		this.getPIDController().setToleranceBuffer(20);

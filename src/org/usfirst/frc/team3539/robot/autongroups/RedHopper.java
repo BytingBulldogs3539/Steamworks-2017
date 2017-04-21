@@ -18,12 +18,12 @@ public class RedHopper extends CommandGroup
 
 		addParallel(new SetShootCamera());
 
-		addSequential(new AutonDrive(123, 2.5)); // initial; (118, 2.5) before, looks like 120/123 works better
+		addSequential(new AutonDrive(121, 2.5)); // initial; (118, 2.5) before, looks like 120/123 works better
 
 		//addParallel(new SpinUp (1.5, 1000));//ready fly wheel
 
 		// addSequential(new AutonTurn(-35, .7));//hit hopper (.7 seconds)
-		addSequential(new AlphaTurn(-1, 1.2));
+		addSequential(new AlphaTurn(-1, 1.5));
 
 		//addSequential(new AutoWait(1));// wait for fill
 

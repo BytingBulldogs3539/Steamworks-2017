@@ -18,13 +18,12 @@ public class RedShootMiddle extends CommandGroup
 
 	public RedShootMiddle()
 	{
-		
 		addSequential(new GearMiddleGroup());
-		
-		addSequential(new AutonDrive(-20,1));
-		
+
+		addSequential(new AutonDrive(-20, 1));
+
 		addSequential(new AutonGearClose());
-		
+
 		addSequential(new SetShootCamera());
 
 		addSequential(new AutonTurn(-RobotMap.middleShootTurn, 2));
@@ -32,7 +31,7 @@ public class RedShootMiddle extends CommandGroup
 		addSequential(new AutoWait(RobotMap.visionWait));
 
 		addSequential(new AutonTurn(0, 2));
-		
+
 		addSequential(new JoeyShoot(7));
 	}
 }

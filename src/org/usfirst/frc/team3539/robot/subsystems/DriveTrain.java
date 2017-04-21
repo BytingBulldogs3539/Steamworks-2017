@@ -118,6 +118,7 @@ public class DriveTrain extends BulldogSystem
 
 		lfMotor.setPosition(0);
 		rfMotor.setPosition(0);
+		System.out.println("Zero DriveTrain");
 		// rbMotor.setPosition(0);
 		// lbMotor.setPosition(0);
 	}

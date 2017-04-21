@@ -18,27 +18,17 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class GearMiddleGroup extends CommandGroup
 {
 	public GearMiddleGroup()
-	{	
+	{
 		addParallel(new SetGearCamera());
-		
+
 		addParallel(new HoodReset(3));
 		
 		addSequential(new AutoWait(.5));
-		
+
 		addSequential(new AutonDrive(RobotMap.whiteLineDistance, true));
 
-//		addSequential(new AutoWait(.5));
-
 		addParallel(new SetShootCamera());
-		
+
 		addSequential(new AutonGearOpen());
-
-	//	addSequential(new AutoWait(.5));
-		
-
-
-		//addSequential(new AutonDrive(-20, 3));
-
-		//addSequential(new AutonGearClose());
 	}
 }
