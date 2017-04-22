@@ -10,6 +10,7 @@ import org.usfirst.frc.team3539.robot.autoncommands.AutonTurn;
 import org.usfirst.frc.team3539.robot.autoncommands.HoodReset;
 import org.usfirst.frc.team3539.robot.autoncommands.SetGearCamera;
 import org.usfirst.frc.team3539.robot.autoncommands.SetShootCamera;
+import org.usfirst.frc.team3539.robot.autonscurves.SuperDriveAuton;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -25,13 +26,20 @@ public class GearLeftGroup extends CommandGroup
 		
 		addParallel(new HoodReset(3));
 		
-		addSequential(new AutonDrive(RobotMap.whiteLineDistance, 3));
+		//addParallel(new SetGearCamera());
+		//addParallel(new SetShootCamera());
 
-		addSequential(new AutonTurn(-RobotMap.sidePegTurn));
+		//addParallel(new HoodReset(3));
+		
+		addSequential(new SuperDriveAuton(100, -.9, 30, false, 4, RobotMap.whiteLineDistance-5));
+		
+		//addSequential(new AutonDrive(RobotMap.whiteLineDistance+5, 3));
+
+		//addSequential(new AutonTurn(-RobotMap.sidePegTurn));
 		
 		addSequential(new AutoWait(.4));
 		
-		addSequential(new AutonDrive(RobotMap.sidePegDistance+8,true));
+		//addSequential(new AutonDrive(RobotMap.sidePegDistance+8,true));
 
 		//addSequential(new AutoWait(1));
 		

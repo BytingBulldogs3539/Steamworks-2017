@@ -67,7 +67,7 @@ public class SuperDriveAuton extends PIDCommand {
 	protected void initialize() {
 		
 	//	Robot.raspberry.setCamera(RobotMap.gearCamera);
-		System.out.println("Started SuperDrive");
+		
 		turnComplete = false;
 		
 		Robot.driveTrain.zeroEncoders();
@@ -93,9 +93,6 @@ public class SuperDriveAuton extends PIDCommand {
 
 	protected void execute() {
 		
-		if (this.getPIDController().onTarget())
-			System.out.println("Reached Distance");
-		
 		if (!useVision && anglePID.isEnabled() && anglePID.onTarget())
 		{
 			System.out.println("Disable Vision");
@@ -108,14 +105,13 @@ public class SuperDriveAuton extends PIDCommand {
 			useVision = true;
 		
 		}
-		if (Math.abs(DriveDistance) < Math.abs(Robot.driveTrain.getBalancedEncoderPosition()))
+		if (DriveDistance < Robot.driveTrain.getBalancedEncoderPosition())
 		{
 			anglePID_output.pidWrite(turnSpeed);
 			
 		}
 		
 		if (!anglePID.isEnabled() && Math.abs(Robot.driveTrain.getGyroAngle()) > this.turnAngle *.98)
-
 		{
 			turnComplete = true;
 			
@@ -144,7 +140,7 @@ public class SuperDriveAuton extends PIDCommand {
 
 	protected void end() {
 		Robot.driveTrain.zeroEncoders();
-		Robot.driveTrain.stopTrain();
+		//Robot.driveTrain.stopTrain();
 		anglePID_output.Reset();
 		anglePID.disable();
 	}

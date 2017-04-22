@@ -83,7 +83,7 @@ public class OI
 		twobumperl.whenPressed(new JoeyShoot(false, twobumperl, 700, 400, -3625));
 		shooterTrigger = new TriggerButton(3, controller2);
 		shooterTrigger.setCommand(new JoeyShoot(false, shooterTrigger, 350, 400, -3050));
-		onebuttonx.whenPressed(new JoeyShoot(false, onebuttonx,350, 300, -500));
+		onebuttonx.whenPressed(new JoeyShoot(false, onebuttonx,350, 300, -2000));
 		
 		supermanButton = new DpadButton ("up", controller2);
 		supermanButton.setCommand(new JoeyShoot(supermanButton));

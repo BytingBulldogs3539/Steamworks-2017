@@ -6,6 +6,7 @@ import org.usfirst.frc.team3539.robot.autoncommands.AutonDrive;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonGearClose;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonTurn;
 import org.usfirst.frc.team3539.robot.autoncommands.SetShootCamera;
+import org.usfirst.frc.team3539.robot.autonscurves.SuperDriveAuton;
 import org.usfirst.frc.team3539.robot.commands.JoeyShoot;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
@@ -37,6 +38,10 @@ public class RedShootInside extends CommandGroup
 		
 	//	addSequential(new AutoWait(.5));
 		
-		addSequential(new JoeyShoot(7));
+		addSequential(new JoeyShoot(6));
+		
+		addSequential(new AutonTurn(45));
+		
+		addSequential(new AutonDrive(150,3));
 	}
 }

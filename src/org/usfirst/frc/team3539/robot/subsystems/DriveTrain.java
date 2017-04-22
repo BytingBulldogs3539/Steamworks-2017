@@ -183,6 +183,7 @@ public class DriveTrain extends BulldogSystem
 	{
 		gyro.reset();
 		System.out.println("Gyro Zeroed");
+		System.out.println(gyro.getAngle()+" Gyro");
 	}
 
 	public double getGyroAngle()

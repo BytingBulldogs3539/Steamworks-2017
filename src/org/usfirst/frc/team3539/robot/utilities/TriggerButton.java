@@ -44,7 +44,6 @@ public class TriggerButton extends Button
 		if(controller.getRawAxis(triggerAxis) > .75 && triggerValue == false)
 		{
 			triggerValue = true;
-			System.out.println("triggered");
 			if(command != null)
 			{
 				Scheduler.getInstance().add(command);

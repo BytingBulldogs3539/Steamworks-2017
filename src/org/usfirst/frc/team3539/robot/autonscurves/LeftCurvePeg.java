@@ -25,7 +25,7 @@ public class LeftCurvePeg extends CommandGroup {
     	
     	addSequential(new AutonGearOpen());
     	
-    	addSequential(new SuperDriveAuton(-40, curve, 0, true, 2));
+    	addSequential(new SuperDriveAuton(-40, curve, 0, false, 2));
     	addParallel(new AutonGearClose());
 
 		addSequential(new JoeyShoot(7));

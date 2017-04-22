@@ -53,6 +53,8 @@ public class Robot extends IterativeRobot
 		
 		raspberry.setCamera(RobotMap.gearCamera);
 		
+		
+			
 		SmartInit();
 		Update();
 
@@ -96,10 +98,9 @@ public class Robot extends IterativeRobot
 		{			
 			shooter.disableShooterPID();
 			shooter.disableAgitatorPID();
-			
+			System.out.println("RANAUTO???");
 			autonMode.start();
 		}
-
 		driveTrain.gyroReset();
 	}
 

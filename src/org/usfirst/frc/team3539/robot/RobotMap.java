@@ -100,7 +100,7 @@ public class RobotMap
 	
 	public static double Distance1 = 104;
 	public static double Distance2 = 204;
-	public static double RPM1 = 3100;
+	public static double RPM1 = 3050;
 	public static double RPM2 = 3925;
 	public static double Hood1 = 680;//640
 	public static double Hood2 = 1140;//1100
@@ -148,12 +148,6 @@ public class RobotMap
 	public static double hopperShootTurn = 45;
 	public static double farHopperDistance = whiteLineDistance + 57;
 	public static double deadband = .45;
-<<<<<<< HEAD
-	
-=======
-
->>>>>>> origin/master
-	
 	
 
 	//////////////////////// COMP BOT/////////////////////

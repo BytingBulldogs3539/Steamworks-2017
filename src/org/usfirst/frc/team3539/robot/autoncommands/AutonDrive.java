@@ -133,7 +133,7 @@ public class AutonDrive extends PIDCommand
 	protected void end()
 	{
 		Robot.driveTrain.zeroEncoders();
-		//Robot.driveTrain.stopTrain();
+		Robot.driveTrain.stopTrain();
 		anglePID.disable();
 		pidOutput.Reset();
 	}
