@@ -31,15 +31,16 @@ public class GearLeftGroup extends CommandGroup
 
 		//addParallel(new HoodReset(3));
 		
-		addSequential(new SuperDriveAuton(100, -.9, 30, false, 4, RobotMap.whiteLineDistance-5));
+		addSequential(new SuperDriveAuton(100, -.6, 50, false, 4, 15));
 		
 		//addSequential(new AutonDrive(RobotMap.whiteLineDistance+5, 3));
 
+		addSequential(new AutoWait(.7));
+
 		//addSequential(new AutonTurn(-RobotMap.sidePegTurn));
 		
-		addSequential(new AutoWait(.4));
 		
-		//addSequential(new AutonDrive(RobotMap.sidePegDistance+8,true));
+		addSequential(new AutonDrive(RobotMap.sidePegDistance+8,true));
 
 		//addSequential(new AutoWait(1));
 		

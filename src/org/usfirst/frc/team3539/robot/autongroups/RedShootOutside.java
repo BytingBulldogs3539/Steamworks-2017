@@ -23,7 +23,7 @@ public class RedShootOutside extends CommandGroup
 
 		addSequential(new SetShootCamera());
 
-		addSequential(new SuperDriveAuton(-80, -.77, 140, false, 3,-100));
+		addSequential(new SuperDriveAuton(-80, -.77, 110, false, 3,-100));
 		
 		addSequential(new AutonGearClose());
 		
@@ -32,9 +32,9 @@ public class RedShootOutside extends CommandGroup
 
 		//addSequential(new AutonTurn(-RobotMap.outsideShootTurn, 4));
 
-		addSequential(new AutoWait(RobotMap.visionWait));
+		addSequential(new AutoWait(.75));
 
-		addSequential(new AutonTurn(0, 1));
+		addSequential(new AutonTurn(0, 2));
 
 		//addSequential(new AutoWait(.5));
 		

@@ -85,7 +85,6 @@ public class Robot extends IterativeRobot
 	public void autonomousInit()
 	{
 		// BulldogLogger.getInstance().logInfo("autonomousInit");
-		System.out.println("autonomousInit");
 		Update();
 
 		Robot.driveTrain.zeroEncoders();
@@ -98,7 +97,6 @@ public class Robot extends IterativeRobot
 		{			
 			shooter.disableShooterPID();
 			shooter.disableAgitatorPID();
-			System.out.println("RANAUTO???");
 			autonMode.start();
 		}
 		driveTrain.gyroReset();
@@ -187,6 +185,8 @@ public class Robot extends IterativeRobot
 		autonChooser.addObject("RedHopper", new RedHopper());
 		autonChooser.addObject("RedShootOutside", new RedShootOutside());
 		autonChooser.addObject("RedShootInside", new RedShootInside());
+		autonChooser.addObject("AutonSlamFest", new AutonSlamFest());
+		autonChooser.addObject("ThunderDogBLue", new OperationThunderDogBlue());
 
 		// Blue\/
 

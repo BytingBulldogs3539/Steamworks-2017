@@ -118,7 +118,6 @@ public class DriveTrain extends BulldogSystem
 
 		lfMotor.setPosition(0);
 		rfMotor.setPosition(0);
-		System.out.println("Zero DriveTrain");
 		// rbMotor.setPosition(0);
 		// lbMotor.setPosition(0);
 	}
@@ -182,8 +181,6 @@ public class DriveTrain extends BulldogSystem
 	public void gyroReset()
 	{
 		gyro.reset();
-		System.out.println("Gyro Zeroed");
-		System.out.println(gyro.getAngle()+" Gyro");
 	}
 
 	public double getGyroAngle()

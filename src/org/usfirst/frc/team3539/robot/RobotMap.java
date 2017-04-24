@@ -101,7 +101,7 @@ public class RobotMap
 	public static double Distance1 = 104;
 	public static double Distance2 = 204;
 	public static double RPM1 = 3050;
-	public static double RPM2 = 3925;
+	public static double RPM2 = 4100;
 	public static double Hood1 = 680;//640
 	public static double Hood2 = 1140;//1100
 	

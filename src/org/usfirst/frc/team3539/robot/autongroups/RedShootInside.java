@@ -21,14 +21,15 @@ public class RedShootInside extends CommandGroup
 	{
 		
 		addSequential(new GearLeftGroup());
+		addParallel(new SetShootCamera());
 
-		addSequential(new AutonDrive(-20,1));
+
+		addSequential(new AutonDrive(-80,.5));
 
 		addSequential(new AutonTurn(20, 1));
 		
 		addSequential(new AutonGearClose());
 
-		addSequential(new SetShootCamera());
 
 		//addSequential(new AutoWait(RobotMap.visionWait));
 
@@ -38,10 +39,14 @@ public class RedShootInside extends CommandGroup
 		
 	//	addSequential(new AutoWait(.5));
 		
-		addSequential(new JoeyShoot(6));
+		addSequential(new JoeyShoot(5));
 		
-		addSequential(new AutonTurn(45));
+		addSequential(new AutoWait(.5));
 		
-		addSequential(new AutonDrive(150,3));
+		addSequential(new AutonTurn(40,2));
+		
+		//addSequential(new AutonDrive(150,3));
+		
+		addSequential(new SuperDriveAuton(200, -.6, 30, false, 3, 90));
 	}
 }

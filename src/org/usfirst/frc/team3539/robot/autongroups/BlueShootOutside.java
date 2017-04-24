@@ -23,7 +23,7 @@ public class BlueShootOutside extends CommandGroup
 		
 		addSequential(new SetShootCamera());
 		
-		addSequential(new SuperDriveAuton(-80, .77, 130, false, 3,-100));
+		addSequential(new SuperDriveAuton(-80, .77, 110, false, 3,-100));
 		
 		addSequential(new AutonGearClose());
 

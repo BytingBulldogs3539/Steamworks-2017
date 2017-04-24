@@ -1,5 +1,6 @@
 package org.usfirst.frc.team3539.robot.autongroups;
 
+import org.usfirst.frc.team3539.robot.autoncommands.AutoWait;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonDrive;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonGearClose;
 import org.usfirst.frc.team3539.robot.autoncommands.AutonTurn;
@@ -31,9 +32,9 @@ public class BlueShootInside extends CommandGroup
 
 		//addSequential(new AutoWait(RobotMap.visionWait));
 		
-		addSequential(new AutonTurn(0, 1));
+		addSequential(new AutonTurn(0, 21));
 		
-		//addSequential(new AutoWait(.5));
+		addSequential(new AutoWait(.5));
 		
 		addSequential(new JoeyShoot(7));
 	}

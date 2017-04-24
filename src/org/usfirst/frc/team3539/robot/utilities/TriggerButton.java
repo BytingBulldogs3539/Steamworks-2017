@@ -52,7 +52,6 @@ public class TriggerButton extends Button
 		else if(controller.getRawAxis(triggerAxis) < .1 && triggerValue == true)
 		{
 			triggerValue = false;
-			System.out.println("untriggered");
 		}
 		return triggerValue;
 	}
