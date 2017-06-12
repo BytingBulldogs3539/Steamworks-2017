@@ -19,6 +19,7 @@ public class AutonDrive extends PIDCommand
 	private BulldogPIDOutput pidOutput = new BulldogPIDOutput();
 	private PIDController anglePID;
 	private boolean Intake;
+	
 
 	private Boolean useVision = false;
 	
@@ -51,9 +52,8 @@ public class AutonDrive extends PIDCommand
 		this.useVision = false;
 		//this.getPIDController().setOutputRange(-.85, .85);//
 		
-		this.setTimeout(7);
+		this.setTimeout(4);
 	}
-
 	public AutonDrive(double inches, Boolean useVision)
 	{
 		super("test", RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
@@ -62,7 +62,17 @@ public class AutonDrive extends PIDCommand
 		this.useVision = useVision;
 		//this.getPIDController().setOutputRange(-.85, .85);//
 		
-		this.setTimeout(7);
+		this.setTimeout(5);
+	}
+	public AutonDrive(double inches, Boolean useVision, double time)
+	{
+		super("test", RobotMap.drivePea, RobotMap.driveEye, RobotMap.driveDee);
+		myTicks = Robot.driveTrain.inchToEnc2(inches);
+		requires(Robot.driveTrain);
+		this.useVision = useVision;
+		//this.getPIDController().setOutputRange(-.85, .85);//
+		
+		this.setTimeout(time);
 	}
 	
 	public AutonDrive(double inches, double seconds)

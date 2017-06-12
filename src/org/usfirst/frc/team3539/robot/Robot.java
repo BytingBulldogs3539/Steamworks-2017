@@ -10,7 +10,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team3539.robot.autoncommands.*;
 import org.usfirst.frc.team3539.robot.autongroups.*;
-import org.usfirst.frc.team3539.robot.autonscurves.BlueCurveHopper;
 import org.usfirst.frc.team3539.robot.autonscurves.LeftCurvePeg;
 import org.usfirst.frc.team3539.robot.autonscurves.RedCurveHopper;
 import org.usfirst.frc.team3539.robot.autonscurves.RightCurvePeg;
@@ -26,8 +25,7 @@ import org.usfirst.frc.team3539.robot.subsystems.*;
  * directory.
  **/
 
-public class Robot extends IterativeRobot
-{
+public class Robot extends IterativeRobot {
 	// SUBSYSTEMS
 	public static final HoodSubsystem hoodSubsystem = new HoodSubsystem();
 	public static final DriveTrain driveTrain = new DriveTrain();
@@ -43,18 +41,15 @@ public class Robot extends IterativeRobot
 	Command autonMode;
 	SendableChooser<Command> autonChooser;
 
-	public void robotInit()
-	{
+	public void robotInit() {
 		c = new Compressor(RobotMap.compressor);
 
 		oi = new OI();
-		
+
 		raspberry = new Raspberry();
-		
+
 		raspberry.setCamera(RobotMap.gearCamera);
-		
-		
-			
+
 		SmartInit();
 		Update();
 
@@ -69,32 +64,28 @@ public class Robot extends IterativeRobot
 	 * You can use it to reset any subsystem information you want to clear when
 	 * the robot is disabled.
 	 **/
-	public void disabledInit()
-	{
+	public void disabledInit() {
 		// BulldogLogger.getInstance().finishLogging();
 		Scheduler.getInstance().run();
 
 	}
 
-	public void disabledPeriodic()
-	{
+	public void disabledPeriodic() {
 		Scheduler.getInstance().run();
 		Update();
 	}
 
-	public void autonomousInit()
-	{
+	public void autonomousInit() {
 		// BulldogLogger.getInstance().logInfo("autonomousInit");
 		Update();
 
 		Robot.driveTrain.zeroEncoders();
 		Robot.driveTrain.gyroReset();
-		
+
 		raspberry.setCamera(RobotMap.gearCamera);
 
 		autonMode = (Command) autonChooser.getSelected();
-		if (autonMode != null)
-		{			
+		if (autonMode != null) {
 			shooter.disableShooterPID();
 			shooter.disableAgitatorPID();
 			autonMode.start();
@@ -103,35 +94,30 @@ public class Robot extends IterativeRobot
 	}
 
 	// This function is called periodically during autonomous
-	public void autonomousPeriodic()
-	{
+	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
 		Update();
 	}
 
-	public void teleopInit()
-	{
+	public void teleopInit() {
 		System.out.println("teleopInit");
 		raspberry.setCamera(RobotMap.shooterCamera);
 		Robot.manipulator.holderClose();
 	}
 
 	// This function is called periodically during operator control
-	public void teleopPeriodic()
-	{
+	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
 		Update();
 	}
 
 	// This function is called periodically during test mode
-	public void testPeriodic()
-	{
+	public void testPeriodic() {
 		Update();
 		LiveWindow.run();
 	}
 
-	public void Update()
-	{
+	public void Update() {
 		oi.Update();
 		intake.Update();
 		shooter.Update();
@@ -141,8 +127,7 @@ public class Robot extends IterativeRobot
 		raspberry.Update();
 	}
 
-	public void SmartInit()
-	{
+	public void SmartInit() {
 		oi.SmartInit();
 		intake.SmartInit();
 		shooter.SmartInit();
@@ -150,20 +135,20 @@ public class Robot extends IterativeRobot
 		driveTrain.SmartInit();
 		hoodSubsystem.SmartInit();
 		raspberry.SmartInit();
-		
-		SmartDashboard.putDouble("GearDistanceFudge", .95);
-		
+
+		SmartDashboard.putDouble("GearDistanceFudge", .85);
+
 		SmartDashboard.putData(new LeftCurvePeg());
 		SmartDashboard.putData(new RightCurvePeg());
 		SmartDashboard.putData(new RedCurveHopper());
-		
+
 		SmartDashboard.putData(new VisionGearMiddle());
 		SmartDashboard.putData(new VisionTest());
 		SmartDashboard.putData(new TurnCalibrate());
 
-		SmartDashboard.putData(new AutonSlamFest());
-		SmartDashboard.putData(new OperationThunderDogBlue());
-		
+		SmartDashboard.putData(new RedChickenHopper());
+		SmartDashboard.putData(new BlueChickenHopper());
+
 		autonChooser = new SendableChooser<Command>();
 
 		SmartDashboard.putData("Auton mode", autonChooser);
@@ -175,9 +160,9 @@ public class Robot extends IterativeRobot
 		autonChooser.addObject("Turn Calibrate", new TurnCalibrate());
 
 		// Gear\/
-		//autonChooser.addObject("GearMiddleGroup", new GearMiddleGroup());
-		//autonChooser.addObject("GearLeftGroup", new GearLeftGroup());
-		//autonChooser.addObject("GearRightGroup", new GearRightGroup());
+		// autonChooser.addObject("GearMiddleGroup", new GearMiddleGroup());
+		// autonChooser.addObject("GearLeftGroup", new GearLeftGroup());
+		// autonChooser.addObject("GearRightGroup", new GearRightGroup());
 
 		// Red\/
 
@@ -185,8 +170,8 @@ public class Robot extends IterativeRobot
 		autonChooser.addObject("RedHopper", new RedHopper());
 		autonChooser.addObject("RedShootOutside", new RedShootOutside());
 		autonChooser.addObject("RedShootInside", new RedShootInside());
-		autonChooser.addObject("AutonSlamFest", new AutonSlamFest());
-		autonChooser.addObject("ThunderDogBLue", new OperationThunderDogBlue());
+		autonChooser.addObject("RedChickenHopper", new RedChickenHopper());
+		autonChooser.addObject("BlueChickenHopper", new BlueChickenHopper());
 
 		// Blue\/
 
@@ -206,7 +191,9 @@ public class Robot extends IterativeRobot
 		SmartDashboard.putData(driveTrain);
 		SmartDashboard.putData(new TestMaxVel());
 		SmartDashboard.putData(new ZeroHoodCommand());
-
+		SmartDashboard.putData(new JoeyShoot(false, 0, 350, -1000, 5));
+		// boolean visionTurn, double hoodAngle, double agitatorRpm, double
+		// shooterRpm, double seconds
 		SmartDashboard.putData(new DriveCalibrate());
 		SmartDashboard.putData(new TurnCalibrate());
 		SmartDashboard.putData(Scheduler.getInstance());

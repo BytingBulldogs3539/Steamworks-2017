@@ -14,39 +14,35 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class RedShootInside extends CommandGroup
-{
+public class RedShootInside extends CommandGroup {
 
-	public RedShootInside()
-	{
-		
+	public RedShootInside() {
+
 		addSequential(new GearLeftGroup());
 		addParallel(new SetShootCamera());
 
-
-		addSequential(new AutonDrive(-80,.5));
+		addSequential(new AutonDrive(-80, .5));
 
 		addSequential(new AutonTurn(20, 1));
-		
+
 		addSequential(new AutonGearClose());
 
+		// addSequential(new AutoWait(RobotMap.visionWait));
 
-		//addSequential(new AutoWait(RobotMap.visionWait));
+		// addSequential(new AutonTurn(15,1));
 
-		//addSequential(new AutonTurn(15,1));
-		
 		addSequential(new AutonTurn(0, 2));
-		
-	//	addSequential(new AutoWait(.5));
-		
+
+		// addSequential(new AutoWait(.5));
+
 		addSequential(new JoeyShoot(5));
-		
+
 		addSequential(new AutoWait(.5));
-		
-		addSequential(new AutonTurn(40,2));
-		
-		//addSequential(new AutonDrive(150,3));
-		
+
+		addSequential(new AutonTurn(40, 2));
+
+		// addSequential(new AutonDrive(150,3));
+
 		addSequential(new SuperDriveAuton(200, -.6, 30, false, 3, 90));
 	}
 }

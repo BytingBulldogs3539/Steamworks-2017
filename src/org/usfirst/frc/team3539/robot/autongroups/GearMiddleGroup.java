@@ -25,10 +25,8 @@ public class GearMiddleGroup extends CommandGroup
 		
 		addSequential(new AutoWait(.5));
 
-		addSequential(new AutonDrive(RobotMap.whiteLineDistance, true));
-
-		addParallel(new SetShootCamera());
-
+		addSequential(new AutonDrive(RobotMap.whiteLineDistance, true,5));
+		
 		addSequential(new AutonGearOpen());
 	}
 }

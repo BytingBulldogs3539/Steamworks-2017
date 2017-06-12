@@ -37,6 +37,7 @@ public class AutonTurn extends PIDCommand
 	{
 		super("AutonTurn", RobotMap.turnPea, RobotMap.turnEye, RobotMap.turnDee);
 		Init(0, 3, isGearVision, button);
+
 	}
 
 	private void Init(double angle, double seconds, boolean isGearVision, Button button)

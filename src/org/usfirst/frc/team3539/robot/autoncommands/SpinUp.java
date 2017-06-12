@@ -44,6 +44,7 @@ public class SpinUp extends Command
 	protected void end()
 	{
 		Robot.shooter.disableCurrentLimit();
+		Robot.shooter.setMotorPower(0);
 	}
 
 	protected void interrupted()

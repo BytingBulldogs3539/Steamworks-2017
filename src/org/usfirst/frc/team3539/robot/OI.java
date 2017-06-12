@@ -69,8 +69,6 @@ public class OI
 		// Done - works properly
 
 		// STICKONE
-		onebuttony.whenPressed(new SpinUp(5, 3000));
-
 		// STICKTWO
 		twobuttona.whenPressed(new GearCommand()); // Done
 		twobuttonb.whenPressed(new HoodCommand()); // Done
@@ -80,10 +78,10 @@ public class OI
 		twobuttonLS.whenPressed(new HoodManual());
 		
 		twobumperr.whenPressed(new JoeyShoot(false, twobumperr, 550, 400, -3350));
-		twobumperl.whenPressed(new JoeyShoot(false, twobumperl, 700, 400, -3625));
+		twobumperl.whenPressed(new JoeyShoot(false, twobumperl, 1024, 400, -5000));
 		shooterTrigger = new TriggerButton(3, controller2);
 		shooterTrigger.setCommand(new JoeyShoot(false, shooterTrigger, 350, 400, -3050));
-		onebuttonx.whenPressed(new JoeyShoot(false, onebuttonx,350, 300, -2000));
+		onebuttonx.whenPressed(new JoeyShoot(false, onebuttonx,350, 300, -2500));
 		
 		supermanButton = new DpadButton ("up", controller2);
 		supermanButton.setCommand(new JoeyShoot(supermanButton));

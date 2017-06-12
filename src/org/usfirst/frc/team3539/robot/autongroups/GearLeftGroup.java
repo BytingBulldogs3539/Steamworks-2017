@@ -18,40 +18,20 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 /**
  *
  */
-public class GearLeftGroup extends CommandGroup
+public class GearLeftGroup extends CommandGroup 
 {
 	public GearLeftGroup()
 	{
 		addParallel(new SetGearCamera());
-		
-		addParallel(new HoodReset(3));
-		
-		//addParallel(new SetGearCamera());
-		//addParallel(new SetShootCamera());
 
-		//addParallel(new HoodReset(3));
-		
+		addParallel(new HoodReset(3));
+
 		addSequential(new SuperDriveAuton(100, -.6, 50, false, 4, 15));
-		
-		//addSequential(new AutonDrive(RobotMap.whiteLineDistance+5, 3));
 
 		addSequential(new AutoWait(.7));
 
-		//addSequential(new AutonTurn(-RobotMap.sidePegTurn));
-		
-		
-		addSequential(new AutonDrive(RobotMap.sidePegDistance+8,true));
+		addSequential(new AutonDrive(RobotMap.sidePegDistance + 8, true,5));
 
-		//addSequential(new AutoWait(1));
-		
-		addParallel(new SetShootCamera());
-		
 		addSequential(new AutonGearOpen());
-
-		//addSequential(new AutoWait(1));
-
-		//addSequential(new AutonDrive(-20));
-
-		//addSequential(new AutonGearClose());
 	}
 }

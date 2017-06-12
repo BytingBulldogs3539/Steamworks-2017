@@ -137,7 +137,7 @@ public class JoeyShoot extends Command
 
 			if(agitatorSpecial)
 			{
-				this.shooterRpm = Robot.raspberry.getShooterRPM() - 50;
+				this.shooterRpm = Robot.raspberry.getShooterRPM() - 60;
 			}
 			else
 			{
