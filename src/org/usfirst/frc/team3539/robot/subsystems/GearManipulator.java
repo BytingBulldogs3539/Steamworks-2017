@@ -1,10 +1,13 @@
 package org.usfirst.frc.team3539.robot.subsystems;
 
+import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
 
 import com.ctre.CANTalon;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.GenericHID.RumbleType;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
@@ -22,7 +25,8 @@ public class GearManipulator extends BulldogSystem
 
 	private boolean hoodStatus;
 	private boolean gearStatus;
-
+	DigitalInput Button;
+	
 	public GearManipulator()
 	{
 		super("GearManipulator");
@@ -38,6 +42,8 @@ public class GearManipulator extends BulldogSystem
 		
 		this.hoodClose();
 		this.holderClose();
+		
+		Button = new DigitalInput(RobotMap.Button);
 	}
 
 	public void hoodOpen()
@@ -112,6 +118,23 @@ public class GearManipulator extends BulldogSystem
 		{
 			SmartDashboard.putString("Gear Holder Status", "Closed");
 		}
+		
+		
+		
+	}
+	public void rumble()
+	{
+	
+		Robot.oi.controller1.setRumble(RumbleType.kLeftRumble, 1);
+		Robot.oi.controller1.setRumble(RumbleType.kRightRumble, 1);
+		Robot.oi.controller2.setRumble(RumbleType.kLeftRumble, 1);
+		Robot.oi.controller2.setRumble(RumbleType.kRightRumble, 1);
+
+	}
+	public boolean GetButton()
+	{
+		
+		return Button.get();
 	}
 
 	@Override

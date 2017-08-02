@@ -24,26 +24,30 @@ public class DriveCommand extends BulldogCommand
 
 	protected void execute()
 	{
+		//log
+		//Rumble
+		//		Robot.manipulator.rumble();
+
+
+		//gear change
 		if (Robot.oi.onebuttona.get() && !latch)
 		{
+			Robot.bl.logDebug("Gear Switch: true");
+			Robot.bl.logDebug("Gear change to true");
 			latch = true;
 			Robot.driveTrain.changeGears();
 		} else if (!Robot.oi.onebuttona.get() && latch)
 		{
+			
 			latch = false;
+			Robot.bl.logDebug("Gear Switch: false");
+			Robot.bl.logDebug("gear change to false");
 		}
 
-		if (Robot.oi.invertTrigger.get())
-		{
-			Robot.driveTrain.driveArcade(-1 * Robot.oi.controller1.getRawAxis(RobotMap.Y_AxisL),
-					Robot.oi.controller1.getRawAxis(RobotMap.X_AxisR));
-		}
-		else
-		{
-			Robot.driveTrain.driveArcade(Robot.oi.controller1.getRawAxis(RobotMap.Y_AxisL),
-					Robot.oi.controller1.getRawAxis(RobotMap.X_AxisR));
-		}
-	}
+		//drive
+
+		Robot.driveTrain.DriveG(Robot.oi.controller1.getRawAxis(RobotMap.Y_AxisL), Robot.oi.controller1.getRawAxis(RobotMap.X_AxisR));
+}
 
 	protected boolean isFinished()
 	{

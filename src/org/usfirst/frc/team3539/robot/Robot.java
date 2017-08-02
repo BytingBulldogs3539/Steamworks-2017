@@ -13,9 +13,9 @@ import org.usfirst.frc.team3539.robot.autongroups.*;
 import org.usfirst.frc.team3539.robot.autonscurves.LeftCurvePeg;
 import org.usfirst.frc.team3539.robot.autonscurves.RedCurveHopper;
 import org.usfirst.frc.team3539.robot.autonscurves.RightCurvePeg;
-import org.usfirst.frc.team3539.robot.calibration.*;
 import org.usfirst.frc.team3539.robot.commands.*;
 import org.usfirst.frc.team3539.robot.subsystems.*;
+import org.usfirst.team3539.robot.cx.BulldogLogger;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -33,6 +33,7 @@ public class Robot extends IterativeRobot {
 	public static final Intake intake = new Intake();
 	public static final GearManipulator manipulator = new GearManipulator();
 	public static Raspberry raspberry;
+    public static BulldogLogger bl = new BulldogLogger(true, true, true);
 
 	public static Compressor c;
 	public static OI oi;
@@ -108,6 +109,8 @@ public class Robot extends IterativeRobot {
 	// This function is called periodically during operator control
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		bl.logInfo("DriveTrain (Observe)  -  Left Front Motor: " + Robot.driveTrain.lfMotor.get() + "  Left Back Motor: " + Robot.driveTrain.lbMotor.get() + 
+				"  --- Right Front Motor: " + Robot.driveTrain.rfMotor.get() + "  Right Back Motor: " + Robot.driveTrain.rbMotor.get());
 		Update();
 	}
 
@@ -144,7 +147,6 @@ public class Robot extends IterativeRobot {
 
 		SmartDashboard.putData(new VisionGearMiddle());
 		SmartDashboard.putData(new VisionTest());
-		SmartDashboard.putData(new TurnCalibrate());
 
 		SmartDashboard.putData(new RedChickenHopper());
 		SmartDashboard.putData(new BlueChickenHopper());
@@ -156,8 +158,7 @@ public class Robot extends IterativeRobot {
 		autonChooser.addObject("Auton Turn 180", new AutonTurn(180));
 
 		// Calibrate\/
-		autonChooser.addObject("Drive Calibrate", new DriveCalibrate());
-		autonChooser.addObject("Turn Calibrate", new TurnCalibrate());
+
 
 		// Gear\/
 		// autonChooser.addObject("GearMiddleGroup", new GearMiddleGroup());
@@ -176,7 +177,6 @@ public class Robot extends IterativeRobot {
 		// Blue\/
 
 		autonChooser.addObject("BlueShootMiddle", new BlueShootMiddle());
-		autonChooser.addObject("BlueHopper", new BlueHopper());
 		autonChooser.addObject("BlueShootOutside", new BlueShootOutside());
 		autonChooser.addObject("BlueShootInside", new BlueShootInside());
 
@@ -194,8 +194,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putData(new JoeyShoot(false, 0, 350, -1000, 5));
 		// boolean visionTurn, double hoodAngle, double agitatorRpm, double
 		// shooterRpm, double seconds
-		SmartDashboard.putData(new DriveCalibrate());
-		SmartDashboard.putData(new TurnCalibrate());
+	
 		SmartDashboard.putData(Scheduler.getInstance());
 	}
 }

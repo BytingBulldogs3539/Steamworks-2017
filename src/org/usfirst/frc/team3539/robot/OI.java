@@ -13,6 +13,7 @@ import org.usfirst.frc.team3539.robot.commands.JoeyShoot;
 import org.usfirst.frc.team3539.robot.commands.TriggerModifierCommand;
 import org.usfirst.frc.team3539.robot.commands.ZeroHoodCommand;
 import org.usfirst.frc.team3539.robot.utilities.TriggerButton;
+import org.usfirst.frc.team3539.robot.utilities.XboxController;
 import org.usfirst.frc.team3539.robot.utilities.DpadButton;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -26,6 +27,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class OI
 {
+	public XboxController CON = new XboxController(RobotMap.controllerOnePort);
 	public Joystick controller1 = new Joystick(RobotMap.controllerOnePort);
 	public Joystick controller2 = new Joystick(RobotMap.controllerTwoPort);
 
@@ -46,14 +48,13 @@ public class OI
 	
 	public JoystickButton twobuttonLS = new JoystickButton (controller2, RobotMap.buttonLS);
 	public JoystickButton twobuttonRS = new JoystickButton (controller2, RobotMap.buttonRS);
-
 	
 	public JoystickButton twobumperl = new JoystickButton(controller2, RobotMap.bumperl);
 	public JoystickButton twobumperr = new JoystickButton(controller2, RobotMap.bumperr);
 
-	public TriggerButton intakeTrigger = new TriggerButton(2, controller2, new IntakeCommand());
+	public TriggerButton intakeTrigger = new TriggerButton(2, controller2, new IntakeCommand()); //CHANGE TO CONTROLLER2 FOR COMP
 	public TriggerButton shooterTrigger;
-	public TriggerButton invertTrigger = new TriggerButton(3, controller1);
+//	public TriggerButton invertTrigger = new TriggerButton(3, controller1);
 	
 	public DpadButton visionButton;
 	public DpadButton supermanButton;
@@ -70,6 +71,7 @@ public class OI
 
 		// STICKONE
 		// STICKTWO
+		
 		twobuttona.whenPressed(new GearCommand()); // Done
 		twobuttonb.whenPressed(new HoodCommand()); // Done
 		twobuttonx.whenPressed(new TriggerModifierCommand()); // Done
@@ -81,7 +83,8 @@ public class OI
 		twobumperl.whenPressed(new JoeyShoot(false, twobumperl, 1024, 400, -5000));
 		shooterTrigger = new TriggerButton(3, controller2);
 		shooterTrigger.setCommand(new JoeyShoot(false, shooterTrigger, 350, 400, -3050));
-		onebuttonx.whenPressed(new JoeyShoot(false, onebuttonx,350, 300, -2500));
+		
+		onebuttonx.whenPressed(new JoeyShoot(false, onebuttonx,350, 300, -4000));
 		
 		supermanButton = new DpadButton ("up", controller2);
 		supermanButton.setCommand(new JoeyShoot(supermanButton));

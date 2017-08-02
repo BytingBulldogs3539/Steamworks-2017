@@ -157,6 +157,9 @@ public class RobotMap
 	public static double farHopperDistance = whiteLineDistance + 57;
 	public static double deadband = .45;
 	
+	//button
+	public static int Button = 3;
+	
 
 	//////////////////////// COMP BOT/////////////////////
 //

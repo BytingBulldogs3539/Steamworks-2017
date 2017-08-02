@@ -2,6 +2,7 @@ package org.usfirst.frc.team3539.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 
+import org.usfirst.frc.team3539.robot.Robot;
 // Standard Java libraries
 import org.usfirst.frc.team3539.robot.utilities.*;
 
@@ -13,9 +14,12 @@ import org.usfirst.frc.team3539.robot.utilities.*;
  */
 public abstract class BulldogCommand extends Command
 {
+	String name;
+	
 	public BulldogCommand(String name)
 	{
 		super(name);
+		this.name = name;
 	}
 	
 	/**
@@ -26,7 +30,7 @@ public abstract class BulldogCommand extends Command
 	protected void initialize(String name)
 	{
 		super.initialize();
-		
+		Robot.bl.logCommand(this.name + " Initialized");
 		//BulldogLogger.getInstance().logDebug("Initializing " + name);
 	}
 	
@@ -38,6 +42,7 @@ public abstract class BulldogCommand extends Command
 	protected void end(String name)
 	{
 		super.end();
+		Robot.bl.logCommand(this.name + " Ended");
 
 		//BulldogLogger.getInstance().logDebug("Ending " + name);
 	}
