@@ -1,6 +1,6 @@
 package org.usfirst.frc.team3539.robot;
 
-import org.usfirst.frc.team3539.robot.subsystems.BulldogSystem;
+import org.usfirst.frc.team3539.robot.utilities.BulldogSystem;
 
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;

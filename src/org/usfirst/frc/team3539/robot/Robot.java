@@ -15,7 +15,7 @@ import org.usfirst.frc.team3539.robot.autonscurves.RedCurveHopper;
 import org.usfirst.frc.team3539.robot.autonscurves.RightCurvePeg;
 import org.usfirst.frc.team3539.robot.commands.*;
 import org.usfirst.frc.team3539.robot.subsystems.*;
-import org.usfirst.team3539.robot.cx.BulldogLogger;
+import org.usfirst.frc.team3539.robot.utilities.BulldogLogger;
 
 /**
  * The VM is configured to automatically run this class, and to call the

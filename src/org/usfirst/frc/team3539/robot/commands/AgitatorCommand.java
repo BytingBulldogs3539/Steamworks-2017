@@ -3,6 +3,7 @@ package org.usfirst.frc.team3539.robot.commands;
 
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
+import org.usfirst.frc.team3539.robot.utilities.BulldogCommand;
 
 /**
  *Runs the Agitator clockwise and stops on trigger depress
