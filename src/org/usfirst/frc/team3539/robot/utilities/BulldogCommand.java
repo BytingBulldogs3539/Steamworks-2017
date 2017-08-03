@@ -30,8 +30,7 @@ public abstract class BulldogCommand extends Command
 	protected void initialize(String name)
 	{
 		super.initialize();
-		Robot.bl.logCommand(this.name + " Initialized");
-		//BulldogLogger.getInstance().logDebug("Initializing " + name);
+		BulldogLogger.getInstance().logCommand(this.name + " Initialized");
 	}
 	
 	/**
@@ -42,7 +41,7 @@ public abstract class BulldogCommand extends Command
 	protected void end(String name)
 	{
 		super.end();
-		Robot.bl.logCommand(this.name + " Ended");
+		BulldogLogger.getInstance().logCommand(this.name + " Ended");
 
 		//BulldogLogger.getInstance().logDebug("Ending " + name);
 	}

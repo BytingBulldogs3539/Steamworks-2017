@@ -25,7 +25,8 @@ import org.usfirst.frc.team3539.robot.utilities.BulldogLogger;
  * directory.
  **/
 
-public class Robot extends IterativeRobot {
+public class Robot extends IterativeRobot
+{
 	// SUBSYSTEMS
 	public static final HoodSubsystem hoodSubsystem = new HoodSubsystem();
 	public static final DriveTrain driveTrain = new DriveTrain();
@@ -33,7 +34,6 @@ public class Robot extends IterativeRobot {
 	public static final Intake intake = new Intake();
 	public static final GearManipulator manipulator = new GearManipulator();
 	public static Raspberry raspberry;
-    public static BulldogLogger bl = new BulldogLogger(true, true, true);
 
 	public static Compressor c;
 	public static OI oi;
@@ -42,7 +42,8 @@ public class Robot extends IterativeRobot {
 	Command autonMode;
 	SendableChooser<Command> autonChooser;
 
-	public void robotInit() {
+	public void robotInit()
+	{
 		c = new Compressor(RobotMap.compressor);
 
 		oi = new OI();
@@ -65,19 +66,23 @@ public class Robot extends IterativeRobot {
 	 * You can use it to reset any subsystem information you want to clear when
 	 * the robot is disabled.
 	 **/
-	public void disabledInit() {
-		// BulldogLogger.getInstance().finishLogging();
+	public void disabledInit()
+	{
+		BulldogLogger.getInstance().finishLogging();
+
 		Scheduler.getInstance().run();
 
 	}
 
-	public void disabledPeriodic() {
+	public void disabledPeriodic()
+	{
 		Scheduler.getInstance().run();
 		Update();
 	}
 
-	public void autonomousInit() {
-		// BulldogLogger.getInstance().logInfo("autonomousInit");
+	public void autonomousInit()
+	{
+		BulldogLogger.getInstance().startLogging(true, true, true);
 		Update();
 
 		Robot.driveTrain.zeroEncoders();
@@ -86,7 +91,8 @@ public class Robot extends IterativeRobot {
 		raspberry.setCamera(RobotMap.gearCamera);
 
 		autonMode = (Command) autonChooser.getSelected();
-		if (autonMode != null) {
+		if (autonMode != null)
+		{
 			shooter.disableShooterPID();
 			shooter.disableAgitatorPID();
 			autonMode.start();
@@ -95,32 +101,41 @@ public class Robot extends IterativeRobot {
 	}
 
 	// This function is called periodically during autonomous
-	public void autonomousPeriodic() {
+	public void autonomousPeriodic()
+	{
 		Scheduler.getInstance().run();
 		Update();
 	}
 
-	public void teleopInit() {
+	public void teleopInit()
+	{
+		BulldogLogger.getInstance().startLogging(true, true, true);
+
 		System.out.println("teleopInit");
 		raspberry.setCamera(RobotMap.shooterCamera);
 		Robot.manipulator.holderClose();
 	}
 
 	// This function is called periodically during operator control
-	public void teleopPeriodic() {
+	public void teleopPeriodic()
+	{
 		Scheduler.getInstance().run();
-		bl.logInfo("DriveTrain (Observe)  -  Left Front Motor: " + Robot.driveTrain.lfMotor.get() + "  Left Back Motor: " + Robot.driveTrain.lbMotor.get() + 
-				"  --- Right Front Motor: " + Robot.driveTrain.rfMotor.get() + "  Right Back Motor: " + Robot.driveTrain.rbMotor.get());
+		BulldogLogger.getInstance()
+				.logInfo("DriveTrain (Observe)  -  Left Front Motor: " + Robot.driveTrain.lfMotor.get()
+						+ "  Left Back Motor: " + Robot.driveTrain.lbMotor.get() + "  --- Right Front Motor: "
+						+ Robot.driveTrain.rfMotor.get() + "  Right Back Motor: " + Robot.driveTrain.rbMotor.get());
 		Update();
 	}
 
 	// This function is called periodically during test mode
-	public void testPeriodic() {
+	public void testPeriodic()
+	{
 		Update();
 		LiveWindow.run();
 	}
 
-	public void Update() {
+	public void Update()
+	{
 		oi.Update();
 		intake.Update();
 		shooter.Update();
@@ -130,7 +145,8 @@ public class Robot extends IterativeRobot {
 		raspberry.Update();
 	}
 
-	public void SmartInit() {
+	public void SmartInit()
+	{
 		oi.SmartInit();
 		intake.SmartInit();
 		shooter.SmartInit();
@@ -158,7 +174,6 @@ public class Robot extends IterativeRobot {
 		autonChooser.addObject("Auton Turn 180", new AutonTurn(180));
 
 		// Calibrate\/
-
 
 		// Gear\/
 		// autonChooser.addObject("GearMiddleGroup", new GearMiddleGroup());
@@ -194,7 +209,7 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putData(new JoeyShoot(false, 0, 350, -1000, 5));
 		// boolean visionTurn, double hoodAngle, double agitatorRpm, double
 		// shooterRpm, double seconds
-	
+
 		SmartDashboard.putData(Scheduler.getInstance());
 	}
 }

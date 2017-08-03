@@ -3,6 +3,7 @@ package org.usfirst.frc.team3539.robot.subsystems;
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
 import org.usfirst.frc.team3539.robot.commands.DriveCommand;
+import org.usfirst.frc.team3539.robot.utilities.BulldogLogger;
 import org.usfirst.frc.team3539.robot.utilities.BulldogSystem;
 
 import com.ctre.CANTalon;
@@ -107,7 +108,7 @@ public class DriveTrain extends BulldogSystem
 	public void DriveG(double speedF, double speedR)
 	{
 		drive.arcadeDrive(speedF, speedR);
-		Robot.bl.logDebug("DriveTrain (Told)  ---   Forward Speed: " + speedF + " --- Rotate Speed: " + speedR);
+		BulldogLogger.getInstance().logDebug("DriveTrain (Told)  ---   Forward Speed: " + speedF + " --- Rotate Speed: " + speedR);
 	}
 
 	public double getBalancedEncoderPosition()

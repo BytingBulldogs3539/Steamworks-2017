@@ -1,13 +1,13 @@
 package org.usfirst.frc.team3539.robot.utilities;
 
 import java.text.SimpleDateFormat;
-import java.util.Iterator;
-import java.util.Random;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+//import java.util.Iterator;
+//import java.util.Random;
+//
+//import org.json.simple.JSONArray;
+//import org.json.simple.JSONObject;
+//import org.json.simple.parser.JSONParser;
+//import org.json.simple.parser.ParseException;
 
 import java.io.*;
 
@@ -22,7 +22,7 @@ import java.io.*;
  */
 public class BulldogLogger
 {
-	public static BulldogLogger bl;
+	private static BulldogLogger bl;
 
 	// Constants
 	private static int DEBUG = 0; // Print -- logs in periodic
@@ -32,9 +32,9 @@ public class BulldogLogger
 	private static int EVENT = 5; // Print -- logs in event
 
 	// TODO: second base file for backup, add log directory for flash drive
-	private static String PERIODIC_BASE_FILE = "periodicLog.";
-	private static String EVENT_BASE_FILE = "eventLog.";
-	private static String COMMAND_BASE_FILE = "commandLog.";
+	private static String PERIODIC_BASE_FILE = "periodicLog";
+	private static String EVENT_BASE_FILE = "eventLog";
+	private static String COMMAND_BASE_FILE = "commandLog";
 	private static String RIO_DIR = "/home/lvuser/logs/";
 	private static String FLASH_DIR = "/u/";
 
@@ -63,11 +63,27 @@ public class BulldogLogger
 	 *            If is___Logging is false - no file is created If is___Logging
 	 *            is true - a log file is created
 	 */
-	public BulldogLogger(boolean isPeriodicLogging, boolean isEventLogging, boolean isCommandLogging)
+	private BulldogLogger(boolean isPeriodicLogging, boolean isEventLogging, boolean isCommandLogging)
+	{
+		startLogging(true, true, true);
+	}
+
+	public void startLogging(boolean isPeriodicLogging, boolean isEventLogging, boolean isCommandLogging)
 	{
 		createFile(periodicFile, PERIODIC_BASE_FILE, periodicStream, isPeriodicLogging);
 		createFile(eventFile, EVENT_BASE_FILE, eventStream, isEventLogging);
 		createFile(commandFile, COMMAND_BASE_FILE, commandStream, isCommandLogging);
+	}
+
+	public static BulldogLogger getInstance()
+	{
+		if (bl == null)
+		{
+			bl = new BulldogLogger(true, true, true);
+			return bl;
+		}
+		else
+			return bl;
 	}
 
 	public void createFile(File file, String fileName, PrintStream stream, boolean isEnabled)
@@ -78,7 +94,7 @@ public class BulldogLogger
 
 			// Name the log file
 
-			String appendFileName = getDate() + fileGeneration + fileName + ".log";
+			String appendFileName = getDate() + "_" + fileGeneration + "_" + fileName + ".log";
 
 			file = new File(FLASH_DIR + appendFileName);
 
@@ -109,59 +125,81 @@ public class BulldogLogger
 	}
 
 	// This stores Data about the day and persists between runs
-	public void createDataFile()
-	{
-		// put a singleton style file creator here. 1 per directory (directory
-		// per day needs to work first);
-
-		// check if directory of the day exists.
-		// if it does not then create a new data file inside the date directory.
-		// fill the data with defaults to be read
-
-		// if the directory exists then check for file
-		// if file doesnt exist then create defaults
-		// if file does exist then read all the defaults and load the variables
-
-		// Lets use a .JSON file for this because it's easier
-
-		JSONParser parser = new JSONParser();
-
-		try
-		{
-			Object obj = parser.parse(new FileReader("f:\\test.json"));
-
-			JSONObject jsonObject = (JSONObject) obj;
-			System.out.println(jsonObject);
-
-			String name = (String) jsonObject.get("name");
-			System.out.println(name);
-
-			long age = (Long) jsonObject.get("age");
-			System.out.println(age);
-
-			// loop array
-			JSONArray msg = (JSONArray) jsonObject.get("messages");
-			Iterator<String> iterator = msg.iterator();
-			while (iterator.hasNext())
-			{
-				System.out.println(iterator.next());
-			}
-
-		}
-		catch (FileNotFoundException e)
-		{
-			e.printStackTrace();
-		}
-		catch (IOException e)
-		{
-			e.printStackTrace();
-		}
-		catch (ParseException e)
-		{
-			e.printStackTrace();
-		}
-
-	}
+	// public void getDataFile()
+	// {
+	// try
+	// {
+	//
+	// }
+	// catch (Exception e)
+	// {
+	//
+	// e.printStackTrace();
+	// }
+	//
+	// File folderUSB = new File(""); // USB
+	// File folderRIO = new File("");// RIO
+	//
+	// // put a singleton style file creator here. 1 per directory (directory
+	// // per day needs to work first);
+	//
+	// // check if directory of the day exists.
+	// // if it does not then create a new data file inside the date directory.
+	// // fill the data with defaults to be read
+	//
+	// // if the directory exists then check for file
+	// // if file doesnt exist then create defaults
+	// // if file does exist then read all the defaults and load the variables
+	//
+	// // Lets use a .JSON file for this because it's easier
+	//
+	// JSONParser parser = null;
+	// JSONObject jsonObject = null;
+	//
+	// try
+	// {
+	// // FindFolder + date.json
+	// parser = new JSONParser();
+	// jsonObject = (JSONObject) parser.parse(new FileReader(FLASH_DIR +
+	// getDate() + ".json"));
+	// }
+	// catch (Exception e)
+	// {
+	// try
+	// {
+	// parser = new JSONParser();
+	// jsonObject = (JSONObject) parser.parse(new FileReader(RIO_DIR + getDate()
+	// + ".json"));
+	// }
+	// catch (Exception ee)
+	// {
+	// ee.printStackTrace();
+	// }
+	// }
+	//
+	// try
+	// {
+	// System.out.println(jsonObject);
+	//
+	// String name = (String) jsonObject.get("name");
+	// System.out.println(name);
+	//
+	// long age = (Long) jsonObject.get("age");
+	// System.out.println(age);
+	//
+	// // loop array
+	// // JSONArray msg = (JSONArray) jsonObject.get("messages");
+	// // Iterator<String> iterator = msg.iterator();
+	// while (iterator.hasNext())
+	// {
+	// System.out.println(iterator.next());
+	// }
+	// }
+	// catch (Exception e)
+	// {
+	// e.printStackTrace();
+	// }
+	// }
 
 	// TimeStamps-------
 	public String getDate()
@@ -293,6 +331,7 @@ public class BulldogLogger
 		try // we can make this optional if periodic is getting too cluttered
 		{
 			periodicStream.println(logMsg);
+			this.periodicStream.flush();
 		}
 		catch (Exception e)
 		{
@@ -304,6 +343,7 @@ public class BulldogLogger
 			try
 			{
 				eventStream.println(logMsg);
+				this.eventStream.flush();
 			}
 			catch (Exception e)
 			{
@@ -316,6 +356,7 @@ public class BulldogLogger
 			try
 			{
 				commandStream.println(logMsg);
+				this.commandStream.flush();
 			}
 			catch (Exception e)
 			{
@@ -335,12 +376,19 @@ public class BulldogLogger
 
 		log(10, s, true);
 
-		this.periodicStream.flush();
-		this.periodicStream.close();
-		this.eventStream.flush();
-		this.eventStream.close();
-		this.commandStream.flush();
-		this.commandStream.close();
+		try
+		{
+			this.periodicStream.flush();
+			this.periodicStream.close();
+			this.eventStream.flush();
+			this.eventStream.close();
+			this.commandStream.flush();
+			this.commandStream.close();
+		}
+		catch (Exception e)
+		{
+
+		}
 	}
 }
 

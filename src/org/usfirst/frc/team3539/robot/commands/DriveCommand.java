@@ -3,6 +3,7 @@ package org.usfirst.frc.team3539.robot.commands;
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
 import org.usfirst.frc.team3539.robot.utilities.BulldogCommand;
+import org.usfirst.frc.team3539.robot.utilities.BulldogLogger;
 
 /**
  *
@@ -33,16 +34,16 @@ public class DriveCommand extends BulldogCommand
 		//gear change
 		if (Robot.oi.onebuttona.get() && !latch)
 		{
-			Robot.bl.logDebug("Gear Switch: true");
-			Robot.bl.logDebug("Gear change to true");
+			BulldogLogger.getInstance().logDebug("Gear Switch: true");
+			BulldogLogger.getInstance().logDebug("Gear change to true");
 			latch = true;
 			Robot.driveTrain.changeGears();
 		} else if (!Robot.oi.onebuttona.get() && latch)
 		{
 			
 			latch = false;
-			Robot.bl.logDebug("Gear Switch: false");
-			Robot.bl.logDebug("gear change to false");
+			BulldogLogger.getInstance().logDebug("Gear Switch: false");
+			BulldogLogger.getInstance().logDebug("gear change to false");
 		}
 
 		//drive
