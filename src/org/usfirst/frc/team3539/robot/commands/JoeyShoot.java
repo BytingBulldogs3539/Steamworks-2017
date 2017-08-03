@@ -117,6 +117,7 @@ public class JoeyShoot extends Command
 
 	protected void initialize()
 	{
+		super.initialize();
 		Robot.raspberry.setCamera(RobotMap.shooterCamera);
 		// Robot.shooter.resetShooterPID();
 		Robot.shooter.resetAgitatorPID();
