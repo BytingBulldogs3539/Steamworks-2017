@@ -56,6 +56,8 @@ public class BulldogLogger
 
 	private int fileGeneration = 0;
 
+	private boolean hasFiles = false;
+
 	/**
 	 * public constructor
 	 * 
@@ -65,14 +67,16 @@ public class BulldogLogger
 	 */
 	private BulldogLogger(boolean isPeriodicLogging, boolean isEventLogging, boolean isCommandLogging)
 	{
-		startLogging(true, true, true);
+		startLogging(isPeriodicLogging, isEventLogging, isCommandLogging);
 	}
 
 	public void startLogging(boolean isPeriodicLogging, boolean isEventLogging, boolean isCommandLogging)
 	{
-		createFile(periodicFile, PERIODIC_BASE_FILE, periodicStream, isPeriodicLogging);
-		createFile(eventFile, EVENT_BASE_FILE, eventStream, isEventLogging);
-		createFile(commandFile, COMMAND_BASE_FILE, commandStream, isCommandLogging);
+		periodicStream = createFile(periodicFile, PERIODIC_BASE_FILE, periodicStream, isPeriodicLogging);
+		eventStream = createFile(eventFile, EVENT_BASE_FILE, eventStream, isEventLogging);
+		commandStream = createFile(commandFile, COMMAND_BASE_FILE, commandStream, isCommandLogging);
+		hasFiles = true;
+		fileGeneration++;
 	}
 
 	public static BulldogLogger getInstance()
@@ -86,7 +90,7 @@ public class BulldogLogger
 			return bl;
 	}
 
-	public void createFile(File file, String fileName, PrintStream stream, boolean isEnabled)
+	public PrintStream createFile(File file, String fileName, PrintStream stream, boolean isEnabled)
 	{
 		if (isEnabled)
 		{
@@ -96,19 +100,22 @@ public class BulldogLogger
 
 			String appendFileName = getDate() + "_" + fileGeneration + "_" + fileName + ".log";
 
-			file = new File(FLASH_DIR + appendFileName);
+			
 
 			// Place the log file
 
 			try // Put file on Flash Drive
 			{
+				file = new File(FLASH_DIR + appendFileName);
 				stream = new PrintStream(new FileOutputStream(file));
 			}
 			catch (FileNotFoundException e)
 			{
+				System.out.println("==========================================================");
 				try // If it fails, put file on RIO
 				{
-					stream = new PrintStream(new FileOutputStream(RIO_DIR + appendFileName));
+					file = new File(RIO_DIR + appendFileName);
+					stream = new PrintStream(new FileOutputStream(file));
 				}
 				catch (FileNotFoundException ee)
 				{
@@ -117,11 +124,14 @@ public class BulldogLogger
 
 				e.printStackTrace();
 			}
+			
+			return null;
 		}
 		else
 		{
 			System.out.println("WARNING!!! The file " + fileName + " is NOT being used");
 		}
+		return stream;
 	}
 
 	// This stores Data about the day and persists between runs
@@ -213,17 +223,6 @@ public class BulldogLogger
 	}
 	// -------
 
-	/**
-	 * Initialize the logging mechanism. If logging is turned on, then rock and
-	 * roll Otherwise - don't create the log file
-	 * 
-	 * @param loggingOn
-	 */
-	public static void initialize(boolean periodicOn, boolean eventsOn, boolean commandsOn)
-	{
-		// First time I call it - check to see if I should log or not
-		bl = new BulldogLogger(periodicOn, eventsOn, commandsOn);
-	}
 
 	/**
 	 * Log a debug message
@@ -297,77 +296,83 @@ public class BulldogLogger
 
 	private void log(int type, String msg, boolean printlin)
 	{
-		entryCount++;
-
-		// Write the logging information out to the log file
-		// First - get the current time stamp
-		String timeStamp = getTime();
-
-		String logMsg = new String();
-
-		switch (type)
+		if (hasFiles)
 		{
-		case 0:
-			logMsg = "[DEBUG - " + timeStamp + "] ";
-			break;
-		case 1:
-			logMsg = "[INFO  - " + timeStamp + "] ";
-			break;
-		case 3:
-			logMsg = "[ERROR - " + timeStamp + "] ";
-			break;
-		case 4:
-			logMsg = "[COMMAND - " + timeStamp + "] ";
-			break;
-		case 5:
-			logMsg = "[EVENT - " + timeStamp + "] ";
-			break;
-		default:
-			logMsg = "[WHAT? - " + timeStamp + "] ";
-		}
+			entryCount++;
 
-		logMsg = logMsg + msg;
+			// Write the logging information out to the log file
+			// First - get the current time stamp
+			String timeStamp = getTime();
 
-		try // we can make this optional if periodic is getting too cluttered
-		{
-			periodicStream.println(logMsg);
-			this.periodicStream.flush();
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
-		}
+			String logMsg = new String();
 
-		if (type == BulldogLogger.EVENT)
-		{
-			try
+			switch (type)
 			{
-				eventStream.println(logMsg);
-				this.eventStream.flush();
+			case 0:
+				logMsg = "[DEBUG - " + timeStamp + "] ";
+				break;
+			case 1:
+				logMsg = "[INFO  - " + timeStamp + "] ";
+				break;
+			case 3:
+				logMsg = "[ERROR - " + timeStamp + "] ";
+				break;
+			case 4:
+				logMsg = "[COMMAND - " + timeStamp + "] ";
+				break;
+			case 5:
+				logMsg = "[EVENT - " + timeStamp + "] ";
+				break;
+			default:
+				logMsg = "[WHAT? - " + timeStamp + "] ";
+			}
+
+			logMsg = logMsg + msg;
+
+			try // we can make this optional if periodic is getting too
+				// cluttered
+			{
+				periodicStream.println(logMsg);
+				this.periodicStream.flush();
 			}
 			catch (Exception e)
 			{
 				e.printStackTrace();
 			}
-		}
 
-		if (type == BulldogLogger.COMMAND)
-		{
-			try
+			if (type == BulldogLogger.EVENT)
 			{
-				commandStream.println(logMsg);
-				this.commandStream.flush();
+				try
+				{
+					eventStream.println(logMsg);
+					this.eventStream.flush();
+				}
+				catch (Exception e)
+				{
+					e.printStackTrace();
+				}
 			}
-			catch (Exception e)
-			{
-				e.printStackTrace();
-			}
-		}
 
-		if (printlin)
-		{
-			System.out.println(logMsg);
+			if (type == BulldogLogger.COMMAND)
+			{
+				try
+				{
+					commandStream.println(logMsg);
+					this.commandStream.flush();
+				}
+				catch (Exception e)
+				{
+					e.printStackTrace();
+				}
+			}
+
+			if (printlin)
+			{
+				System.out.println(logMsg);
+			}
 		}
+		else
+			System.out.println("No Files!!!");
 	}
 
 	public void finishLogging()
@@ -375,6 +380,8 @@ public class BulldogLogger
 		String s = "We logged " + entryCount + " things! log log log";
 
 		log(10, s, true);
+
+		hasFiles = false;
 
 		try
 		{

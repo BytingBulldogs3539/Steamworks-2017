@@ -35,32 +35,34 @@ public class OI
 	public JoystickButton onebuttony = new JoystickButton(controller1, RobotMap.buttony);
 	public JoystickButton onebuttona = new JoystickButton(controller1, RobotMap.buttona);
 	public JoystickButton onebuttonb = new JoystickButton(controller1, RobotMap.buttonb);
-	
+
 	public JoystickButton twobuttonStart = new JoystickButton(controller2, RobotMap.buttonStart);
-	
-	
+
 	public JoystickButton twobuttonx = new JoystickButton(controller2, RobotMap.buttonx);
 	public JoystickButton twobuttony = new JoystickButton(controller2, RobotMap.buttony);
 	public JoystickButton twobuttona = new JoystickButton(controller2, RobotMap.buttona);
 	public JoystickButton twobuttonb = new JoystickButton(controller2, RobotMap.buttonb);
 	public JoystickButton twotriggerl = new JoystickButton(controller2, RobotMap.LEFT_TRIGGER);
 	public JoystickButton twotriggerr = new JoystickButton(controller2, RobotMap.RIGHT_TRIGGER);
-	
-	public JoystickButton twobuttonLS = new JoystickButton (controller2, RobotMap.buttonLS);
-	public JoystickButton twobuttonRS = new JoystickButton (controller2, RobotMap.buttonRS);
-	
+
+	public JoystickButton twobuttonLS = new JoystickButton(controller2, RobotMap.buttonLS);
+	public JoystickButton twobuttonRS = new JoystickButton(controller2, RobotMap.buttonRS);
+
 	public JoystickButton twobumperl = new JoystickButton(controller2, RobotMap.bumperl);
 	public JoystickButton twobumperr = new JoystickButton(controller2, RobotMap.bumperr);
 
-	public TriggerButton intakeTrigger = new TriggerButton(2, controller2, new IntakeCommand()); //CHANGE TO CONTROLLER2 FOR COMP
+	public TriggerButton intakeTrigger = new TriggerButton(2, controller2, new IntakeCommand()); // CHANGE
+																									// TO
+																									// CONTROLLER2
+																									// FOR
+																									// COMP
 	public TriggerButton shooterTrigger;
-//	public TriggerButton invertTrigger = new TriggerButton(3, controller1);
-	
+	// public TriggerButton invertTrigger = new TriggerButton(3, controller1);
+
 	public DpadButton visionButton;
 	public DpadButton supermanButton;
 	public DpadButton zeroHoodButton;
 	public DpadButton visionGearButton;
-	
 
 	public OI()
 	{
@@ -71,34 +73,38 @@ public class OI
 
 		// STICKONE
 		// STICKTWO
-		
+
 		twobuttona.whenPressed(new GearCommand()); // Done
 		twobuttonb.whenPressed(new HoodCommand()); // Done
 		twobuttonx.whenPressed(new TriggerModifierCommand()); // Done
-		twobuttony.whenPressed(new ClimbCommand()); //Done
-		
+		twobuttony.whenPressed(new ClimbCommand()); // Done
+
 		twobuttonLS.whenPressed(new HoodManual());
-		
+
 		twobumperr.whenPressed(new JoeyShoot(false, twobumperr, 550, 400, -3350));
 		twobumperl.whenPressed(new JoeyShoot(false, twobumperl, 1024, 400, -5000));
 		shooterTrigger = new TriggerButton(3, controller2);
 		shooterTrigger.setCommand(new JoeyShoot(false, shooterTrigger, 350, 400, -3050));
-		
-		onebuttonx.whenPressed(new JoeyShoot(false, onebuttonx,350, 300, -3000));
-		
-		supermanButton = new DpadButton ("up", controller2);
+
+		onebuttonx.whenPressed(new JoeyShoot(false, onebuttonx, 350, 270, -3500));
+		onebuttony.whenPressed(new JoeyShoot(false, onebuttony, 350, 400, -2200));
+
+		supermanButton = new DpadButton("up", controller2);
 		supermanButton.setCommand(new JoeyShoot(supermanButton));
-		
-		zeroHoodButton = new DpadButton("right",new ZeroHoodCommand(), controller2);
-		
-		visionButton = new DpadButton("down", controller2); //add constructor for button
+
+		zeroHoodButton = new DpadButton("right", new ZeroHoodCommand(), controller2);
+
+		visionButton = new DpadButton("down", controller2); // add constructor
+															// for button
 		visionButton.setCommand(new AutonTurn(true, visionButton));
-		
-		visionGearButton = new DpadButton("left", new AutonTurn(0,1), controller2);
-	//	VisionCalabrate = new DpadButton("left", new JoeyShoot(false, VisionCalabrate, RobotMap.hoodTarget, 150, RobotMap.shooterRpm), controller2);
-		
+
+		visionGearButton = new DpadButton("left", new AutonTurn(0, 1), controller2);
+		// VisionCalabrate = new DpadButton("left", new JoeyShoot(false,
+		// VisionCalabrate, RobotMap.hoodTarget, 150, RobotMap.shooterRpm),
+		// controller2);
+
 	}
-	
+
 	public void Update()
 	{
 		intakeTrigger.checkValue();
@@ -107,7 +113,7 @@ public class OI
 		supermanButton.checkValue();
 		zeroHoodButton.checkValue();
 		visionGearButton.checkValue();
-		
+
 		SmartDashboard.putBoolean("triggerModified", RobotMap.triggerModified);
 	}
 

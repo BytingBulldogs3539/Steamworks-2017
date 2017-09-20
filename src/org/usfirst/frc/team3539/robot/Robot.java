@@ -58,7 +58,7 @@ public class Robot extends IterativeRobot
 		// camera = CameraServer.getInstance().startAutomaticCapture();
 		// camera.setResolution(480, 360);
 
-		// BulldogLogger.getInstance().logInfo("Starting robotInit");
+		BulldogLogger.getInstance().logInfo("Starting robotInit");
 	}
 
 	/**
@@ -68,7 +68,7 @@ public class Robot extends IterativeRobot
 	 **/
 	public void disabledInit()
 	{
-		BulldogLogger.getInstance().finishLogging();
+		//BulldogLogger.getInstance().finishLogging();
 
 		Scheduler.getInstance().run();
 
@@ -82,7 +82,7 @@ public class Robot extends IterativeRobot
 
 	public void autonomousInit()
 	{
-		BulldogLogger.getInstance().startLogging(true, true, true);
+		BulldogLogger.getInstance().logInfo("Logging Start");
 		Update();
 
 		Robot.driveTrain.zeroEncoders();
@@ -109,8 +109,7 @@ public class Robot extends IterativeRobot
 
 	public void teleopInit()
 	{
-		BulldogLogger.getInstance().startLogging(true, true, true);
-
+		BulldogLogger.getInstance().logInfo("Logging Start");
 		System.out.println("teleopInit");
 		raspberry.setCamera(RobotMap.shooterCamera);
 		Robot.manipulator.holderClose();
@@ -154,6 +153,7 @@ public class Robot extends IterativeRobot
 		driveTrain.SmartInit();
 		hoodSubsystem.SmartInit();
 		raspberry.SmartInit();
+	
 
 		SmartDashboard.putDouble("GearDistanceFudge", .85);
 
@@ -213,3 +213,13 @@ public class Robot extends IterativeRobot
 		SmartDashboard.putData(Scheduler.getInstance());
 	}
 }
+
+//class Logger implements Runnable
+//{
+//
+//	public void run()
+//	{
+//		BulldogLogger.getInstance().startLogging(true, true, true);
+//	}
+//	
+//}
