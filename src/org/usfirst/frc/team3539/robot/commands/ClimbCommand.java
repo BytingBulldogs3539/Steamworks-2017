@@ -3,6 +3,7 @@ package org.usfirst.frc.team3539.robot.commands;
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
 import org.usfirst.frc.team3539.robot.utilities.BulldogCommand;
+import org.usfirst.frc.team3539.robot.utilities.BulldogLogger;
 
 public class ClimbCommand extends BulldogCommand
 {
@@ -31,9 +32,10 @@ public class ClimbCommand extends BulldogCommand
 
 	protected void end()
 	{
-	 Robot.c.start();
+		Robot.c.start();
 		super.end("ClimbCommand");
 		Robot.intake.setMotorPower(0);
+		BulldogLogger.getInstance().finishLogging();
 	}
 
 	protected void interrupted()

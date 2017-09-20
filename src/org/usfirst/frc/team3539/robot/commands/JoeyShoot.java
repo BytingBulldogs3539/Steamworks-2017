@@ -114,6 +114,7 @@ public class JoeyShoot extends Command
 		this.shootTime = seconds;
 		this.isIntaking = false;
 	}
+	
 
 	protected void initialize()
 	{

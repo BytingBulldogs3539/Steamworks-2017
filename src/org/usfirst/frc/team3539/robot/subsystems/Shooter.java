@@ -159,6 +159,16 @@ public class Shooter extends BulldogSystem
 	@SuppressWarnings("deprecation")
 	public void Update()
 	{
+	//	RobotMap.Aspeed = SmartDashboard.getDouble("Agitator speed");
+	//	RobotMap.Hangle = SmartDashboard.getDouble("Hood angle");
+	//	RobotMap.Rpm = SmartDashboard.getDouble("shoot speed");
+		
+		
+		
+		
+		
+		
+		
 		SmartDashboard.putDouble("Curent agitator rpm", getAgitatorRPM());
 		SmartDashboard.putDouble("Current Shooter RPM", getShooterRPM());
 
@@ -177,6 +187,11 @@ public class Shooter extends BulldogSystem
 		RobotMap.agitatorEye = SmartDashboard.getDouble("agitatorEye");
 		RobotMap.agitatorDee = SmartDashboard.getDouble("agitatorDee");
 		RobotMap.agitatorEff = SmartDashboard.getDouble("agitatorEff");
+		
+		
+		
+		
+		
 	}
 
 	@Override

@@ -35,7 +35,7 @@ public class OI
 	public JoystickButton onebuttony = new JoystickButton(controller1, RobotMap.buttony);
 	public JoystickButton onebuttona = new JoystickButton(controller1, RobotMap.buttona);
 	public JoystickButton onebuttonb = new JoystickButton(controller1, RobotMap.buttonb);
-
+	public JoystickButton start = new JoystickButton(controller1,RobotMap.buttonRS);
 	public JoystickButton twobuttonStart = new JoystickButton(controller2, RobotMap.buttonStart);
 
 	public JoystickButton twobuttonx = new JoystickButton(controller2, RobotMap.buttonx);
@@ -73,7 +73,7 @@ public class OI
 
 		// STICKONE
 		// STICKTWO
-
+		start.whenPressed(new ZeroHoodCommand());
 		twobuttona.whenPressed(new GearCommand()); // Done
 		twobuttonb.whenPressed(new HoodCommand()); // Done
 		twobuttonx.whenPressed(new TriggerModifierCommand()); // Done
@@ -86,9 +86,14 @@ public class OI
 		shooterTrigger = new TriggerButton(3, controller2);
 		shooterTrigger.setCommand(new JoeyShoot(false, shooterTrigger, 350, 400, -3050));
 
-		onebuttonx.whenPressed(new JoeyShoot(false, onebuttonx, 350, 270, -3500));
-		onebuttony.whenPressed(new JoeyShoot(false, onebuttony, 350, 400, -2200));
+		onebuttonx.whenPressed(new JoeyShoot(false, onebuttonx, 420, 320, -2800));
+		onebuttony.whenPressed(new JoeyShoot(false, onebuttony, 300, 400, -2700));
+		
+		
+		onebuttonb.whenPressed(new JoeyShoot(false,onebuttonb,RobotMap.Hangle,RobotMap.Aspeed,RobotMap.Rpm));
+		
 
+		
 		supermanButton = new DpadButton("up", controller2);
 		supermanButton.setCommand(new JoeyShoot(supermanButton));
 
