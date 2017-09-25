@@ -90,7 +90,6 @@ public class OI
 		onebuttony.whenPressed(new JoeyShoot(false, onebuttony, 300, 400, -2700));
 		
 		
-		onebuttonb.whenPressed(new JoeyShoot(false,onebuttonb,RobotMap.Hangle,RobotMap.Aspeed,RobotMap.Rpm));
 		
 
 		

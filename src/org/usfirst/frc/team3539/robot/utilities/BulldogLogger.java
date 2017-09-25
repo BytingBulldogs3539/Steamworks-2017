@@ -20,6 +20,7 @@ import java.io.*;
  * @version 3.539
  *
  */
+
 public class BulldogLogger
 {
 	private static BulldogLogger bl;
@@ -54,7 +55,7 @@ public class BulldogLogger
 	// Year, Month, day
 	// Hour Minute Seconds Millisecond
 
-	private int fileGeneration = 0;
+	private int fileGeneration = 10;
 
 	private boolean hasFiles = false;
 
@@ -72,11 +73,11 @@ public class BulldogLogger
 
 	public void startLogging(boolean isPeriodicLogging, boolean isEventLogging, boolean isCommandLogging)
 	{
+		System.out.println("Started logging");
 		periodicStream = createFile(periodicFile, PERIODIC_BASE_FILE, periodicStream, isPeriodicLogging);
 		eventStream = createFile(eventFile, EVENT_BASE_FILE, eventStream, isEventLogging);
 		commandStream = createFile(commandFile, COMMAND_BASE_FILE, commandStream, isCommandLogging);
 		hasFiles = true;
-		fileGeneration++;
 	}
 
 	public static BulldogLogger getInstance()
@@ -90,7 +91,9 @@ public class BulldogLogger
 			return bl;
 	}
 
-	public PrintStream createFile(File file, String fileName, PrintStream stream, boolean isEnabled)
+	//if the directory does not exist, this code will not create it
+	//home/lvuser/logs does not exist by default
+	private PrintStream createFile(File file, String fileName, PrintStream stream, boolean isEnabled)
 	{
 		if (isEnabled)
 		{
@@ -98,7 +101,7 @@ public class BulldogLogger
 
 			// Name the log file
 
-			String appendFileName = getDate() + "_" + fileGeneration + "_" + fileName + ".log";
+			String appendFileName = getDate() + "_" + getTime() + "_" + fileName + ".log"; //replace 10 with filegeneration
 
 			
 
@@ -108,29 +111,36 @@ public class BulldogLogger
 			{
 				file = new File(FLASH_DIR + appendFileName);
 				stream = new PrintStream(new FileOutputStream(file));
+				System.out.println("==========================================================");
+				System.out.println(" FILE IS ON THE USB STICK");
+				System.out.println("==========================================================");
+
 			}
 			catch (FileNotFoundException e)
 			{
-				System.out.println("==========================================================");
 				try // If it fails, put file on RIO
 				{
+					System.out.println("==========================================================");
+					System.out.println(" FILE IS ON THE ROBORIO");
+					System.out.println("==========================================================");
+					
 					file = new File(RIO_DIR + appendFileName);
 					stream = new PrintStream(new FileOutputStream(file));
+					
 				}
 				catch (FileNotFoundException ee)
 				{
 					ee.printStackTrace();
+					
+					e.printStackTrace();
 				}
-
-				e.printStackTrace();
 			}
-			
-			return null;
 		}
 		else
 		{
 			System.out.println("WARNING!!! The file " + fileName + " is NOT being used");
 		}
+		
 		return stream;
 	}
 
@@ -246,9 +256,10 @@ public class BulldogLogger
 	 */
 	public void logInfo(String msg)
 	{
-		log(BulldogLogger.INFO, msg, false);
+		log(BulldogLogger.INFO, msg, true);
 	}
 
+	
 	/**
 	 * Log an error message
 	 * 
@@ -333,6 +344,7 @@ public class BulldogLogger
 				// cluttered
 			{
 				periodicStream.println(logMsg);
+				
 				this.periodicStream.flush();
 			}
 			catch (Exception e)

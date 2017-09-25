@@ -29,7 +29,7 @@ public class GearRightGroup extends CommandGroup
 
 		addSequential(new AutoWait(.7));
 
-		addSequential(new AutonDrive(RobotMap.sidePegDistance + 8, true,5));
+		addSequential(new AutonDrive(RobotMap.sidePegDistance + 8, true,2));
 
 		addSequential(new AutonGearOpen());
 	}

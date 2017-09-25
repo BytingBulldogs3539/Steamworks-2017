@@ -113,7 +113,7 @@ public class RobotMap
 	public static double Hood1 = 680;//640
 	public static double Hood2 = 1140;//1100
 	
-	public static double shooterCameraOffset = 2;
+	public static double shooterCameraOffset = 2-4;
 	public static double gearCameraOffset = 0;
 	
 	// PRACTICE PID

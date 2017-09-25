@@ -32,12 +32,17 @@ public class ZeroHoodCommand extends Command
 
     protected void end()
     {
+    	super.end();
         Robot.hoodSubsystem.setHoodpower(0);
         Robot.hoodSubsystem.zeroHoodEncoders();
     }
 
     protected void interrupted()
     {
-        end();
+    	super.interrupted();
+    	 Robot.hoodSubsystem.setHoodpower(0);
+         Robot.hoodSubsystem.zeroHoodEncoders();
+
+        
     }
 }

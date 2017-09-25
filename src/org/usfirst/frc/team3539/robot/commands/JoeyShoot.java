@@ -1,7 +1,10 @@
 package org.usfirst.frc.team3539.robot.commands;
 
 import org.usfirst.frc.team3539.robot.Robot;
+import org.usfirst.frc.team3539.robot.utilities.BulldogCommand;
 import org.usfirst.frc.team3539.robot.RobotMap;
+import org.usfirst.frc.team3539.robot.utilities.BulldogLogger;
+
 
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.command.Command;
@@ -193,6 +196,7 @@ public class JoeyShoot extends Command
 
 	protected void end()
 	{
+		super.end();
 		Robot.hoodSubsystem.disableHoodPid();
 		Robot.shooter.resetShooterPID();
 		Robot.shooter.resetAgitatorPID();

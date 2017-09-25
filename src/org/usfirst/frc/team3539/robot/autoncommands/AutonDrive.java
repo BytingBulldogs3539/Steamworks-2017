@@ -127,7 +127,7 @@ public class AutonDrive extends PIDCommand
 		Robot.driveTrain.gyroReset();
 		Robot.driveTrain.zeroEncoders();
 		
-		if(useVision && Robot.raspberry.getDistance() > 25 && Robot.raspberry.getDistance() < 120)
+		if(useVision && Robot.raspberry.getDistance() > 15 && Robot.raspberry.getDistance() < 120)
 		{
 			this.setSetpoint(Robot.driveTrain.inchToEnc2((Robot.raspberry.getDistance()*SmartDashboard.getDouble("GearDistanceFudge"))));
 			System.out.println("Using Camera Distance :" + Robot.raspberry.getDistance() );

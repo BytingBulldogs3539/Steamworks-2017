@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SPI;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
@@ -27,7 +28,7 @@ public class DriveTrain extends BulldogSystem
 
 	private RobotDrive drive;
 	private DoubleSolenoid manipulatorSol;
-	private boolean manipulatorStatus;
+	private Value manipulatorStatus;
 	private ADXRS450_Gyro gyro;
 
 	public DriveTrain()
@@ -87,7 +88,6 @@ public class DriveTrain extends BulldogSystem
 
 		manipulatorSol = new DoubleSolenoid(RobotMap.pcm, RobotMap.driveSolOn, RobotMap.driveSolOff);
 
-		manipulatorStatus = false;
 
 		manipulatorSol.set(DoubleSolenoid.Value.kOff);
 
@@ -108,7 +108,7 @@ public class DriveTrain extends BulldogSystem
 	public void DriveG(double speedF, double speedR)
 	{
 		drive.arcadeDrive(speedF, speedR);
-		BulldogLogger.getInstance().logDebug("DriveTrain (Told)  ---   Forward Speed: " + speedF + " --- Rotate Speed: " + speedR);
+		//BulldogLogger.getInstance().logDebug("DriveTrain (Told)  ---   Forward Speed: " + speedF + " --- Rotate Speed: " + speedR);
 	}
 
 	public double getBalancedEncoderPosition()
@@ -150,16 +150,29 @@ public class DriveTrain extends BulldogSystem
 		drive.arcadeDrive(leftStick, rightStick);
 		//System.out.println(rightStick);
 	}
+	public void highGear()
+	{
+		manipulatorSol.set(DoubleSolenoid.Value.kForward);
+	}
+	
+	public void lowGear()
+	{
+		manipulatorSol.set(DoubleSolenoid.Value.kReverse);
 
+	}
 	public void changeGears()
 	{
-		manipulatorStatus = !manipulatorStatus;
-
-		if (manipulatorStatus == true)
+		
+		manipulatorStatus = manipulatorSol.get();
+		
+		System.out.println(manipulatorStatus);
+		
+		
+		if (manipulatorStatus == Value.kReverse)
 		{
 			manipulatorSol.set(DoubleSolenoid.Value.kForward);
 		}
-		if (manipulatorStatus == false)
+		if (manipulatorStatus == Value.kForward)
 		{
 			manipulatorSol.set(DoubleSolenoid.Value.kReverse);
 		}
@@ -200,7 +213,7 @@ public class DriveTrain extends BulldogSystem
 	public void Update()
 	{
 
-		if (manipulatorStatus == true)
+		if (manipulatorStatus == Value.kForward)
 		{
 			SmartDashboard.putString("Drive Gear", "High");
 		}

@@ -27,7 +27,7 @@ public class RedShootInside extends CommandGroup {
 
 		addSequential(new AutonGearClose());
 
-		// addSequential(new AutoWait(RobotMap.visionWait));
+		addSequential(new AutoWait(.75));
 
 		// addSequential(new AutonTurn(15,1));
 

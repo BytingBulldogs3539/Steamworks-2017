@@ -98,6 +98,7 @@ public class Robot extends IterativeRobot
 			autonMode.start();
 		}
 		driveTrain.gyroReset();
+		driveTrain.highGear();
 	}
 
 	// This function is called periodically during autonomous
@@ -113,6 +114,7 @@ public class Robot extends IterativeRobot
 		System.out.println("teleopInit");
 		raspberry.setCamera(RobotMap.shooterCamera);
 		Robot.manipulator.holderClose();
+		driveTrain.highGear();
 	}
 
 	// This function is called periodically during operator control

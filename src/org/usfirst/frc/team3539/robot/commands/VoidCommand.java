@@ -28,10 +28,12 @@ public class VoidCommand extends BulldogCommand
 
 	protected void end()
 	{
+		super.end("VoidCommand");
 	}
 
 	protected void interrupted()
 	{
-		end();
+	super.interrupted();
+		
 	}
 }
