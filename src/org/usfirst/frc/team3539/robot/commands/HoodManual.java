@@ -3,16 +3,19 @@ package org.usfirst.frc.team3539.robot.commands;
 
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.RobotMap;
+import org.usfirst.frc.team3539.robot.utilities.BulldogCommand;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class HoodManual extends Command
+public class HoodManual extends BulldogCommand
 {
     public HoodManual()
     {
+		super("HoodManual");
+
     }
 
     protected void initialize()
@@ -44,6 +47,7 @@ public class HoodManual extends Command
 
     protected void end()
     {
+    	super.end("hoodSubsystem");
         Robot.hoodSubsystem.setHoodpower(0);
     }
 

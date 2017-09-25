@@ -42,7 +42,9 @@ public abstract class BulldogCommand extends Command
 	{
 		super.end();
 		BulldogLogger.getInstance().logCommand(this.name + " Ended");
-
 		//BulldogLogger.getInstance().logDebug("Ending " + name);
 	}
+	
+	
+	
 }

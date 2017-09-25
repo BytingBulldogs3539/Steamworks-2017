@@ -4,7 +4,8 @@ import org.usfirst.frc.team3539.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
+import org.usfirst.frc.team3539.robot.utilities.BulldogCommand;
+import org.usfirst.frc.team3539.robot.utilities.BulldogLogger;
 /**
  *
  */
@@ -32,8 +33,7 @@ public class ZeroHoodCommand extends Command
 
     protected void end()
     {
-    	super.end();
-        Robot.hoodSubsystem.setHoodpower(0);
+       Robot.hoodSubsystem.setHoodpower(0);
         Robot.hoodSubsystem.zeroHoodEncoders();
     }
 

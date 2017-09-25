@@ -2,15 +2,15 @@ package org.usfirst.frc.team3539.robot.commands;
 
 import org.usfirst.frc.team3539.robot.Robot;
 import org.usfirst.frc.team3539.robot.utilities.BulldogCommand;
-import org.usfirst.frc.team3539.robot.RobotMap;
 import org.usfirst.frc.team3539.robot.utilities.BulldogLogger;
 
+import org.usfirst.frc.team3539.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 
-public class JoeyShoot extends Command
+public class JoeyShoot extends BulldogCommand
 {
 	private boolean isTeleop;
 	private boolean visionTurn;
@@ -121,7 +121,7 @@ public class JoeyShoot extends Command
 
 	protected void initialize()
 	{
-		super.initialize();
+		super.initialize("Joeyshoot");
 		Robot.raspberry.setCamera(RobotMap.shooterCamera);
 		// Robot.shooter.resetShooterPID();
 		Robot.shooter.resetAgitatorPID();
@@ -196,7 +196,8 @@ public class JoeyShoot extends Command
 
 	protected void end()
 	{
-		super.end();
+		super.end("Joeyshoot");
+		
 		Robot.hoodSubsystem.disableHoodPid();
 		Robot.shooter.resetShooterPID();
 		Robot.shooter.resetAgitatorPID();
