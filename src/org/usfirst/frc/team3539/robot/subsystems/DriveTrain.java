@@ -105,11 +105,6 @@ public class DriveTrain extends BulldogSystem
 	
 				
 	}
-	public void DriveG(double speedF, double speedR)
-	{
-		drive.arcadeDrive(speedF, speedR);
-		//BulldogLogger.getInstance().logDebug("DriveTrain (Told)  ---   Forward Speed: " + speedF + " --- Rotate Speed: " + speedR);
-	}
 
 	public double getBalancedEncoderPosition()
 	{

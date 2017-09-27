@@ -38,26 +38,6 @@ public class DriveCommand extends BulldogCommand
 			latch = false;
 	
 		}
-
-		//The correct Trigger control
-		//double one = Robot.oi.controller1.getRawAxis(RobotMap.RIGHT_TRIGGER)- Robot.oi.controller1.getRawAxis(RobotMap.LEFT_TRIGGER);
-		//double two = Robot.oi.controller1.getRawAxis(RobotMap.X_AxisL);
-		
-		double one = Robot.oi.controller1.getRawAxis(RobotMap.Y_AxisL);
-		double two = Robot.oi.controller1.getRawAxis(RobotMap.X_AxisR);
-		double cap = .99;
-
-		if (two < -cap)
-		{
-			two = -cap;
-		}
-
-		if (two > cap)
-		{
-			two = cap;
-		}
-
-		Robot.driveTrain.DriveG(one, two);
 	}
 
 	protected boolean isFinished()
@@ -72,5 +52,6 @@ public class DriveCommand extends BulldogCommand
 
 	protected void interrupted()
 	{
+		super.interrupted();
 	}
 }
