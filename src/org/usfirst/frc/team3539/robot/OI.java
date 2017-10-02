@@ -2,28 +2,17 @@
 package org.usfirst.frc.team3539.robot;
 
 import org.usfirst.frc.team3539.robot.autoncommands.AutonTurn;
-import org.usfirst.frc.team3539.robot.autoncommands.SpinUp;
-import org.usfirst.frc.team3539.robot.commands.ClimbCommand;
-import org.usfirst.frc.team3539.robot.commands.FireCommand;
-import org.usfirst.frc.team3539.robot.commands.GearCommand;
-import org.usfirst.frc.team3539.robot.commands.HoodCommand;
-import org.usfirst.frc.team3539.robot.commands.HoodManual;
-import org.usfirst.frc.team3539.robot.commands.IntakeCommand;
-import org.usfirst.frc.team3539.robot.commands.JoeyShoot;
-import org.usfirst.frc.team3539.robot.commands.TriggerModifierCommand;
-import org.usfirst.frc.team3539.robot.commands.ZeroHoodCommand;
+import org.usfirst.frc.team3539.robot.commands.*;
 import org.usfirst.frc.team3539.robot.utilities.TriggerButton;
 import org.usfirst.frc.team3539.robot.utilities.XboxController;
 import org.usfirst.frc.team3539.robot.utilities.DpadButton;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
- * This class is the glue that binds the controls on the physical operator
- * interface to the commands and command groups that allow control of the robot.
+ * This class is the glue that binds the controls on the physical operator interface to the commands and command groups that allow control of the robot.
  */
 public class OI
 {
@@ -35,7 +24,7 @@ public class OI
 	public JoystickButton onebuttony = new JoystickButton(controller1, RobotMap.buttony);
 	public JoystickButton onebuttona = new JoystickButton(controller1, RobotMap.buttona);
 	public JoystickButton onebuttonb = new JoystickButton(controller1, RobotMap.buttonb);
-	public JoystickButton start = new JoystickButton(controller1,RobotMap.buttonRS);
+	public JoystickButton start = new JoystickButton(controller1, RobotMap.buttonRS);
 	public JoystickButton twobuttonStart = new JoystickButton(controller2, RobotMap.buttonStart);
 
 	public JoystickButton twobuttonx = new JoystickButton(controller2, RobotMap.buttonx);
@@ -88,11 +77,7 @@ public class OI
 
 		onebuttonx.whenPressed(new JoeyShoot(false, onebuttonx, 420, 320, -2800));
 		onebuttony.whenPressed(new JoeyShoot(false, onebuttony, 300, 400, -2700));
-		
-		
-		
 
-		
 		supermanButton = new DpadButton("up", controller2);
 		supermanButton.setCommand(new JoeyShoot(supermanButton));
 
