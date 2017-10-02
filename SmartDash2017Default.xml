@@ -1,0 +1,204 @@
+<xml version="1.0">
+<dashboard>
+	<widget field="agitatorPea" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="406" y="230"/>
+	</widget>
+	<widget field="RobotMap.turnPea" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="393" y="207"/>
+	</widget>
+	<widget field="Intake Speed" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="645" y="23"/>
+	</widget>
+	<widget field="RobotMap.turnDee" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="393" y="184"/>
+	</widget>
+	<widget field="agitatorDee" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="626" y="0"/>
+	</widget>
+	<widget field="RPM2" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="428" y="161"/>
+	</widget>
+	<widget field="RPM1" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="211" y="660"/>
+	</widget>
+	<widget field="Curent agitator rpm" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="428" y="138"/>
+	</widget>
+	<widget field="Current Shooter RPM" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="417" y="115"/>
+	</widget>
+	<widget field="triggerModified" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="211" y="637"/>
+	</widget>
+	<widget field="Gryo Angle" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="211" y="614"/>
+	</widget>
+	<widget field="RobotMap.turnEye" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="400" y="92"/>
+	</widget>
+	<widget field="shootPea" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="211" y="591"/>
+	</widget>
+	<widget field="Gear Holder Status" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="394" y="69"/>
+	</widget>
+	<widget field="Intake Voltzish" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="211" y="568"/>
+	</widget>
+	<widget field="agitatorEye" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="211" y="545"/>
+	</widget>
+	<widget field="shootDee" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="211" y="522"/>
+	</widget>
+	<widget field="HoodP" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="227" y="499"/>
+	</widget>
+	<widget field="Drive Gear" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="228" y="476"/>
+	</widget>
+	<widget field="Target RPM for agitator" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="393" y="46"/>
+	</widget>
+	<widget field="HoodI" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="211" y="453"/>
+	</widget>
+	<widget field="HoodD" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="245" y="430"/>
+	</widget>
+	<widget field="HoodCurrent" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="211" y="407"/>
+	</widget>
+	<widget field="VisionTest" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="186" y="371"/>
+	</widget>
+	<widget field="Hood2" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="211" y="348"/>
+	</widget>
+	<widget field="Distance2" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="211" y="325"/>
+	</widget>
+	<widget field="Distance1" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="251" y="302"/>
+	</widget>
+	<widget field="Hood1" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="251" y="279"/>
+	</widget>
+	<widget field="IsRed" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="211" y="256"/>
+	</widget>
+	<widget field="--- Right Back" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="211" y="233"/>
+	</widget>
+	<widget field="VisionGearMiddle" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="194" y="197"/>
+	</widget>
+	<widget field="shootEye" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="211" y="174"/>
+	</widget>
+	<widget field="Agitator Speed" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="226" y="151"/>
+	</widget>
+	<widget field="--- Left Front" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="226" y="128"/>
+	</widget>
+	<widget field="ZeroHoodCommand" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="202" y="92"/>
+	</widget>
+	<widget field="GearDistanceFudge" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="418" y="23"/>
+	</widget>
+	<widget field="hoodTarget" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="211" y="69"/>
+	</widget>
+	<widget field="Shooter" type="Subsystem" class="edu.wpi.first.smartdashboard.gui.elements.Subsystem">
+		<location x="211" y="46"/>
+	</widget>
+	<widget field="Intake Unjam Speed" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="393" y="0"/>
+	</widget>
+	<widget field="Drive Deadband" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="211" y="23"/>
+	</widget>
+	<widget field="Lock Status" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="211" y="0"/>
+	</widget>
+	<widget field="Raspberry PI" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="657"/>
+	</widget>
+	<widget field="Scheduler" type="Scheduler" class="edu.wpi.first.smartdashboard.gui.elements.Scheduler">
+		<location x="0" y="640"/>
+	</widget>
+	<widget field="--- Right Front" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="617"/>
+	</widget>
+	<widget field="RightCurvePeg" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="581"/>
+	</widget>
+	<widget field="agitatorEff" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="558"/>
+	</widget>
+	<widget field="RedChickenHopper" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="522"/>
+	</widget>
+	<widget field="RobotMap.drivePea" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="499"/>
+	</widget>
+	<widget field="RobotMap.driveDee" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="476"/>
+	</widget>
+	<widget field="Gyro Velocity" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="453"/>
+	</widget>
+	<widget field="Shooter Hood Encoder" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="430"/>
+	</widget>
+	<widget field="Hood Status" type="String" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="364"/>
+	</widget>
+	<widget field="PI Distance" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="341"/>
+	</widget>
+	<widget field="--- Left Back" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="318"/>
+	</widget>
+	<widget field="Target RPM for shooter" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="295"/>
+	</widget>
+	<widget field="shootEff" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="272"/>
+	</widget>
+	<widget field="TestMaxVel" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="236"/>
+	</widget>
+	<widget field="BlueChickenHopper" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="200"/>
+	</widget>
+	<widget field="JoeyShoot" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="164"/>
+	</widget>
+	<widget field="RobotMap.driveEye" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="0" y="141"/>
+	</widget>
+	<widget field="Intake" type="Subsystem" class="edu.wpi.first.smartdashboard.gui.elements.Subsystem">
+		<location x="0" y="118"/>
+	</widget>
+	<widget field="DriveTrain" type="Subsystem" class="edu.wpi.first.smartdashboard.gui.elements.Subsystem">
+		<location x="0" y="95"/>
+	</widget>
+	<widget field="RedCurveHopper" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="3" y="62"/>
+	</widget>
+	<widget field="Auton mode" type="String Chooser" class="edu.wpi.first.smartdashboard.gui.elements.Chooser">
+		<location x="905" y="115"/>
+	</widget>
+	<widget field="LeftCurvePeg" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="23"/>
+	</widget>
+	<widget field="GearManipulator" type="Subsystem" class="edu.wpi.first.smartdashboard.gui.elements.Subsystem">
+		<location x="0" y="0"/>
+	</widget>
+</dashboard>
+<live-window>
+</live-window>
+</xml>
