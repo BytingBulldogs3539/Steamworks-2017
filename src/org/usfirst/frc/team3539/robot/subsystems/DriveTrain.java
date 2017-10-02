@@ -143,7 +143,6 @@ public class DriveTrain extends BulldogSystem
 	public void driveArcade(double leftStick, double rightStick)
 	{
 		drive.arcadeDrive(leftStick, rightStick);
-		//System.out.println(rightStick);
 	}
 	public void highGear()
 	{
@@ -217,7 +216,7 @@ public class DriveTrain extends BulldogSystem
 			SmartDashboard.putString("Drive Gear", "Low");
 		}
 
-		SmartDashboard.putDouble("Gyro Velocity", gyro.getRate());
+		//SmartDashboard.putDouble("Gyro Velocity", gyro.getRate());
 
 		SmartDashboard.putDouble("Gryo Angle", getGyroAngle());
 		
@@ -228,7 +227,7 @@ public class DriveTrain extends BulldogSystem
 		 rbMotor.getOutputCurrent());
 		 SmartDashboard.putDouble("--- Left Back",
 		 lbMotor.getOutputCurrent()); //to here
-
+		 /*
 		RobotMap.drivePea = SmartDashboard.getDouble("RobotMap.drivePea");
 		RobotMap.driveEye = SmartDashboard.getDouble("RobotMap.driveEye");
 		RobotMap.driveDee = SmartDashboard.getDouble("RobotMap.driveDee");
@@ -238,7 +237,7 @@ public class DriveTrain extends BulldogSystem
 		RobotMap.turnDee = SmartDashboard.getDouble("RobotMap.turnDee");
 
 		RobotMap.deadband = SmartDashboard.getDouble("Drive Deadband");
-
+*/
 		
 	}
 
@@ -246,9 +245,9 @@ public class DriveTrain extends BulldogSystem
 	@SuppressWarnings("deprecation")
 	public void SmartInit()
 	{
-		SmartDashboard.putString("Drive Gear", "--");
+		//SmartDashboard.putString("Drive Gear", "--");
 
-		SmartDashboard.putDouble("Gyro Velocity", 0);
+		//SmartDashboard.putDouble("Gyro Velocity", 0);
 
 		SmartDashboard.putDouble("Gryo Angle", 0);
 		
@@ -261,7 +260,7 @@ public class DriveTrain extends BulldogSystem
 		 SmartDashboard.putDouble("--- Left Back",
 		 lbMotor.getOutputCurrent());
 
-		SmartDashboard.putDouble("RobotMap.drivePea", RobotMap.drivePea);
+		/*SmartDashboard.putDouble("RobotMap.drivePea", RobotMap.drivePea);
 		SmartDashboard.putDouble("RobotMap.driveEye", RobotMap.driveEye);
 		SmartDashboard.putDouble("RobotMap.driveDee", RobotMap.driveDee);
 
@@ -269,7 +268,9 @@ public class DriveTrain extends BulldogSystem
 		SmartDashboard.putDouble("RobotMap.turnEye", RobotMap.turnEye);
 		SmartDashboard.putDouble("RobotMap.turnDee", RobotMap.turnDee);
 		SmartDashboard.putDouble("Drive Deadband", RobotMap.deadband);
-	}
+	*/
+		 }
+	
 
 	public void defaultSetter()
 	{

@@ -40,7 +40,7 @@ public class HoodSubsystem extends PIDSubsystem
 
 	public void setAngle(double angle)
 	{
-		this.getPIDController().setPID(SmartDashboard.getDouble("HoodP"), SmartDashboard.getDouble("HoodI"),SmartDashboard.getDouble("HoodD"));
+		this.getPIDController().setPID(RobotMap.hoodPea, RobotMap.hoodEye,RobotMap.hoodDee);
 		this.getPIDController().enable();
 		this.setSetpoint(angle);
 	}
@@ -65,21 +65,23 @@ public class HoodSubsystem extends PIDSubsystem
 	@SuppressWarnings("deprecation")
 	public void Update()
 	{
-		SmartDashboard.putDouble("Shooter Hood Encoder", getHoodPosition());
+		/*SmartDashboard.putDouble("Shooter Hood Encoder", getHoodPosition());
 
 		RobotMap.hoodTarget = SmartDashboard.getDouble("hoodTarget");
 		SmartDashboard.putNumber("HoodCurrent", Robot.hoodSubsystem.shooterHoodMotor.getOutputCurrent());
+		*/
 	}
 
 	@SuppressWarnings("deprecation")
 	public void SmartInit()
 	{
-
+/*
 		SmartDashboard.putDouble("hoodTarget", RobotMap.hoodTarget);
 		SmartDashboard.putDouble("Shooter Hood Encoder", 0);
 		SmartDashboard.putDouble("HoodP", RobotMap.hoodPea);
 		SmartDashboard.putDouble("HoodI", RobotMap.hoodEye);
 		SmartDashboard.putDouble("HoodD", RobotMap.hoodDee);
+		*/
 	}
 	
 

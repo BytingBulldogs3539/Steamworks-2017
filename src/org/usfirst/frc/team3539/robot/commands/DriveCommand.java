@@ -34,10 +34,17 @@ public class DriveCommand extends BulldogCommand
 		}
 		else if (!Robot.oi.onebuttona.get() && latch)
 		{
-
 			latch = false;
-	
 		}
+		
+	if(Robot.oi.onebumperr.get())
+	{
+		Robot.driveTrain.driveArcade(-Robot.oi.controller1.getRawAxis(RobotMap.LEFT_TRIGGER), Robot.oi.controller1.getRawAxis(RobotMap.RIGHT_TRIGGER));
+	}
+	else
+	{
+		Robot.driveTrain.driveArcade(Robot.oi.controller1.getRawAxis(RobotMap.LEFT_TRIGGER), Robot.oi.controller1.getRawAxis(RobotMap.RIGHT_TRIGGER));
+	}
 	}
 
 	protected boolean isFinished()

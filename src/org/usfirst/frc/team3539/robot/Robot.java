@@ -157,7 +157,7 @@ public class Robot extends IterativeRobot
 		raspberry.SmartInit();
 	
 
-		SmartDashboard.putDouble("GearDistanceFudge", .85);
+		/*SmartDashboard.putDouble("GearDistanceFudge", .85);
 
 		SmartDashboard.putData(new LeftCurvePeg());
 		SmartDashboard.putData(new RightCurvePeg());
@@ -168,6 +168,7 @@ public class Robot extends IterativeRobot
 
 		SmartDashboard.putData(new RedChickenHopper());
 		SmartDashboard.putData(new BlueChickenHopper());
+		*/
 
 		autonChooser = new SendableChooser<Command>();
 
@@ -202,7 +203,7 @@ public class Robot extends IterativeRobot
 		autonChooser.addObject("VisionTuning", new JoeyShoot(7));
 		autonChooser.addObject("NoneForward", new NoneForward());
 
-		SmartDashboard.putData(shooter);
+		/*SmartDashboard.putData(shooter);
 		SmartDashboard.putData(intake);
 		SmartDashboard.putData(manipulator);
 		SmartDashboard.putData(driveTrain);
@@ -213,6 +214,7 @@ public class Robot extends IterativeRobot
 		// shooterRpm, double seconds
 
 		SmartDashboard.putData(Scheduler.getInstance());
+		*/
 	}
 }
 

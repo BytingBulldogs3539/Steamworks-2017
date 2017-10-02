@@ -35,7 +35,11 @@ public class OI
 	public JoystickButton onebuttony = new JoystickButton(controller1, RobotMap.buttony);
 	public JoystickButton onebuttona = new JoystickButton(controller1, RobotMap.buttona);
 	public JoystickButton onebuttonb = new JoystickButton(controller1, RobotMap.buttonb);
+	
+	public JoystickButton onebumperl = new JoystickButton(controller1, RobotMap.bumperl);
+	public JoystickButton onebumperr = new JoystickButton(controller1, RobotMap.bumperr);
 	public JoystickButton start = new JoystickButton(controller1,RobotMap.buttonRS);
+	
 	public JoystickButton twobuttonStart = new JoystickButton(controller2, RobotMap.buttonStart);
 
 	public JoystickButton twobuttonx = new JoystickButton(controller2, RobotMap.buttonx);

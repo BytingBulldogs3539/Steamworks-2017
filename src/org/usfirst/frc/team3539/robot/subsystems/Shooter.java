@@ -169,7 +169,7 @@ public class Shooter extends BulldogSystem
 		
 		
 		
-		SmartDashboard.putDouble("Curent agitator rpm", getAgitatorRPM());
+		/*SmartDashboard.putDouble("Curent agitator rpm", getAgitatorRPM());
 		SmartDashboard.putDouble("Current Shooter RPM", getShooterRPM());
 
 		RobotMap.agitatorSpeed = SmartDashboard.getDouble("Agitator Speed");
@@ -188,7 +188,7 @@ public class Shooter extends BulldogSystem
 		RobotMap.agitatorDee = SmartDashboard.getDouble("agitatorDee");
 		RobotMap.agitatorEff = SmartDashboard.getDouble("agitatorEff");
 		
-		
+		*/
 		
 		
 		
@@ -198,6 +198,7 @@ public class Shooter extends BulldogSystem
 	@SuppressWarnings("deprecation")
 	public void SmartInit()
 	{
+		/*
 		SmartDashboard.putDouble("Current Shooter RPM", 0);
 
 		SmartDashboard.putDouble("Agitator Speed", RobotMap.agitatorSpeed);
@@ -214,6 +215,7 @@ public class Shooter extends BulldogSystem
 		SmartDashboard.putDouble("agitatorEff", RobotMap.agitatorEff);
 		SmartDashboard.putDouble("agitatorEye", RobotMap.agitatorEye);
 		SmartDashboard.putDouble("agitatorDee", RobotMap.agitatorDee);
+		*/
 	}
 
 	public void initDefaultCommand()
