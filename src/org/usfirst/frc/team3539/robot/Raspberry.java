@@ -61,6 +61,7 @@ public class Raspberry extends BulldogSystem
 	{
 		double slope = (RobotMap.Hood2 - RobotMap.Hood1) / (RobotMap.Distance2 - RobotMap.Distance1);
 		double intercept = RobotMap.Hood1 - (slope * RobotMap.Distance1);
+		@SuppressWarnings("deprecation")
 		double distance = table.getNumber("Distance");
 
 		return ((slope * distance) + intercept);// old value 5.4143 * distance -
@@ -72,6 +73,7 @@ public class Raspberry extends BulldogSystem
 		// double distance = table.getNumber("Distance");
 		double slope = (RobotMap.RPM2 - RobotMap.RPM1) / (RobotMap.Distance2 - RobotMap.Distance1);
 		double intercept = RobotMap.RPM1 - (slope * RobotMap.Distance1);
+		@SuppressWarnings("deprecation")
 		double distance = table.getNumber("Distance");
 
 		// return -(9.1812*92+2335);
