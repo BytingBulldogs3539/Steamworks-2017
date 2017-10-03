@@ -28,7 +28,7 @@ public class DriveCommand extends BulldogCommand
 	{
 		if (Robot.oi.onebuttona.get() && !latch)
 		{
-		
+
 			latch = true;
 			Robot.driveTrain.changeGears();
 		}
@@ -36,15 +36,15 @@ public class DriveCommand extends BulldogCommand
 		{
 			latch = false;
 		}
-		
-	if(Robot.oi.onebumperr.get())
-	{
-		Robot.driveTrain.driveArcade(-Robot.oi.controller1.getRawAxis(RobotMap.LEFT_TRIGGER), Robot.oi.controller1.getRawAxis(RobotMap.RIGHT_TRIGGER));
-	}
-	else
-	{
-		Robot.driveTrain.driveArcade(Robot.oi.controller1.getRawAxis(RobotMap.LEFT_TRIGGER), Robot.oi.controller1.getRawAxis(RobotMap.RIGHT_TRIGGER));
-	}
+
+		if (Robot.oi.onebumperr.get())
+		{
+			Robot.driveTrain.driveArcade(-Robot.oi.controller1.getRawAxis(RobotMap.Y_AxisL), Robot.oi.controller1.getRawAxis(RobotMap.X_AxisR));
+		}
+		else
+		{
+			Robot.driveTrain.driveArcade(Robot.oi.controller1.getRawAxis(RobotMap.Y_AxisL), Robot.oi.controller1.getRawAxis(RobotMap.X_AxisR));
+		}
 	}
 
 	protected boolean isFinished()
