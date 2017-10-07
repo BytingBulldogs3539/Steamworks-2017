@@ -198,7 +198,7 @@ public class Shooter extends BulldogSystem
 	@SuppressWarnings("deprecation")
 	public void SmartInit()
 	{
-		/*
+		
 		SmartDashboard.putDouble("Current Shooter RPM", 0);
 
 		SmartDashboard.putDouble("Agitator Speed", RobotMap.agitatorSpeed);
@@ -215,7 +215,7 @@ public class Shooter extends BulldogSystem
 		SmartDashboard.putDouble("agitatorEff", RobotMap.agitatorEff);
 		SmartDashboard.putDouble("agitatorEye", RobotMap.agitatorEye);
 		SmartDashboard.putDouble("agitatorDee", RobotMap.agitatorDee);
-		*/
+		
 	}
 
 	public void initDefaultCommand()

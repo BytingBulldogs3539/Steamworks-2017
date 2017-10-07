@@ -70,10 +70,10 @@ public class Raspberry extends BulldogSystem
 
 	public double getShooterRPM()
 	{
-		// double distance = table.getNumber("Distance");
+		//double distance = table.getNumber("Distance");
 		double slope = (RobotMap.RPM2 - RobotMap.RPM1) / (RobotMap.Distance2 - RobotMap.Distance1);
 		double intercept = RobotMap.RPM1 - (slope * RobotMap.Distance1);
-		@SuppressWarnings("deprecation")
+		//@SuppressWarnings("deprecation")
 		double distance = table.getNumber("Distance");
 
 		// return -(9.1812*92+2335);

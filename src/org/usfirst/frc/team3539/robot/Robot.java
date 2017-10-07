@@ -157,8 +157,8 @@ public class Robot extends IterativeRobot
 		raspberry.SmartInit();
 	
 
-		/*SmartDashboard.putDouble("GearDistanceFudge", .85);
-
+		SmartDashboard.putDouble("GearDistanceFudge", .95);
+/*
 		SmartDashboard.putData(new LeftCurvePeg());
 		SmartDashboard.putData(new RightCurvePeg());
 		SmartDashboard.putData(new RedCurveHopper());
