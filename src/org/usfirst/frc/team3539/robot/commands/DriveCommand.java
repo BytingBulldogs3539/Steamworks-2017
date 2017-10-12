@@ -39,11 +39,11 @@ public class DriveCommand extends BulldogCommand
 
 		if (Robot.oi.onebumperr.get())
 		{
-			Robot.driveTrain.driveArcade(-Robot.oi.controller1.getRawAxis(RobotMap.Y_AxisL), Robot.oi.controller1.getRawAxis(RobotMap.X_AxisR));
+			Robot.driveTrain.driveArcade(-Robot.oi.controller1.getRawAxis(RobotMap.LEFT_TRIGGER), Robot.oi.controller1.getRawAxis(RobotMap.RIGHT_TRIGGER));
 		}
 		else
 		{
-			Robot.driveTrain.driveArcade(Robot.oi.controller1.getRawAxis(RobotMap.Y_AxisL), Robot.oi.controller1.getRawAxis(RobotMap.X_AxisR));
+			Robot.driveTrain.driveArcade(Robot.oi.controller1.getRawAxis(RobotMap.LEFT_TRIGGER), Robot.oi.controller1.getRawAxis(RobotMap.RIGHT_TRIGGER));
 		}
 	}
 
