@@ -159,9 +159,9 @@ public class Shooter extends BulldogSystem
 	@SuppressWarnings("deprecation")
 	public void Update()
 	{
-	//	RobotMap.Aspeed = SmartDashboard.getDouble("Agitator speed");
-	//	RobotMap.Hangle = SmartDashboard.getDouble("Hood angle");
-	//	RobotMap.Rpm = SmartDashboard.getDouble("shoot speed");
+		RobotMap.Aspeed = SmartDashboard.getDouble("Agitator speed");
+		RobotMap.Hangle = SmartDashboard.getDouble("Hood angle");
+		RobotMap.Rpm = SmartDashboard.getDouble("shoot speed");
 		
 		
 		
